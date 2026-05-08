@@ -5,7 +5,7 @@ the MartiX SharePoint Framework skill. It stores the authored router,
 companion guide, rule library, reference maps, templates, eval seeds, and
 machine-readable taxonomy that direct standalone installs should consume.
 
-- Canonical source root: `src\skills\martix-sharepoint-spfx`
+- Canonical source root: `Skills\martix-sharepoint-spfx`
 - Primary install surface: standalone `skills` CLI
 - Secondary install surface: Copilot CLI plugin marketplace via shared
   repository metadata
@@ -47,15 +47,15 @@ Use the standalone flow as the primary install surface for this package.
 
 - Official docs currently show `npx skills add <source>`.
 - Official docs do **not** currently show `npx skill add <source>`.
-- Because this repository keeps the package under `src\skills\...`, prefer an
+- Because this repository keeps the package under `Skills\...`, prefer an
   absolute folder path or a direct GitHub tree URL instead of repo-root
   discovery. In this environment, a Windows relative path such as
-  `.\src\skills\martix-sharepoint-spfx` is treated like a git source by the
+  `.\Skills\martix-sharepoint-spfx` is treated like a git source by the
   `skills` CLI and fails preview or install.
 
 ```powershell
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-sharepoint-spfx -a github-copilot -y
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-sharepoint-spfx -a github-copilot --copy -y
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-sharepoint-spfx -a github-copilot -y
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-sharepoint-spfx -a github-copilot --copy -y
 ```
 
 After the package is committed to a public branch, the same folder can also be
@@ -66,13 +66,13 @@ installed from a direct GitHub tree URL.
 Use the marketplace flow against the same standalone source package when the
 repository-level SharePoint marketplace entries are present. Shared marketplace
 metadata lives outside this folder and should point directly at
-`src\skills\martix-sharepoint-spfx`.
+`Skills\martix-sharepoint-spfx`.
 
 ```powershell
-copilot plugin marketplace add MartiXDev/ai-marketplace
+copilot plugin marketplace add MartiXDev/skills
 copilot plugin marketplace list
-copilot plugin marketplace browse martix-ai-marketplace
-copilot plugin install martix-sharepoint-spfx@martix-ai-marketplace
+copilot plugin marketplace browse martix-skills
+copilot plugin install martix-sharepoint-spfx@martix-skills
 ```
 
 Treat those commands as the shared-registration handoff, not as package-local
@@ -85,11 +85,11 @@ proof that the SharePoint marketplace entry is already live.
 Use package-local checks before attempting any install flow:
 
 ```powershell
-Get-Content .\src\skills\martix-sharepoint-spfx\metadata.json | ConvertFrom-Json | Out-Null
-Get-Content .\src\skills\martix-sharepoint-spfx\assets\taxonomy.json | ConvertFrom-Json | Out-Null
-Get-Content .\src\skills\martix-sharepoint-spfx\assets\section-order.json | ConvertFrom-Json | Out-Null
-Get-Content .\src\skills\martix-sharepoint-spfx\assets\host-support-matrix.json | ConvertFrom-Json | Out-Null
-Get-Content .\src\skills\martix-sharepoint-spfx\evals\evals.json | ConvertFrom-Json | Out-Null
+Get-Content .\Skills\martix-sharepoint-spfx\metadata.json | ConvertFrom-Json | Out-Null
+Get-Content .\Skills\martix-sharepoint-spfx\assets\taxonomy.json | ConvertFrom-Json | Out-Null
+Get-Content .\Skills\martix-sharepoint-spfx\assets\section-order.json | ConvertFrom-Json | Out-Null
+Get-Content .\Skills\martix-sharepoint-spfx\assets\host-support-matrix.json | ConvertFrom-Json | Out-Null
+Get-Content .\Skills\martix-sharepoint-spfx\evals\evals.json | ConvertFrom-Json | Out-Null
 ```
 
 ### Optional standalone install smoke test
@@ -98,7 +98,7 @@ If you want to smoke-test the package locally after the package files are in
 place, use the standalone flow only:
 
 ```powershell
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-sharepoint-spfx --list
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-sharepoint-spfx --list
 npx skills list
 ```
 
@@ -141,7 +141,7 @@ with the same name from another source.
 | Symptom | Likely cause | What to do |
 | --- | --- | --- |
 | `npx skill add` fails | The documented binary is `skills`, not `skill` | Use `npx skills add <source>` exactly as shown |
-| Repo-root install discovery fails | `src\skills` is not a documented default discovery root | Install from a direct folder path or direct GitHub tree URL |
-| Windows relative path is treated like a git source | The `skills` CLI interprets `.\src\skills\...` as a git-like source on Windows | Use the full absolute path instead |
+| Repo-root install discovery fails | `Skills` is not a documented default discovery root | Install from a direct folder path or direct GitHub tree URL |
+| Windows relative path is treated like a git source | The `skills` CLI interprets `.\Skills\...` as a git-like source on Windows | Use the full absolute path instead |
 | On-prem guidance looks contradictory | Current SPFx docs mix Subscription Edition statements between pages | Use this package's conservative support notes and call out the ambiguity explicitly |
 | Plugin marketplace install looks wrong or the package is missing | Shared repository marketplace metadata does not currently expose the SharePoint entry, or a same-name standalone install is shadowing it | Validate with the standalone flow first. If shared registration exists, remove the standalone copy or test in a clean environment |

@@ -5,7 +5,7 @@ MartiX SharePoint PnP skill. It stores the authored entrypoints, rule
 library, reference maps, templates, and machine-readable taxonomy that
 standalone skill installs should consume directly.
 
-- Canonical source root: `src\skills\martix-sharepoint-pnp`
+- Canonical source root: `Skills\martix-sharepoint-pnp`
 - Primary install surface: standalone `skills` CLI
 - Secondary install surface: Copilot CLI plugin marketplace
 - Discovery key: `martix-sharepoint-pnp`
@@ -40,11 +40,11 @@ Use the standalone flow as the primary install surface for this package.
 
 - Official docs currently show `npx skills add <source>`.
 - Official docs do **not** currently show `npx skill add <source>`.
-- Because this repository stores the package under `src\skills\...`, prefer an absolute folder path or direct GitHub tree URL instead of repo-root discovery. In this environment, a Windows relative path such as `.\src\skills\martix-sharepoint-pnp` is treated like a git source by the `skills` CLI and fails preview or install.
+- Because this repository stores the package under `Skills\...`, prefer an absolute folder path or direct GitHub tree URL instead of repo-root discovery. In this environment, a Windows relative path such as `.\Skills\martix-sharepoint-pnp` is treated like a git source by the `skills` CLI and fails preview or install.
 
 ```powershell
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-sharepoint-pnp -a github-copilot -y
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-sharepoint-pnp -a github-copilot --copy -y
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-sharepoint-pnp -a github-copilot -y
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-sharepoint-pnp -a github-copilot --copy -y
 ```
 
 To use a GitHub tree URL, use the direct path to the `martix-sharepoint-pnp`
@@ -54,23 +54,23 @@ folder in the repository.
 
 Use the marketplace flow against the same standalone source package when
 the shared marketplace metadata is restored. The marketplace entry should
-point directly at `src\skills\martix-sharepoint-pnp`.
+point directly at `Skills\martix-sharepoint-pnp`.
 
 ```powershell
-copilot plugin marketplace add MartiXDev/ai-marketplace
+copilot plugin marketplace add MartiXDev/skills
 copilot plugin marketplace list
-copilot plugin marketplace browse martix-ai-marketplace
-copilot plugin install martix-sharepoint-pnp@martix-ai-marketplace
+copilot plugin marketplace browse martix-skills
+copilot plugin install martix-sharepoint-pnp@martix-skills
 ```
 
 Only the following slash-command equivalents are documented in the reviewed
 research, so keep marketplace browsing as a shell command for now.
 
 ```text
-/plugin marketplace add MartiXDev/ai-marketplace
+/plugin marketplace add MartiXDev/skills
 /plugin marketplace list
-/plugin install martix-sharepoint-pnp@martix-ai-marketplace
-/plugin marketplace remove martix-ai-marketplace
+/plugin install martix-sharepoint-pnp@martix-skills
+/plugin marketplace remove martix-skills
 ```
 
 ## Verification
@@ -80,7 +80,7 @@ research, so keep marketplace browsing as a shell command for now.
 Preview or verify the standalone package with these commands:
 
 ```powershell
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-sharepoint-pnp --list
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-sharepoint-pnp --list
 npx skills list
 ```
 
@@ -93,7 +93,7 @@ Verify marketplace registration and plugin installation with these commands:
 
 ```powershell
 copilot plugin marketplace list
-copilot plugin marketplace browse martix-ai-marketplace
+copilot plugin marketplace browse martix-skills
 copilot plugin list
 ```
 
@@ -132,10 +132,10 @@ later marketplace-delivered copy with the same name.
 
 ### Repo-root install discovery fails
 
-- Cause: `src\skills` is not a default discovery root.
+- Cause: `Skills` is not a default discovery root.
 - Solution: Use absolute folder path or GitHub tree URL.
 
 ### Windows relative path treated as git source
 
-- Cause: `skills` CLI interprets `.\src\skills\martix-sharepoint-pnp` as a git URL on Windows.
-- Solution: Use the full absolute path, e.g. `C:\Git\MartiXDev\ai-marketplace\src\skills\martix-sharepoint-pnp`.
+- Cause: `skills` CLI interprets `.\Skills\martix-sharepoint-pnp` as a git URL on Windows.
+- Solution: Use the full absolute path, e.g. `C:\Git\MartiXDev\skills\Skills\martix-sharepoint-pnp`.

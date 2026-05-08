@@ -52,7 +52,7 @@ copilot plugin install MartiXDev/skills:Plugins/martix-dotnet-library
 
 ## Repository Structure
 
-```
+```text
 .github/
   plugin/
     marketplace.json        # Marketplace definition (name: "martix-skills")
@@ -71,8 +71,9 @@ Plugins/
   martix-webapi/            # .NET 10 web app planning and implementation
 ```
 
-Each entry in `Skills/` is a standalone skill package with a `plugin.json` and
-`skills/<name>/SKILL.md`. Each entry in `Plugins/` is a plugin bundle stub with
+Each entry in `Skills/` is a standalone skill package with a `plugin.json`,
+root-level `SKILL.md`, `AGENTS.md`, and supporting rules, references, templates,
+assets, and metadata. Each entry in `Plugins/` is a plugin bundle stub with
 `plugin.json`, and placeholder `agents/` and `skills/` directories pending
 content migration from `ai-marketplace`.
 

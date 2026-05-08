@@ -5,7 +5,7 @@ the MartiX SharePoint Server skill. It stores the authored entrypoints, rule
 library, reference maps, templates, eval seeds, and machine-readable taxonomy
 that standalone installs should consume directly.
 
-- Canonical source root: `src\skills\martix-sharepoint-server`
+- Canonical source root: `Skills\martix-sharepoint-server`
 - Primary install surface: standalone `skills` CLI
 - Secondary install surface: Copilot CLI plugin marketplace metadata
 - Discovery key: `martix-sharepoint-server`
@@ -42,15 +42,15 @@ Use the standalone flow as the primary install surface for this package.
 
 - Official docs currently show `npx skills add <source>`.
 - Official docs do **not** currently show `npx skill add <source>`.
-- Because this repository stores the package under `src\skills\...`, prefer an
+- Because this repository stores the package under `Skills\...`, prefer an
   absolute folder path or direct GitHub tree URL instead of repo-root
   discovery. In this environment, a Windows relative path such as
-  `.\src\skills\martix-sharepoint-server` is treated like a git source by the
+  `.\Skills\martix-sharepoint-server` is treated like a git source by the
   `skills` CLI and fails preview or install.
 
 ```powershell
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-sharepoint-server -a github-copilot -y
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-sharepoint-server -a github-copilot --copy -y
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-sharepoint-server -a github-copilot -y
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-sharepoint-server -a github-copilot --copy -y
 ```
 
 After the package is committed to a public branch, the same folder can also be
@@ -62,20 +62,20 @@ Use the marketplace flow against the same standalone source package when the
 shared marketplace manifests include this package.
 
 ```powershell
-copilot plugin marketplace add MartiXDev/ai-marketplace
+copilot plugin marketplace add MartiXDev/skills
 copilot plugin marketplace list
-copilot plugin marketplace browse martix-ai-marketplace
-copilot plugin install martix-sharepoint-server@martix-ai-marketplace
+copilot plugin marketplace browse martix-skills
+copilot plugin install martix-sharepoint-server@martix-skills
 ```
 
 Only the following slash-command equivalents are documented in the reviewed
 research, so keep marketplace browsing as a shell command for now.
 
 ```text
-/plugin marketplace add MartiXDev/ai-marketplace
+/plugin marketplace add MartiXDev/skills
 /plugin marketplace list
-/plugin install martix-sharepoint-server@martix-ai-marketplace
-/plugin marketplace remove martix-ai-marketplace
+/plugin install martix-sharepoint-server@martix-skills
+/plugin marketplace remove martix-skills
 ```
 
 ## Verification
@@ -85,10 +85,10 @@ research, so keep marketplace browsing as a shell command for now.
 Use package-local checks before attempting any install flow:
 
 ```powershell
-Get-Content .\src\skills\martix-sharepoint-server\metadata.json | ConvertFrom-Json | Out-Null
-Get-Content .\src\skills\martix-sharepoint-server\assets\taxonomy.json | ConvertFrom-Json | Out-Null
-Get-Content .\src\skills\martix-sharepoint-server\assets\section-order.json | ConvertFrom-Json | Out-Null
-Get-Content .\src\skills\martix-sharepoint-server\evals\evals.json | ConvertFrom-Json | Out-Null
+Get-Content .\Skills\martix-sharepoint-server\metadata.json | ConvertFrom-Json | Out-Null
+Get-Content .\Skills\martix-sharepoint-server\assets\taxonomy.json | ConvertFrom-Json | Out-Null
+Get-Content .\Skills\martix-sharepoint-server\assets\section-order.json | ConvertFrom-Json | Out-Null
+Get-Content .\Skills\martix-sharepoint-server\evals\evals.json | ConvertFrom-Json | Out-Null
 ```
 
 ### Optional standalone install smoke test
@@ -97,7 +97,7 @@ If you want to smoke-test the package locally after the files are in place, use
 the standalone flow:
 
 ```powershell
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-sharepoint-server --list
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-sharepoint-server --list
 npx skills list
 ```
 
@@ -140,6 +140,6 @@ with the same name from another source.
 | Symptom | Likely cause | What to do |
 | --- | --- | --- |
 | `npx skill add` fails | The documented binary is `skills`, not `skill` | Use `npx skills add <source>` exactly as shown |
-| Repo-root install discovery fails | `src\skills` is not a documented default discovery root | Install from a direct folder path or direct GitHub tree URL |
-| Windows relative path is treated like a git source | The `skills` CLI interprets `.\src\skills\...` as a git-like source on Windows | Use the full absolute path instead |
+| Repo-root install discovery fails | `Skills` is not a documented default discovery root | Install from a direct folder path or direct GitHub tree URL |
+| Windows relative path is treated like a git source | The `skills` CLI interprets `.\Skills\...` as a git-like source on Windows | Use the full absolute path instead |
 | Marketplace install is unavailable | Shared marketplace metadata has not been updated yet | Restore or update the shared marketplace manifests in a separate task |

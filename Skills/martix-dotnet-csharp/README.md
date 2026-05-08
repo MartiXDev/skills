@@ -11,7 +11,7 @@ This folder already contains the authored support library under
 entrypoints `SKILL.md` and `AGENTS.md`. The install flows below describe the
 intended release path and current package shape.
 
-- Canonical source root: `src\skills\martix-dotnet-csharp`
+- Canonical source root: `Skills\martix-dotnet-csharp`
 - Primary install surface: standalone `skills` CLI
 - Secondary install surface: Copilot CLI plugin marketplace
 - Discovery key: `martix-dotnet-csharp`
@@ -46,41 +46,41 @@ Use the standalone flow as the primary install surface for this package.
 
 - Official docs currently show `npx skills add <source>`.
 - Official docs do **not** currently show `npx skill add <source>`.
-- Because this repository keeps the skill under `src\skills\...`, prefer an
+- Because this repository keeps the skill under `Skills\...`, prefer an
   absolute folder path or direct GitHub tree URL instead of repo-root
   discovery. In this environment, a Windows relative path such as
-  `.\src\skills\martix-dotnet-csharp` is treated like a git source by the
+  `.\Skills\martix-dotnet-csharp` is treated like a git source by the
   `skills` CLI and fails preview or install.
 - The target source must contain `SKILL.md` at install time, which this package
   already does.
 
 ```powershell
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-dotnet-csharp -a github-copilot -y
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-dotnet-csharp -a github-copilot --copy -y
-npx skills add https://github.com/MartiXDev/ai-marketplace/tree/main/src/skills/martix-dotnet-csharp -a github-copilot -y
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-dotnet-csharp -a github-copilot -y
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-dotnet-csharp -a github-copilot --copy -y
+npx skills add https://github.com/MartiXDev/skills/tree/main/Skills/martix-dotnet-csharp -a github-copilot -y
 ```
 
 ### Copilot CLI plugin marketplace flow
 
 Use the marketplace flow against the same standalone source package. The
-marketplace entry should point directly at `src\skills\martix-dotnet-csharp`
+marketplace entry should point directly at `Skills\martix-dotnet-csharp`
 instead of maintaining a duplicated plugin-local mirror.
 
 ```powershell
-copilot plugin marketplace add MartiXDev/ai-marketplace
+copilot plugin marketplace add MartiXDev/skills
 copilot plugin marketplace list
-copilot plugin marketplace browse martix-ai-marketplace
-copilot plugin install martix-dotnet-csharp@martix-ai-marketplace
+copilot plugin marketplace browse martix-skills
+copilot plugin install martix-dotnet-csharp@martix-skills
 ```
 
 Only the following slash-command equivalents are documented in the reviewed
 research, so keep marketplace browsing as a shell command for now.
 
 ```text
-/plugin marketplace add MartiXDev/ai-marketplace
+/plugin marketplace add MartiXDev/skills
 /plugin marketplace list
-/plugin install martix-dotnet-csharp@martix-ai-marketplace
-/plugin marketplace remove martix-ai-marketplace
+/plugin install martix-dotnet-csharp@martix-skills
+/plugin marketplace remove martix-skills
 ```
 
 ## Verification
@@ -90,7 +90,7 @@ research, so keep marketplace browsing as a shell command for now.
 Preview or verify the standalone package with these commands:
 
 ```powershell
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-dotnet-csharp --list
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-dotnet-csharp --list
 npx skills list
 ```
 
@@ -103,7 +103,7 @@ Verify marketplace registration and plugin installation with these commands:
 
 ```powershell
 copilot plugin marketplace list
-copilot plugin marketplace browse martix-ai-marketplace
+copilot plugin marketplace browse martix-skills
 copilot plugin list
 ```
 
@@ -144,7 +144,7 @@ Add `-g` when removing a global standalone install.
 
 ```powershell
 copilot plugin uninstall martix-dotnet-csharp
-copilot plugin marketplace remove martix-ai-marketplace
+copilot plugin marketplace remove martix-skills
 ```
 
 If the marketplace still has installed plugins, remove them first or use
@@ -171,9 +171,9 @@ with the same name.
 | Symptom | Likely cause | What to do |
 | --- | --- | --- |
 | `npx skill add` fails or resolves the wrong tool | The documented binary is `skills`, not `skill` | Use `npx skills add <source>` exactly as shown in the official docs. |
-| Repo-root install does not discover the package | `src\skills` is not a documented default discovery root | Install from a direct folder path or direct GitHub tree URL to `src\skills\martix-dotnet-csharp`. |
-| Windows relative path is treated like a git source | The `skills` CLI interprets `.\src\skills\...` as a git-like source on Windows | Use the full absolute path instead. |
+| Repo-root install does not discover the package | `Skills` is not a documented default discovery root | Install from a direct folder path or direct GitHub tree URL to `Skills\martix-dotnet-csharp`. |
+| Windows relative path is treated like a git source | The `skills` CLI interprets `.\Skills\...` as a git-like source on Windows | Use the full absolute path instead. |
 | Standalone install looks linked instead of copied | The `skills` CLI uses symlink-based installs by default | Re-run the install with `--copy` when you need a copied layout. |
 | Plugin install succeeds but the skill still does not appear | A same-name standalone install is taking precedence | Remove the standalone copy or test the plugin in a clean environment. |
 | Marketplace removal fails | Installed plugins still depend on the registered marketplace | Uninstall `martix-dotnet-csharp` first, then remove the marketplace, or use `--force` intentionally. |
-| Install commands fail because the chosen source is missing an entrypoint | The install source does not contain `SKILL.md` at its root | Install from `src\skills\martix-dotnet-csharp` or another published source that already includes `SKILL.md`. |
+| Install commands fail because the chosen source is missing an entrypoint | The install source does not contain `SKILL.md` at its root | Install from `Skills\martix-dotnet-csharp` or another published source that already includes `SKILL.md`. |

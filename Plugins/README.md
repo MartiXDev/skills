@@ -33,7 +33,7 @@ copilot plugin install MartiXDev/skills:Plugins/martix-webapi
 
 Each plugin package follows this layout:
 
-```
+```text
 plugin-name/
   plugin.json        # Plugin manifest (name, version, agents, skills, hooks)
   agents/            # Custom agents (optional)
@@ -45,4 +45,4 @@ plugin-name/
 ## Migration Source
 
 Plugins in this folder are being migrated from
-[MartiXDev/ai-marketplace](https://github.com/MartiXDev/ai-marketplace) (`src/plugins/`).
+[MartiXDev/skills](https://github.com/MartiXDev/skills) (`src/plugins/`).

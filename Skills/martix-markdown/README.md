@@ -8,9 +8,9 @@ description: 'Maintainer and user guide for the martix-markdown standalone skill
 the MartiX Markdown skill. It now ships the authored router, grouped rule
 library, instruction-bridge layer, reference maps, templates, and
 machine-readable taxonomy that standalone installs and direct marketplace
-registration should consume from `src\skills`.
+registration should consume from `Skills`.
 
-- Canonical source root: `src\skills\martix-markdown`
+- Canonical source root: `Skills\martix-markdown`
 - Primary install surface: standalone `skills` CLI
 - Secondary install surface: Copilot CLI plugin marketplace
 - Discovery key: `martix-markdown`
@@ -69,79 +69,79 @@ registration should consume from `src\skills`.
 
 ## Installation
 
-## Standalone skills CLI flow
+### Standalone skills CLI flow
 
 Use the standalone flow as the primary install surface for this package.
 
 - Official docs currently show `npx skills add <source>`.
 - Official docs do **not** currently show `npx skill add <source>`.
-- Because this repository stores the package under `src\skills\...`, prefer an
+- Because this repository stores the package under `Skills\...`, prefer an
   absolute folder path or direct GitHub tree URL instead of repo-root
   discovery. In this environment, a Windows relative path such as
-  `.\src\skills\martix-markdown` is treated like a git source by the
+  `.\Skills\martix-markdown` is treated like a git source by the
   `skills` CLI and fails preview or install.
 
 ```powershell
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-markdown -a github-copilot -y
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-markdown -a github-copilot --copy -y
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-markdown -a github-copilot -y
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-markdown -a github-copilot --copy -y
 
 # Or from GitHub:
 # npx skills add <github-tree-url> -a github-copilot -y
 ```
 
 To use a GitHub tree URL, point directly at
-`src/skills/martix-markdown` in the repository.
+`Skills/martix-markdown` in the repository.
 
-## Copilot CLI plugin marketplace flow
+### Copilot CLI plugin marketplace flow
 
 Use the marketplace flow against the same standalone source package. The
-marketplace entry points directly at `src\skills\martix-markdown`.
+marketplace entry points directly at `Skills\martix-markdown`.
 
 ```powershell
-copilot plugin marketplace add MartiXDev/ai-marketplace
+copilot plugin marketplace add MartiXDev/skills
 copilot plugin marketplace list
-copilot plugin marketplace browse martix-ai-marketplace
-copilot plugin install martix-markdown@martix-ai-marketplace
+copilot plugin marketplace browse martix-skills
+copilot plugin install martix-markdown@martix-skills
 ```
 
 Only the following slash-command equivalents are documented in the reviewed
 research, so keep marketplace browsing as a shell command for now.
 
 ```text
-/plugin marketplace add MartiXDev/ai-marketplace
+/plugin marketplace add MartiXDev/skills
 /plugin marketplace list
-/plugin install martix-markdown@martix-ai-marketplace
-/plugin marketplace remove martix-ai-marketplace
+/plugin install martix-markdown@martix-skills
+/plugin marketplace remove martix-skills
 ```
 
 ## Verification
 
-## Standalone validation
+### Standalone validation
 
 Preview or verify the standalone package with these commands:
 
 ```powershell
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-markdown --list
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-markdown --list
 npx skills list
 ```
 
 Expect to see an installed entry named `martix-markdown` after a
 successful install.
 
-## Marketplace validation
+### Marketplace validation
 
 Verify marketplace registration and plugin installation with these commands:
 
 ```powershell
 copilot plugin marketplace list
-copilot plugin marketplace browse martix-ai-marketplace
+copilot plugin marketplace browse martix-skills
 copilot plugin list
 ```
 
 To validate the package's own Markdown docs in this repository, run:
 
 ```powershell
-npx --yes markdownlint-cli2 "src/skills/martix-markdown/**/*.md"
+npx --yes markdownlint-cli2 "Skills/martix-markdown/**/*.md"
 ```
 
 ## Update
@@ -180,8 +180,8 @@ marketplace-delivered copy with the same name.
 | Symptom | Likely cause | What to do |
 | --- | --- | --- |
 | `npx skill add` fails | The documented binary is `skills`, not `skill` | Use `npx skills add <source>` exactly as shown. |
-| Repo-root install discovery fails | `src\skills` is not a default discovery root | Use an absolute folder path or GitHub tree URL. |
-| Windows relative path is treated like a git source | The `skills` CLI interprets `.\src\skills\...` as a git-like source on Windows | Use the full absolute path instead. |
+| Repo-root install discovery fails | `Skills` is not a default discovery root | Use an absolute folder path or GitHub tree URL. |
+| Windows relative path is treated like a git source | The `skills` CLI interprets `.\Skills\...` as a git-like source on Windows | Use the full absolute path instead. |
 | Markdown still fails lint after autofix | The remaining issues are structural, repo-specific, or span multiple rule families | Start with [rule-family-map.md](./references/rule-family-map.md), then open the closest grouped rule and [instruction-bridge.md](./references/instruction-bridge.md) if repo-local overlays matter. |
 | A repo policy conflicts with an upstream markdownlint default | The fix belongs in config or a bridge note, not a repeated content edit | Use [config-and-validation-map.md](./references/config-and-validation-map.md), [foundation-configuration.md](./rules/foundation-configuration.md), and [instruction-bridge.md](./references/instruction-bridge.md). |
 | Lint passes but accessibility review is still weak | `MD045` and `MD059` cover only part of the review surface | Use [links-images-accessibility.md](./rules/links-images-accessibility.md) and [accessibility-review-map.md](./references/accessibility-review-map.md). |

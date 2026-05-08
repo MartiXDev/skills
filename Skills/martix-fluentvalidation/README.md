@@ -5,7 +5,7 @@ the MartiX FluentValidation skill. It stores the authored entrypoints, rule
 library, reference library, templates, and registration-ready metadata that
 direct standalone installs should consume from this folder.
 
-- Canonical source root: `src\skills\martix-fluentvalidation`
+- Canonical source root: `Skills\martix-fluentvalidation`
 - Primary install surface: standalone `skills` CLI
 - Secondary install surface: Copilot CLI plugin marketplace
 - Discovery key: `martix-fluentvalidation`
@@ -38,21 +38,23 @@ direct standalone installs should consume from this folder.
 
 ## Installation
 
-## Standalone skills CLI flow
+### Standalone skills CLI flow
 
 Use the standalone flow as the primary install surface for this package.
 
 - Official docs currently show `npx skills add <source>`.
 - Official docs do **not** currently show `npx skill add <source>`.
-- Because this repository stores the package under `src\skills\...`, prefer an
+- Because this repository stores the package under `Skills\...`, prefer an
   absolute folder path or direct GitHub tree URL instead of repo-root
   discovery. In this environment, a Windows relative path such as
-  `.\src\skills\martix-fluentvalidation` is treated like a git source by the
+  `.\Skills\martix-fluentvalidation` is treated like a git source by the
   `skills` CLI and fails preview or install.
 
 ```powershell
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-fluentvalidation -a github-copilot -y
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-fluentvalidation -a github-copilot --copy -y
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-fluentvalidation `
+  -a github-copilot -y
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-fluentvalidation `
+  -a github-copilot --copy -y
 
 # Or from GitHub:
 # npx skills add <github-tree-url> -a github-copilot -y
@@ -61,49 +63,49 @@ npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-fluentvalidatio
 To use a GitHub tree URL, use the direct path to the
 `martix-fluentvalidation` folder in the repository.
 
-## Copilot CLI plugin marketplace flow
+### Copilot CLI plugin marketplace flow
 
 Use the marketplace flow against the same standalone source package. The
-marketplace entry points directly at `src\skills\martix-fluentvalidation`.
+marketplace entry points directly at `Skills\martix-fluentvalidation`.
 
 ```powershell
-copilot plugin marketplace add MartiXDev/ai-marketplace
+copilot plugin marketplace add MartiXDev/skills
 copilot plugin marketplace list
-copilot plugin marketplace browse martix-ai-marketplace
-copilot plugin install martix-fluentvalidation@martix-ai-marketplace
+copilot plugin marketplace browse martix-skills
+copilot plugin install martix-fluentvalidation@martix-skills
 ```
 
 Only the following slash-command equivalents are documented in the reviewed
 research, so keep marketplace browsing as a shell command for now.
 
 ```text
-/plugin marketplace add MartiXDev/ai-marketplace
+/plugin marketplace add MartiXDev/skills
 /plugin marketplace list
-/plugin install martix-fluentvalidation@martix-ai-marketplace
-/plugin marketplace remove martix-ai-marketplace
+/plugin install martix-fluentvalidation@martix-skills
+/plugin marketplace remove martix-skills
 ```
 
 ## Verification
 
-## Standalone validation
+### Standalone validation
 
 Preview or verify the standalone package with these commands:
 
 ```powershell
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-fluentvalidation --list
+npx skills add C:\Git\MartiXDev\skills\Skills\martix-fluentvalidation --list
 npx skills list
 ```
 
 Expect to see an installed entry named `martix-fluentvalidation` after a
 successful install.
 
-## Marketplace validation
+### Marketplace validation
 
 Verify marketplace registration and plugin installation with these commands:
 
 ```powershell
 copilot plugin marketplace list
-copilot plugin marketplace browse martix-ai-marketplace
+copilot plugin marketplace browse martix-skills
 copilot plugin list
 ```
 
@@ -144,7 +146,7 @@ marketplace-delivered copy with the same skill name.
 
 ### Repo-root install discovery fails
 
-- Cause: `src\skills` is not a default discovery root
+- Cause: `Skills` is not a default discovery root
 - Solution: Use direct folder path or GitHub tree URL
 
 ### Standalone install linked instead of copied

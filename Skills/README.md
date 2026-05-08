@@ -2,22 +2,22 @@
 
 This folder contains standalone skill packages for GitHub Copilot CLI.
 
-Each subdirectory is a self-contained skill package with a `plugin.json` manifest
-and a `skills/<skill-name>/SKILL.md` instruction file.
+Each subdirectory is a self-contained skill package with a `plugin.json`
+manifest, root-level `SKILL.md`, `AGENTS.md`, and supporting package assets.
 
 ## Available Skills
 
 | Skill | Description | Status |
 | --- | --- | --- |
-| [martix-markdown](./martix-markdown/) | Markdownlint authoring, lint repair, and accessibility-aware review | Migration pending |
-| [martix-dotnet-csharp](./martix-dotnet-csharp/) | .NET 10+ and C# 14+ modernization and review | Migration pending |
-| [martix-fastendpoints](./martix-fastendpoints/) | FastEndpoints startup, contracts, and AOT workflows | Migration pending |
-| [martix-fluentvalidation](./martix-fluentvalidation/) | FluentValidation authoring, RuleSets, and testing | Migration pending |
-| [martix-tunit](./martix-tunit/) | TUnit test authoring, parameterized tests, and parallel execution | Migration pending |
-| [martix-powershell](./martix-powershell/) | PowerShell cmdlet development and advanced functions | Migration pending |
-| [martix-sharepoint-server](./martix-sharepoint-server/) | SharePoint Server on-prem farm solutions and WSP packaging | Migration pending |
-| [martix-sharepoint-spfx](./martix-sharepoint-spfx/) | SharePoint Framework (SPFx) development with React and TypeScript | Migration pending |
-| [martix-sharepoint-pnp](./martix-sharepoint-pnp/) | SharePoint PnP PowerShell, CLI for M365, and PnPjs | Migration pending |
+| [martix-markdown](./martix-markdown/) | Markdownlint authoring, lint repair, and accessibility-aware review | Available |
+| [martix-dotnet-csharp](./martix-dotnet-csharp/) | .NET 10+ and C# 14+ modernization and review | Available |
+| [martix-fastendpoints](./martix-fastendpoints/) | FastEndpoints startup, contracts, and AOT workflows | Available |
+| [martix-fluentvalidation](./martix-fluentvalidation/) | FluentValidation authoring, RuleSets, and testing | Available |
+| [martix-tunit](./martix-tunit/) | TUnit test authoring, parameterized tests, and parallel execution | Available |
+| [martix-powershell](./martix-powershell/) | PowerShell cmdlet development and advanced functions | Available |
+| [martix-sharepoint-server](./martix-sharepoint-server/) | SharePoint Server on-prem farm solutions and WSP packaging | Available |
+| [martix-sharepoint-spfx](./martix-sharepoint-spfx/) | SharePoint Framework (SPFx) development with React and TypeScript | Available |
+| [martix-sharepoint-pnp](./martix-sharepoint-pnp/) | SharePoint PnP PowerShell, CLI for M365, and PnPjs | Available |
 
 ## Installation
 
@@ -38,13 +38,17 @@ copilot plugin install martix-markdown@martix-skills
 
 Each skill package follows this layout:
 
-```
+```text
 Skills/
   skill-name/
-    plugin.json        # Plugin manifest (name, version, skills path)
-    skills/
-      skill-name/
-        SKILL.md       # Copilot skill instructions
+    plugin.json        # Plugin manifest
+    SKILL.md           # Copilot skill instructions
+    AGENTS.md          # Companion maintainer and routing guide
+    metadata.json      # Package inventory and distribution notes
+    rules/             # Skill rule library
+    references/        # Source maps and supporting references
+    templates/         # Authoring scaffolds
+    assets/            # Machine-readable taxonomy and ordering data
 ```
 
 ## Migration Source
