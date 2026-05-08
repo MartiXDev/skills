@@ -1,0 +1,194 @@
+{
+  "name": "martix-skills",
+  "owner": {
+    "name": "MartiXDev"
+  },
+  "metadata": {
+    "description": "MartiX AI Skills and Plugins for GitHub Copilot CLI — standalone-first skill packages and plugin bundles for .NET, SharePoint, Markdown, and more.",
+    "version": "1.0.0",
+    "homepage": "https://github.com/MartiXDev/skills"
+  },
+  "plugins": [
+    {
+      "name": "martix-markdown",
+      "description": "Standalone Markdown skill package for markdownlint authoring, lint repair, config-versus-content decisions, grouped rule routing, custom rules, Prettier coexistence, and accessibility-aware review.",
+      "version": "0.1.0-preview.1",
+      "source": "Skills/martix-markdown",
+      "category": "development",
+      "tags": [
+        "martix",
+        "markdown",
+        "markdownlint",
+        "markdownlint-cli2",
+        "accessibility",
+        "documentation",
+        "standalone-skill"
+      ]
+    },
+    {
+      "name": "martix-dotnet-csharp",
+      "description": "Standalone .NET 10+ and C# 14+ skill package for authoring, modernization, and review workflows.",
+      "version": "0.1.0",
+      "source": "Skills/martix-dotnet-csharp",
+      "category": "development",
+      "tags": [
+        "martix",
+        "dotnet",
+        "csharp",
+        "net10",
+        "csharp14",
+        "sdk",
+        "standalone-skill"
+      ]
+    },
+    {
+      "name": "martix-fastendpoints",
+      "description": "Standalone FastEndpoints skill package for startup, endpoint contracts, processors, transport choices, security, testing, versioning, and Native AOT workflows.",
+      "version": "0.1.0",
+      "source": "Skills/martix-fastendpoints",
+      "category": "development",
+      "tags": [
+        "martix",
+        "fastendpoints",
+        "dotnet",
+        "aspnetcore",
+        "openapi",
+        "aot",
+        "standalone-skill"
+      ]
+    },
+    {
+      "name": "martix-fluentvalidation",
+      "description": "Standalone FluentValidation skill package for validator authoring, built-in validator selection, RuleSets, ASP.NET Core integration, async validation, extensibility, localization, and testing.",
+      "version": "0.1.0",
+      "source": "Skills/martix-fluentvalidation",
+      "category": "development",
+      "tags": [
+        "martix",
+        "fluentvalidation",
+        "dotnet",
+        "aspnetcore",
+        "validators",
+        "rulesets",
+        "async-validation",
+        "standalone-skill"
+      ]
+    },
+    {
+      "name": "martix-tunit",
+      "description": "Standalone TUnit skill package for test authoring, parameterized data-driven tests, lifecycle hooks, parallel-by-default execution, async assertions, dependency injection, mocking, and migration.",
+      "version": "0.1.0",
+      "source": "Skills/martix-tunit",
+      "category": "development",
+      "tags": [
+        "martix",
+        "tunit",
+        "dotnet",
+        "testing",
+        "unit-testing",
+        "parameterized-tests",
+        "parallel-execution",
+        "microsoft-testing-platform",
+        "standalone-skill"
+      ]
+    },
+    {
+      "name": "martix-powershell",
+      "description": "Standalone PowerShell cmdlet developer skill package for compiled C# cmdlet authoring and cmdlet-style advanced functions, covering base class selection, parameter declaration, pipeline, error handling, and ShouldProcess patterns.",
+      "version": "0.1.0-preview.1",
+      "source": "Skills/martix-powershell",
+      "category": "development",
+      "tags": [
+        "martix",
+        "powershell",
+        "cmdlet",
+        "advanced-function",
+        "csharp",
+        "dotnet",
+        "binary-module",
+        "parameter-validation",
+        "pipeline",
+        "error-handling",
+        "shouldprocess",
+        "standalone-skill"
+      ]
+    },
+    {
+      "name": "martix-sharepoint-server",
+      "description": "Standalone SharePoint Server skill package for classic on-prem farm solutions, WSP packaging, feature framework, event receivers, branding, site artifacts, and SharePoint 2019 / Subscription Edition guidance.",
+      "version": "0.1.0-preview.1",
+      "source": "Skills/martix-sharepoint-server",
+      "category": "development",
+      "tags": [
+        "martix",
+        "sharepoint",
+        "sharepoint-server",
+        "sharepoint-2019",
+        "sharepoint-se",
+        "wsp",
+        "farm-solutions",
+        "standalone-skill"
+      ]
+    },
+    {
+      "name": "martix-sharepoint-spfx",
+      "description": "Standalone SharePoint Framework skill package for SharePoint Online-first SPFx development with React, TypeScript, web parts, extensions, Teams and Viva integration, deployment, theming, and migration guidance.",
+      "version": "0.1.0-preview.1",
+      "source": "Skills/martix-sharepoint-spfx",
+      "category": "development",
+      "tags": [
+        "martix",
+        "sharepoint",
+        "spfx",
+        "sharepoint-framework",
+        "react",
+        "typescript",
+        "sharepoint-online",
+        "standalone-skill"
+      ]
+    },
+    {
+      "name": "martix-sharepoint-pnp",
+      "description": "Standalone SharePoint PnP skill package for PnP PowerShell, CLI for Microsoft 365, PnPjs, provisioning, automation, authentication, and cross-tool delivery guidance.",
+      "version": "0.1.0-preview.1",
+      "source": "Skills/martix-sharepoint-pnp",
+      "category": "development",
+      "tags": [
+        "martix",
+        "sharepoint",
+        "pnp",
+        "pnp-powershell",
+        "cli-m365",
+        "pnpjs",
+        "provisioning",
+        "standalone-skill"
+      ]
+    },
+    {
+      "name": "martix-dotnet-library",
+      "description": "Unified plugin assets for .NET library create, update, and review workflows.",
+      "version": "0.1.0",
+      "source": "Plugins/martix-dotnet-library",
+      "category": "development",
+      "tags": [
+        "martix",
+        "dotnet",
+        "library"
+      ]
+    },
+    {
+      "name": "martix-webapi",
+      "description": "Unified plugin assets for planning and implementing new .NET 10 web apps with MartiX.WebApi guidance.",
+      "version": "0.1.0",
+      "source": "Plugins/martix-webapi",
+      "category": "development",
+      "tags": [
+        "martix",
+        "webapi",
+        "dotnet",
+        "net10",
+        "vertical-slice"
+      ]
+    }
+  ]
+}

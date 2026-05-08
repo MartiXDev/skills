@@ -1,0 +1,20 @@
+{
+  "name": "martix-sharepoint-spfx",
+  "description": "Standalone SharePoint Framework (SPFx) skill package for SharePoint Online-first development with React, TypeScript, web parts, extensions, Teams and Viva integration, deployment, theming, and migration guidance.",
+  "version": "0.1.0-preview.1",
+  "author": {
+    "name": "MartiXDev"
+  },
+  "license": "MIT",
+  "keywords": [
+    "martix",
+    "sharepoint",
+    "spfx",
+    "sharepoint-framework",
+    "react",
+    "typescript",
+    "sharepoint-online"
+  ],
+  "repository": "https://github.com/MartiXDev/skills",
+  "skills": "skills/"
+}

@@ -1,2 +1,85 @@
-# skills
-MartiX AI Marketplace with custom Agent Skills, Plugins, Prompts, Instructions, Hooks, etc.
+# MartiX Skills
+
+MartiX AI Skills and Plugins for GitHub Copilot CLI — standalone-first skill packages
+and plugin bundles for .NET, SharePoint, Markdown, and more.
+
+## Marketplace
+
+This repository is a GitHub Copilot CLI plugin marketplace. The marketplace name
+is **`martix-skills`**.
+
+Add the marketplace to your Copilot CLI:
+
+```sh
+copilot plugin marketplace add MartiXDev/skills
+```
+
+## Quick Install
+
+Install a specific skill or plugin after adding the marketplace:
+
+```sh
+# Skills (standalone)
+copilot plugin install martix-markdown@martix-skills
+copilot plugin install martix-dotnet-csharp@martix-skills
+copilot plugin install martix-fastendpoints@martix-skills
+copilot plugin install martix-fluentvalidation@martix-skills
+copilot plugin install martix-tunit@martix-skills
+copilot plugin install martix-powershell@martix-skills
+copilot plugin install martix-sharepoint-server@martix-skills
+copilot plugin install martix-sharepoint-spfx@martix-skills
+copilot plugin install martix-sharepoint-pnp@martix-skills
+
+# Plugins (full bundles)
+copilot plugin install martix-dotnet-library@martix-skills
+copilot plugin install martix-webapi@martix-skills
+```
+
+Or use the `npx skills` CLI to add individual skills:
+
+```sh
+npx skills add https://github.com/MartiXDev/skills --skill martix-markdown
+npx skills add https://github.com/MartiXDev/skills --skill martix-dotnet-csharp
+```
+
+Or install directly from the repository without adding the marketplace:
+
+```sh
+copilot plugin install MartiXDev/skills:Skills/martix-markdown
+copilot plugin install MartiXDev/skills:Skills/martix-dotnet-csharp
+copilot plugin install MartiXDev/skills:Plugins/martix-dotnet-library
+```
+
+## Repository Structure
+
+```
+.github/
+  plugin/
+    marketplace.json        # Marketplace definition (name: "martix-skills")
+Skills/
+  martix-markdown/          # Markdownlint authoring and accessibility review
+  martix-dotnet-csharp/     # .NET 10+ and C# 14+ modernization and review
+  martix-fastendpoints/     # FastEndpoints startup, contracts, and AOT
+  martix-fluentvalidation/  # FluentValidation authoring and testing
+  martix-tunit/             # TUnit test authoring and parallel execution
+  martix-powershell/        # PowerShell cmdlet development
+  martix-sharepoint-server/ # SharePoint Server on-prem farm solutions
+  martix-sharepoint-spfx/   # SharePoint Framework (SPFx) development
+  martix-sharepoint-pnp/    # SharePoint PnP PowerShell, CLI for M365, PnPjs
+Plugins/
+  martix-dotnet-library/    # .NET library create, update, and review
+  martix-webapi/            # .NET 10 web app planning and implementation
+```
+
+Each entry in `Skills/` is a standalone skill package with a `plugin.json` and
+`skills/<name>/SKILL.md`. Each entry in `Plugins/` is a plugin bundle stub with
+`plugin.json`, and placeholder `agents/` and `skills/` directories pending
+content migration from `ai-marketplace`.
+
+## Migration
+
+Skills and Plugins in this repository are being migrated from
+[MartiXDev/ai-marketplace](https://github.com/MartiXDev/ai-marketplace).
+
+See [Skills/README.md](./Skills/README.md) and [Plugins/README.md](./Plugins/README.md)
+for details on each package and its migration status.

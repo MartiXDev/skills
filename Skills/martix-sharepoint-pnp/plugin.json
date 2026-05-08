@@ -1,0 +1,20 @@
+{
+  "name": "martix-sharepoint-pnp",
+  "description": "Standalone SharePoint PnP skill package for PnP PowerShell, CLI for Microsoft 365, PnPjs, provisioning, automation, authentication, and cross-tool delivery guidance.",
+  "version": "0.1.0-preview.1",
+  "author": {
+    "name": "MartiXDev"
+  },
+  "license": "MIT",
+  "keywords": [
+    "martix",
+    "sharepoint",
+    "pnp",
+    "pnp-powershell",
+    "cli-m365",
+    "pnpjs",
+    "provisioning"
+  ],
+  "repository": "https://github.com/MartiXDev/skills",
+  "skills": "skills/"
+}
