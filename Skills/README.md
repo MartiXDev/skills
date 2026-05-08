@@ -39,7 +39,7 @@ copilot plugin install martix-markdown@martix-skills
 Each skill package follows this layout:
 
 ```
-skills/
+Skills/
   skill-name/
     plugin.json        # Plugin manifest (name, version, skills path)
     skills/

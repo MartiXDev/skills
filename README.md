@@ -72,8 +72,9 @@ Plugins/
 ```
 
 Each entry in `Skills/` is a standalone skill package with a `plugin.json` and
-`skills/<name>/SKILL.md`. Each entry in `Plugins/` is a full plugin bundle with
-agents, skills, hooks, and MCP server configurations.
+`skills/<name>/SKILL.md`. Each entry in `Plugins/` is a plugin bundle stub with
+`plugin.json`, and placeholder `agents/` and `skills/` directories pending
+content migration from `ai-marketplace`.
 
 ## Migration
 
