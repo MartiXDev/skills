@@ -1,10 +1,6 @@
 ---
 name: martix-dotnet-csharp
-description: >
-  Standalone-first .NET 10+ and C# 14+ guidance for code review, modernization,
-  refactoring, and scaffolding. Use when working on SDK-style projects, ASP.NET
-  Core, minimal APIs, EF Core, async flows, diagnostics, testing, security, or
-  modern C# features.
+description: Standalone-first .NET 10+ and C# 14+ guidance for code review, modernization, refactoring, and scaffolding. Use when working on SDK-style projects, ASP.NET Core, minimal APIs, EF Core, async flows, diagnostics, testing, security, or modern C# features.
 license: MIT
 ---
 

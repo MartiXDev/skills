@@ -1,10 +1,6 @@
 ---
 name: martix-fastendpoints
-description: >
-  Standalone-first FastEndpoints guidance for startup, endpoint contracts,
-  processors, transport choices, security, testing, versioning, and Native AOT
-  workflows. Use when working with FastEndpoints, ASP.NET Core minimal APIs,
-  endpoint validators, command handlers, or OpenAPI contracts.
+description: Standalone-first FastEndpoints guidance for startup, endpoint contracts, processors, transport choices, security, testing, versioning, and Native AOT workflows. Use when working with FastEndpoints, ASP.NET Core minimal APIs, endpoint validators, command handlers, or OpenAPI contracts.
 license: MIT
 ---
 

@@ -1,11 +1,6 @@
 ---
 name: martix-sharepoint-spfx
-description: >
-  Standalone-first SharePoint Framework (SPFx) guidance for SharePoint
-  Online-first development with React, TypeScript, web parts, extensions,
-  Teams and Viva integration, deployment, theming, and migration guidance.
-  Use when building or reviewing SPFx web parts, application customizers,
-  field customizers, or command sets.
+description: Standalone-first SharePoint Framework (SPFx) guidance for SharePoint Online-first development with React, TypeScript, web parts, extensions, Teams and Viva integration, deployment, theming, and migration guidance. Use when building or reviewing SPFx web parts, application customizers, field customizers, or command sets.
 license: MIT
 ---
 

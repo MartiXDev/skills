@@ -1,12 +1,6 @@
 ---
 name: martix-powershell
-description: >
-  Standalone-first PowerShell cmdlet developer guidance for compiled C# cmdlet
-  authoring and cmdlet-style advanced functions ([CmdletBinding()]), covering
-  base class selection (Cmdlet vs PSCmdlet), parameter declaration and validation,
-  pipeline input/output streaming, error handling (terminating vs non-terminating),
-  confirmation and safety patterns (ShouldProcess/Force/WhatIf), dynamic
-  parameters, and attribute validators.
+description: Standalone-first PowerShell cmdlet developer guidance for compiled C# cmdlet authoring and advanced functions ([CmdletBinding()]), covering base class selection (Cmdlet vs PSCmdlet), parameter declaration and validation, pipeline input/output streaming, error handling (terminating vs non-terminating), confirmation and safety patterns (ShouldProcess/Force/WhatIf), dynamic parameters, and attribute validators.
 license: MIT
 ---
 

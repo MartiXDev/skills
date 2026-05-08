@@ -1,10 +1,6 @@
 ---
 name: martix-sharepoint-pnp
-description: >
-  Standalone-first SharePoint PnP guidance for PnP PowerShell, CLI for
-  Microsoft 365, PnPjs, provisioning, automation, authentication, and cross-tool
-  delivery. Use when scripting SharePoint operations, provisioning templates,
-  or automating Microsoft 365 management tasks with PnP tools.
+description: Standalone-first SharePoint PnP guidance for PnP PowerShell, CLI for Microsoft 365, PnPjs, provisioning, automation, authentication, and cross-tool delivery. Use when scripting SharePoint operations, provisioning templates, or automating Microsoft 365 management tasks with PnP tools.
 license: MIT
 ---
 

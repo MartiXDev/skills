@@ -1,11 +1,6 @@
 ---
 name: martix-sharepoint-server
-description: >
-  Standalone-first SharePoint Server guidance for classic on-prem farm solutions,
-  WSP packaging, feature framework, event receivers, branding, site artifacts,
-  and modernization-aware SharePoint 2019 and Subscription Edition guidance.
-  Use when working on SharePoint Server on-premises deployments, farm solutions,
-  or WSP packages.
+description: Standalone-first SharePoint Server guidance for classic on-prem farm solutions, WSP packaging, feature framework, event receivers, branding, site artifacts, and modernization-aware SharePoint 2019 and Subscription Edition guidance. Use when working on SharePoint Server on-premises deployments, farm solutions, or WSP packages.
 license: MIT
 ---
 

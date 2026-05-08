@@ -1,11 +1,6 @@
 ---
 name: martix-fluentvalidation
-description: >
-  Standalone-first FluentValidation guidance for validator authoring, built-in
-  validator selection, RuleSets and cascade behavior, ASP.NET Core integration,
-  async validation, extensibility, localization, testing, and upgrade planning.
-  Use when working with FluentValidation rules, validators, RuleSets, or
-  integrating validation into ASP.NET Core request pipelines.
+description: Standalone-first FluentValidation guidance for validator authoring, built-in validator selection, RuleSets and cascade behavior, ASP.NET Core integration, async validation, extensibility, localization, testing, and upgrade planning. Use when working with FluentValidation rules, validators, RuleSets, or integrating validation into ASP.NET Core request pipelines.
 license: MIT
 ---
 

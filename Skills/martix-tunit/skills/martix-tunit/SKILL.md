@@ -1,11 +1,6 @@
 ---
 name: martix-tunit
-description: >
-  Standalone-first TUnit guidance for test authoring, parameterized data-driven
-  tests, lifecycle hooks, parallel-by-default execution, async assertions,
-  dependency injection, mocking, extensibility, and xUnit/NUnit/MSTest migration.
-  Use when writing, reviewing, or migrating TUnit tests on the Microsoft Testing
-  Platform.
+description: Standalone-first TUnit guidance for test authoring, parameterized data-driven tests, lifecycle hooks, parallel-by-default execution, async assertions, dependency injection, mocking, extensibility, and xUnit/NUnit/MSTest migration. Use when writing, reviewing, or migrating TUnit tests on the Microsoft Testing Platform.
 license: MIT
 ---
 

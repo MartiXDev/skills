@@ -1,13 +1,6 @@
 ---
 name: martix-markdown
-description: >
-  Standalone-first markdownlint guidance for Markdown authoring, lint repair,
-  MD-code triage, config-vs-content decisions, custom rules, suppressions,
-  Prettier coexistence, descriptive links, alt text, accessibility-aware review,
-  and repo-local overlay comparisons. Use when the user mentions markdownlint,
-  markdownlint-cli2, MD013, MD022, MD032, MD041, MD045, MD059, front matter,
-  link fragments, table style, custom rule authoring, or whether a Markdown
-  issue belongs in content, config, or bridge notes.
+description: Standalone-first markdownlint guidance for Markdown authoring, lint repair, MD-code triage, config-vs-content decisions, custom rules, suppressions, Prettier coexistence, descriptive links, alt text, accessibility-aware review, and repo-local overlay comparisons. Use when the user mentions markdownlint, markdownlint-cli2, MD013, MD022, MD032, MD041, MD045, MD059, front matter, link fragments, table style, custom rule authoring, or whether a Markdown issue belongs in content, config, or bridge notes.
 license: MIT
 ---
 
