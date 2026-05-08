@@ -1,0 +1,124 @@
+{
+  "package": "martix-sharepoint-spfx",
+  "mode": "standalone-first",
+  "root": "skills/martix-sharepoint-spfx",
+  "rulePrefixes": {
+    "foundation": "SharePoint Online-first scope checks, host boundaries, classic exclusions, and conservative support notes",
+    "tooling": "SPFx version compatibility, Node or React alignment, Heft versus gulp, scaffolding, serve, and debug posture",
+    "webparts": "Client-side web parts, property panes, propertiesMetadata, reactive versus non-reactive configuration, and page-hosted experiences",
+    "extensions": "Application Customizers, Command Sets, Field Customizers, placeholders, and extension-specific surface selection",
+    "form-libraries": "Form Customizers, list or library form lifecycle, content-type associations, and library component reuse",
+    "data": "SPHttpClient, PnPjs, MSGraphClientV3, AadHttpClient, permission requests, and runtime API boundaries",
+    "deployment": "package-solution.json, feature packaging, asset hosting, app catalog rollout, and skipFeatureDeployment posture",
+    "hosts": "Teams supportedHosts, Teams packaging choices, messaging-extension boundaries, Viva Connections, and ACE-related handoffs",
+    "ui": "React package posture, Fluent or Office UI Fabric integration, theme tokens, CSS isolation, and theme-aware UI design",
+    "migration": "Script Editor, Content Editor, JSLink, UserCustomAction, ECB, JSOM, and classic-to-modern SPFx translation"
+  },
+  "domains": [
+    {
+      "id": "foundation",
+      "displayName": "Foundation and support boundaries",
+      "referenceMap": "references/foundation-scope-support-map.md",
+      "rules": [
+        "rules/foundation-scope-and-support-boundaries.md"
+      ]
+    },
+    {
+      "id": "tooling",
+      "displayName": "Versioning, compatibility, and scaffolding",
+      "referenceMap": "references/version-support-map.md",
+      "rules": [
+        "rules/tooling-versioning-and-compatibility.md",
+        "rules/projects-toolchain-and-scaffolding.md"
+      ]
+    },
+    {
+      "id": "webparts",
+      "displayName": "Web parts and property panes",
+      "referenceMap": "references/component-selection-map.md",
+      "rules": [
+        "rules/webparts-property-panes-and-properties.md"
+      ]
+    },
+    {
+      "id": "extensions",
+      "displayName": "Extensions",
+      "referenceMap": "references/component-selection-map.md",
+      "rules": [
+        "rules/extensions-application-command-field.md"
+      ]
+    },
+    {
+      "id": "form-libraries",
+      "displayName": "Form Customizers and library components",
+      "referenceMap": "references/component-selection-map.md",
+      "rules": [
+        "rules/components-form-customizers-and-library-components.md"
+      ]
+    },
+    {
+      "id": "data",
+      "displayName": "Data and API clients",
+      "referenceMap": "references/data-integration-map.md",
+      "rules": [
+        "rules/data-sharepoint-graph-and-aad-clients.md"
+      ]
+    },
+    {
+      "id": "deployment",
+      "displayName": "Packaging, deployment, and tenant rollout",
+      "referenceMap": "references/toolchain-deployment-map.md",
+      "rules": [
+        "rules/deployment-packaging-and-tenant-rollout.md"
+      ]
+    },
+    {
+      "id": "hosts",
+      "displayName": "Teams and Viva host integration",
+      "referenceMap": "references/teams-viva-map.md",
+      "rules": [
+        "rules/hosts-teams-and-viva-integration.md"
+      ]
+    },
+    {
+      "id": "ui",
+      "displayName": "React, TypeScript, and theming",
+      "referenceMap": "references/ui-theming-map.md",
+      "rules": [
+        "rules/ui-react-typescript-and-theming.md"
+      ]
+    },
+    {
+      "id": "migration",
+      "displayName": "Migration and modernization",
+      "referenceMap": "references/migration-map.md",
+      "rules": [
+        "rules/migration-classic-to-modern-spfx.md"
+      ]
+    }
+  ],
+  "tags": [
+    "SharePoint Online",
+    "SPFx",
+    "SharePoint Framework",
+    "React",
+    "TypeScript",
+    "web parts",
+    "property panes",
+    "extensions",
+    "Application Customizer",
+    "Command Set",
+    "Field Customizer",
+    "Form Customizer",
+    "library components",
+    "MSGraphClientV3",
+    "AadHttpClient",
+    "skipFeatureDeployment",
+    "Teams",
+    "Viva Connections",
+    "theming",
+    "migration",
+    "SharePoint 2019",
+    "SharePoint Subscription Edition"
+  ]
+}

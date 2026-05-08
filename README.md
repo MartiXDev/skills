@@ -45,9 +45,9 @@ npx skills add https://github.com/MartiXDev/skills --skill martix-dotnet-csharp
 Or install directly from the repository without adding the marketplace:
 
 ```sh
-copilot plugin install MartiXDev/skills:Skills/martix-markdown
-copilot plugin install MartiXDev/skills:Skills/martix-dotnet-csharp
-copilot plugin install MartiXDev/skills:Plugins/martix-dotnet-library
+copilot plugin install MartiXDev/skills:skills/martix-markdown
+copilot plugin install MartiXDev/skills:skills/martix-dotnet-csharp
+copilot plugin install MartiXDev/skills:plugins/martix-dotnet-library
 ```
 
 ## Repository Structure
@@ -56,7 +56,7 @@ copilot plugin install MartiXDev/skills:Plugins/martix-dotnet-library
 .github/
   plugin/
     marketplace.json        # Marketplace definition (name: "martix-skills")
-Skills/
+skills/
   martix-markdown/          # Markdownlint authoring and accessibility review
   martix-dotnet-csharp/     # .NET 10+ and C# 14+ modernization and review
   martix-fastendpoints/     # FastEndpoints startup, contracts, and AOT
@@ -66,14 +66,14 @@ Skills/
   martix-sharepoint-server/ # SharePoint Server on-prem farm solutions
   martix-sharepoint-spfx/   # SharePoint Framework (SPFx) development
   martix-sharepoint-pnp/    # SharePoint PnP PowerShell, CLI for M365, PnPjs
-Plugins/
+plugins/
   martix-dotnet-library/    # .NET library create, update, and review
   martix-webapi/            # .NET 10 web app planning and implementation
 ```
 
-Each entry in `Skills/` is a standalone skill package with a `plugin.json`,
+Each entry in `skills/` is a standalone skill package with a `plugin.json`,
 root-level `SKILL.md`, `AGENTS.md`, and supporting rules, references, templates,
-assets, and metadata. Each entry in `Plugins/` is a plugin bundle stub with
+assets, and metadata. Each entry in `plugins/` is a plugin bundle stub with
 `plugin.json`, and placeholder `agents/` and `skills/` directories pending
 content migration from `ai-marketplace`.
 
@@ -82,5 +82,5 @@ content migration from `ai-marketplace`.
 Skills and Plugins in this repository are being migrated from
 [MartiXDev/ai-marketplace](https://github.com/MartiXDev/ai-marketplace).
 
-See [Skills/README.md](./Skills/README.md) and [Plugins/README.md](./Plugins/README.md)
+See [skills/README.md](./skills/README.md) and [plugins/README.md](./plugins/README.md)
 for details on each package and its migration status.

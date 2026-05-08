@@ -1,0 +1,319 @@
+{
+  "name": "martix-dotnet-csharp",
+  "displayName": "MartiX Dotnet CSharp",
+  "version": "0.1.0-preview.1",
+  "publisher": {
+    "name": "MartiXDev",
+    "repository": "MartiXDev/ai-marketplace",
+    "distributionModel": "standalone skill with optional direct Copilot marketplace registration"
+  },
+  "summary": "Standalone-first MartiX skill package for modern .NET 10+ and C# 14+ engineering guidance.",
+  "abstract": "This package is the canonical source for the MartiX .NET and C# skill. It currently ships the authored entrypoints, rule library, quick-reference guides, source maps, templates, and taxonomy assets that marketplace packaging should build on.",
+  "compatibility": {
+    "primaryTarget": "GitHub Copilot CLI",
+    "secondaryTargets": [
+      "Agent Skills-compatible tools"
+    ],
+    "languageBaselines": [
+      ".NET 10+",
+      "C# 14+"
+    ]
+  },
+  "status": {
+    "maturity": "authoring",
+    "canonicalSkillRoot": "skills/martix-dotnet-csharp",
+    "marketplaceSourceRoot": "skills/martix-dotnet-csharp",
+    "entrypointFilesAuthoredSeparately": [
+      "SKILL.md",
+      "AGENTS.md",
+      "LICENSE.txt"
+    ]
+  },
+  "layers": {
+    "maintainerGuide": "README.md",
+    "metadata": "metadata.json",
+    "rules": "rules/*.md",
+    "references": "references/*.md",
+    "templates": "templates/*.md",
+    "assets": "assets/*.json",
+    "futureSkillEntry": "SKILL.md",
+    "futureCompiledGuide": "AGENTS.md"
+  },
+  "taxonomy": {
+    "mode": "standalone-first",
+    "prefixCount": 10,
+    "domainCount": 6,
+    "tags": [
+      ".NET 10",
+      "C# 14",
+      "ASP.NET Core",
+      "Minimal APIs",
+      "EF Core",
+      "SDK-style projects",
+      "async",
+      "diagnostics",
+      "security",
+      "testing"
+    ],
+    "rulePrefixes": {
+      "lang": "C# language and feature selection",
+      "sdk": ".NET SDK, project system, and build workflow",
+      "runtime": "Runtime primitives, performance, collections, and memory",
+      "async": "Async APIs, cancellation, concurrency, and channels",
+      "design": "API shape, validation, and error handling",
+      "web": "ASP.NET Core app shape and outbound HTTP",
+      "data": "Serialization and EF Core",
+      "testing": "Unit and integration test strategy",
+      "diagnostics": "Logging, tracing, metrics, and health signals",
+      "security": "Authentication, authorization, and secure defaults"
+    },
+    "domains": [
+      {
+        "id": "language",
+        "displayName": "Language",
+        "ruleCount": 3,
+        "rules": [
+          "rules/lang-modern-features.md",
+          "rules/lang-pattern-matching.md",
+          "rules/lang-nullability.md"
+        ]
+      },
+      {
+        "id": "sdk",
+        "displayName": "SDK and build",
+        "ruleCount": 2,
+        "rules": [
+          "rules/sdk-project-system.md",
+          "rules/sdk-build-test-pack-publish.md"
+        ]
+      },
+      {
+        "id": "runtime",
+        "displayName": "Runtime and performance",
+        "ruleCount": 2,
+        "rules": [
+          "rules/runtime-memory-spans.md",
+          "rules/runtime-collections-immutability.md"
+        ]
+      },
+      {
+        "id": "async",
+        "displayName": "Async and concurrency",
+        "ruleCount": 3,
+        "rules": [
+          "rules/async-tasks-valuetasks.md",
+          "rules/async-cancellation-timeouts.md",
+          "rules/async-concurrency-channels.md"
+        ]
+      },
+      {
+        "id": "design",
+        "displayName": "Design",
+        "ruleCount": 2,
+        "rules": [
+          "rules/design-api-type-design.md",
+          "rules/design-exceptions-validation.md"
+        ]
+      },
+      {
+        "id": "web-data-quality",
+        "displayName": "Web, data, quality, and security",
+        "ruleCount": 7,
+        "rules": [
+          "rules/web-http-resilience.md",
+          "rules/web-aspnet-core.md",
+          "rules/data-serialization.md",
+          "rules/data-efcore.md",
+          "rules/testing-unit-integration.md",
+          "rules/diagnostics-logging-tracing.md",
+          "rules/security-auth-authz.md"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "ruleCount": 19,
+    "ruleSupportFiles": [
+      "rules/_sections.md",
+      "rules/_template.md"
+    ],
+    "rules": [
+      "rules/lang-modern-features.md",
+      "rules/lang-pattern-matching.md",
+      "rules/lang-nullability.md",
+      "rules/sdk-project-system.md",
+      "rules/sdk-build-test-pack-publish.md",
+      "rules/runtime-memory-spans.md",
+      "rules/runtime-collections-immutability.md",
+      "rules/async-tasks-valuetasks.md",
+      "rules/async-cancellation-timeouts.md",
+      "rules/async-concurrency-channels.md",
+      "rules/design-api-type-design.md",
+      "rules/design-exceptions-validation.md",
+      "rules/web-http-resilience.md",
+      "rules/web-aspnet-core.md",
+      "rules/data-serialization.md",
+      "rules/data-efcore.md",
+      "rules/testing-unit-integration.md",
+      "rules/diagnostics-logging-tracing.md",
+      "rules/security-auth-authz.md"
+    ],
+    "referenceCount": 13,
+    "references": [
+      "references/doc-source-index.md",
+      "references/anti-patterns-quick-reference.md",
+      "references/web-bootstrap-recipes.md",
+      "references/testing-bootstrap-recipes.md",
+      "references/libraries-catalog.md",
+      "references/csharp-language-map.md",
+      "references/dotnet-sdk-map.md",
+      "references/runtime-bcl-map.md",
+      "references/async-map.md",
+      "references/design-map.md",
+      "references/web-stack-map.md",
+      "references/data-stack-map.md",
+      "references/quality-security-map.md"
+    ],
+    "templateCount": 3,
+    "templates": [
+      "templates/rule-template.md",
+      "templates/research-pack-template.md",
+      "templates/comparison-matrix-template.md"
+    ],
+    "assetCount": 2,
+    "assets": [
+      "assets/taxonomy.json",
+      "assets/section-order.json"
+    ]
+  },
+  "ordering": {
+    "ruleSectionOrder": [
+      "Purpose",
+      "Default guidance",
+      "Avoid",
+      "Review checklist",
+      "Related files",
+      "Source anchors"
+    ],
+    "recommendedRuleOrder": [
+      "rules/lang-modern-features.md",
+      "rules/lang-pattern-matching.md",
+      "rules/lang-nullability.md",
+      "rules/sdk-project-system.md",
+      "rules/sdk-build-test-pack-publish.md",
+      "rules/runtime-memory-spans.md",
+      "rules/runtime-collections-immutability.md",
+      "rules/async-tasks-valuetasks.md",
+      "rules/async-cancellation-timeouts.md",
+      "rules/async-concurrency-channels.md",
+      "rules/design-api-type-design.md",
+      "rules/design-exceptions-validation.md",
+      "rules/web-http-resilience.md",
+      "rules/web-aspnet-core.md",
+      "rules/data-serialization.md",
+      "rules/data-efcore.md",
+      "rules/testing-unit-integration.md",
+      "rules/diagnostics-logging-tracing.md",
+      "rules/security-auth-authz.md"
+    ],
+    "referenceOrder": [
+      "references/doc-source-index.md",
+      "references/anti-patterns-quick-reference.md",
+      "references/web-bootstrap-recipes.md",
+      "references/testing-bootstrap-recipes.md",
+      "references/libraries-catalog.md",
+      "references/csharp-language-map.md",
+      "references/dotnet-sdk-map.md",
+      "references/runtime-bcl-map.md",
+      "references/async-map.md",
+      "references/design-map.md",
+      "references/web-stack-map.md",
+      "references/data-stack-map.md",
+      "references/quality-security-map.md"
+    ],
+    "templateOrder": [
+      "templates/rule-template.md",
+      "templates/research-pack-template.md",
+      "templates/comparison-matrix-template.md"
+    ]
+  },
+  "distribution": {
+    "primarySurface": {
+      "id": "standalone-skills-cli",
+      "status": "canonical",
+      "officialInstallCommand": "npx skills add <source>",
+      "preferredSources": [
+        ".\\src\\skills\\martix-dotnet-csharp",
+        "https://github.com/MartiXDev/ai-marketplace/tree/main/skills/martix-dotnet-csharp"
+      ],
+      "notes": [
+        "Official docs currently show npx skills add, not npx skill add.",
+        "Prefer a direct folder path or direct GitHub tree URL because skills is not a documented repo-root discovery location."
+      ]
+    },
+    "secondarySurface": {
+      "id": "copilot-cli-plugin-marketplace",
+      "status": "direct-registration",
+      "marketplaceRepository": "MartiXDev/ai-marketplace",
+      "marketplaceName": "martix-ai-marketplace",
+      "pluginName": "martix-dotnet-csharp",
+      "strategy": "register the canonical standalone package directly from skills"
+    }
+  },
+  "discovery": {
+    "dedupeKey": "martix-dotnet-csharp",
+    "precedence": "first-found-wins",
+    "sameNameConflictRisk": "A standalone project or personal install can shadow a plugin-delivered copy with the same skill name.",
+    "recommendedValidationApproach": "Use a clean environment or remove the standalone install before validating the marketplace wrapper."
+  },
+  "references": {
+    "local": [
+      {
+        "path": "references/doc-source-index.md",
+        "role": "approved source boundaries and maintenance guardrails"
+      },
+      {
+        "path": "assets/taxonomy.json",
+        "role": "taxonomy prefixes, domain grouping, and package tags"
+      },
+      {
+        "path": "assets/section-order.json",
+        "role": "stable rule, reference, and template ordering"
+      },
+      {
+        "path": "templates/rule-template.md",
+        "role": "maintainer scaffold for future rule files"
+      }
+    ],
+    "external": [
+      {
+        "title": "Skills CLI documentation",
+        "url": "https://skills.sh/docs"
+      },
+      {
+        "title": "Skills CLI command reference",
+        "url": "https://skills.sh/docs/cli"
+      },
+      {
+        "title": "GitHub Copilot CLI create skills documentation",
+        "url": "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/create-skills"
+      },
+      {
+        "title": "GitHub Copilot CLI plugin concepts",
+        "url": "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-cli-plugins"
+      },
+      {
+        "title": "GitHub Copilot CLI marketplace installation documentation",
+        "url": "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing"
+      },
+      {
+        "title": "GitHub Copilot CLI marketplace registration documentation",
+        "url": "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-marketplace"
+      },
+      {
+        "title": "GitHub Copilot CLI plugin reference",
+        "url": "https://docs.github.com/en/copilot/reference/cli-plugin-reference"
+      }
+    ]
+  }
+}
