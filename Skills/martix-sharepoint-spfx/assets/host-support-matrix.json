@@ -1,0 +1,89 @@
+{
+  "package": "martix-sharepoint-spfx",
+  "defaultGuidance": "SharePoint Online first",
+  "surfaces": [
+    {
+      "host": "SharePoint Online",
+      "deploymentModel": "service",
+      "supportedSpfx": "current",
+      "toolchain": "Heft for v1.22+, legacy gulp for existing <= v1.21.1 projects",
+      "components": [
+        "web parts on modern and classic pages",
+        "extensions",
+        "Form Customizers",
+        "library components",
+        "Teams host exposure",
+        "Viva Connections dashboard extensibility"
+      ],
+      "notes": [
+        "Primary package lane.",
+        "Use the current compatibility table for exact Node, TypeScript, and React alignment."
+      ]
+    },
+    {
+      "host": "SharePoint Server 2019",
+      "deploymentModel": "on-premises",
+      "supportedSpfx": "1.4.1",
+      "toolchain": "legacy gulp",
+      "components": [
+        "web parts on classic and modern pages",
+        "extensions on modern pages"
+      ],
+      "notes": [
+        "Treat as a fixed legacy compatibility baseline.",
+        "Do not assume Teams, Viva Connections, Form Customizer, or library-component guidance from SharePoint Online applies unchanged."
+      ]
+    },
+    {
+      "host": "SharePoint Server Subscription Edition",
+      "deploymentModel": "on-premises",
+      "supportedSpfx": "ambiguous across current docs",
+      "toolchain": "legacy gulp",
+      "components": [
+        "document only features validated for the target farm"
+      ],
+      "notes": [
+        "The current compatibility table lists SharePoint Server Subscription Edition support through SPFx v1.5.",
+        "The supported-platforms page and the detailed 2019 or Subscription Edition article describe Subscription Edition as sharing the same dependencies or requirements as SharePoint Server 2019.",
+        "Package stance: keep recommendations conservative at the SharePoint Server 2019 baseline unless local validation or newer official guidance proves more."
+      ]
+    },
+    {
+      "host": "Microsoft Teams with SPFx",
+      "deploymentModel": "SharePoint Online-backed",
+      "supportedSpfx": "SharePoint Online only",
+      "toolchain": "same as the backing SharePoint Online SPFx project",
+      "components": [
+        "web part as Teams tab",
+        "web part as Teams personal app",
+        "messaging extension support with a custom Teams package and supporting bot or task-module flow"
+      ],
+      "notes": [
+        "Use supportedHosts and SharePoint Online deployment.",
+        "Do not install custom Teams JS SDK versions inside SPFx components."
+      ]
+    },
+    {
+      "host": "Viva Connections",
+      "deploymentModel": "SharePoint Online-backed",
+      "supportedSpfx": "SharePoint Online only",
+      "toolchain": "same as the backing SharePoint Online SPFx project",
+      "components": [
+        "Adaptive Card Extensions",
+        "dashboard deep links to Teams or SharePoint experiences"
+      ],
+      "notes": [
+        "Viva customizations are ACE-first.",
+        "The same dashboard cards can appear across desktop, tablet, and mobile experiences."
+      ]
+    }
+  ],
+  "explicitExclusions": [
+    "classic farm solutions",
+    "WSP packaging",
+    "Feature Framework development",
+    "master page or page-layout customization",
+    "server-side object model code",
+    "pure provisioning-only tasks"
+  ]
+}

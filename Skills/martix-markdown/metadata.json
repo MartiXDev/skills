@@ -1,0 +1,390 @@
+{
+  "name": "martix-markdown",
+  "displayName": "MartiX Markdown",
+  "version": "0.1.0-preview.1",
+  "publisher": {
+    "name": "MartiXDev",
+    "repository": "MartiXDev/ai-marketplace",
+    "distributionModel": "standalone skill with direct Copilot marketplace registration"
+  },
+  "summary": "Standalone-first MartiX skill package for markdownlint-aware Markdown authoring, MD-code triage, grouped rule routing, repo-local overlay comparison, custom-rule decisions, Prettier coexistence, and accessibility-aware review.",
+  "abstract": "This package is the canonical source for the MartiX Markdown skill. It now ships the authored entrypoints, 7 grouped rule files, 8 reference docs including the instruction-bridge layer, 4 templates, taxonomy assets, and registration-ready metadata that standalone installs and direct marketplace registration should consume from src/skills.",
+  "compatibility": {
+    "primaryTarget": "GitHub Copilot CLI",
+    "secondaryTargets": [
+      "Agent Skills-compatible tools"
+    ],
+    "languageBaselines": [
+      "Markdown",
+      "GitHub Flavored Markdown",
+      "markdownlint",
+      "markdownlint-cli2"
+    ]
+  },
+  "status": {
+    "maturity": "preview",
+    "scaffoldOnly": false,
+    "scaffoldNote": "The package is fully authored for its initial preview scope: 7 grouped markdownlint rule files, 8 reference files, maintainer docs, templates, taxonomy assets, skill-creator eval scaffolding, and marketplace registration metadata are in place.",
+    "canonicalSkillRoot": "src/skills/martix-markdown",
+    "marketplaceSourceRoot": "src/skills/martix-markdown"
+  },
+  "layers": {
+    "skillEntry": "SKILL.md",
+    "maintainerGuide": "README.md",
+    "companionGuide": "AGENTS.md",
+    "metadata": "metadata.json",
+    "license": "LICENSE.txt",
+    "rules": "rules/*.md",
+    "references": "references/*.md",
+    "instructionBridge": "references/instruction-bridge.md",
+    "rulesSupport": [
+      "rules/_sections.md",
+      "rules/_template.md"
+    ],
+    "templates": "templates/*",
+    "assets": "assets/*.json",
+    "evals": "evals/evals.json"
+  },
+  "sourcePolicy": {
+    "approvedIndex": "references/doc-source-index.md",
+    "instructionBridge": "references/instruction-bridge.md",
+    "precedenceModel": [
+      "Preserve document meaning, structure, link targets, and accessibility",
+      "Establish the upstream markdownlint default from approved upstream sources",
+      "Apply repository-local overlays separately when this repository adds tighter expectations",
+      "Treat package-local files as derived surfaces that do not override upstream markdownlint semantics"
+    ]
+  },
+  "taxonomy": {
+    "mode": "standalone-first",
+    "prefixCount": 7,
+    "domainCount": 7,
+    "mappedBuiltInRuleCount": 53,
+    "tags": [
+      "markdownlint",
+      "markdownlint-cli2",
+      "Markdown",
+      "GitHub Flavored Markdown",
+      "documentation",
+      "README",
+      "docs",
+      "MD codes",
+      "markdown authoring",
+      "lint repair",
+      "config vs content",
+      "repo-local overlay",
+      "instruction bridge",
+      "accessibility",
+      "descriptive link text",
+      "alt text",
+      "tables",
+      "headings",
+      "custom rules",
+      "suppressions",
+      "Prettier coexistence"
+    ],
+    "rulePrefixes": {
+      "foundation-configuration": "Install flow, config surfaces, CLI and API usage, rule aliases and tags, validation workflow, and narrow config overrides",
+      "headings-front-matter-structure": "Heading order, first-heading expectations, section spacing, front-matter-adjacent structure notes, and document-shape review",
+      "lists-whitespace-block-spacing": "Bullet and ordered lists, indentation, blank lines, trailing spaces, tabs, blockquote-adjacent spacing, and file hygiene",
+      "code-html-emphasis": "Fenced code blocks, language hints, inline HTML boundaries, emphasis markers, and nearby readability concerns",
+      "links-images-accessibility": "Link syntax, fragments, reference links, image handling, descriptive link text, alt text, and accessibility review edges",
+      "tables-layout-edges": "Table formatting, row consistency, blank-line boundaries, compact versus expanded layout choices, and nearby layout edge cases",
+      "custom-rules-suppressions-toolchain": "Custom rule authoring, helper packages, inline disables, config-based suppressions, formatter coexistence, and other toolchain boundary choices"
+    },
+    "domains": [
+      {
+        "id": "foundation-configuration",
+        "displayName": "Foundation and configuration",
+        "status": "authored",
+        "ruleCount": 1,
+        "builtInRuleCount": 2,
+        "rules": [
+          "rules/foundation-configuration.md"
+        ]
+      },
+      {
+        "id": "headings-front-matter-structure",
+        "displayName": "Headings, front matter, and document structure",
+        "status": "authored",
+        "ruleCount": 1,
+        "builtInRuleCount": 13,
+        "rules": [
+          "rules/headings-front-matter-structure.md"
+        ]
+      },
+      {
+        "id": "lists-whitespace-block-spacing",
+        "displayName": "Lists, whitespace, and block spacing",
+        "status": "authored",
+        "ruleCount": 1,
+        "builtInRuleCount": 12,
+        "rules": [
+          "rules/lists-whitespace-block-spacing.md"
+        ]
+      },
+      {
+        "id": "code-html-emphasis",
+        "displayName": "Code, HTML, and emphasis",
+        "status": "authored",
+        "ruleCount": 1,
+        "builtInRuleCount": 11,
+        "rules": [
+          "rules/code-html-emphasis.md"
+        ]
+      },
+      {
+        "id": "links-images-accessibility",
+        "displayName": "Links, images, and accessibility",
+        "status": "authored",
+        "ruleCount": 1,
+        "builtInRuleCount": 10,
+        "rules": [
+          "rules/links-images-accessibility.md"
+        ]
+      },
+      {
+        "id": "tables-layout-edges",
+        "displayName": "Tables and layout edges",
+        "status": "authored",
+        "ruleCount": 1,
+        "builtInRuleCount": 5,
+        "rules": [
+          "rules/tables-layout-edges.md"
+        ]
+      },
+      {
+        "id": "custom-rules-suppressions-toolchain",
+        "displayName": "Custom rules, suppressions, and toolchain coexistence",
+        "status": "authored",
+        "ruleCount": 1,
+        "builtInRuleCount": 0,
+        "rules": [
+          "rules/custom-rules-suppressions-toolchain.md"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "ruleCount": 7,
+    "mappedBuiltInRuleCount": 53,
+    "ruleSupportFiles": [
+      "rules/_sections.md",
+      "rules/_template.md"
+    ],
+    "rules": [
+      "rules/foundation-configuration.md",
+      "rules/headings-front-matter-structure.md",
+      "rules/lists-whitespace-block-spacing.md",
+      "rules/code-html-emphasis.md",
+      "rules/links-images-accessibility.md",
+      "rules/tables-layout-edges.md",
+      "rules/custom-rules-suppressions-toolchain.md"
+    ],
+    "referenceCount": 8,
+    "references": [
+      "references/doc-source-index.md",
+      "references/rule-family-map.md",
+      "references/config-and-validation-map.md",
+      "references/instruction-bridge.md",
+      "references/accessibility-review-map.md",
+      "references/default-rule-profile.md",
+      "references/install-and-validation.md",
+      "references/prettier-and-tooling-notes.md"
+    ],
+    "templateCount": 4,
+    "templates": [
+      "templates/markdownlint-cli2-config.template.jsonc",
+      "templates/rule-template.md",
+      "templates/research-pack-template.md",
+      "templates/comparison-matrix-template.md"
+    ],
+    "assetCount": 2,
+    "assets": [
+      "assets/taxonomy.json",
+      "assets/section-order.json"
+    ],
+    "evalSuiteCount": 1,
+    "evalPromptCount": 3,
+    "evals": [
+      "evals/evals.json"
+    ]
+  },
+  "ordering": {
+    "ruleSectionOrder": [
+      "Purpose",
+      "Upstream default",
+      "Repo-local overlay",
+      "Avoid",
+      "Review checklist",
+      "Related files",
+      "Source anchors"
+    ],
+    "recommendedRuleOrder": [
+      "rules/foundation-configuration.md",
+      "rules/headings-front-matter-structure.md",
+      "rules/lists-whitespace-block-spacing.md",
+      "rules/code-html-emphasis.md",
+      "rules/links-images-accessibility.md",
+      "rules/tables-layout-edges.md",
+      "rules/custom-rules-suppressions-toolchain.md"
+    ],
+    "referenceOrder": [
+      "references/doc-source-index.md",
+      "references/rule-family-map.md",
+      "references/config-and-validation-map.md",
+      "references/instruction-bridge.md",
+      "references/accessibility-review-map.md",
+      "references/default-rule-profile.md",
+      "references/install-and-validation.md",
+      "references/prettier-and-tooling-notes.md"
+    ],
+    "templateOrder": [
+      "templates/markdownlint-cli2-config.template.jsonc",
+      "templates/rule-template.md",
+      "templates/research-pack-template.md",
+      "templates/comparison-matrix-template.md"
+    ],
+    "plannedDomainOrder": [
+      "foundation-configuration",
+      "headings-front-matter-structure",
+      "lists-whitespace-block-spacing",
+      "code-html-emphasis",
+      "links-images-accessibility",
+      "tables-layout-edges",
+      "custom-rules-suppressions-toolchain"
+    ]
+  },
+  "distribution": {
+    "primarySurface": {
+      "id": "standalone-skills-cli",
+      "status": "canonical",
+      "officialInstallCommand": "npx skills add <source>",
+      "preferredSources": [
+        ".\\src\\skills\\martix-markdown",
+        "https://github.com/MartiXDev/ai-marketplace/tree/main/src/skills/martix-markdown"
+      ],
+      "notes": [
+        "Use the standalone package as the source of truth for local installs and direct folder-based validation.",
+        "Official docs currently show npx skills add, not npx skill add.",
+        "Prefer a direct folder path or direct GitHub tree URL because src/skills is not a documented repo-root discovery location."
+      ]
+    },
+    "secondarySurface": {
+      "id": "copilot-cli-plugin-marketplace",
+      "status": "direct-registration",
+      "marketplaceRepository": "MartiXDev/ai-marketplace",
+      "marketplaceName": "martix-ai-marketplace",
+      "pluginName": "martix-markdown",
+      "strategy": "register the canonical standalone package directly from src/skills"
+    }
+  },
+  "discovery": {
+    "dedupeKey": "martix-markdown",
+    "precedence": "first-found-wins",
+    "sameNameConflictRisk": "A standalone project or personal install can shadow a plugin-delivered copy with the same skill name.",
+    "recommendedValidationApproach": "Use a clean environment or remove any standalone install before validating the marketplace-delivered copy."
+  },
+  "references": {
+    "local": [
+      {
+        "path": "AGENTS.md",
+        "role": "long-form companion describing the grouped rule library, review routes, source boundaries, and instruction-bridge layer"
+      },
+      {
+        "path": "rules/_sections.md",
+        "role": "stable section contract for grouped markdownlint rule files"
+      },
+      {
+        "path": "rules/_template.md",
+        "role": "internal scaffold for authoring grouped markdownlint rule files"
+      },
+      {
+        "path": "references/doc-source-index.md",
+        "role": "approved source index, precedence model, grouped domain seed, and authoring guardrails"
+      },
+      {
+        "path": "references/rule-family-map.md",
+        "role": "grouped rule map covering all built-in markdownlint rule families in this package"
+      },
+      {
+        "path": "references/config-and-validation-map.md",
+        "role": "decision map for config, suppressions, validation surfaces, and custom-rule escalation"
+      },
+      {
+        "path": "references/instruction-bridge.md",
+        "role": "bridge layer that compares upstream markdownlint defaults with repo-local Markdown and accessibility overlays"
+      },
+      {
+        "path": "references/accessibility-review-map.md",
+        "role": "fast routing guide for lint-backed versus human-review accessibility checks"
+      },
+      {
+        "path": "references/default-rule-profile.md",
+        "role": "compact fallback summary of common markdownlint rule families"
+      },
+      {
+        "path": "references/install-and-validation.md",
+        "role": "install, preview, validation, and package-layout guidance"
+      },
+      {
+        "path": "references/prettier-and-tooling-notes.md",
+        "role": "package-local coexistence note for Prettier and other Markdown tooling"
+      },
+      {
+        "path": "templates/markdownlint-cli2-config.template.jsonc",
+        "role": "starter repo config sample for narrow markdownlint overrides"
+      },
+      {
+        "path": "templates/rule-template.md",
+        "role": "author-facing grouped rule scaffold"
+      },
+      {
+        "path": "templates/research-pack-template.md",
+        "role": "research memo scaffold for future markdownlint workstreams and bridge updates"
+      },
+      {
+        "path": "templates/comparison-matrix-template.md",
+        "role": "comparison scaffold for upstream-versus-overlay or toolchain analysis"
+      },
+      {
+        "path": "assets/taxonomy.json",
+        "role": "machine-readable grouped domain taxonomy, domain status, and tag hints"
+      },
+      {
+        "path": "assets/section-order.json",
+        "role": "stable section, rule, reference, and domain ordering data"
+      }
+    ],
+    "external": [
+      {
+        "title": "markdownlint README",
+        "url": "https://github.com/DavidAnson/markdownlint/blob/main/README.md"
+      },
+      {
+        "title": "markdownlint built-in rules catalog",
+        "url": "https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md"
+      },
+      {
+        "title": "markdownlint per-rule docs",
+        "url": "https://github.com/DavidAnson/markdownlint/tree/main/doc"
+      },
+      {
+        "title": "markdownlint custom rules guide",
+        "url": "https://github.com/DavidAnson/markdownlint/blob/main/doc/CustomRules.md"
+      },
+      {
+        "title": "markdownlint Prettier coexistence guide",
+        "url": "https://github.com/DavidAnson/markdownlint/blob/main/doc/Prettier.md"
+      },
+      {
+        "title": "GitHub Copilot CLI create skills documentation",
+        "url": "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/create-skills"
+      },
+      {
+        "title": "Skills CLI documentation",
+        "url": "https://skills.sh/docs"
+      }
+    ]
+  }
+}

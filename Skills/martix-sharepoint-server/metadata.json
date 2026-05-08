@@ -1,0 +1,210 @@
+{
+  "name": "martix-sharepoint-server",
+  "displayName": "MartiX SharePoint Server",
+  "version": "0.1.0-preview.1",
+  "publisher": {
+    "name": "MartiXDev",
+    "repository": "MartiXDev/ai-marketplace",
+    "distributionModel": "standalone skill with optional direct Copilot marketplace registration"
+  },
+  "summary": "Standalone-first MartiX skill package for classic and on-prem SharePoint development.",
+  "abstract": "This package is the canonical source for SharePoint farm-solution, WSP, feature-framework, event-receiver, branding, and classic provisioning guidance targeting SharePoint 2019 and Subscription Edition with SharePoint 2010/2013 legacy context.",
+  "compatibility": {
+    "primaryTarget": "GitHub Copilot CLI",
+    "secondaryTargets": [
+      "Agent Skills-compatible tools"
+    ],
+    "languageBaselines": [
+      "SharePoint Server 2019",
+      "SharePoint Subscription Edition",
+      "SharePoint 2013 context",
+      "SharePoint 2010 context"
+    ]
+  },
+  "status": {
+    "maturity": "authoring",
+    "canonicalSkillRoot": "src/skills/martix-sharepoint-server",
+    "marketplaceSourceRoot": "src/skills/martix-sharepoint-server",
+    "entrypointFilesAuthoredSeparately": [
+      "SKILL.md",
+      "AGENTS.md",
+      "LICENSE.txt"
+    ]
+  },
+  "layers": {
+    "maintainerGuide": "README.md",
+    "metadata": "metadata.json",
+    "rules": "rules/*.md",
+    "references": "references/*.md",
+    "templates": "templates/*.md",
+    "assets": "assets/*.json",
+    "futureSkillEntry": "SKILL.md",
+    "futureCompiledGuide": "AGENTS.md"
+  },
+  "taxonomy": {
+    "mode": "standalone-first",
+    "prefixCount": 6,
+    "domainCount": 6,
+    "tags": [
+      "SharePoint Server",
+      "SharePoint Subscription Edition",
+      "farm solutions",
+      "WSP",
+      "features",
+      "event receivers",
+      "branding",
+      "classic provisioning"
+    ],
+    "rulePrefixes": {
+      "foundation": "Foundation and boundaries",
+      "packaging": "Packaging and feature framework",
+      "extensibility": "Extensibility",
+      "site": "Site artifacts and information architecture",
+      "branding": "Branding",
+      "provisioning": "Provisioning and modernization"
+    },
+    "domains": [
+      {
+        "id": "foundation",
+        "displayName": "Foundation and boundaries",
+        "ruleCount": 1,
+        "rules": [
+          "rules/foundation-platform-and-boundaries.md"
+        ]
+      },
+      {
+        "id": "packaging",
+        "displayName": "Packaging and feature framework",
+        "ruleCount": 1,
+        "rules": [
+          "rules/packaging-features-and-wsp.md"
+        ]
+      },
+      {
+        "id": "extensibility",
+        "displayName": "Extensibility",
+        "ruleCount": 1,
+        "rules": [
+          "rules/extensibility-event-receivers-and-jobs.md"
+        ]
+      },
+      {
+        "id": "site-build",
+        "displayName": "Site artifacts and information architecture",
+        "ruleCount": 1,
+        "rules": [
+          "rules/site-artifacts-and-information-architecture.md"
+        ]
+      },
+      {
+        "id": "branding",
+        "displayName": "Branding",
+        "ruleCount": 1,
+        "rules": [
+          "rules/branding-master-pages-design-manager-and-themes.md"
+        ]
+      },
+      {
+        "id": "provisioning",
+        "displayName": "Provisioning and modernization",
+        "ruleCount": 1,
+        "rules": [
+          "rules/provisioning-publishing-and-modernization.md"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "ruleCount": 6,
+    "ruleSupportFiles": [
+      "rules/_sections.md",
+      "rules/_template.md"
+    ],
+    "rules": [
+      "rules/foundation-platform-and-boundaries.md",
+      "rules/packaging-features-and-wsp.md",
+      "rules/extensibility-event-receivers-and-jobs.md",
+      "rules/site-artifacts-and-information-architecture.md",
+      "rules/branding-master-pages-design-manager-and-themes.md",
+      "rules/provisioning-publishing-and-modernization.md"
+    ],
+    "referenceCount": 6,
+    "references": [
+      "references/doc-source-index.md",
+      "references/platform-and-boundaries-map.md",
+      "references/packaging-and-extensibility-map.md",
+      "references/site-and-branding-map.md",
+      "references/provisioning-modernization-map.md",
+      "references/anti-patterns-quick-reference.md"
+    ],
+    "templateCount": 3,
+    "templates": [
+      "templates/rule-template.md",
+      "templates/research-pack-template.md",
+      "templates/comparison-matrix-template.md"
+    ],
+    "assetCount": 2,
+    "assets": [
+      "assets/taxonomy.json",
+      "assets/section-order.json"
+    ],
+    "evalCount": 3,
+    "evals": [
+      "evals/evals.json"
+    ]
+  },
+  "ordering": {
+    "ruleSectionOrder": [
+      "Purpose",
+      "Default guidance",
+      "Avoid",
+      "Review checklist",
+      "Related files",
+      "Source anchors"
+    ],
+    "recommendedRuleOrder": [
+      "rules/foundation-platform-and-boundaries.md",
+      "rules/packaging-features-and-wsp.md",
+      "rules/extensibility-event-receivers-and-jobs.md",
+      "rules/site-artifacts-and-information-architecture.md",
+      "rules/branding-master-pages-design-manager-and-themes.md",
+      "rules/provisioning-publishing-and-modernization.md"
+    ],
+    "referenceOrder": [
+      "references/doc-source-index.md",
+      "references/platform-and-boundaries-map.md",
+      "references/packaging-and-extensibility-map.md",
+      "references/site-and-branding-map.md",
+      "references/provisioning-modernization-map.md",
+      "references/anti-patterns-quick-reference.md"
+    ],
+    "templateOrder": [
+      "templates/rule-template.md",
+      "templates/research-pack-template.md",
+      "templates/comparison-matrix-template.md"
+    ]
+  },
+  "distribution": {
+    "primarySurface": {
+      "id": "standalone-skills-cli",
+      "status": "canonical",
+      "officialInstallCommand": "npx skills add <source>",
+      "preferredSources": [
+        "C:/Git/MartiXDev/ai-marketplace/src/skills/martix-sharepoint-server",
+        "https://github.com/MartiXDev/ai-marketplace/tree/main/src/skills/martix-sharepoint-server"
+      ],
+      "notes": [
+        "Official docs currently show npx skills add, not npx skill add.",
+        "Prefer a direct folder path or direct GitHub tree URL because src/skills is not a documented repo-root discovery location."
+      ]
+    },
+    "secondarySurface": {
+      "id": "copilot-cli-plugin-marketplace",
+      "status": "direct-registration",
+      "marketplaceRepository": "MartiXDev/ai-marketplace",
+      "marketplaceName": "martix-ai-marketplace",
+      "pluginName": "martix-sharepoint-server",
+      "strategy": "register the canonical standalone package directly from src/skills"
+    }
+  }
+}

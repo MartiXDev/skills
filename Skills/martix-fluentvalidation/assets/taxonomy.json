@@ -1,0 +1,70 @@
+{
+  "package": "martix-fluentvalidation",
+  "mode": "standalone-first",
+  "root": "src/skills/martix-fluentvalidation",
+  "rulePrefixes": {
+    "foundation": "Installation, version boundaries, validator authoring basics, and collection or composition defaults",
+    "integration": "Dependency injection, ASP.NET Core entrypoints, async validation flow, and ecosystem boundary choices",
+    "extensibility": "Custom validators, reusable property validators, inheritance dispatch, context data, and exception shaping",
+    "runtime": "Severity, error codes, custom state, and localization behavior that affect downstream validation contracts",
+    "testing": "Validator black-box testing, test helper usage, and application-boundary integration coverage"
+  },
+  "domains": [
+    {
+      "id": "foundation",
+      "displayName": "Foundation and composition",
+      "rules": [
+        "rules/foundation-installation-versioning.md",
+        "rules/foundation-validator-basics.md",
+        "rules/foundation-collections-composition.md"
+      ]
+    },
+    {
+      "id": "integration",
+      "displayName": "Integration and registration",
+      "rules": [
+        "rules/integration-di-registration.md",
+        "rules/integration-aspnet-core.md",
+        "rules/integration-async-validation.md"
+      ]
+    },
+    {
+      "id": "extensibility",
+      "displayName": "Extensibility and advanced behavior",
+      "rules": [
+        "rules/extensibility-custom-validators.md",
+        "rules/extensibility-property-validators.md",
+        "rules/extensibility-inheritance-prevalidate-context.md"
+      ]
+    },
+    {
+      "id": "runtime",
+      "displayName": "Runtime metadata and localization",
+      "rules": [
+        "rules/runtime-severity-error-codes-state.md",
+        "rules/runtime-localization-language-manager.md"
+      ]
+    },
+    {
+      "id": "testing",
+      "displayName": "Testing and verification",
+      "rules": [
+        "rules/testing-validator-testhelper.md",
+        "rules/testing-integration-boundaries.md"
+      ]
+    }
+  ],
+  "tags": [
+    "FluentValidation",
+    "ASP.NET Core",
+    ".NET 10",
+    "C# 14",
+    "validators",
+    "rule composition",
+    "dependency injection",
+    "async validation",
+    "localization",
+    "error metadata",
+    "testing"
+  ]
+}

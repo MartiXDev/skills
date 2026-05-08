@@ -1,0 +1,59 @@
+{
+  "package": "martix-sharepoint-pnp",
+  "mode": "standalone-first",
+  "root": "src/skills/martix-sharepoint-pnp",
+  "rulePrefixes": {
+    "foundation": "Tool selection and boundaries",
+    "auth": "Authentication and connections",
+    "automation": "Automation patterns",
+    "provisioning": "Provisioning and composition",
+    "operations": "Operations and integration"
+  },
+  "domains": [
+    {
+      "id": "foundation",
+      "displayName": "Tool selection and boundaries",
+      "rules": [
+        "rules/tool-selection-and-boundaries.md"
+      ]
+    },
+    {
+      "id": "auth",
+      "displayName": "Authentication and connections",
+      "rules": [
+        "rules/auth-app-registration-and-connections.md"
+      ]
+    },
+    {
+      "id": "automation",
+      "displayName": "Automation patterns",
+      "rules": [
+        "rules/pnppowershell-automation-patterns.md",
+        "rules/cli-m365-and-tenant-automation.md"
+      ]
+    },
+    {
+      "id": "provisioning",
+      "displayName": "Provisioning and composition",
+      "rules": [
+        "rules/pnpjs-and-provisioning-composition.md"
+      ]
+    },
+    {
+      "id": "operations",
+      "displayName": "Operations and integration",
+      "rules": [
+        "rules/governance-idempotency-and-spfx-integration.md"
+      ]
+    }
+  ],
+  "tags": [
+    "PnP PowerShell",
+    "CLI for Microsoft 365",
+    "PnPjs",
+    "provisioning",
+    "automation",
+    "authentication",
+    "SharePoint"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "package": "martix-sharepoint-server",
+  "mode": "standalone-first",
+  "root": "src/skills/martix-sharepoint-server",
+  "rulePrefixes": {
+    "foundation": "Foundation and boundaries",
+    "packaging": "Packaging and feature framework",
+    "extensibility": "Extensibility",
+    "site": "Site artifacts and information architecture",
+    "branding": "Branding",
+    "provisioning": "Provisioning and modernization"
+  },
+  "domains": [
+    {
+      "id": "foundation",
+      "displayName": "Foundation and boundaries",
+      "rules": [
+        "rules/foundation-platform-and-boundaries.md"
+      ]
+    },
+    {
+      "id": "packaging",
+      "displayName": "Packaging and feature framework",
+      "rules": [
+        "rules/packaging-features-and-wsp.md"
+      ]
+    },
+    {
+      "id": "extensibility",
+      "displayName": "Extensibility",
+      "rules": [
+        "rules/extensibility-event-receivers-and-jobs.md"
+      ]
+    },
+    {
+      "id": "site-build",
+      "displayName": "Site artifacts and information architecture",
+      "rules": [
+        "rules/site-artifacts-and-information-architecture.md"
+      ]
+    },
+    {
+      "id": "branding",
+      "displayName": "Branding",
+      "rules": [
+        "rules/branding-master-pages-design-manager-and-themes.md"
+      ]
+    },
+    {
+      "id": "provisioning",
+      "displayName": "Provisioning and modernization",
+      "rules": [
+        "rules/provisioning-publishing-and-modernization.md"
+      ]
+    }
+  ],
+  "tags": [
+    "SharePoint Server",
+    "SharePoint Subscription Edition",
+    "farm solutions",
+    "WSP",
+    "features",
+    "event receivers",
+    "branding",
+    "classic provisioning"
+  ]
+}

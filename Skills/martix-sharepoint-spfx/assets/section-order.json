@@ -1,0 +1,46 @@
+{
+  "package": "martix-sharepoint-spfx",
+  "ruleSectionOrder": [
+    "Purpose",
+    "Default guidance",
+    "Avoid",
+    "Review checklist",
+    "Related files",
+    "Source anchors"
+  ],
+  "recommendedRuleOrder": [
+    "rules/foundation-scope-and-support-boundaries.md",
+    "rules/tooling-versioning-and-compatibility.md",
+    "rules/projects-toolchain-and-scaffolding.md",
+    "rules/webparts-property-panes-and-properties.md",
+    "rules/extensions-application-command-field.md",
+    "rules/components-form-customizers-and-library-components.md",
+    "rules/data-sharepoint-graph-and-aad-clients.md",
+    "rules/deployment-packaging-and-tenant-rollout.md",
+    "rules/hosts-teams-and-viva-integration.md",
+    "rules/ui-react-typescript-and-theming.md",
+    "rules/migration-classic-to-modern-spfx.md"
+  ],
+  "referenceOrder": [
+    "references/doc-source-index.md",
+    "references/foundation-scope-support-map.md",
+    "references/version-support-map.md",
+    "references/toolchain-deployment-map.md",
+    "references/component-selection-map.md",
+    "references/ui-theming-map.md",
+    "references/data-integration-map.md",
+    "references/teams-viva-map.md",
+    "references/migration-map.md",
+    "references/cookbook-index.md"
+  ],
+  "templateOrder": [
+    "templates/rule-template.md",
+    "templates/research-pack-template.md",
+    "templates/comparison-matrix-template.md"
+  ],
+  "assetOrder": [
+    "assets/taxonomy.json",
+    "assets/section-order.json",
+    "assets/host-support-matrix.json"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "ruleSectionOrder": [
+    "Purpose",
+    "Default guidance",
+    "Avoid",
+    "Review checklist",
+    "Related files",
+    "Source anchors"
+  ],
+  "recommendedRuleOrder": [
+    "rules/tool-selection-and-boundaries.md",
+    "rules/auth-app-registration-and-connections.md",
+    "rules/pnppowershell-automation-patterns.md",
+    "rules/cli-m365-and-tenant-automation.md",
+    "rules/pnpjs-and-provisioning-composition.md",
+    "rules/governance-idempotency-and-spfx-integration.md"
+  ],
+  "referenceOrder": [
+    "references/doc-source-index.md",
+    "references/tool-selection-map.md",
+    "references/auth-connection-map.md",
+    "references/automation-recipes.md",
+    "references/provisioning-composition-map.md",
+    "references/anti-patterns-quick-reference.md"
+  ],
+  "templateOrder": [
+    "templates/rule-template.md",
+    "templates/research-pack-template.md",
+    "templates/comparison-matrix-template.md"
+  ]
+}
