@@ -16,6 +16,9 @@ copilot plugin install <skill-name>@martix-skills
 | --- | --- |
 | `SKILL.md` | Concise routing entrypoint. |
 | `AGENTS.md` | Maintainer and companion-agent guidance. |
+| `plugin.json` | Package registration metadata used by repository validation and plugin tooling. |
+| `metadata.json` | Skill metadata consumed by repository and marketplace workflows. |
+| `LICENSE.txt` | Required package license file. |
 | `rules\` | Domain rules. |
 | `references\` | Source maps and supporting references. |
 | `templates\` | Authoring scaffolds. |
