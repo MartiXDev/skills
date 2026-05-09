@@ -27,7 +27,7 @@ function Convert-ToRepoRelativePath {
         [string]$InputPath
     )
 
-    $normalizedRepoRoot = [System.IO.Path]::TrimEndingDirectorySeparator([System.IO.Path]::GetFullPath($RepoRoot))
+    $normalizedRepoRoot = [System.IO.Path]::TrimEndingDirectorySeparator($RepoRoot)
 
     $fullPath = if ([System.IO.Path]::IsPathRooted($InputPath)) {
         [System.IO.Path]::GetFullPath($InputPath)
@@ -50,7 +50,7 @@ function Convert-ToRepoRelativePath {
         -not [string]::Equals($relativePath, '..', [System.StringComparison]::Ordinal) -and
         -not $relativePathForCheck.StartsWith('../', [System.StringComparison]::Ordinal)
     ) {
-        return $relativePath.TrimStart('\', '/') -replace '\\', '/'
+        return $relativePath -replace '\\', '/'
     }
 
     return $fullPath
