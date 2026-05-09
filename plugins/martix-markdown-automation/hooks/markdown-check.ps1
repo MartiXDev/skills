@@ -45,11 +45,10 @@ function Convert-ToRepoRelativePath {
     }
 
     $relativePath = [System.IO.Path]::GetRelativePath($normalizedRepoRoot, $fullPath)
+    $relativePathForCheck = $relativePath -replace '\\', '/'
     if (
         -not [string]::Equals($relativePath, '..', [System.StringComparison]::Ordinal) -and
-        -not $relativePath.StartsWith("..$([System.IO.Path]::DirectorySeparatorChar)", [System.StringComparison]::Ordinal) -and
-        -not $relativePath.StartsWith("../", [System.StringComparison]::Ordinal) -and
-        -not $relativePath.StartsWith("..\", [System.StringComparison]::Ordinal)
+        -not $relativePathForCheck.StartsWith('../', [System.StringComparison]::Ordinal)
     ) {
         return $relativePath.TrimStart('\', '/') -replace '\\', '/'
     }
