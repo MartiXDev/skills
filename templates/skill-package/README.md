@@ -6,7 +6,7 @@
 
 ```sh
 npx skills add https://github.com/MartiXDev/skills --skill <skill-name>
-copilot plugin marketplace add MartiXDev/skills
+copilot plugin marketplace add MartiXDev/skills # one-time setup per machine
 copilot plugin install <skill-name>@martix-skills
 ```
 
