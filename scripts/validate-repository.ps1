@@ -282,8 +282,10 @@ foreach ($warning in $warnings) {
 }
 
 if ($issues.Count -gt 0) {
-    $issues | Format-Table -AutoSize | Out-String -Width 240 | Write-Error
+    $issueTable = $issues | Format-Table -AutoSize | Out-String -Width 240
+    Write-Host $issueTable
     exit 1
 }
 
 Write-Host "Repository validation passed."
+exit 0
