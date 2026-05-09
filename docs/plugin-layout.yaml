@@ -1,0 +1,25 @@
+version: 1
+plugins_root: plugins
+standalone_skills_root: skills
+metadata_file: plugin.yaml
+naming:
+  required_prefix: martix-
+  plugin_directory_pattern: "^martix-[a-z0-9-]+$"
+  component_name_pattern: "^martix-[a-z0-9-]+$"
+rules:
+  - Installable marketplace sources may live under plugins/<plugin> or skills/<skill-name>.
+  - Use skills/<skill-name> as the preferred single-source model when a standalone skill is sufficient.
+  - Agents, prompts, instructions, hooks, and manifests must remain under plugins/<plugin>/... when a plugin wrapper exists.
+  - Plugin-local skills live under plugins/<plugin>/skills only when the plugin genuinely needs plugin-scoped skill assets.
+  - Standalone skills under skills/<skill-name> may be registered directly in marketplace metadata.
+  - New skill source files must never be created under .github.
+  - Directories listed in non_installable_template_sources are shared template sources and are excluded from installable plugin checks.
+required_plugin_directories:
+  - agents
+  - skills
+  - prompts
+  - instructions
+  - hooks
+non_installable_template_sources:
+  - martix-template
+phase_1_plugin: martix-dotnet-library

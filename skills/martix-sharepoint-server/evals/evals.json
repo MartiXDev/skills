@@ -1,0 +1,23 @@
+{
+  "skill_name": "martix-sharepoint-server",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need to update an on-prem SharePoint 2019 publishing portal that still uses master pages, page layouts, and a custom WSP. Help me review the solution packaging, feature activation order, and upgrade risks before we deploy to QA.",
+      "expected_output": "Routes to classic packaging, branding, and upgrade guidance instead of SPFx-first advice.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "We inherited a Subscription Edition farm with list event receivers, feature stapling, and a bunch of modules in a solution package. I want a safe plan to keep it working while identifying what should be modernized later.",
+      "expected_output": "Covers feature, event receiver, module, and modernization-boundary guidance for on-prem delivery.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Can you help me design a classic SharePoint site definition and provisioning story for a branded intranet where we still rely on page layouts, themes, and managed navigation?",
+      "expected_output": "Uses the classic site artifact, branding, and information-architecture workstreams.",
+      "files": []
+    }
+  ]
+}

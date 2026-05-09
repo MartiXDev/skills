@@ -1,0 +1,31 @@
+{
+  "ruleSectionOrder": [
+    "Purpose",
+    "Default guidance",
+    "Avoid",
+    "Review checklist",
+    "Related files",
+    "Source anchors"
+  ],
+  "recommendedRuleOrder": [
+    "rules/foundation-platform-and-boundaries.md",
+    "rules/packaging-features-and-wsp.md",
+    "rules/extensibility-event-receivers-and-jobs.md",
+    "rules/site-artifacts-and-information-architecture.md",
+    "rules/branding-master-pages-design-manager-and-themes.md",
+    "rules/provisioning-publishing-and-modernization.md"
+  ],
+  "referenceOrder": [
+    "references/doc-source-index.md",
+    "references/platform-and-boundaries-map.md",
+    "references/packaging-and-extensibility-map.md",
+    "references/site-and-branding-map.md",
+    "references/provisioning-modernization-map.md",
+    "references/anti-patterns-quick-reference.md"
+  ],
+  "templateOrder": [
+    "templates/rule-template.md",
+    "templates/research-pack-template.md",
+    "templates/comparison-matrix-template.md"
+  ]
+}

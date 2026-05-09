@@ -1,0 +1,353 @@
+{
+  "name": "martix-tunit",
+  "displayName": "MartiX TUnit",
+  "version": "0.1.0-preview.1",
+  "publisher": {
+    "name": "MartiXDev",
+    "repository": "MartiXDev/ai-marketplace",
+    "distributionModel": "standalone skill with direct Copilot marketplace registration"
+  },
+  "summary": "Standalone-first MartiX skill package for TUnit test authoring, parameterized data-driven tests, lifecycle hooks, parallel-by-default execution, async assertions, dependency injection, mocking, extensibility, and xUnit/NUnit/MSTest migration.",
+  "abstract": "This package is the canonical source for the MartiX TUnit skill. It ships the authored rule library, reference maps, maintainer docs, templates, and taxonomy for TUnit on Microsoft.Testing.Platform across 7 domains.",
+  "compatibility": {
+    "primaryTarget": "GitHub Copilot CLI",
+    "secondaryTargets": [
+      "Agent Skills-compatible tools"
+    ],
+    "languageBaselines": [
+      ".NET 8+",
+      "C# 12+",
+      "TUnit"
+    ]
+  },
+  "status": {
+    "maturity": "preview",
+    "scaffoldOnly": false,
+    "scaffoldNote": "The package is fully authored for its initial preview scope: 15 rule files, 10 reference files, maintainer docs, templates, taxonomy assets, and marketplace registration metadata are in place.",
+    "canonicalSkillRoot": "skills/martix-tunit",
+    "marketplaceSourceRoot": "skills/martix-tunit"
+  },
+  "layers": {
+    "skillEntry": "SKILL.md",
+    "maintainerGuide": "README.md",
+    "companionGuide": "AGENTS.md",
+    "metadata": "metadata.json",
+    "license": "LICENSE.txt",
+    "rules": "rules/*.md",
+    "references": "references/*.md",
+    "rulesSupport": [
+      "rules/_sections.md",
+      "rules/_template.md"
+    ],
+    "templates": "templates/*.md",
+    "assets": "assets/*.json"
+  },
+  "taxonomy": {
+    "mode": "standalone-first",
+    "prefixCount": 7,
+    "domainCount": 7,
+    "tags": [
+      "TUnit",
+      ".NET 8",
+      ".NET 10",
+      "C# 12",
+      "C# 14",
+      "testing",
+      "unit testing",
+      "parameterized tests",
+      "data-driven tests",
+      "parallel execution",
+      "Microsoft.Testing.Platform",
+      "assertions",
+      "dependency injection",
+      "lifecycle hooks",
+      "mocking",
+      "TUnit.Mocks",
+      "migration",
+      "source generation",
+      "extensibility"
+    ],
+    "rulePrefixes": {
+      "foundation": "Installation, project shape, OutputType=Exe model, source generator, runner wiring, Microsoft.Testing.Platform integration, IDE configuration, and platform constraints",
+      "data": "Parameterized tests, Arguments attribute, MethodDataSource, ClassDataSource, TestDataRow, matrix tests, combined data sources, nested data sources, generic attributes, and IDataSourceGeneratorAttribute",
+      "lifecycle": "Before and After hooks at Test/Class/Assembly/TestSession/TestDiscovery scopes, BeforeEvery/AfterEvery, hook execution order, property injection, IAsyncInitializer, IAsyncDiscoveryInitializer, and dependency injection construction",
+      "assertions": "Assert.That entry point, async assertion model, unawaited-assertion pitfall, value assertions, collection assertions, async and exception assertions, combining assertions, Assert.Multiple, member assertions, and custom assertion extensibility",
+      "execution": "Parallel-by-default behavior, ParallelLimiter<T>, NotInParallel, DependsOn, test ordering, retries, repeats, timeouts, test filters, skip, explicit, CI/CD reporting, engine modes, and AOT constraints",
+      "mocking-extending": "TUnit.Mocks beta library, mock setup and verification, argument matchers, ITestRegisteredEventReceiver, custom test attributes, data source generators, argument formatters, dynamic tests, and built-in extension points",
+      "migration": "Behavioral differences from xUnit, NUnit, and MSTest, attribute equivalence, class and method lifecycle mapping, assertion API differences, and step-by-step migration guidance"
+    },
+    "domains": [
+      {
+        "id": "foundation",
+        "displayName": "Foundation and project setup",
+        "ruleCount": 1,
+        "rules": [
+          "rules/foundation-installation-project.md"
+        ]
+      },
+      {
+        "id": "data",
+        "displayName": "Data-driven and parameterized tests",
+        "ruleCount": 3,
+        "rules": [
+          "rules/data-inline-method-sources.md",
+          "rules/data-class-property-sources.md",
+          "rules/data-matrix-combined-generators.md"
+        ]
+      },
+      {
+        "id": "lifecycle",
+        "displayName": "Lifecycle, hooks, and dependency injection",
+        "ruleCount": 3,
+        "rules": [
+          "rules/lifecycle-hooks.md",
+          "rules/lifecycle-property-injection.md",
+          "rules/lifecycle-di.md"
+        ]
+      },
+      {
+        "id": "assertions",
+        "displayName": "Assertions",
+        "ruleCount": 3,
+        "rules": [
+          "rules/assertions-fundamentals.md",
+          "rules/assertions-value-collection-async.md",
+          "rules/assertions-combining-custom.md"
+        ]
+      },
+      {
+        "id": "execution",
+        "displayName": "Parallel execution and execution control",
+        "ruleCount": 2,
+        "rules": [
+          "rules/execution-parallelism.md",
+          "rules/execution-control.md"
+        ]
+      },
+      {
+        "id": "mocking-extending",
+        "displayName": "Mocking and extensibility",
+        "ruleCount": 2,
+        "rules": [
+          "rules/mocking-tunit-mocks.md",
+          "rules/extending-extension-points.md"
+        ]
+      },
+      {
+        "id": "migration",
+        "displayName": "Migration and framework comparison",
+        "ruleCount": 1,
+        "rules": [
+          "rules/migration-comparison.md"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "ruleCount": 15,
+    "ruleSupportFiles": [
+      "rules/_sections.md",
+      "rules/_template.md"
+    ],
+    "rules": [
+      "rules/foundation-installation-project.md",
+      "rules/data-inline-method-sources.md",
+      "rules/data-class-property-sources.md",
+      "rules/data-matrix-combined-generators.md",
+      "rules/lifecycle-hooks.md",
+      "rules/lifecycle-property-injection.md",
+      "rules/lifecycle-di.md",
+      "rules/assertions-fundamentals.md",
+      "rules/assertions-value-collection-async.md",
+      "rules/assertions-combining-custom.md",
+      "rules/execution-parallelism.md",
+      "rules/execution-control.md",
+      "rules/mocking-tunit-mocks.md",
+      "rules/extending-extension-points.md",
+      "rules/migration-comparison.md"
+    ],
+    "referenceCount": 10,
+    "references": [
+      "references/doc-source-index.md",
+      "references/seed-skill-harvest.md",
+      "references/foundation-map.md",
+      "references/data-map.md",
+      "references/lifecycle-map.md",
+      "references/assertions-map.md",
+      "references/execution-map.md",
+      "references/mocking-extending-map.md",
+      "references/migration-attribute-matrix.md",
+      "references/cookbook-index.md"
+    ],
+    "templateCount": 3,
+    "templates": [
+      "templates/rule-template.md",
+      "templates/research-pack-template.md",
+      "templates/comparison-matrix-template.md"
+    ],
+    "assetCount": 2,
+    "assets": [
+      "assets/taxonomy.json",
+      "assets/section-order.json"
+    ]
+  },
+  "ordering": {
+    "ruleSectionOrder": [
+      "Purpose",
+      "Default guidance",
+      "Avoid",
+      "Review checklist",
+      "Related files",
+      "Source anchors"
+    ],
+    "recommendedRuleOrder": [
+      "rules/foundation-installation-project.md",
+      "rules/data-inline-method-sources.md",
+      "rules/data-class-property-sources.md",
+      "rules/data-matrix-combined-generators.md",
+      "rules/lifecycle-hooks.md",
+      "rules/lifecycle-property-injection.md",
+      "rules/lifecycle-di.md",
+      "rules/assertions-fundamentals.md",
+      "rules/assertions-value-collection-async.md",
+      "rules/assertions-combining-custom.md",
+      "rules/execution-parallelism.md",
+      "rules/execution-control.md",
+      "rules/mocking-tunit-mocks.md",
+      "rules/extending-extension-points.md",
+      "rules/migration-comparison.md"
+    ],
+    "referenceOrder": [
+      "references/doc-source-index.md",
+      "references/seed-skill-harvest.md",
+      "references/foundation-map.md",
+      "references/data-map.md",
+      "references/lifecycle-map.md",
+      "references/assertions-map.md",
+      "references/execution-map.md",
+      "references/mocking-extending-map.md",
+      "references/migration-attribute-matrix.md",
+      "references/cookbook-index.md"
+    ],
+    "templateOrder": [
+      "templates/rule-template.md",
+      "templates/research-pack-template.md",
+      "templates/comparison-matrix-template.md"
+    ]
+  },
+  "distribution": {
+    "primarySurface": {
+      "id": "standalone-skills-cli",
+      "status": "canonical",
+      "officialInstallCommand": "npx skills add <source>",
+      "preferredSources": [
+        ".\\src\\skills\\martix-tunit",
+        "https://github.com/MartiXDev/ai-marketplace/tree/main/skills/martix-tunit"
+      ],
+      "notes": [
+        "Use the standalone package as the source of truth for local installs and direct folder-based validation.",
+        "Prefer a direct folder path or direct GitHub tree URL because skills is not a documented repo-root discovery location."
+      ]
+    },
+    "secondarySurface": {
+      "id": "copilot-cli-plugin-marketplace",
+      "status": "direct-registration",
+      "marketplaceRepository": "MartiXDev/ai-marketplace",
+      "marketplaceName": "martix-ai-marketplace",
+      "pluginName": "martix-tunit",
+      "strategy": "register the canonical standalone package directly from skills"
+    }
+  },
+  "discovery": {
+    "dedupeKey": "martix-tunit",
+    "precedence": "first-found-wins",
+    "sameNameConflictRisk": "A standalone project or personal install can shadow a future plugin-delivered copy with the same skill name.",
+    "recommendedValidationApproach": "Use a clean environment or remove the standalone install before validating any future marketplace wrapper."
+  },
+  "references": {
+    "local": [
+      {
+        "path": "rules/_sections.md",
+        "role": "stable six-section contract that every TUnit rule file must follow"
+      },
+      {
+        "path": "rules/_template.md",
+        "role": "starter scaffold for authoring new TUnit rule files"
+      },
+      {
+        "path": "references/doc-source-index.md",
+        "role": "approved source index, precedence rules, and exclusion guardrails for all TUnit rule authoring"
+      },
+      {
+        "path": "references/seed-skill-harvest.md",
+        "role": "maintainer memo showing which ideas from the legacy csharp-tunit seed skill were reused, corrected, or intentionally rejected"
+      },
+      {
+        "path": "references/foundation-map.md",
+        "role": "entry map for installation, project shape, runner wiring, and execution model guidance"
+      },
+      {
+        "path": "references/data-map.md",
+        "role": "entry map for parameterized data sources, matrix tests, and generator patterns"
+      },
+      {
+        "path": "references/lifecycle-map.md",
+        "role": "entry map for hooks, hook execution order, property injection, and DI construction"
+      },
+      {
+        "path": "references/assertions-map.md",
+        "role": "entry map for assertion API, async model, assertion chains, and custom assertion authoring"
+      },
+      {
+        "path": "references/execution-map.md",
+        "role": "entry map for parallelism, execution control, retries, timeouts, and CI reporting"
+      },
+      {
+        "path": "references/mocking-extending-map.md",
+        "role": "entry map for TUnit.Mocks beta usage and extension point authoring"
+      },
+      {
+        "path": "references/migration-attribute-matrix.md",
+        "role": "full attribute equivalence table for xUnit, NUnit, and MSTest migration to TUnit"
+      },
+      {
+        "path": "references/cookbook-index.md",
+        "role": "secondary recipe index linking advanced integration scenarios, ASP.NET, Aspire, Playwright, and benchmarks"
+      },
+      {
+        "path": "templates/research-pack-template.md",
+        "role": "research memo scaffold for expanding TUnit workstreams"
+      },
+      {
+        "path": "assets/taxonomy.json",
+        "role": "machine-readable domain taxonomy, rule prefixes, and planned workstream grouping"
+      },
+      {
+        "path": "assets/section-order.json",
+        "role": "stable section and domain ordering for rule authoring and discovery"
+      }
+    ],
+    "external": [
+      {
+        "title": "TUnit documentation",
+        "url": "https://tunit.dev/"
+      },
+      {
+        "title": "TUnit GitHub repository",
+        "url": "https://github.com/thomhurst/TUnit"
+      },
+      {
+        "title": "Microsoft.Testing.Platform documentation",
+        "url": "https://learn.microsoft.com/en-us/dotnet/core/testing/microsoft-testing-platform-intro"
+      },
+      {
+        "title": "GitHub Copilot CLI create skills documentation",
+        "url": "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/create-skills"
+      },
+      {
+        "title": "Skills CLI documentation",
+        "url": "https://skills.sh/docs"
+      }
+    ]
+  }
+}

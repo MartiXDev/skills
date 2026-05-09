@@ -1,0 +1,38 @@
+{
+  "ruleSectionOrder": [
+    "Purpose",
+    "Default guidance",
+    "Avoid",
+    "Review checklist",
+    "Related files",
+    "Source anchors"
+  ],
+  "recommendedRuleOrder": [
+    "rules/foundation-installation-versioning.md",
+    "rules/foundation-validator-basics.md",
+    "rules/foundation-collections-composition.md",
+    "rules/integration-di-registration.md",
+    "rules/integration-aspnet-core.md",
+    "rules/integration-async-validation.md",
+    "rules/extensibility-custom-validators.md",
+    "rules/extensibility-property-validators.md",
+    "rules/extensibility-inheritance-prevalidate-context.md",
+    "rules/runtime-severity-error-codes-state.md",
+    "rules/runtime-localization-language-manager.md",
+    "rules/testing-validator-testhelper.md",
+    "rules/testing-integration-boundaries.md"
+  ],
+  "referenceOrder": [
+    "references/foundation-map.md",
+    "references/integration-map.md",
+    "references/extensibility-map.md",
+    "references/runtime-metadata-map.md",
+    "references/testing-map.md",
+    "references/blazor-ecosystem-note.md"
+  ],
+  "templateOrder": [
+    "templates/rule-template.md",
+    "templates/research-pack-template.md",
+    "templates/comparison-matrix-template.md"
+  ]
+}

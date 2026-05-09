@@ -1,0 +1,317 @@
+{
+  "name": "martix-sharepoint-spfx",
+  "displayName": "MartiX SharePoint SPFx",
+  "version": "0.1.0-preview.1",
+  "publisher": {
+    "name": "MartiXDev",
+    "repository": "MartiXDev/ai-marketplace",
+    "distributionModel": "standalone skill with optional direct Copilot marketplace registration"
+  },
+  "summary": "Standalone-first MartiX skill package for SharePoint Framework client-side development across SharePoint Online, Teams-connected, and Viva-connected SPFx scenarios.",
+  "abstract": "This package is the canonical source for the MartiX SharePoint Framework skill. It ships authored entrypoints, 11 high-signal rule files across 10 domains, 10 reference maps, templates, taxonomy assets, a host-support matrix, and eval seeds for SharePoint Online-first SPFx work while explicitly excluding classic farm-solution development.",
+  "compatibility": {
+    "primaryTarget": "GitHub Copilot CLI",
+    "secondaryTargets": [
+      "Agent Skills-compatible tools"
+    ],
+    "languageBaselines": [
+      "SharePoint Online",
+      "SPFx",
+      "React",
+      "TypeScript",
+      "Teams host integration",
+      "Viva Connections integration",
+      "SharePoint Server 2019 or Subscription Edition compatibility notes"
+    ]
+  },
+  "status": {
+    "maturity": "preview",
+    "scaffoldOnly": false,
+    "scaffoldNote": "The package is fully authored for its initial preview scope: 11 SPFx rule files across 10 domains, 10 reference docs, local markdownlint config, taxonomy assets, a host-support matrix, install-focused entrypoints, and eval scaffolding are in place. Shared marketplace registration is handled separately from this package.",
+    "canonicalSkillRoot": "skills/martix-sharepoint-spfx",
+    "marketplaceSourceRoot": "skills/martix-sharepoint-spfx"
+  },
+  "distribution": {
+    "mode": "standalone-first",
+    "standaloneInstallReady": true,
+    "primarySurface": {
+      "id": "standalone-skills-cli",
+      "status": "canonical",
+      "officialInstallCommand": "npx skills add <source>",
+      "preferredSources": [
+        "C:/Git/MartiXDev/ai-marketplace/skills/martix-sharepoint-spfx",
+        "https://github.com/MartiXDev/ai-marketplace/tree/main/skills/martix-sharepoint-spfx"
+      ],
+      "notes": [
+        "Official docs currently show npx skills add, not npx skill add.",
+        "Prefer a direct folder path or direct GitHub tree URL because skills is not a documented repo-root discovery location."
+      ]
+    },
+    "secondarySurface": {
+      "id": "copilot-cli-plugin-marketplace",
+      "status": "shared-registration-ready",
+      "marketplaceRepository": "MartiXDev/ai-marketplace",
+      "marketplaceName": "martix-ai-marketplace",
+      "pluginName": "martix-sharepoint-spfx",
+      "strategy": "register the canonical standalone package directly from skills through repository-level shared metadata"
+    },
+    "note": "This folder is the canonical standalone package source. Shared marketplace registration is managed outside the package and can point here without a duplicate mirror."
+  },
+  "layers": {
+    "skillEntry": "SKILL.md",
+    "maintainerGuide": "README.md",
+    "companionGuide": "AGENTS.md",
+    "metadata": "metadata.json",
+    "license": "LICENSE.txt",
+    "rules": "rules/*.md",
+    "references": "references/*.md",
+    "rulesSupport": [
+      "rules/_sections.md",
+      "rules/_template.md"
+    ],
+    "templates": "templates/*.md",
+    "assets": "assets/*.json",
+    "evals": "evals/evals.json",
+    "lintConfig": ".markdownlint.json"
+  },
+  "sourcePolicy": {
+    "approvedIndex": "references/doc-source-index.md",
+    "tocRoot": "https://raw.githubusercontent.com/SharePoint/sp-dev-docs/main/docs/toc.yml",
+    "precedenceModel": [
+      "Use current SharePoint developer TOC lanes and SPFx-specific Microsoft Learn pages first for surface selection, toolchain, packaging, and host-integration guidance.",
+      "Treat SharePoint Online as the default SPFx target and use current compatibility tables for exact Node, TypeScript, and React guidance.",
+      "Use SharePoint Server 2019 and Subscription Edition pages only as compatibility constraints, not as the default implementation baseline for modern client-side work.",
+      "When current official docs disagree about Subscription Edition support, keep the answer conservative and name the ambiguity explicitly instead of flattening it.",
+      "Route classic farm-solution topics to separate server-side SharePoint guidance and provisioning or automation topics to separate provisioning guidance."
+    ]
+  },
+  "taxonomy": {
+    "mode": "standalone-first",
+    "prefixCount": 10,
+    "domainCount": 10,
+    "tags": [
+      "SharePoint Online",
+      "SPFx",
+      "SharePoint Framework",
+      "React",
+      "TypeScript",
+      "web parts",
+      "property panes",
+      "extensions",
+      "Application Customizer",
+      "Command Set",
+      "Field Customizer",
+      "Form Customizer",
+      "library components",
+      "MSGraphClientV3",
+      "AadHttpClient",
+      "skipFeatureDeployment",
+      "Teams",
+      "Viva Connections",
+      "theming",
+      "migration",
+      "SharePoint 2019",
+      "SharePoint Subscription Edition"
+    ],
+    "rulePrefixes": {
+      "foundation": "SharePoint Online-first scope checks, host boundaries, classic exclusions, and conservative support notes",
+      "tooling": "SPFx version compatibility, Node or React alignment, Heft versus gulp, scaffolding, serve, and debug posture",
+      "webparts": "Client-side web parts, property panes, propertiesMetadata, reactive versus non-reactive configuration, and page-hosted experiences",
+      "extensions": "Application Customizers, Command Sets, Field Customizers, placeholders, and extension-specific surface selection",
+      "form-libraries": "Form Customizers, list or library form lifecycle, content-type associations, and library component reuse",
+      "data": "SPHttpClient, PnPjs, MSGraphClientV3, AadHttpClient, permission requests, and runtime API boundaries",
+      "deployment": "package-solution.json, feature packaging, asset hosting, app catalog rollout, and skipFeatureDeployment posture",
+      "hosts": "Teams supportedHosts, Teams packaging choices, messaging-extension boundaries, Viva Connections, and ACE-related handoffs",
+      "ui": "React package posture, Fluent or Office UI Fabric integration, theme tokens, CSS isolation, and theme-aware UI design",
+      "migration": "Script Editor, Content Editor, JSLink, UserCustomAction, ECB, JSOM, and classic-to-modern SPFx translation"
+    },
+    "domains": [
+      {
+        "id": "foundation",
+        "displayName": "Foundation and support boundaries",
+        "ruleCount": 1,
+        "referenceMap": "references/foundation-scope-support-map.md",
+        "rules": [
+          "rules/foundation-scope-and-support-boundaries.md"
+        ]
+      },
+      {
+        "id": "tooling",
+        "displayName": "Versioning, compatibility, and scaffolding",
+        "ruleCount": 2,
+        "referenceMap": "references/version-support-map.md",
+        "rules": [
+          "rules/tooling-versioning-and-compatibility.md",
+          "rules/projects-toolchain-and-scaffolding.md"
+        ]
+      },
+      {
+        "id": "webparts",
+        "displayName": "Web parts and property panes",
+        "ruleCount": 1,
+        "referenceMap": "references/component-selection-map.md",
+        "rules": [
+          "rules/webparts-property-panes-and-properties.md"
+        ]
+      },
+      {
+        "id": "extensions",
+        "displayName": "Extensions",
+        "ruleCount": 1,
+        "referenceMap": "references/component-selection-map.md",
+        "rules": [
+          "rules/extensions-application-command-field.md"
+        ]
+      },
+      {
+        "id": "form-libraries",
+        "displayName": "Form Customizers and library components",
+        "ruleCount": 1,
+        "referenceMap": "references/component-selection-map.md",
+        "rules": [
+          "rules/components-form-customizers-and-library-components.md"
+        ]
+      },
+      {
+        "id": "data",
+        "displayName": "Data and API clients",
+        "ruleCount": 1,
+        "referenceMap": "references/data-integration-map.md",
+        "rules": [
+          "rules/data-sharepoint-graph-and-aad-clients.md"
+        ]
+      },
+      {
+        "id": "deployment",
+        "displayName": "Packaging, deployment, and tenant rollout",
+        "ruleCount": 1,
+        "referenceMap": "references/toolchain-deployment-map.md",
+        "rules": [
+          "rules/deployment-packaging-and-tenant-rollout.md"
+        ]
+      },
+      {
+        "id": "hosts",
+        "displayName": "Teams and Viva host integration",
+        "ruleCount": 1,
+        "referenceMap": "references/teams-viva-map.md",
+        "rules": [
+          "rules/hosts-teams-and-viva-integration.md"
+        ]
+      },
+      {
+        "id": "ui",
+        "displayName": "React, TypeScript, and theming",
+        "ruleCount": 1,
+        "referenceMap": "references/ui-theming-map.md",
+        "rules": [
+          "rules/ui-react-typescript-and-theming.md"
+        ]
+      },
+      {
+        "id": "migration",
+        "displayName": "Migration and modernization",
+        "ruleCount": 1,
+        "referenceMap": "references/migration-map.md",
+        "rules": [
+          "rules/migration-classic-to-modern-spfx.md"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "ruleCount": 11,
+    "ruleSupportFiles": [
+      "rules/_sections.md",
+      "rules/_template.md"
+    ],
+    "rules": [
+      "rules/foundation-scope-and-support-boundaries.md",
+      "rules/tooling-versioning-and-compatibility.md",
+      "rules/projects-toolchain-and-scaffolding.md",
+      "rules/webparts-property-panes-and-properties.md",
+      "rules/extensions-application-command-field.md",
+      "rules/components-form-customizers-and-library-components.md",
+      "rules/data-sharepoint-graph-and-aad-clients.md",
+      "rules/deployment-packaging-and-tenant-rollout.md",
+      "rules/hosts-teams-and-viva-integration.md",
+      "rules/ui-react-typescript-and-theming.md",
+      "rules/migration-classic-to-modern-spfx.md"
+    ],
+    "referenceCount": 10,
+    "references": [
+      "references/doc-source-index.md",
+      "references/foundation-scope-support-map.md",
+      "references/version-support-map.md",
+      "references/toolchain-deployment-map.md",
+      "references/component-selection-map.md",
+      "references/ui-theming-map.md",
+      "references/data-integration-map.md",
+      "references/teams-viva-map.md",
+      "references/migration-map.md",
+      "references/cookbook-index.md"
+    ],
+    "templateCount": 3,
+    "templates": [
+      "templates/rule-template.md",
+      "templates/research-pack-template.md",
+      "templates/comparison-matrix-template.md"
+    ],
+    "assetCount": 3,
+    "assets": [
+      "assets/taxonomy.json",
+      "assets/section-order.json",
+      "assets/host-support-matrix.json"
+    ],
+    "evalFileCount": 1,
+    "evalPromptCount": 5,
+    "evals": [
+      "evals/evals.json"
+    ]
+  },
+  "ordering": {
+    "ruleSectionOrder": [
+      "Purpose",
+      "Default guidance",
+      "Avoid",
+      "Review checklist",
+      "Related files",
+      "Source anchors"
+    ],
+    "recommendedRuleOrder": [
+      "rules/foundation-scope-and-support-boundaries.md",
+      "rules/tooling-versioning-and-compatibility.md",
+      "rules/projects-toolchain-and-scaffolding.md",
+      "rules/webparts-property-panes-and-properties.md",
+      "rules/extensions-application-command-field.md",
+      "rules/components-form-customizers-and-library-components.md",
+      "rules/data-sharepoint-graph-and-aad-clients.md",
+      "rules/deployment-packaging-and-tenant-rollout.md",
+      "rules/hosts-teams-and-viva-integration.md",
+      "rules/ui-react-typescript-and-theming.md",
+      "rules/migration-classic-to-modern-spfx.md"
+    ],
+    "referenceOrder": [
+      "references/doc-source-index.md",
+      "references/foundation-scope-support-map.md",
+      "references/version-support-map.md",
+      "references/toolchain-deployment-map.md",
+      "references/component-selection-map.md",
+      "references/ui-theming-map.md",
+      "references/data-integration-map.md",
+      "references/teams-viva-map.md",
+      "references/migration-map.md",
+      "references/cookbook-index.md"
+    ],
+    "templateOrder": [
+      "templates/rule-template.md",
+      "templates/research-pack-template.md",
+      "templates/comparison-matrix-template.md"
+    ],
+    "assetOrder": [
+      "assets/taxonomy.json",
+      "assets/section-order.json",
+      "assets/host-support-matrix.json"
+    ]
+  }
+}
