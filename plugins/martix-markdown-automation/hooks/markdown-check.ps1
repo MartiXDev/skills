@@ -46,7 +46,8 @@ function Convert-ToRepoRelativePath {
 
     $relativePath = [System.IO.Path]::GetRelativePath($normalizedRepoRoot, $fullPath)
     $relativePathForCheck = $relativePath -replace '\\', '/'
-    $isOutsideRepo = [string]::Equals($relativePathForCheck, '..', [System.StringComparison]::Ordinal) -or
+    $isOutsideRepo = [System.IO.Path]::IsPathRooted($relativePath) -or
+        [string]::Equals($relativePathForCheck, '..', [System.StringComparison]::Ordinal) -or
         $relativePathForCheck.StartsWith('../', [System.StringComparison]::Ordinal)
 
     if (-not $isOutsideRepo) {
