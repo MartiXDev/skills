@@ -1,0 +1,74 @@
+{
+  "skill": "martix-dotnet-csharp",
+  "evals": [
+    {
+      "id": "minimal-api-bootstrap-review",
+      "prompt": "Review a new .NET 10 Minimal API bootstrap that binds options from configuration, calls AddOpenApi, maps health checks, uses TypedResults, and adds an HttpClient for an external weather API. Identify the default MartiX guidance and the closest package files to consult before editing.",
+      "expected_sections": [
+        "Bootstrap defaults",
+        "Options validation",
+        "TypedResults and problem details",
+        "HTTP resilience",
+        "Testing route"
+      ],
+      "assertions": [
+        "Routes to web ASP.NET Core, HTTP resilience, options validation, and testing guidance instead of inventing a new project pattern.",
+        "Recommends ValidateOnStart for required options when startup failure is preferable to latent runtime failure.",
+        "Keeps guidance grounded in SKILL.md, rules/web-aspnet-core.md, rules/web-http-resilience.md, and references/web-bootstrap-recipes.md."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/web-aspnet-core.md",
+        "rules/web-http-resilience.md",
+        "references/web-bootstrap-recipes.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true
+    },
+    {
+      "id": "cross-skill-validation-handoff",
+      "prompt": "A Minimal API endpoint has complex request validation with reusable validators, localized messages, async database checks, and validation problem responses. Decide what belongs in martix-dotnet-csharp and what should be handed off to martix-fluentvalidation.",
+      "expected_sections": [
+        "Scope boundary",
+        "Companion skill handoff",
+        "API failure contract",
+        "Files to read"
+      ],
+      "assertions": [
+        "Keeps generic API failure-contract and host-shape guidance in martix-dotnet-csharp.",
+        "Hands validator authoring, async validation, localization, RuleSets, and FluentValidation.TestHelper details to martix-fluentvalidation.",
+        "Does not duplicate FluentValidation-specific rules inside the .NET skill."
+      ],
+      "files": [
+        "SKILL.md",
+        "AGENTS.md",
+        "references/libraries-catalog.md",
+        "rules/design-exceptions-validation.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true
+    },
+    {
+      "id": "architecture-planning-premium-boundary",
+      "prompt": "Plan a cross-package modernization of a large .NET solution that touches project structure, shared props, async background services, API contracts, tests, and security defaults. Classify the model tier and split the work into safe implementation slices.",
+      "expected_sections": [
+        "Premium planning rationale",
+        "Vertical slices",
+        "Parallel worktree boundaries",
+        "Validation commands"
+      ],
+      "assertions": [
+        "Classifies the initial planning and high-risk review as premium or mixed model-tier work.",
+        "Splits follow-up implementation into package- or concern-scoped AFK slices suitable for medium models.",
+        "Avoids one broad agent task that edits many unrelated shared files without coordination."
+      ],
+      "files": [
+        "SKILL.md",
+        "AGENTS.md",
+        "..\\..\\docs\\execution-profiles.md"
+      ],
+      "model_tier": "premium",
+      "parallel_safe": false
+    }
+  ]
+}

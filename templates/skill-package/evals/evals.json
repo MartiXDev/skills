@@ -1,0 +1,20 @@
+{
+  "skill": "<skill-name>",
+  "evals": [
+    {
+      "id": "<stable-kebab-case-id>",
+      "prompt": "<scenario prompt>",
+      "expected_sections": [
+        "<expected section or behavior>"
+      ],
+      "assertions": [
+        "<concrete quality assertion>"
+      ],
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true
+    }
+  ]
+}

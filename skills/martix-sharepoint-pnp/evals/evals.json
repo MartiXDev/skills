@@ -1,23 +1,29 @@
 {
-  "skill_name": "martix-sharepoint-pnp",
+  "skill": "martix-sharepoint-pnp",
   "evals": [
     {
-      "id": 1,
+      "id": "provisioning-tool-selection",
       "prompt": "I need a safe automation plan for provisioning a new SharePoint site and applying repeatable configuration across environments. I am not sure when to use PnP PowerShell, CLI for Microsoft 365, or site scripts.",
       "expected_output": "Uses tool-selection, auth, provisioning, and idempotency guidance with clear boundaries.",
-      "files": []
+      "files": [],
+      "model_tier": "medium",
+      "parallel_safe": true
     },
     {
-      "id": 2,
+      "id": "pnp-auth-modernization",
       "prompt": "Help me modernize a SharePoint admin script now that the old shared PnP Management Shell app is gone. I need to register my own Entra ID app and choose the right connection flow for PnP PowerShell.",
       "expected_output": "Uses auth and PnP PowerShell guidance based on the current registration reality.",
-      "files": []
+      "files": [],
+      "model_tier": "medium",
+      "parallel_safe": true
     },
     {
-      "id": 3,
+      "id": "spfx-runtime-vs-deployment-automation",
       "prompt": "We have an SPFx solution plus some automation around it. Can you help me decide what should live in PnPjs inside the project versus what should be handled by PnP PowerShell or CLI for Microsoft 365 in deployment scripts?",
       "expected_output": "Uses cross-tool boundaries and SPFx integration guidance instead of collapsing everything into one tool.",
-      "files": []
+      "files": [],
+      "model_tier": "medium",
+      "parallel_safe": true
     }
   ]
 }

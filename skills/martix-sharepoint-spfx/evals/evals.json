@@ -1,35 +1,45 @@
 {
-  "skill_name": "martix-sharepoint-spfx",
+  "skill": "martix-sharepoint-spfx",
   "evals": [
     {
-      "id": 1,
+      "id": "online-webpart-architecture",
       "prompt": "I need help planning an SPFx web part for SharePoint Online with React and TypeScript. It needs custom property pane controls, propertiesMetadata for search-friendly fields, tenant deployment, theme awareness, and Microsoft Graph calls. Walk me through the architecture decisions first.",
       "expected_output": "Routes through web parts, UI, data-client, and deployment workstreams with SharePoint Online-first guidance.",
-      "files": []
+      "files": [],
+      "model_tier": "premium",
+      "parallel_safe": false
     },
     {
-      "id": 2,
+      "id": "classic-customization-modernization",
       "prompt": "We have a classic script injection and a UserCustomAction from an older SharePoint solution. I want to move to a supported modern client-side approach, but I am not sure whether this becomes an Application Customizer, Command Set, Field Customizer, or Form Customizer.",
-      "expected_output": "Uses migration and extension selection guidance instead of classic farm-solution advice.",
-      "files": []
+      "expected_output": "Uses modernization and extension selection guidance instead of classic farm-solution advice.",
+      "files": [],
+      "model_tier": "premium",
+      "parallel_safe": false
     },
     {
-      "id": 3,
+      "id": "server-compatible-spfx-review",
       "prompt": "Review this SPFx project for SharePoint Server 2019 or Subscription Edition support. I need the right Node, React, TypeScript, generator, and build-tool expectations, and I want any ambiguity called out clearly instead of guessed away.",
-      "expected_output": "Uses conservative compatibility guidance, explicitly names the Subscription Edition doc ambiguity, and stays in the SPFx lane.",
-      "files": []
+      "expected_output": "Uses conservative compatibility guidance, explicitly names support ambiguity, and stays in the SPFx lane.",
+      "files": [],
+      "model_tier": "medium",
+      "parallel_safe": true
     },
     {
-      "id": 4,
+      "id": "teams-viva-host-boundary",
       "prompt": "We want to expose an SPFx web part in Teams and also wire a Viva Connections dashboard experience into the same solution. What supportedHosts, deployment, packaging, and host-boundary decisions should we make first?",
       "expected_output": "Routes through Teams and Viva plus deployment guidance without pretending SPFx owns non-UI Teams capabilities.",
-      "files": []
+      "files": [],
+      "model_tier": "medium",
+      "parallel_safe": true
     },
     {
-      "id": 5,
+      "id": "data-client-selection",
       "prompt": "Should this SPFx solution call SharePoint with SPHttpClient, add PnPjs, use MSGraphClientV3, or use AadHttpClient for a custom API? We also need package-solution permission requests handled safely.",
       "expected_output": "Chooses the correct client per boundary, explains permission-request behavior, and separates runtime API access from provisioning tasks.",
-      "files": []
+      "files": [],
+      "model_tier": "medium",
+      "parallel_safe": true
     }
   ]
 }

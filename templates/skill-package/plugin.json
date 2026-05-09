@@ -1,0 +1,16 @@
+{
+  "name": "<skill-name>",
+  "description": "<concise standalone skill description>",
+  "version": "0.1.0",
+  "author": {
+    "name": "MartiXDev"
+  },
+  "license": "MIT",
+  "keywords": [
+    "martix",
+    "<domain-keyword>",
+    "standalone-skill"
+  ],
+  "repository": "https://github.com/MartiXDev/skills",
+  "skills": "skills/"
+}

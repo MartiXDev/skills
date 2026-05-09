@@ -1,0 +1,12 @@
+{
+  "hooks": [
+    {
+      "name": "<hook-name>",
+      "description": "<short deterministic hook purpose>",
+      "trigger": "<trigger-name>",
+      "command": "<command-to-run>",
+      "model_tier": "cheap",
+      "parallel_safe": true
+    }
+  ]
+}
