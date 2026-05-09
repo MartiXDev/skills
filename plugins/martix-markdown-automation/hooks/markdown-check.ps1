@@ -18,7 +18,7 @@ function Get-RepoRoot {
         return [System.IO.Path]::GetFullPath((Get-Location).Path)
     }
 
-    throw 'Unable to determine repository root using git. Run from a git repository, or provide -All or -Path explicitly.'
+    throw 'Unable to determine repository root using git. Run from a git repository, or provide script-level -All or -Path explicitly.'
 }
 
 function Convert-ToRepoRelativePath {
@@ -46,10 +46,7 @@ function Convert-ToRepoRelativePath {
 
     $relativePath = [System.IO.Path]::GetRelativePath($normalizedRepoRoot, $fullPath)
     $relativePathForCheck = $relativePath -replace '\\', '/'
-    if (
-        -not [string]::Equals($relativePath, '..', [System.StringComparison]::Ordinal) -and
-        -not $relativePathForCheck.StartsWith('../', [System.StringComparison]::Ordinal)
-    ) {
+    if ($relativePathForCheck -notmatch '^\.\.(/|$)') {
         return $relativePath -replace '\\', '/'
     }
 
