@@ -1,0 +1,19 @@
+{
+  "name": "martix-markdown-automation",
+  "description": "Plugin bundle for automatic Markdown check and fix workflows using the martix-markdown skill guidance.",
+  "version": "0.1.0",
+  "author": {
+    "name": "MartiXDev"
+  },
+  "license": "MIT",
+  "keywords": [
+    "martix",
+    "markdown",
+    "markdownlint",
+    "automation",
+    "hooks"
+  ],
+  "repository": "https://github.com/MartiXDev/skills",
+  "agents": "agents/",
+  "skills": "skills/"
+}

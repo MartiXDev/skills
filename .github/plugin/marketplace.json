@@ -26,6 +26,21 @@
       ]
     },
     {
+      "name": "martix-markdown-automation",
+      "description": "Plugin bundle for automatic Markdown check and fix workflows using the martix-markdown skill guidance.",
+      "version": "0.1.0",
+      "source": "plugins/martix-markdown-automation",
+      "category": "development",
+      "tags": [
+        "martix",
+        "markdown",
+        "markdownlint",
+        "automation",
+        "hooks",
+        "plugin-bundle"
+      ]
+    },
+    {
       "name": "martix-dotnet-csharp",
       "description": "Standalone .NET 10+ and C# 14+ skill package for authoring, modernization, and review workflows.",
       "version": "0.1.0",

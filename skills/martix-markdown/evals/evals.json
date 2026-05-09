@@ -36,6 +36,19 @@
       ],
       "model_tier": "medium",
       "parallel_safe": true
+    },
+    {
+      "id": "automatic-markdown-enforcement-routing",
+      "prompt": "I want Markdown files to be automatically checked and fixed whenever any agent creates or updates an .md file in a project. Should this be handled by the martix-markdown skill itself, or by an installable plugin?",
+      "expected_output": "Keeps martix-markdown as the standalone rule and repair guidance source, recommends the martix-markdown-automation plugin for workspace-level instructions and hooks, and explains that auto-fix runs first before reporting remaining issues.",
+      "files": [
+        "README.md",
+        "SKILL.md",
+        "..\\..\\plugins\\martix-markdown-automation\\README.md",
+        "..\\..\\plugins\\martix-markdown-automation\\instructions\\markdown-policy.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true
     }
   ]
 }

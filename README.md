@@ -31,6 +31,7 @@ copilot plugin install martix-sharepoint-spfx@martix-skills
 copilot plugin install martix-sharepoint-pnp@martix-skills
 
 # Plugins (full bundles)
+copilot plugin install martix-markdown-automation@martix-skills
 copilot plugin install martix-dotnet-library@martix-skills
 copilot plugin install martix-webapi@martix-skills
 ```
@@ -67,6 +68,7 @@ skills/
   martix-sharepoint-spfx/   # SharePoint Framework (SPFx) development
   martix-sharepoint-pnp/    # SharePoint PnP PowerShell, CLI for M365, PnPjs
 plugins/
+  martix-markdown-automation/ # Automatic Markdown check and fix workflow
   martix-dotnet-library/    # .NET library create, update, and review
   martix-webapi/            # .NET 10 web app planning and implementation
 ```
