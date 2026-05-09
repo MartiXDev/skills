@@ -12,7 +12,7 @@
     {
       "name": "martix-markdown",
       "description": "Standalone Markdown skill package for markdownlint authoring, lint repair, config-versus-content decisions, grouped rule routing, custom rules, Prettier coexistence, and accessibility-aware review.",
-      "version": "0.1.0-preview.1",
+      "version": "0.1.0",
       "source": "skills/martix-markdown",
       "category": "development",
       "tags": [
@@ -76,7 +76,7 @@
     },
     {
       "name": "martix-tunit",
-      "description": "Standalone TUnit skill package for test authoring, parameterized data-driven tests, lifecycle hooks, parallel-by-default execution, async assertions, dependency injection, mocking, and migration.",
+      "description": "Standalone TUnit skill package for test authoring, parameterized data-driven tests, lifecycle hooks, parallel-by-default execution, async assertions, dependency injection, mocking, and framework comparison for xUnit/NUnit/MSTest.",
       "version": "0.1.0",
       "source": "skills/martix-tunit",
       "category": "development",
@@ -94,8 +94,8 @@
     },
     {
       "name": "martix-powershell",
-      "description": "Standalone PowerShell cmdlet developer skill package for compiled C# cmdlet authoring and cmdlet-style advanced functions, covering base class selection, parameter declaration, pipeline, error handling, and ShouldProcess patterns.",
-      "version": "0.1.0-preview.1",
+      "description": "Standalone PowerShell cmdlet developer skill package for compiled C# cmdlet authoring and advanced functions, covering base class selection, parameter declaration, pipeline, error handling, ShouldProcess, dynamic parameters, and attribute validators.",
+      "version": "0.1.0",
       "source": "skills/martix-powershell",
       "category": "development",
       "tags": [
@@ -116,7 +116,7 @@
     {
       "name": "martix-sharepoint-server",
       "description": "Standalone SharePoint Server skill package for classic on-prem farm solutions, WSP packaging, feature framework, event receivers, branding, site artifacts, and SharePoint 2019 / Subscription Edition guidance.",
-      "version": "0.1.0-preview.1",
+      "version": "0.1.0",
       "source": "skills/martix-sharepoint-server",
       "category": "development",
       "tags": [
@@ -132,8 +132,8 @@
     },
     {
       "name": "martix-sharepoint-spfx",
-      "description": "Standalone SharePoint Framework skill package for SharePoint Online-first SPFx development with React, TypeScript, web parts, extensions, Teams and Viva integration, deployment, theming, and migration guidance.",
-      "version": "0.1.0-preview.1",
+      "description": "Standalone SharePoint Framework (SPFx) skill package for SharePoint Online-first development with React, TypeScript, web parts, extensions, Teams and Viva integration, deployment, theming, and modernization guidance.",
+      "version": "0.1.0",
       "source": "skills/martix-sharepoint-spfx",
       "category": "development",
       "tags": [
@@ -150,7 +150,7 @@
     {
       "name": "martix-sharepoint-pnp",
       "description": "Standalone SharePoint PnP skill package for PnP PowerShell, CLI for Microsoft 365, PnPjs, provisioning, automation, authentication, and cross-tool delivery guidance.",
-      "version": "0.1.0-preview.1",
+      "version": "0.1.0",
       "source": "skills/martix-sharepoint-pnp",
       "category": "development",
       "tags": [

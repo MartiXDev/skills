@@ -1,7 +1,7 @@
 {
   "name": "martix-sharepoint-server",
   "description": "Standalone SharePoint Server skill package for classic on-prem farm solutions, WSP packaging, feature framework, event receivers, branding, site artifacts, and SharePoint 2019 / Subscription Edition guidance.",
-  "version": "0.1.0-preview.1",
+  "version": "0.1.0",
   "author": {
     "name": "MartiXDev"
   },
