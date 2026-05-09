@@ -76,3 +76,12 @@ root-level `SKILL.md`, `AGENTS.md`, and supporting rules, references, templates,
 assets, and metadata. Each entry in `plugins/` is a plugin bundle with
 `plugin.json` and plugin-scoped agents, skills, hooks, or configuration as
 needed.
+
+## Maintainer Guides
+
+| Guide | Purpose |
+| --- | --- |
+| [Repository overview](./docs/repo-overview.md) | Architecture, package rules, marketplace model, and roadmap. |
+| [Execution profiles](./docs/execution-profiles.md) | Model-tier, token-budget, AFK/HITL, `/fleet`, and worktree guidance. |
+| [Plugin bundle strategy](./docs/plugin-bundle-strategy.md) | MartiX project-family bundles and skill-versus-plugin decision rules. |
+| [Parallel worktree guidance](./docs/parallel-worktree-guidance.md) | How to split package work across agents and worktrees. |

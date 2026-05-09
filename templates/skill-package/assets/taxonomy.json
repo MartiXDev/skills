@@ -1,0 +1,15 @@
+{
+  "skill": "<skill-name>",
+  "workstreams": {
+    "<workstream-id>": "<workstream description>"
+  },
+  "groups": [
+    {
+      "id": "<workstream-id>",
+      "displayName": "<Workstream display name>",
+      "rules": [
+        "rules/<rule-file>.md"
+      ]
+    }
+  ]
+}

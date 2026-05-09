@@ -1,0 +1,76 @@
+{
+  "skill": "martix-fluentvalidation",
+  "evals": [
+    {
+      "id": "validator-authoring-baseline",
+      "prompt": "Write review guidance for a new AbstractValidator<CustomerRequest> that checks required fields, email format, numeric ranges, nested address validation, and collection items. Choose built-in validators where possible and identify the package files to consult.",
+      "expected_sections": [
+        "Built-in validator selection",
+        "Composition and collections",
+        "Avoided custom validators",
+        "Files to consult"
+      ],
+      "assertions": [
+        "Prefers built-in validators before Must, Custom, or reusable custom validators.",
+        "Routes nested validators and collection rules through foundation composition guidance.",
+        "Keeps guidance specific to FluentValidation instead of broad .NET validation advice."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/foundation-validator-basics.md",
+        "rules/foundation-collections-composition.md",
+        "references/built-in-validators-map.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true
+    },
+    {
+      "id": "async-api-boundary-review",
+      "prompt": "Review an ASP.NET Core endpoint that calls Validate instead of ValidateAsync even though one FluentValidation rule queries a database asynchronously, then maps failures to ValidationProblem. Explain the safe fix and the companion skill boundary.",
+      "expected_sections": [
+        "Async validation issue",
+        "API boundary mapping",
+        "Companion skill boundary",
+        "Testing route"
+      ],
+      "assertions": [
+        "Requires ValidateAsync and ambient CancellationToken when any rule or dependency is async.",
+        "Keeps FluentValidation-specific rule behavior in this skill and leaves general API host shape to martix-dotnet-csharp or martix-fastendpoints.",
+        "Recommends validator tests with FluentValidation.TestHelper and boundary tests only when framework wiring is part of the contract."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/integration-async-validation.md",
+        "rules/integration-aspnet-core.md",
+        "rules/testing-validator-testhelper.md",
+        "references/integration-map.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true
+    },
+    {
+      "id": "upgrade-planning-slice",
+      "prompt": "Plan a FluentValidation 11 to 12 upgrade for a solution with shared validators, localized messages, ASP.NET Core integration, async rules, and hundreds of tests. Classify model tier and split the work into parallel-safe slices.",
+      "expected_sections": [
+        "Premium planning rationale",
+        "Upgrade scope",
+        "Parallel slices",
+        "Validation strategy"
+      ],
+      "assertions": [
+        "Treats the initial upgrade plan as premium or mixed tier because it crosses packages and runtime behavior.",
+        "Splits validators, integration, localization, and test updates into separate worktree-safe slices.",
+        "Uses the upgrade baseline, breaking changes history, and compatibility matrix before editing."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/upgrade-current-baseline.md",
+        "rules/upgrade-breaking-changes-history.md",
+        "references/compatibility-matrix.md",
+        "..\\..\\docs\\execution-profiles.md"
+      ],
+      "model_tier": "premium",
+      "parallel_safe": false
+    }
+  ]
+}

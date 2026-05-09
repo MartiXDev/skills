@@ -1,0 +1,12 @@
+{
+  "skill": "<skill-name>",
+  "order": [
+    "SKILL.md",
+    "AGENTS.md",
+    "README.md",
+    "rules/<rule-file>.md",
+    "references/<reference-file>.md",
+    "templates/<template-file>.md",
+    "evals/evals.json"
+  ]
+}

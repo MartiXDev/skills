@@ -1,0 +1,74 @@
+{
+  "skill": "martix-tunit",
+  "evals": [
+    {
+      "id": "test-project-setup",
+      "prompt": "Create guidance for setting up a new TUnit test project on Microsoft.Testing.Platform with the correct project shape, package references, runner behavior, and first smoke test. Identify the package files to consult.",
+      "expected_sections": [
+        "Project setup",
+        "Runner and CLI behavior",
+        "First test",
+        "Files to consult"
+      ],
+      "assertions": [
+        "Routes package installation and project shape through foundation guidance.",
+        "Mentions Microsoft.Testing.Platform runner expectations.",
+        "Keeps the guidance TUnit-specific and hands broad .NET project concerns to martix-dotnet-csharp only when needed."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/foundation-installation-project.md",
+        "references/foundation-map.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true
+    },
+    {
+      "id": "parallel-data-lifecycle-review",
+      "prompt": "Review a TUnit test suite that uses matrix data, shared class data, Before and After hooks, dependency injection, and parallel execution controls. Identify likely risks and route to the minimum rule set.",
+      "expected_sections": [
+        "Data-driven test guidance",
+        "Lifecycle and DI guidance",
+        "Parallel execution risks",
+        "Files to consult"
+      ],
+      "assertions": [
+        "Routes data sources through data rules and maps.",
+        "Routes hooks and DI through lifecycle rules.",
+        "Calls out parallel-by-default behavior and uses NotInParallel, DependsOn, or limiters only when justified."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/data-matrix-combined-generators.md",
+        "rules/lifecycle-hooks.md",
+        "rules/lifecycle-di.md",
+        "rules/execution-parallelism.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true
+    },
+    {
+      "id": "framework-comparison-plan",
+      "prompt": "Plan moving a mixed xUnit/NUnit/MSTest suite to TUnit while preserving test behavior, assertion intent, lifecycle setup, and CI reporting. Classify model tier and split the work for parallel agents.",
+      "expected_sections": [
+        "Premium planning rationale",
+        "Framework comparison",
+        "Vertical migration slices",
+        "Validation strategy"
+      ],
+      "assertions": [
+        "Treats the initial framework comparison and migration plan as premium or mixed tier.",
+        "Uses the framework comparison rule and migration attribute matrix before proposing edits.",
+        "Splits follow-up implementation by test project, feature area, or framework source to keep worktree changes isolated."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/migration-comparison.md",
+        "references/migration-attribute-matrix.md",
+        "..\\..\\docs\\execution-profiles.md"
+      ],
+      "model_tier": "premium",
+      "parallel_safe": false
+    }
+  ]
+}

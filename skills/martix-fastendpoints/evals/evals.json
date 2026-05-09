@@ -1,0 +1,78 @@
+{
+  "skill": "martix-fastendpoints",
+  "evals": [
+    {
+      "id": "endpoint-contract-routing",
+      "prompt": "Review a FastEndpoints feature slice with a request DTO, response DTO, validator, endpoint class, mapper, and integration test. Route the review to the smallest set of MartiX FastEndpoints rules and identify any companion skill handoffs.",
+      "expected_sections": [
+        "Workstream selection",
+        "Request pipeline guidance",
+        "Testing guidance",
+        "Companion skill handoffs"
+      ],
+      "assertions": [
+        "Routes DTO binding and validation errors through the request-pipeline rules and map.",
+        "Routes endpoint integration tests through FastEndpoints testing guidance.",
+        "Hands reusable validator authoring details to martix-fluentvalidation and broad host concerns to martix-dotnet-csharp."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/contracts-request-dtos-binding.md",
+        "rules/contracts-validation-errors.md",
+        "rules/testing-fastendpoints.md",
+        "references/request-pipeline-map.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true
+    },
+    {
+      "id": "transport-choice-review",
+      "prompt": "A team wants to expose file downloads, server-sent events, and command-like RPC endpoints from one FastEndpoints service. Review the transport choices and describe when to use HTTP endpoints versus streaming, SSE, or RPC patterns.",
+      "expected_sections": [
+        "Transport decision",
+        "Documentation and OpenAPI impact",
+        "Runtime concerns",
+        "Files to consult"
+      ],
+      "assertions": [
+        "Uses transport and documentation rules before broad ASP.NET Core advice.",
+        "Calls out OpenAPI/documentation implications for non-standard transport choices.",
+        "Keeps the answer FastEndpoints-specific unless the host concern widens."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/transport-files-streaming-sse.md",
+        "rules/transport-rpc-http-patterns.md",
+        "rules/docs-swagger-openapi.md",
+        "references/transport-docs-map.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true
+    },
+    {
+      "id": "aot-security-planning",
+      "prompt": "Plan a Native AOT-friendly FastEndpoints service with source generation, authentication, authorization, rate limiting, response caching, idempotency, and exception handling. Classify the model tier and split the implementation for parallel agents.",
+      "expected_sections": [
+        "Planning model tier",
+        "Foundation and AOT",
+        "Security/runtime slices",
+        "Parallelization plan"
+      ],
+      "assertions": [
+        "Treats initial cross-cutting planning as premium or mixed tier.",
+        "Splits source-generation/AOT, auth/authz, caching/rate limits, and idempotency/exception handling into separate slices.",
+        "Requires validation before merging parallel worktree branches."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/foundation-source-generation-aot.md",
+        "rules/security-authn-authz.md",
+        "rules/runtime-caching-rate-limits.md",
+        "rules/runtime-idempotency-exceptions.md",
+        "..\\..\\docs\\execution-profiles.md"
+      ],
+      "model_tier": "premium",
+      "parallel_safe": false
+    }
+  ]
+}
