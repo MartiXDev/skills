@@ -25,6 +25,8 @@ copilot plugin install <skill-name>@martix-skills
 | `assets\` | Taxonomy and ordering data. |
 | `evals\evals.json` | Trigger and quality evals. |
 
+`plugin.json` is used for install/discovery metadata, while `metadata.json` captures skill-facing descriptors used after installation.
+
 ## Model and parallel guidance
 
 - Use premium models for ambiguous planning and high-risk review.
