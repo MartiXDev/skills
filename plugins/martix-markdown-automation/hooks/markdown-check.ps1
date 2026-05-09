@@ -7,12 +7,18 @@ param(
 $ErrorActionPreference = 'Stop'
 
 function Get-RepoRoot {
+    param([switch]$AllowFallback)
+
     $root = git rev-parse --show-toplevel 2>$null
     if ($LASTEXITCODE -eq 0 -and -not [string]::IsNullOrWhiteSpace($root)) {
-        return $root.Trim()
+        return [System.IO.Path]::GetFullPath($root.Trim())
     }
 
-    return (Get-Location).Path
+    if ($AllowFallback) {
+        return [System.IO.Path]::GetFullPath((Get-Location).Path)
+    }
+
+    throw 'Unable to determine repository root using git. Run from a git repository, or provide -All or -Path explicitly.'
 }
 
 function Convert-ToRepoRelativePath {
@@ -21,11 +27,13 @@ function Convert-ToRepoRelativePath {
         [string]$InputPath
     )
 
+    $normalizedRepoRoot = [System.IO.Path]::TrimEndingDirectorySeparator([System.IO.Path]::GetFullPath($RepoRoot))
+
     $fullPath = if ([System.IO.Path]::IsPathRooted($InputPath)) {
         [System.IO.Path]::GetFullPath($InputPath)
     }
     else {
-        [System.IO.Path]::GetFullPath((Join-Path $RepoRoot $InputPath))
+        [System.IO.Path]::GetFullPath((Join-Path $normalizedRepoRoot $InputPath))
     }
 
     if (-not (Test-Path -LiteralPath $fullPath -PathType Leaf)) {
@@ -36,8 +44,14 @@ function Convert-ToRepoRelativePath {
         return $null
     }
 
-    if ($fullPath.StartsWith($RepoRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
-        return $fullPath.Substring($RepoRoot.Length).TrimStart('\') -replace '\\', '/'
+    $relativePath = [System.IO.Path]::GetRelativePath($normalizedRepoRoot, $fullPath)
+    if (
+        -not [string]::Equals($relativePath, '..', [System.StringComparison]::Ordinal) -and
+        -not $relativePath.StartsWith("..$([System.IO.Path]::DirectorySeparatorChar)", [System.StringComparison]::Ordinal) -and
+        -not $relativePath.StartsWith("../", [System.StringComparison]::Ordinal) -and
+        -not $relativePath.StartsWith("..\", [System.StringComparison]::Ordinal)
+    ) {
+        return $relativePath.TrimStart('\', '/') -replace '\\', '/'
     }
 
     return $fullPath
@@ -68,7 +82,8 @@ function Get-ChangedMarkdownFiles {
     return $paths
 }
 
-$repoRoot = Get-RepoRoot
+$hasExplicitTargets = $All -or ($null -ne $Path -and $Path.Count -gt 0)
+$repoRoot = Get-RepoRoot -AllowFallback:$hasExplicitTargets
 Push-Location $repoRoot
 try {
     $candidatePaths = if ($Path) {
