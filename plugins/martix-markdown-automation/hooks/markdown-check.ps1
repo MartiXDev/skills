@@ -27,7 +27,7 @@ function Convert-ToRepoRelativePath {
         [string]$InputPath
     )
 
-    $normalizedRepoRoot = [System.IO.Path]::TrimEndingDirectorySeparator($RepoRoot)
+    $normalizedRepoRoot = [System.IO.Path]::GetFullPath($RepoRoot).TrimEnd('\', '/')
 
     $fullPath = if ([System.IO.Path]::IsPathRooted($InputPath)) {
         [System.IO.Path]::GetFullPath($InputPath)
@@ -44,14 +44,15 @@ function Convert-ToRepoRelativePath {
         return $null
     }
 
-    $relativePath = [System.IO.Path]::GetRelativePath($normalizedRepoRoot, $fullPath)
-    $relativePathForCheck = $relativePath -replace '\\', '/'
-    $isOutsideRepo = [System.IO.Path]::IsPathRooted($relativePath) -or
-        [string]::Equals($relativePathForCheck, '..', [System.StringComparison]::Ordinal) -or
-        $relativePathForCheck.StartsWith('../', [System.StringComparison]::Ordinal)
+    $runningOnWindows = [System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform([System.Runtime.InteropServices.OSPlatform]::Windows)
+    $comparison = if ($runningOnWindows) { [System.StringComparison]::OrdinalIgnoreCase } else { [System.StringComparison]::Ordinal }
+    $hasRepoPrefixSeparator = $fullPath.Length -gt $normalizedRepoRoot.Length -and (
+        $fullPath[$normalizedRepoRoot.Length] -eq [System.IO.Path]::DirectorySeparatorChar -or
+        $fullPath[$normalizedRepoRoot.Length] -eq [System.IO.Path]::AltDirectorySeparatorChar
+    )
 
-    if (-not $isOutsideRepo) {
-        return $relativePath -replace '\\', '/'
+    if ($fullPath.StartsWith($normalizedRepoRoot, $comparison) -and $hasRepoPrefixSeparator) {
+        return $fullPath.Substring($normalizedRepoRoot.Length).TrimStart('\', '/') -replace '\\', '/'
     }
 
     return $fullPath
