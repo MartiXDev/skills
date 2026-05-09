@@ -73,14 +73,6 @@ plugins/
 
 Each entry in `skills/` is a standalone skill package with a `plugin.json`,
 root-level `SKILL.md`, `AGENTS.md`, and supporting rules, references, templates,
-assets, and metadata. Each entry in `plugins/` is a plugin bundle stub with
-`plugin.json`, and placeholder `agents/` and `skills/` directories pending
-content migration from `ai-marketplace`.
-
-## Migration
-
-Skills and Plugins in this repository are being migrated from
-[MartiXDev/ai-marketplace](https://github.com/MartiXDev/ai-marketplace).
-
-See [skills/README.md](./skills/README.md) and [plugins/README.md](./plugins/README.md)
-for details on each package and its migration status.
+assets, and metadata. Each entry in `plugins/` is a plugin bundle with
+`plugin.json` and plugin-scoped agents, skills, hooks, or configuration as
+needed.

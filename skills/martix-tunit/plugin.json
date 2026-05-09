@@ -1,6 +1,6 @@
 {
   "name": "martix-tunit",
-  "description": "Standalone TUnit skill package for test authoring, parameterized data-driven tests, lifecycle hooks, parallel-by-default execution, async assertions, dependency injection, mocking, and migration from xUnit/NUnit/MSTest.",
+  "description": "Standalone TUnit skill package for test authoring, parameterized data-driven tests, lifecycle hooks, parallel-by-default execution, async assertions, dependency injection, mocking, and framework comparison for xUnit/NUnit/MSTest.",
   "version": "0.1.0",
   "author": {
     "name": "MartiXDev"

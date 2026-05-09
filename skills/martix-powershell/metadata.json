@@ -1,7 +1,7 @@
 {
   "name": "martix-powershell",
   "displayName": "MartiX PowerShell Cmdlet",
-  "version": "0.1.0-preview.1",
+  "version": "0.1.0",
   "publisher": {
     "name": "MartiXDev",
     "repository": "MartiXDev/ai-marketplace",

@@ -1,13 +1,13 @@
 {
   "name": "martix-tunit",
   "displayName": "MartiX TUnit",
-  "version": "0.1.0-preview.1",
+  "version": "0.1.0",
   "publisher": {
     "name": "MartiXDev",
     "repository": "MartiXDev/ai-marketplace",
     "distributionModel": "standalone skill with direct Copilot marketplace registration"
   },
-  "summary": "Standalone-first MartiX skill package for TUnit test authoring, parameterized data-driven tests, lifecycle hooks, parallel-by-default execution, async assertions, dependency injection, mocking, extensibility, and xUnit/NUnit/MSTest migration.",
+  "summary": "Standalone-first MartiX skill package for TUnit test authoring, parameterized data-driven tests, lifecycle hooks, parallel-by-default execution, async assertions, dependency injection, mocking, extensibility, and xUnit/NUnit/MSTest framework comparison.",
   "abstract": "This package is the canonical source for the MartiX TUnit skill. It ships the authored rule library, reference maps, maintainer docs, templates, and taxonomy for TUnit on Microsoft.Testing.Platform across 7 domains.",
   "compatibility": {
     "primaryTarget": "GitHub Copilot CLI",

@@ -9,8 +9,8 @@ may include agents, skills, hooks, and MCP server configurations.
 
 | Plugin | Description | Status |
 | --- | --- | --- |
-| [martix-dotnet-library](./martix-dotnet-library/) | Unified plugin for .NET library create, update, and review workflows | Migration pending |
-| [martix-webapi](./martix-webapi/) | Unified plugin for planning and implementing .NET 10 web apps | Migration pending |
+| [martix-dotnet-library](./martix-dotnet-library/) | Unified plugin for .NET library create, update, and review workflows | Available |
+| [martix-webapi](./martix-webapi/) | Unified plugin for planning and implementing .NET 10 web apps | Available |
 
 ## Installation
 
@@ -42,7 +42,3 @@ plugin-name/
   .mcp.json          # MCP server config (optional)
 ```
 
-## Migration Source
-
-Plugins in this folder are being migrated from
-[MartiXDev/skills](https://github.com/MartiXDev/skills) (`plugins/`).

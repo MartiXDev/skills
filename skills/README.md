@@ -51,7 +51,3 @@ skills/
     assets/            # Machine-readable taxonomy and ordering data
 ```
 
-## Migration Source
-
-Skills in this folder are being migrated from
-[MartiXDev/ai-marketplace](https://github.com/MartiXDev/ai-marketplace) (`skills/`).

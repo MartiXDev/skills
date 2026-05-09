@@ -1,7 +1,7 @@
 version: 1
 plugins_root: plugins
 standalone_skills_root: skills
-metadata_file: plugin.yaml
+metadata_file: plugin.json
 naming:
   required_prefix: martix-
   plugin_directory_pattern: "^martix-[a-z0-9-]+$"

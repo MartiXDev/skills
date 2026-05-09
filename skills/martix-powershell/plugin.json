@@ -1,7 +1,7 @@
 {
   "name": "martix-powershell",
   "description": "Standalone PowerShell cmdlet developer skill package for compiled C# cmdlet authoring and advanced functions, covering base class selection, parameter declaration, pipeline, error handling, ShouldProcess, dynamic parameters, and attribute validators.",
-  "version": "0.1.0-preview.1",
+  "version": "0.1.0",
   "author": {
     "name": "MartiXDev"
   },
