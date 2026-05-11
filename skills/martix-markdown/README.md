@@ -114,6 +114,17 @@ research, so keep marketplace browsing as a shell command for now.
 /plugin marketplace remove martix-skills
 ```
 
+### Automatic Markdown enforcement
+
+Use `martix-markdown` when you need Markdown authoring, lint repair, and review guidance. Use the companion `martix-markdown-automation` plugin when a project should automatically check and fix Markdown files as agents create or update them.
+
+```powershell
+copilot plugin install martix-markdown-automation@martix-skills
+powershell -ExecutionPolicy Bypass -File .\plugins\martix-markdown-automation\hooks\markdown-check.ps1
+```
+
+The automation plugin auto-fixes first, reruns markdownlint checks, and reports remaining issues. Use its `-CheckOnly` mode for CI, dry runs, or conservative projects.
+
 ## Verification
 
 ### Standalone validation
