@@ -208,10 +208,10 @@ description: 'Long-form companion guide for the martix-fastendpoints standalone 
 
 ## Standalone packaging note
 
-- This package is the canonical standalone skill under `src\skills`.
+- This package is the canonical standalone skill under `skills`.
 - If you document or install it directly, use `npx skills add <source>`.
 - A future marketplace registration can point directly at
-  `src\skills\martix-fastendpoints` rather than duplicating the package
+  `skills\\martix-fastendpoints` rather than duplicating the package
   elsewhere.
 
 ## Source boundaries

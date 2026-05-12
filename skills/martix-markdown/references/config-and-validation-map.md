@@ -53,7 +53,7 @@ content or suppressing findings.
   `MD013.line_length = 400`, excludes code blocks and tables from that local
   check, and disables `MD041`.
 - Focused validation in this repository currently succeeds with
-  `npx --yes markdownlint-cli2 "src/skills/martix-markdown/**/*.md"`.
+  `npx --yes markdownlint-cli2 "skills/martix-markdown/**/*.md"`.
 - Treat those notes as package-local validation guidance, not as upstream
   markdownlint defaults for other repositories.
 

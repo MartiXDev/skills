@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "publisher": {
     "name": "MartiXDev",
-    "repository": "MartiXDev/ai-marketplace",
+    "repository": "MartiXDev/skills",
     "distributionModel": "standalone skill with direct Copilot marketplace registration"
   },
   "summary": "Standalone-first MartiX skill package for FluentValidation validator authoring, rule behavior, integration boundaries, metadata contracts, testing, and upgrade guidance.",
@@ -273,8 +273,8 @@
       "status": "canonical",
       "officialInstallCommand": "npx skills add <source>",
       "preferredSources": [
-        ".\\src\\skills\\martix-fluentvalidation",
-        "https://github.com/MartiXDev/ai-marketplace/tree/main/skills/martix-fluentvalidation"
+        ".\\skills\\martix-fluentvalidation",
+        "https://github.com/MartiXDev/skills/tree/main/skills/martix-fluentvalidation"
       ],
       "notes": [
         "Use the standalone package as the source of truth for local installs and direct folder-based validation.",
@@ -285,8 +285,8 @@
     "secondarySurface": {
       "id": "copilot-cli-plugin-marketplace",
       "status": "registration-ready",
-      "marketplaceRepository": "MartiXDev/ai-marketplace",
-      "marketplaceName": "martix-ai-marketplace",
+      "marketplaceRepository": "MartiXDev/skills",
+      "marketplaceName": "martix-skills",
       "pluginName": "martix-fluentvalidation",
       "strategy": "register the canonical standalone package directly from skills"
     }
@@ -397,6 +397,23 @@
         "title": "Skills CLI documentation",
         "url": "https://skills.sh/docs"
       }
+    ]
+  },
+  "executionProfile": {
+    "modelTier": "medium",
+    "taskTypes": [
+      "implementation",
+      "review",
+      "validation"
+    ],
+    "parallelSafety": "single-package",
+    "fleetReady": true,
+    "worktreeSafe": true,
+    "tokenBudget": "medium",
+    "contextStrategy": [
+      "Start with SKILL.md.",
+      "Open only the routed rule or reference file for the requested task.",
+      "Use README.md for install and validation guidance."
     ]
   }
 }

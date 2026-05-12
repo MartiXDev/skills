@@ -259,7 +259,7 @@ description: 'Long-form companion guide for the martix-dotnet-csharp standalone 
 
 ### Standalone packaging note
 
-- This package is the canonical standalone skill under `src\skills`.
+- This package is the canonical standalone skill under `skills`.
 - If you document or install it directly, use `npx skills add <source>`.
 - Do not document direct installation as `npx skill add`.
 

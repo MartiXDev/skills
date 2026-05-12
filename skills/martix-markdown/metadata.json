@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "publisher": {
     "name": "MartiXDev",
-    "repository": "MartiXDev/ai-marketplace",
+    "repository": "MartiXDev/skills",
     "distributionModel": "standalone skill with direct Copilot marketplace registration"
   },
   "summary": "Standalone-first MartiX skill package for markdownlint-aware Markdown authoring, MD-code triage, grouped rule routing, repo-local overlay comparison, custom-rule decisions, Prettier coexistence, and accessibility-aware review.",
@@ -261,8 +261,8 @@
       "status": "canonical",
       "officialInstallCommand": "npx skills add <source>",
       "preferredSources": [
-        ".\\src\\skills\\martix-markdown",
-        "https://github.com/MartiXDev/ai-marketplace/tree/main/skills/martix-markdown"
+        ".\\skills\\martix-markdown",
+        "https://github.com/MartiXDev/skills/tree/main/skills/martix-markdown"
       ],
       "notes": [
         "Use the standalone package as the source of truth for local installs and direct folder-based validation.",
@@ -273,8 +273,8 @@
     "secondarySurface": {
       "id": "copilot-cli-plugin-marketplace",
       "status": "direct-registration",
-      "marketplaceRepository": "MartiXDev/ai-marketplace",
-      "marketplaceName": "martix-ai-marketplace",
+      "marketplaceRepository": "MartiXDev/skills",
+      "marketplaceName": "martix-skills",
       "pluginName": "martix-markdown",
       "strategy": "register the canonical standalone package directly from skills"
     }
@@ -385,6 +385,23 @@
         "title": "Skills CLI documentation",
         "url": "https://skills.sh/docs"
       }
+    ]
+  },
+  "executionProfile": {
+    "modelTier": "cheap",
+    "taskTypes": [
+      "validation",
+      "cleanup",
+      "review"
+    ],
+    "parallelSafety": "single-package",
+    "fleetReady": true,
+    "worktreeSafe": true,
+    "tokenBudget": "small",
+    "contextStrategy": [
+      "Start with SKILL.md.",
+      "Open only the routed rule or reference file for the requested task.",
+      "Use README.md for install and validation guidance."
     ]
   }
 }

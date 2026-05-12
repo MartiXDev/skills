@@ -112,7 +112,7 @@ license: Complete terms in LICENSE.txt
 
 ## Standalone-first note
 
-- This skill is authored as a standalone package under `src\skills`.
+- This skill is authored as a standalone package under `skills`.
 - If you document or install the package directly, use
   `npx skills add <source>` rather than `npx skill add`.
 - Keep FastEndpoints-specific guidance here. Pull broader ASP.NET Core or

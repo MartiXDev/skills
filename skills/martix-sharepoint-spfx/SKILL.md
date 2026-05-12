@@ -180,7 +180,7 @@ license: Complete terms in LICENSE.txt
 
 ## Standalone-first note
 
-- This skill is authored as a standalone package under `src\skills`.
+- This skill is authored as a standalone package under `skills`.
 - Install or preview it directly with `npx skills add <source>`.
 - Shared marketplace registration is managed in repository-level metadata
   outside this package.

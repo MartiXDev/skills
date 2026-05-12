@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "publisher": {
     "name": "MartiXDev",
-    "repository": "MartiXDev/ai-marketplace",
+    "repository": "MartiXDev/skills",
     "distributionModel": "standalone skill with optional direct Copilot marketplace registration"
   },
   "summary": "Standalone-first MartiX skill package for modern .NET 10+ and C# 14+ engineering guidance.",
@@ -243,8 +243,8 @@
       "status": "canonical",
       "officialInstallCommand": "npx skills add <source>",
       "preferredSources": [
-        ".\\src\\skills\\martix-dotnet-csharp",
-        "https://github.com/MartiXDev/ai-marketplace/tree/main/skills/martix-dotnet-csharp"
+        ".\\skills\\martix-dotnet-csharp",
+        "https://github.com/MartiXDev/skills/tree/main/skills/martix-dotnet-csharp"
       ],
       "notes": [
         "Official docs currently show npx skills add, not npx skill add.",
@@ -254,8 +254,8 @@
     "secondarySurface": {
       "id": "copilot-cli-plugin-marketplace",
       "status": "direct-registration",
-      "marketplaceRepository": "MartiXDev/ai-marketplace",
-      "marketplaceName": "martix-ai-marketplace",
+      "marketplaceRepository": "MartiXDev/skills",
+      "marketplaceName": "martix-skills",
       "pluginName": "martix-dotnet-csharp",
       "strategy": "register the canonical standalone package directly from skills"
     }
@@ -314,6 +314,24 @@
         "title": "GitHub Copilot CLI plugin reference",
         "url": "https://docs.github.com/en/copilot/reference/cli-plugin-reference"
       }
+    ]
+  },
+  "executionProfile": {
+    "modelTier": "mixed",
+    "taskTypes": [
+      "planning",
+      "implementation",
+      "review",
+      "validation"
+    ],
+    "parallelSafety": "single-package",
+    "fleetReady": true,
+    "worktreeSafe": true,
+    "tokenBudget": "medium",
+    "contextStrategy": [
+      "Start with SKILL.md.",
+      "Open only the routed rule or reference file for the requested task.",
+      "Use README.md for install and validation guidance."
     ]
   }
 }

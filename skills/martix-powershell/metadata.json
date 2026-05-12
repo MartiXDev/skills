@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "publisher": {
     "name": "MartiXDev",
-    "repository": "MartiXDev/ai-marketplace",
+    "repository": "MartiXDev/skills",
     "distributionModel": "standalone skill with direct Copilot marketplace registration"
   },
   "summary": "Standalone-first MartiX skill package for compiled PowerShell cmdlet development in C#, covering base class selection, naming and conventions, parameter declaration and validation, pipeline input/output streaming, error handling, confirmation safety patterns, advanced patterns, and attribute validators.",
@@ -273,19 +273,19 @@
       "status": "canonical",
       "officialInstallCommand": "npx skills add <source>",
       "preferredSources": [
-        "https://github.com/MartiXDev/ai-marketplace/tree/main/skills/martix-powershell"
+        "https://github.com/MartiXDev/skills/tree/main/skills/martix-powershell"
       ],
       "notes": [
         "Use the standalone package as the source of truth for local installs and direct folder-based validation.",
-        "For local installs use the full absolute folder path (e.g. C:\\Git\\MartiXDev\\ai-marketplace\\src\\skills\\martix-powershell). Relative paths such as .\\src\\skills\\martix-powershell are treated as git URLs by the skills CLI on Windows and will fail.",
+        "For local installs use the full absolute folder path (e.g. C:\\Git\\MartiXDev\\skills\\skills\\martix-powershell). Relative paths such as .\\skills\\martix-powershell are treated as git URLs by the skills CLI on Windows and will fail.",
         "Prefer the GitHub tree URL for non-local installs."
       ]
     },
     "secondarySurface": {
       "id": "copilot-cli-plugin-marketplace",
       "status": "direct-registration",
-      "marketplaceRepository": "MartiXDev/ai-marketplace",
-      "marketplaceName": "martix-ai-marketplace",
+      "marketplaceRepository": "MartiXDev/skills",
+      "marketplaceName": "martix-skills",
       "pluginName": "martix-powershell",
       "strategy": "register the canonical standalone package directly from skills"
     }
@@ -384,6 +384,23 @@
         "title": "Skills CLI documentation",
         "url": "https://skills.sh/docs"
       }
+    ]
+  },
+  "executionProfile": {
+    "modelTier": "medium",
+    "taskTypes": [
+      "implementation",
+      "review",
+      "validation"
+    ],
+    "parallelSafety": "single-package",
+    "fleetReady": true,
+    "worktreeSafe": true,
+    "tokenBudget": "medium",
+    "contextStrategy": [
+      "Start with SKILL.md.",
+      "Open only the routed rule or reference file for the requested task.",
+      "Use README.md for install and validation guidance."
     ]
   }
 }

@@ -39,7 +39,7 @@ skill library and which source families are intentionally excluded.
 
 ### Maintenance notes
 
-- Treat this library as standalone-first under `src/skills`.
+- Treat this library as standalone-first under `skills`.
 - Keep reference maps traceable back to official docs and the approved research
   artifacts.
 - Add new sources here before using them to expand the rule set.

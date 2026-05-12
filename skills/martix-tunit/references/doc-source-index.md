@@ -45,17 +45,17 @@ taxonomy) but are **not** sources of TUnit API facts.
 
 | Artifact | Role | Notes |
 | --- | --- | --- |
-| `src/skills/martix-tunit/SKILL.md` | Discovery router; defines workstream scope | Highest-priority package-structural file; governs what belongs in this skill |
-| `src/skills/martix-tunit/AGENTS.md` | Cross-workstream companion guide | Defines review routes and maintenance contract |
-| `src/skills/martix-tunit/metadata.json` | Package metadata; domain plan, rule prefixes, tags | Authoritative list of the 9 planned domains and their canonical prefix names |
-| `src/skills/martix-tunit/rules/_sections.md` | Rule section contract | Every rule must follow this 6-section shape exactly |
-| `src/skills/martix-tunit/assets/taxonomy.json` | Machine-readable domain taxonomy | Drives domain ordering and prefix assignment |
-| `src/skills/martix-tunit/assets/section-order.json` | Stable section and domain ordering | Drives `ruleSectionOrder` and `plannedDomainOrder` |
-| `src/skills/martix-tunit/templates/rule-template.md` | Rule authoring scaffold | Starting point for new rule files |
-| `src/skills/martix-tunit/templates/research-pack-template.md` | Research memo scaffold | Use when scoping sources for a new rule domain |
-| `src/skills/martix-tunit/templates/comparison-matrix-template.md` | Comparison scaffold | Use when benchmarking TUnit against another framework |
-| `src/skills/martix-tunit/references/seed-skill-harvest.md` | Harvest memo — seed-skill review | Records what was reusable, what was corrected, and what was absent in the `.github/skills/csharp-tunit/SKILL.md` seed. No TUnit API authority; read-once reference for rule authoring. |
-| *(future)* `src/skills/martix-tunit/research/*.md` | Scoped research memos | Must be explicitly approved and listed here before use in rules |
+| `skills/martix-tunit/SKILL.md` | Discovery router; defines workstream scope | Highest-priority package-structural file; governs what belongs in this skill |
+| `skills/martix-tunit/AGENTS.md` | Cross-workstream companion guide | Defines review routes and maintenance contract |
+| `skills/martix-tunit/metadata.json` | Package metadata; domain plan, rule prefixes, tags | Authoritative list of the 9 planned domains and their canonical prefix names |
+| `skills/martix-tunit/rules/_sections.md` | Rule section contract | Every rule must follow this 6-section shape exactly |
+| `skills/martix-tunit/assets/taxonomy.json` | Machine-readable domain taxonomy | Drives domain ordering and prefix assignment |
+| `skills/martix-tunit/assets/section-order.json` | Stable section and domain ordering | Drives `ruleSectionOrder` and `plannedDomainOrder` |
+| `skills/martix-tunit/templates/rule-template.md` | Rule authoring scaffold | Starting point for new rule files |
+| `skills/martix-tunit/templates/research-pack-template.md` | Research memo scaffold | Use when scoping sources for a new rule domain |
+| `skills/martix-tunit/templates/comparison-matrix-template.md` | Comparison scaffold | Use when benchmarking TUnit against another framework |
+| `skills/martix-tunit/references/seed-skill-harvest.md` | Harvest memo — seed-skill review | Records what was reusable, what was corrected, and what was absent in the `.github/skills/csharp-tunit/SKILL.md` seed. No TUnit API authority; read-once reference for rule authoring. |
+| *(future)* `skills/martix-tunit/research/*.md` | Scoped research memos | Must be explicitly approved and listed here before use in rules |
 
 ---
 
@@ -193,9 +193,9 @@ as TUnit knowledge sources:
   above)
 - `src/plugins/` — plugin-wrapper assets are a different product surface
 - `docs/martix-csharp/` — scoped to general C# guidance, not TUnit-specific
-- `src/skills/martix-dotnet-csharp/` — broader .NET/C# skill; pull from it
+- `skills/martix-dotnet-csharp/` — broader .NET/C# skill; pull from it
   only when a TUnit rule explicitly cross-links general .NET patterns
-- `src/skills/martix-fastendpoints/` and `src/skills/martix-fluentvalidation/`
+- `skills/martix-fastendpoints/` and `skills/martix-fluentvalidation/`
   — different library skills; do not borrow their sources
 - Any AI-generated summaries not grounded in the approved sources above
 - xUnit, NUnit, or MSTest documentation (approved only inside the

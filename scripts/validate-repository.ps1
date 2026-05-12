@@ -160,6 +160,15 @@ try {
         'evals\evals.json'
     )
 
+    $allowedModelTiers = @('cheap', 'medium', 'balanced', 'premium', 'mixed')
+    $allowedTokenBudgets = @('small', 'medium', 'large')
+    $allowedParallelSafety = @(
+        'single-package',
+        'multi-package-readonly',
+        'shared-file-coordinator',
+        'not-parallel-safe'
+    )
+
     Get-ChildItem -LiteralPath (Join-Path $root 'skills') -Directory | ForEach-Object {
         foreach ($item in $requiredSkillItems) {
             $candidate = Join-Path $_.FullName $item
@@ -171,6 +180,54 @@ try {
                 else {
                     Add-Issue -File (Get-RelativePath $_.FullName) -Message $message
                 }
+            }
+        }
+
+        $metadataPath = Join-Path $_.FullName 'metadata.json'
+        if (Test-Path -LiteralPath $metadataPath) {
+            $metadataRaw = Get-Content -LiteralPath $metadataPath -Raw
+            if ($metadataRaw -match 'ai-marketplace') {
+                Add-Issue -File (Get-RelativePath $metadataPath) -Message "metadata.json contains stale 'ai-marketplace' reference."
+            }
+
+            if ($metadataRaw -match 'src[\\/]+skills') {
+                Add-Issue -File (Get-RelativePath $metadataPath) -Message "metadata.json contains stale 'src\skills' reference."
+            }
+
+            $metadata = Read-JsonFile -Path $metadataPath
+            if ($metadata) {
+                if (-not $metadata.executionProfile) {
+                    Add-Issue -File (Get-RelativePath $metadataPath) -Message "metadata.json must define executionProfile."
+                }
+                else {
+                    $modelTier = [string]$metadata.executionProfile.modelTier
+                    if ([string]::IsNullOrWhiteSpace($modelTier) -or $modelTier -notin $allowedModelTiers) {
+                        Add-Issue -File (Get-RelativePath $metadataPath) -Message "executionProfile.modelTier must be one of: $($allowedModelTiers -join ', ')."
+                    }
+
+                    $tokenBudget = [string]$metadata.executionProfile.tokenBudget
+                    if ([string]::IsNullOrWhiteSpace($tokenBudget) -or $tokenBudget -notin $allowedTokenBudgets) {
+                        Add-Issue -File (Get-RelativePath $metadataPath) -Message "executionProfile.tokenBudget must be one of: $($allowedTokenBudgets -join ', ')."
+                    }
+
+                    $parallelSafety = [string]$metadata.executionProfile.parallelSafety
+                    if ([string]::IsNullOrWhiteSpace($parallelSafety) -or $parallelSafety -notin $allowedParallelSafety) {
+                        Add-Issue -File (Get-RelativePath $metadataPath) -Message "executionProfile.parallelSafety must be one of: $($allowedParallelSafety -join ', ')."
+                    }
+                }
+            }
+        }
+
+        $skillMdPath = Join-Path $_.FullName 'SKILL.md'
+        if (Test-Path -LiteralPath $skillMdPath) {
+            $skillMdRaw = Get-Content -LiteralPath $skillMdPath -Raw
+            if ($skillMdRaw -match 'ai-marketplace|src[\\/]+skills') {
+                Add-Issue -File (Get-RelativePath $skillMdPath) -Message "SKILL.md contains stale repository or src\skills path reference."
+            }
+
+            $skillMdLineCount = (Get-Content -LiteralPath $skillMdPath).Count
+            if ($skillMdLineCount -gt 200) {
+                Add-Warning -File (Get-RelativePath $skillMdPath) -Message "SKILL.md has $skillMdLineCount lines. Keep entrypoints compact and move durable detail to rules or references."
             }
         }
 
@@ -189,6 +246,7 @@ try {
                     Add-Issue -File (Get-RelativePath $evalPath) -Message "Eval file must contain at least one eval."
                 }
 
+                $hasNegativeActivation = $false
                 foreach ($eval in @($evalDoc.evals)) {
                     if ([string]::IsNullOrWhiteSpace([string]$eval.id)) {
                         Add-Issue -File (Get-RelativePath $evalPath) -Message "Every eval must have a non-empty string id."
@@ -204,6 +262,48 @@ try {
                     if (-not $eval.expected_output -and -not $eval.expected_sections) {
                         Add-Issue -File (Get-RelativePath $evalPath) -Message "Eval '$($eval.id)' must define expected_output or expected_sections."
                     }
+
+                    $evalModelTier = [string]$eval.model_tier
+                    if ([string]::IsNullOrWhiteSpace($evalModelTier) -or $evalModelTier -notin $allowedModelTiers) {
+                        Add-Issue -File (Get-RelativePath $evalPath) -Message "Eval '$($eval.id)' model_tier must be one of: $($allowedModelTiers -join ', ')."
+                    }
+
+                    if ($null -eq $eval.parallel_safe) {
+                        Add-Issue -File (Get-RelativePath $evalPath) -Message "Eval '$($eval.id)' must declare parallel_safe."
+                    }
+                    elseif ($eval.parallel_safe -isnot [bool]) {
+                        Add-Issue -File (Get-RelativePath $evalPath) -Message "Eval '$($eval.id)' parallel_safe must be a boolean."
+                    }
+
+                    $evalTokenBudget = [string]$eval.token_budget
+                    if (-not [string]::IsNullOrWhiteSpace($evalTokenBudget) -and $evalTokenBudget -notin $allowedTokenBudgets) {
+                        Add-Issue -File (Get-RelativePath $evalPath) -Message "Eval '$($eval.id)' token_budget must be one of: $($allowedTokenBudgets -join ', ')."
+                    }
+
+                    if ($evalModelTier -eq 'cheap' -and $evalTokenBudget -eq 'large') {
+                        Add-Issue -File (Get-RelativePath $evalPath) -Message "Eval '$($eval.id)' cannot combine model_tier 'cheap' with token_budget 'large'."
+                    }
+
+                    foreach ($evalFile in @($eval.files)) {
+                        if ([string]::IsNullOrWhiteSpace([string]$evalFile)) {
+                            continue
+                        }
+
+                        $resolvedEvalFile = [System.IO.Path]::GetFullPath(
+                            (Join-Path $_.FullName ([string]$evalFile -replace '/', '\'))
+                        )
+                        if (-not (Test-Path -LiteralPath $resolvedEvalFile)) {
+                            Add-Issue -File (Get-RelativePath $evalPath) -Message "Eval '$($eval.id)' references missing file '$evalFile'."
+                        }
+                    }
+
+                    if ($eval.negative_activation -eq $true) {
+                        $hasNegativeActivation = $true
+                    }
+                }
+
+                if (-not $hasNegativeActivation) {
+                    Add-Warning -File (Get-RelativePath $evalPath) -Message "Eval file has no negative_activation eval for scope-boundary routing."
                 }
             }
         }

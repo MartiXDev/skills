@@ -19,7 +19,12 @@
         "ProcessRecord override calls $PSCmdlet.ShouldProcess or this.ShouldProcess before performing the destructive operation",
         "Path parameter uses [Parameter(ValueFromPipeline = true)] or [Parameter(ValueFromPipelineByPropertyName = true)]",
         "Does not use Write-Host or Console.WriteLine for output — uses WriteObject"
-      ]
+      ],
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null,
+      "model_tier": "medium"
     },
     {
       "id": "advanced-function-error-handling-shouldprocess",
@@ -40,7 +45,12 @@
         "Uses $PSCmdlet.ThrowTerminatingError(...) for the null/empty guard — not throw or Write-Error",
         "Uses $PSCmdlet.WriteError(...) for the non-fatal provisioning failure path",
         "Does not use Write-Host for status output in the pipeline path"
-      ]
+      ],
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null,
+      "model_tier": "medium"
     },
     {
       "id": "advanced-function-help-style-authoring",
@@ -64,7 +74,12 @@
         "Script body uses Where-Object (not ? or where) for filtering",
         "Script body does not call Read-Host anywhere",
         "Script body does not use the ForEach-Object alias % or a bare foreach pipeline alias in place of ForEach-Object"
-      ]
+      ],
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null,
+      "model_tier": "medium"
     },
     {
       "id": "advanced-function-help-style-review",
@@ -93,7 +108,12 @@
         "Corrected code does not contain Read-Host",
         "Corrected code declares [switch]$CaseSensitive (no default value needed; [switch] implies $false when absent)",
         "Corrected code includes both .OUTPUTS and .NOTES in the help block"
-      ]
+      ],
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null,
+      "model_tier": "medium"
     },
     {
       "id": "scope-boundary-generic-script",
@@ -108,7 +128,12 @@
         "Does NOT apply cmdlet-contract rules (ErrorRecord, ThrowTerminatingError, ShouldProcess) as if this were a compiled cmdlet or advanced function",
         "States clearly that generic PowerShell scripts without [CmdletBinding()] are explicitly out of scope per the skill description",
         "If offering any improvement, suggests adding [CmdletBinding(SupportsShouldProcess = $true)] and WhatIf support as the path to bring the function into scope — or defers to a general PowerShell resource"
-      ]
+      ],
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": true,
+      "escalation": null,
+      "model_tier": "medium"
     }
   ]
 }

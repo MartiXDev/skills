@@ -57,7 +57,7 @@ guidance.
 
 - Keep this workstream FluentValidation-specific. General .NET exception,
   validation, or application-architecture guidance belongs in
-  `src/skills/martix-dotnet-csharp/`.
+  `skills/martix-dotnet-csharp/`.
 - Keep the decision boundary between `SetValidator` and
   `SetInheritanceValidator` explicit so agents do not blur fixed validator
   composition with runtime subtype dispatch.
