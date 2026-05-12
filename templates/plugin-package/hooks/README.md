@@ -1,4 +1,4 @@
-# Plugin Display Name hooks
+# <Plugin Display Name> hooks
 
 This plugin does not need hooks by default.
 
