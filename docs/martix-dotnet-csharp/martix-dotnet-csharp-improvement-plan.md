@@ -3,7 +3,7 @@
 ### Goal
 
 The first comparison-driven upgrade pass is already implemented in
-`src\skills\martix-dotnet-csharp`. This plan now tracks only genuine
+`skills\martix-dotnet-csharp`. This plan now tracks only genuine
 second-phase work: validate the upgraded package with real evals, tune trigger
 and discovery behavior, tighten compatibility and metadata notes, and make only
 targeted refinements that are justified by evidence.
@@ -79,9 +79,9 @@ Further content changes should be driven by evidence.
 
 | Path | Action | Purpose |
 | --- | --- | --- |
-| `src/skills/martix-dotnet-csharp/SKILL.md` | Maybe update | Tune description and opening routes if evals show trigger or onboarding gaps |
-| `src/skills/martix-dotnet-csharp/AGENTS.md` | Maybe update | Tighten route tables if reviewers still hesitate on first-file choice |
-| eval workspace outside `src\skills\martix-dotnet-csharp` | Generate during evals | Capture iteration results without turning test artifacts into package content |
+| `skills/martix-dotnet-csharp/SKILL.md` | Maybe update | Tune description and opening routes if evals show trigger or onboarding gaps |
+| `skills/martix-dotnet-csharp/AGENTS.md` | Maybe update | Tighten route tables if reviewers still hesitate on first-file choice |
+| eval workspace outside `skills\martix-dotnet-csharp` | Generate during evals | Capture iteration results without turning test artifacts into package content |
 
 ### P1 - Tune trigger wording and discovery boundaries
 
@@ -135,10 +135,10 @@ drift even when the package itself is useful.
 
 | Path | Action | Purpose |
 | --- | --- | --- |
-| `src/skills/martix-dotnet-csharp/metadata.json` | Review and possibly update | Keep maturity, compatibility, and distribution notes accurate |
-| `src/skills/martix-dotnet-csharp/README.md` | Review and possibly update | Keep install, validation, and discovery notes aligned with reality |
-| `src/skills/martix-dotnet-csharp/SKILL.md` | Maybe update | Add or tighten a short compatibility stance only if readers need it |
-| `src/skills/martix-dotnet-csharp/AGENTS.md` | Maybe update | Clarify modernization vs greenfield routes if that boundary still causes friction |
+| `skills/martix-dotnet-csharp/metadata.json` | Review and possibly update | Keep maturity, compatibility, and distribution notes accurate |
+| `skills/martix-dotnet-csharp/README.md` | Review and possibly update | Keep install, validation, and discovery notes aligned with reality |
+| `skills/martix-dotnet-csharp/SKILL.md` | Maybe update | Add or tighten a short compatibility stance only if readers need it |
+| `skills/martix-dotnet-csharp/AGENTS.md` | Maybe update | Clarify modernization vs greenfield routes if that boundary still causes friction |
 
 ### P2 - Apply only targeted content polish
 
@@ -166,7 +166,7 @@ Best candidates if data justifies it:
 #### What to do
 
 After package validation, confirm that repository-level marketplace metadata
-still reflects the canonical `src\skills\martix-dotnet-csharp` package and does
+still reflects the canonical `skills\martix-dotnet-csharp` package and does
 not drift from the package docs.
 
 Likely follow-up:

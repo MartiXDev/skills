@@ -181,7 +181,7 @@
       "status": "canonical",
       "officialInstallCommand": "npx skills add <source>",
       "preferredSources": [
-        "C:/Git/MartiXDev/skills/skills/martix-sharepoint-pnp",
+        "skills/martix-sharepoint-pnp",
         "https://github.com/MartiXDev/skills/tree/main/skills/martix-sharepoint-pnp"
       ],
       "notes": [

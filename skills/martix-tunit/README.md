@@ -39,35 +39,9 @@ installs should consume directly.
 
 ## Installation
 
-### Standalone skills CLI flow
+### Copilot CLI marketplace flow
 
-Use the standalone flow as the primary install surface for this package.
-
-- Official docs currently show `npx skills add <source>`.
-- Official docs do **not** currently show `npx skill add <source>`.
-- Because this repository stores the package under `skills\...`, prefer an
-  absolute folder path or direct GitHub tree URL instead of repo-root
-  discovery. In this environment, a Windows relative path such as
-  `.\skills\martix-tunit` is treated like a git source by the `skills` CLI
-  and fails preview or install.
-
-```powershell
-npx skills add C:\Git\MartiXDev\skills\skills\martix-tunit `
-  -a github-copilot -y
-npx skills add C:\Git\MartiXDev\skills\skills\martix-tunit `
-  -a github-copilot --copy -y
-
-# Or from GitHub:
-# npx skills add <github-tree-url> -a github-copilot -y
-```
-
-To use a GitHub tree URL, use the direct path to the `martix-tunit`
-folder in the repository.
-
-### Copilot CLI plugin marketplace flow
-
-Use the marketplace flow against the same standalone source package. The
-marketplace entry points directly at `skills\martix-tunit`.
+Use the marketplace flow for normal GitHub Copilot CLI installs.
 
 ```powershell
 copilot plugin marketplace add MartiXDev/skills
@@ -75,6 +49,26 @@ copilot plugin marketplace list
 copilot plugin marketplace browse martix-skills
 copilot plugin install martix-tunit@martix-skills
 ```
+
+### Standalone skills CLI flow
+
+Use repo-root skill selection for standalone skill installs.
+
+```powershell
+npx skills add https://github.com/MartiXDev/skills --skill martix-tunit
+```
+
+### Direct source path flow
+
+Use a direct package path only for local validation or development.
+
+```powershell
+npx skills add C:\Git\MartiXDev\skills\skills\martix-tunit -a github-copilot -y
+npx skills add C:\Git\MartiXDev\skills\skills\martix-tunit -a github-copilot --copy -y
+```
+
+For validation from GitHub, point at the package folder:
+`https://github.com/MartiXDev/skills/tree/main/skills/martix-tunit`.
 
 Only the following slash-command equivalents are documented in the reviewed
 research, so keep marketplace browsing as a shell command for now.

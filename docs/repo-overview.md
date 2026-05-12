@@ -4,11 +4,11 @@
 
 ## Purpose
 
-This repository is the MartiX catalog for reusable AI skills and GitHub Copilot CLI plugin packages. It is designed to support three install and discovery paths:
+This repository is the MartiX catalog for reusable AI skills and GitHub Copilot CLI plugin packages. It supports three install and discovery paths, preferred in this order:
 
-- Standalone skill installs with `npx skills`.
-- GitHub Copilot CLI marketplace installs through the `martix-skills` marketplace.
-- Direct repository-path installs for local testing or targeted package use.
+1. GitHub Copilot CLI marketplace installs through the `martix-skills` marketplace.
+2. Repo-root standalone skill installs with `npx skills add ... --skill ...`.
+3. Direct repository-path installs for local validation or development.
 
 The repository is intentionally organized around reusable standalone skills first. Plugin packages are reserved for bundles that need plugin-scoped agents, bundled skills, instructions, hooks, prompts, or MCP configuration.
 
@@ -37,7 +37,7 @@ npx skills add https://github.com/MartiXDev/skills --skill martix-markdown
 npx skills add https://github.com/MartiXDev/skills --skill martix-dotnet-csharp
 ```
 
-For local validation or tools that need an explicit package source, point directly at a skill folder:
+For local validation or development, point directly at a skill folder:
 
 ```sh
 npx skills add C:\Git\MartiXDev\skills\skills\martix-markdown -a github-copilot -y
@@ -46,7 +46,7 @@ npx skills add https://github.com/MartiXDev/skills/tree/main/skills/martix-markd
 
 ### Install directly from repository paths
 
-Direct installs are useful when validating a source folder before relying on marketplace metadata:
+Direct repository-path installs are for local validation or development:
 
 ```sh
 copilot plugin install MartiXDev/skills:skills/martix-markdown

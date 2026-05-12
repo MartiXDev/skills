@@ -15,7 +15,7 @@ may include agents, skills, hooks, and MCP server configurations.
 
 ## Installation
 
-Add the marketplace and install a plugin:
+For normal Copilot CLI installs, add the marketplace and install a plugin:
 
 ```sh
 copilot plugin marketplace add MartiXDev/skills
@@ -24,7 +24,7 @@ copilot plugin install martix-dotnet-library@martix-skills
 copilot plugin install martix-webapi@martix-skills
 ```
 
-Or install directly from the repository path:
+For local validation or development, install directly from the repository path:
 
 ```sh
 copilot plugin install MartiXDev/skills:plugins/martix-dotnet-library

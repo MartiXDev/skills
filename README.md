@@ -1,7 +1,7 @@
 # MartiX Skills
 
-MartiX AI Skills and Plugins for GitHub Copilot CLI — standalone-first skill packages
-and plugin bundles for .NET, SharePoint, Markdown, and more.
+MartiX AI Skills and Plugins for GitHub Copilot CLI — marketplace-ready skill
+packages and plugin bundles for .NET, SharePoint, Markdown, and more.
 
 ## Marketplace
 
@@ -15,6 +15,12 @@ copilot plugin marketplace add MartiXDev/skills
 ```
 
 ## Quick Install
+
+Install paths are preferred in this order:
+
+1. Marketplace installs for normal Copilot CLI users.
+2. Repo-root `npx skills add ... --skill ...` for standalone skill installs.
+3. Direct repository-path installs for local validation or development.
 
 Install a specific skill or plugin after adding the marketplace:
 
@@ -36,14 +42,14 @@ copilot plugin install martix-dotnet-library@martix-skills
 copilot plugin install martix-webapi@martix-skills
 ```
 
-Or use the `npx skills` CLI to add individual skills:
+For standalone skill installs, use repo-root skill selection:
 
 ```sh
 npx skills add https://github.com/MartiXDev/skills --skill martix-markdown
 npx skills add https://github.com/MartiXDev/skills --skill martix-dotnet-csharp
 ```
 
-Or install directly from the repository without adding the marketplace:
+For local validation or development, install directly from a repository path:
 
 ```sh
 copilot plugin install MartiXDev/skills:skills/martix-markdown
@@ -80,6 +86,9 @@ assets, and metadata. Each entry in `plugins/` is a plugin bundle with
 needed.
 
 ## Maintainer Guides
+
+For a compact entry point to the documentation tree, see the
+[docs index](./docs/README.md).
 
 | Guide | Purpose |
 | --- | --- |

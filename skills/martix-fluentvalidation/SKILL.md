@@ -25,57 +25,17 @@ license: Complete terms in LICENSE.txt
   `ValidationProblem`, `FluentValidation.TestHelper` coverage, runtime metadata,
   or FluentValidation 11/12 upgrade decisions.
 
-## Quick-start defaults
+## Quick-start routes
 
-Use this section for the first pass, then move into the workstream rules and
-maps below for the specific change.
+Use the closest row first, then open the linked workstream map for details.
 
-### Write a new validator
-
-- Start with [FluentValidation validator basics](./rules/foundation-validator-basics.md)
-  and the
-  [FluentValidation built-in validators map](./references/built-in-validators-map.md).
-- Add
-  [FluentValidation collections and composition](./rules/foundation-collections-composition.md)
-  when the validator nests child validators or collection rules.
-
-### Validate at an API boundary
-
-- Start with
-  [FluentValidation ASP.NET Core application integration](./rules/integration-aspnet-core.md)
-  and [Web bootstrap recipes](./references/web-bootstrap-recipes.md).
-- Prefer manual validation at the boundary and translate failures with
-  `ValidationProblem` or `Results.ValidationProblem(...)`.
-- Add
-  [FluentValidation async validation integration](./rules/integration-async-validation.md)
-  when any rule or dependency is async.
-
-### Test a validator
-
-- Start with
-  [FluentValidation validator test helper usage](./rules/testing-validator-testhelper.md)
-  and [Testing bootstrap recipes](./references/testing-bootstrap-recipes.md).
-- Use `FluentValidation.TestHelper` black-box tests first with `TestValidate`
-  or `TestValidateAsync`.
-
-### Review an async validation bug
-
-- Start with
-  [FluentValidation async validation integration](./rules/integration-async-validation.md)
-  and
-  [Anti-patterns quick reference](./references/anti-patterns-quick-reference.md).
-- Check that callers use `ValidateAsync(...)` and pass the ambient
-  `CancellationToken`.
-
-### Plan an upgrade
-
-- Start with
-  [FluentValidation current upgrade baseline](./rules/upgrade-current-baseline.md),
-  [FluentValidation upgrade breaking changes history](./rules/upgrade-breaking-changes-history.md),
-  and the
-  [FluentValidation compatibility matrix](./references/compatibility-matrix.md).
-- Use the [FluentValidation upgrade map](./references/upgrade-map.md) to scope
-  affected validators, integration paths, and tests before editing.
+| Task | Start with | Add when |
+| --- | --- | --- |
+| New validator | [Validator basics](./rules/foundation-validator-basics.md) + [built-in validators map](./references/built-in-validators-map.md) | [Collections and composition](./rules/foundation-collections-composition.md) for child validators or collection rules. |
+| API boundary | [ASP.NET Core integration](./rules/integration-aspnet-core.md) + [Web bootstrap recipes](./references/web-bootstrap-recipes.md) | [Async validation](./rules/integration-async-validation.md) when any rule or dependency is async. |
+| Validator tests | [Test helper usage](./rules/testing-validator-testhelper.md) + [Testing bootstrap recipes](./references/testing-bootstrap-recipes.md) | Boundary tests only when DI, filters, controllers, or Minimal API behavior is part of the contract. |
+| Async bug | [Async validation](./rules/integration-async-validation.md) + [Anti-patterns quick reference](./references/anti-patterns-quick-reference.md) | Verify callers use `ValidateAsync(...)` and pass the ambient `CancellationToken`. |
+| Upgrade | [Current baseline](./rules/upgrade-current-baseline.md), [breaking-change history](./rules/upgrade-breaking-changes-history.md), and [compatibility matrix](./references/compatibility-matrix.md) | Scope affected validators, integrations, and tests with the [upgrade map](./references/upgrade-map.md). |
 
 ## Default patterns
 
@@ -88,26 +48,23 @@ maps below for the specific change.
 
 ## Bootstrap and quick review references
 
-- Use these quick references for copy-ready starting points or a fast smell
-  test, then return to the rule library for the deeper source-backed guidance.
-- References:
-  - [Anti-patterns quick reference](./references/anti-patterns-quick-reference.md)
-  - [Web bootstrap recipes](./references/web-bootstrap-recipes.md)
-  - [Testing bootstrap recipes](./references/testing-bootstrap-recipes.md)
+Use [Anti-patterns quick reference](./references/anti-patterns-quick-reference.md),
+[Web bootstrap recipes](./references/web-bootstrap-recipes.md), or
+[Testing bootstrap recipes](./references/testing-bootstrap-recipes.md) for fast
+starts, then return to the rule library for source-backed guidance.
 
 ## Start with the closest workstream
 
-1. Pick the closest workstream map below.
-1. Read only the linked rules needed for the current change.
-1. Use [AGENTS.md](./AGENTS.md) when the scenario spans multiple workstreams or
-   needs official-versus-ecosystem source boundaries.
+Pick the closest map, read only rules needed for the change, and use
+[AGENTS.md](./AGENTS.md) for multi-workstream or official-versus-ecosystem
+source-boundary reviews.
 
 ## Rule library by workstream
 
 ## Foundation and composition
 
-- Use for package setup, version baseline, validator shape, nested validators,
-  collection rules, and same-root validator composition.
+- Use for package setup, version baselines, validator shape, nesting,
+  collections, and same-root composition.
 - Rules:
   - [FluentValidation installation and versioning baseline](./rules/foundation-installation-versioning.md)
   - [FluentValidation validator basics](./rules/foundation-validator-basics.md)
@@ -116,8 +73,8 @@ maps below for the specific change.
 
 ## Built-in validator families
 
-- Use for required-value semantics, comparison and range checks, length and
-  format screening, enum validation, regex, and predicate escape hatches.
+- Use for presence, comparison/range, length/format, enum, regex, and predicate
+  decisions.
 - Rules:
   - [FluentValidation null, empty, and presence validators](./rules/validators-null-empty.md)
   - [FluentValidation comparison and range validators](./rules/validators-comparison-range.md)
@@ -127,8 +84,8 @@ maps below for the specific change.
 
 ## Rule configuration and execution
 
-- Use for error-message wording, placeholders, property names, collection paths,
-  RuleSets, conditions, cascade modes, validator inclusion, and dependent rules.
+- Use for messages, placeholders, property paths, RuleSets, conditions, cascade,
+  inclusion, and dependent rules.
 - Rules:
   - [FluentValidation messages and placeholders](./rules/configuration-messages-placeholders.md)
   - [FluentValidation property names and paths](./rules/configuration-property-names-paths.md)
@@ -138,9 +95,8 @@ maps below for the specific change.
 
 ## Integration and application boundaries
 
-- Use for DI registration, ASP.NET Core integration, async validation call
-  paths, Minimal APIs, MVC or Razor Pages boundaries, and Blazor ecosystem
-  evaluation.
+- Use for DI, ASP.NET Core, async calls, Minimal APIs, MVC/Razor Pages, and
+  Blazor ecosystem evaluation.
 - Rules:
   - [FluentValidation DI registration and discovery](./rules/integration-di-registration.md)
   - [FluentValidation ASP.NET Core application integration](./rules/integration-aspnet-core.md)
@@ -151,9 +107,8 @@ maps below for the specific change.
 
 ## Extensibility and advanced behavior
 
-- Use for `Must`, `Custom`, reusable extensions, custom property validators,
-  `SetValidator`, inheritance dispatch, `PreValidate`, `RootContextData`, and
-  validation-exception shaping.
+- Use for `Must`, `Custom`, reusable extensions, property validators,
+  inheritance, `PreValidate`, `RootContextData`, and exception shaping.
 - Rules:
   - [FluentValidation custom validator selection](./rules/extensibility-custom-validators.md)
   - [FluentValidation reusable property validators and SetValidator](./rules/extensibility-property-validators.md)
@@ -162,8 +117,8 @@ maps below for the specific change.
 
 ## Runtime metadata and localization
 
-- Use for severity, error codes, custom state, localized messages,
-  `LanguageManager`, and downstream validation-contract behavior.
+- Use for severity, error codes, custom state, localization, `LanguageManager`,
+  and downstream contracts.
 - Rules:
   - [FluentValidation severity, error codes, and custom state](./rules/runtime-severity-error-codes-state.md)
   - [FluentValidation localization and language manager](./rules/runtime-localization-language-manager.md)
@@ -171,8 +126,8 @@ maps below for the specific change.
 
 ## Testing and verification
 
-- Use for validator black-box tests, `FluentValidation.TestHelper`, async test
-  paths, DI wiring checks, and application-boundary verification.
+- Use for black-box validator tests, `FluentValidation.TestHelper`, async
+  paths, DI wiring, and boundary verification.
 - Rules:
   - [FluentValidation validator test helper usage](./rules/testing-validator-testhelper.md)
   - [FluentValidation testing integration boundaries](./rules/testing-integration-boundaries.md)
@@ -180,8 +135,8 @@ maps below for the specific change.
 
 ## Upgrade and compatibility
 
-- Use for current supported baselines, staged major-version upgrades, historical
-  breakages, and runtime-compatibility decisions across FluentValidation 8-12.
+- Use for current baselines, staged major upgrades, historical breakages, and
+  FluentValidation 8-12 compatibility.
 - Rules:
   - [FluentValidation current upgrade baseline](./rules/upgrade-current-baseline.md)
   - [FluentValidation upgrade breaking changes history](./rules/upgrade-breaking-changes-history.md)
@@ -199,13 +154,12 @@ maps below for the specific change.
   source inventories, and
   [the comparison matrix template](./templates/comparison-matrix-template.md)
   for external comparisons.
-- Use [metadata.json](./metadata.json) as the registration-ready inventory for
-  entrypoints, workstream coverage, and distribution notes.
+- Use [metadata.json](./metadata.json) for entrypoints, workstream coverage, and
+  distribution notes.
 
 ## Standalone-first note
 
-- This skill is authored as a standalone package under `skills`.
-- If you document or install the package directly, use
-  `npx skills add <source>` rather than `npx skill add`.
-- Keep FluentValidation-specific guidance here. Pull broader .NET or ASP.NET
-  Core guidance only when the task clearly widens beyond validation behavior.
+- This is a standalone package under `skills`; install with
+  `npx skills add <source>`, not `npx skill add`.
+- Keep FluentValidation guidance here; pull broader .NET or ASP.NET Core
+  guidance only when the task widens beyond validation behavior.

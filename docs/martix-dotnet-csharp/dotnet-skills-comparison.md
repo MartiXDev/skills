@@ -3,7 +3,7 @@
 ### Scope
 
 This comparison reviews the canonical MartiX package in
-`src\skills\martix-dotnet-csharp` against the Aaronontheweb comparison set named
+`skills\martix-dotnet-csharp` against the Aaronontheweb comparison set named
 in
 [`martix-dotnet-csharp.md`](./martix-dotnet-csharp.md).
 
@@ -14,45 +14,45 @@ overlap, 9 as adjacent supporting skills, and 15 as out of scope.
 
 The comparison is intentionally limited to the approved MartiX source boundary
 in
-[`references/doc-source-index.md`](../../src/skills/martix-dotnet-csharp/references/doc-source-index.md)
+[`references/doc-source-index.md`](../../skills/martix-dotnet-csharp/references/doc-source-index.md)
 plus the overlapping Aaronontheweb lanes above.
 
 ### Key files reviewed
 
 - MartiX package surfaces:
-  [`SKILL.md`](../../src/skills/martix-dotnet-csharp/SKILL.md),
-  [`AGENTS.md`](../../src/skills/martix-dotnet-csharp/AGENTS.md),
-  [`README.md`](../../src/skills/martix-dotnet-csharp/README.md),
-  [`metadata.json`](../../src/skills/martix-dotnet-csharp/metadata.json),
-  [`rules/_sections.md`](../../src/skills/martix-dotnet-csharp/rules/_sections.md),
-  [`templates/comparison-matrix-template.md`](../../src/skills/martix-dotnet-csharp/templates/comparison-matrix-template.md),
+  [`SKILL.md`](../../skills/martix-dotnet-csharp/SKILL.md),
+  [`AGENTS.md`](../../skills/martix-dotnet-csharp/AGENTS.md),
+  [`README.md`](../../skills/martix-dotnet-csharp/README.md),
+  [`metadata.json`](../../skills/martix-dotnet-csharp/metadata.json),
+  [`rules/_sections.md`](../../skills/martix-dotnet-csharp/rules/_sections.md),
+  [`templates/comparison-matrix-template.md`](../../skills/martix-dotnet-csharp/templates/comparison-matrix-template.md),
   and
-  [`references/doc-source-index.md`](../../src/skills/martix-dotnet-csharp/references/doc-source-index.md)
+  [`references/doc-source-index.md`](../../skills/martix-dotnet-csharp/references/doc-source-index.md)
 - MartiX lane evidence:
-  [`lang-modern-features.md`](../../src/skills/martix-dotnet-csharp/rules/lang-modern-features.md),
-  [`lang-nullability.md`](../../src/skills/martix-dotnet-csharp/rules/lang-nullability.md),
-  [`lang-pattern-matching.md`](../../src/skills/martix-dotnet-csharp/rules/lang-pattern-matching.md),
-  [`runtime-memory-spans.md`](../../src/skills/martix-dotnet-csharp/rules/runtime-memory-spans.md),
-  [`runtime-collections-immutability.md`](../../src/skills/martix-dotnet-csharp/rules/runtime-collections-immutability.md),
-  [`async-tasks-valuetasks.md`](../../src/skills/martix-dotnet-csharp/rules/async-tasks-valuetasks.md),
-  [`async-concurrency-channels.md`](../../src/skills/martix-dotnet-csharp/rules/async-concurrency-channels.md),
-  [`design-api-type-design.md`](../../src/skills/martix-dotnet-csharp/rules/design-api-type-design.md),
-  [`design-exceptions-validation.md`](../../src/skills/martix-dotnet-csharp/rules/design-exceptions-validation.md),
-  [`web-aspnet-core.md`](../../src/skills/martix-dotnet-csharp/rules/web-aspnet-core.md),
-  [`web-http-resilience.md`](../../src/skills/martix-dotnet-csharp/rules/web-http-resilience.md),
-  [`data-efcore.md`](../../src/skills/martix-dotnet-csharp/rules/data-efcore.md),
-  [`data-serialization.md`](../../src/skills/martix-dotnet-csharp/rules/data-serialization.md),
-  [`testing-unit-integration.md`](../../src/skills/martix-dotnet-csharp/rules/testing-unit-integration.md),
-  [`sdk-project-system.md`](../../src/skills/martix-dotnet-csharp/rules/sdk-project-system.md),
-  [`anti-patterns-quick-reference.md`](../../src/skills/martix-dotnet-csharp/references/anti-patterns-quick-reference.md),
-  [`async-map.md`](../../src/skills/martix-dotnet-csharp/references/async-map.md),
-  [`design-map.md`](../../src/skills/martix-dotnet-csharp/references/design-map.md),
-  [`web-stack-map.md`](../../src/skills/martix-dotnet-csharp/references/web-stack-map.md),
-  [`data-stack-map.md`](../../src/skills/martix-dotnet-csharp/references/data-stack-map.md),
-  [`web-bootstrap-recipes.md`](../../src/skills/martix-dotnet-csharp/references/web-bootstrap-recipes.md),
-  [`testing-bootstrap-recipes.md`](../../src/skills/martix-dotnet-csharp/references/testing-bootstrap-recipes.md),
+  [`lang-modern-features.md`](../../skills/martix-dotnet-csharp/rules/lang-modern-features.md),
+  [`lang-nullability.md`](../../skills/martix-dotnet-csharp/rules/lang-nullability.md),
+  [`lang-pattern-matching.md`](../../skills/martix-dotnet-csharp/rules/lang-pattern-matching.md),
+  [`runtime-memory-spans.md`](../../skills/martix-dotnet-csharp/rules/runtime-memory-spans.md),
+  [`runtime-collections-immutability.md`](../../skills/martix-dotnet-csharp/rules/runtime-collections-immutability.md),
+  [`async-tasks-valuetasks.md`](../../skills/martix-dotnet-csharp/rules/async-tasks-valuetasks.md),
+  [`async-concurrency-channels.md`](../../skills/martix-dotnet-csharp/rules/async-concurrency-channels.md),
+  [`design-api-type-design.md`](../../skills/martix-dotnet-csharp/rules/design-api-type-design.md),
+  [`design-exceptions-validation.md`](../../skills/martix-dotnet-csharp/rules/design-exceptions-validation.md),
+  [`web-aspnet-core.md`](../../skills/martix-dotnet-csharp/rules/web-aspnet-core.md),
+  [`web-http-resilience.md`](../../skills/martix-dotnet-csharp/rules/web-http-resilience.md),
+  [`data-efcore.md`](../../skills/martix-dotnet-csharp/rules/data-efcore.md),
+  [`data-serialization.md`](../../skills/martix-dotnet-csharp/rules/data-serialization.md),
+  [`testing-unit-integration.md`](../../skills/martix-dotnet-csharp/rules/testing-unit-integration.md),
+  [`sdk-project-system.md`](../../skills/martix-dotnet-csharp/rules/sdk-project-system.md),
+  [`anti-patterns-quick-reference.md`](../../skills/martix-dotnet-csharp/references/anti-patterns-quick-reference.md),
+  [`async-map.md`](../../skills/martix-dotnet-csharp/references/async-map.md),
+  [`design-map.md`](../../skills/martix-dotnet-csharp/references/design-map.md),
+  [`web-stack-map.md`](../../skills/martix-dotnet-csharp/references/web-stack-map.md),
+  [`data-stack-map.md`](../../skills/martix-dotnet-csharp/references/data-stack-map.md),
+  [`web-bootstrap-recipes.md`](../../skills/martix-dotnet-csharp/references/web-bootstrap-recipes.md),
+  [`testing-bootstrap-recipes.md`](../../skills/martix-dotnet-csharp/references/testing-bootstrap-recipes.md),
   and
-  [`libraries-catalog.md`](../../src/skills/martix-dotnet-csharp/references/libraries-catalog.md)
+  [`libraries-catalog.md`](../../skills/martix-dotnet-csharp/references/libraries-catalog.md)
 - Aaronontheweb overlap set from `external_skill_inventory`:
   `csharp-coding-standards`, `csharp-concurrency-patterns`,
   `csharp-api-design`, `csharp-type-design-performance`, `efcore-patterns`,
@@ -66,13 +66,13 @@ plus the overlapping Aaronontheweb lanes above.
 
 - MartiX now covers every direct-overlap Aaronontheweb lane with one integrated
   package: a trigger-rich
-  [`SKILL.md`](../../src/skills/martix-dotnet-csharp/SKILL.md), review routing
+  [`SKILL.md`](../../skills/martix-dotnet-csharp/SKILL.md), review routing
   in
-  [`AGENTS.md`](../../src/skills/martix-dotnet-csharp/AGENTS.md), 19 atomic
+  [`AGENTS.md`](../../skills/martix-dotnet-csharp/AGENTS.md), 19 atomic
   rules, 13 reference docs, and explicit authoring and source-boundary
   contracts in
-  [`metadata.json`](../../src/skills/martix-dotnet-csharp/metadata.json) and
-  [`doc-source-index.md`](../../src/skills/martix-dotnet-csharp/references/doc-source-index.md).
+  [`metadata.json`](../../skills/martix-dotnet-csharp/metadata.json) and
+  [`doc-source-index.md`](../../skills/martix-dotnet-csharp/references/doc-source-index.md).
 - Aaronontheweb/dotnet-skills is still stronger when the question is narrow and
   immediate. Nine dedicated overlap skills are easier to auto-match from
   specific trigger terms such as configuration, dependency injection,
@@ -105,12 +105,12 @@ plus the overlapping Aaronontheweb lanes above.
 #### 1. Language and style
 
 MartiX routes language work from
-[`SKILL.md`](../../src/skills/martix-dotnet-csharp/SKILL.md) into
-[`lang-modern-features.md`](../../src/skills/martix-dotnet-csharp/rules/lang-modern-features.md),
-[`lang-nullability.md`](../../src/skills/martix-dotnet-csharp/rules/lang-nullability.md),
-[`lang-pattern-matching.md`](../../src/skills/martix-dotnet-csharp/rules/lang-pattern-matching.md),
+[`SKILL.md`](../../skills/martix-dotnet-csharp/SKILL.md) into
+[`lang-modern-features.md`](../../skills/martix-dotnet-csharp/rules/lang-modern-features.md),
+[`lang-nullability.md`](../../skills/martix-dotnet-csharp/rules/lang-nullability.md),
+[`lang-pattern-matching.md`](../../skills/martix-dotnet-csharp/rules/lang-pattern-matching.md),
 and
-[`design-api-type-design.md`](../../src/skills/martix-dotnet-csharp/rules/design-api-type-design.md).
+[`design-api-type-design.md`](../../skills/martix-dotnet-csharp/rules/design-api-type-design.md).
 That gives the package one consistent modernization stance: released features
 only, small diffs, contract-aware nullability, and readable pattern matching.
 
@@ -125,11 +125,11 @@ blanket rules.
 #### 2. Concurrency
 
 MartiX has solid concurrency coverage across
-[`async-tasks-valuetasks.md`](../../src/skills/martix-dotnet-csharp/rules/async-tasks-valuetasks.md),
-[`async-concurrency-channels.md`](../../src/skills/martix-dotnet-csharp/rules/async-concurrency-channels.md),
-[`async-map.md`](../../src/skills/martix-dotnet-csharp/references/async-map.md),
+[`async-tasks-valuetasks.md`](../../skills/martix-dotnet-csharp/rules/async-tasks-valuetasks.md),
+[`async-concurrency-channels.md`](../../skills/martix-dotnet-csharp/rules/async-concurrency-channels.md),
+[`async-map.md`](../../skills/martix-dotnet-csharp/references/async-map.md),
 and
-[`anti-patterns-quick-reference.md`](../../src/skills/martix-dotnet-csharp/references/anti-patterns-quick-reference.md).
+[`anti-patterns-quick-reference.md`](../../skills/martix-dotnet-csharp/references/anti-patterns-quick-reference.md).
 The package already handles `Task` vs `ValueTask`, bounded vs unbounded
 channels, cancellation, backpressure, sync-over-async mistakes, and
 fire-and-forget hazards with a Microsoft-first set of primitives.
@@ -145,12 +145,12 @@ inside the core router.
 #### 3. Type design and performance
 
 MartiX spreads type and performance guidance across
-[`design-api-type-design.md`](../../src/skills/martix-dotnet-csharp/rules/design-api-type-design.md),
-[`runtime-memory-spans.md`](../../src/skills/martix-dotnet-csharp/rules/runtime-memory-spans.md),
-[`runtime-collections-immutability.md`](../../src/skills/martix-dotnet-csharp/rules/runtime-collections-immutability.md),
-[`async-tasks-valuetasks.md`](../../src/skills/martix-dotnet-csharp/rules/async-tasks-valuetasks.md),
+[`design-api-type-design.md`](../../skills/martix-dotnet-csharp/rules/design-api-type-design.md),
+[`runtime-memory-spans.md`](../../skills/martix-dotnet-csharp/rules/runtime-memory-spans.md),
+[`runtime-collections-immutability.md`](../../skills/martix-dotnet-csharp/rules/runtime-collections-immutability.md),
+[`async-tasks-valuetasks.md`](../../skills/martix-dotnet-csharp/rules/async-tasks-valuetasks.md),
 and the hot-path review routes in
-[`AGENTS.md`](../../src/skills/martix-dotnet-csharp/AGENTS.md). That is a
+[`AGENTS.md`](../../skills/martix-dotnet-csharp/AGENTS.md). That is a
 strength: the package consistently pushes measurement first, explicit ownership,
 and narrow abstractions before optimization tricks.
 
@@ -165,12 +165,12 @@ everything" or "all value objects should be structs."
 
 MartiX already connects API design to the host and failure model better than a
 single-topic guide. Evidence sits in
-[`design-api-type-design.md`](../../src/skills/martix-dotnet-csharp/rules/design-api-type-design.md),
-[`design-exceptions-validation.md`](../../src/skills/martix-dotnet-csharp/rules/design-exceptions-validation.md),
-[`web-aspnet-core.md`](../../src/skills/martix-dotnet-csharp/rules/web-aspnet-core.md),
-[`web-bootstrap-recipes.md`](../../src/skills/martix-dotnet-csharp/references/web-bootstrap-recipes.md),
+[`design-api-type-design.md`](../../skills/martix-dotnet-csharp/rules/design-api-type-design.md),
+[`design-exceptions-validation.md`](../../skills/martix-dotnet-csharp/rules/design-exceptions-validation.md),
+[`web-aspnet-core.md`](../../skills/martix-dotnet-csharp/rules/web-aspnet-core.md),
+[`web-bootstrap-recipes.md`](../../skills/martix-dotnet-csharp/references/web-bootstrap-recipes.md),
 and
-[`design-map.md`](../../src/skills/martix-dotnet-csharp/references/design-map.md).
+[`design-map.md`](../../skills/martix-dotnet-csharp/references/design-map.md).
 Typed results, problem details, guard clauses, and thin endpoints all reinforce
 the same contract-first direction.
 
@@ -184,11 +184,11 @@ testing ideas only where they sharpen public-contract review.
 #### 5. EF Core
 
 MartiX gives EF Core a strong integrated route through
-[`data-efcore.md`](../../src/skills/martix-dotnet-csharp/rules/data-efcore.md),
-[`testing-unit-integration.md`](../../src/skills/martix-dotnet-csharp/rules/testing-unit-integration.md),
-[`testing-bootstrap-recipes.md`](../../src/skills/martix-dotnet-csharp/references/testing-bootstrap-recipes.md),
+[`data-efcore.md`](../../skills/martix-dotnet-csharp/rules/data-efcore.md),
+[`testing-unit-integration.md`](../../skills/martix-dotnet-csharp/rules/testing-unit-integration.md),
+[`testing-bootstrap-recipes.md`](../../skills/martix-dotnet-csharp/references/testing-bootstrap-recipes.md),
 and
-[`anti-patterns-quick-reference.md`](../../src/skills/martix-dotnet-csharp/references/anti-patterns-quick-reference.md).
+[`anti-patterns-quick-reference.md`](../../skills/martix-dotnet-csharp/references/anti-patterns-quick-reference.md).
 That package shape makes EF work easier to review in context: query behavior,
 relational testing, context lifetime, and broader app wiring stay connected.
 
@@ -203,14 +203,14 @@ blanket no-tracking default.
 #### 6. Configuration
 
 MartiX now has meaningful configuration coverage in the entrypoint and recipes.
-[`SKILL.md`](../../src/skills/martix-dotnet-csharp/SKILL.md) sets
+[`SKILL.md`](../../skills/martix-dotnet-csharp/SKILL.md) sets
 `ValidateOnStart()` and options binding as a default,
-[`web-bootstrap-recipes.md`](../../src/skills/martix-dotnet-csharp/references/web-bootstrap-recipes.md)
+[`web-bootstrap-recipes.md`](../../skills/martix-dotnet-csharp/references/web-bootstrap-recipes.md)
 shows real bootstrap shapes,
-[`web-stack-map.md`](../../src/skills/martix-dotnet-csharp/references/web-stack-map.md)
+[`web-stack-map.md`](../../skills/martix-dotnet-csharp/references/web-stack-map.md)
 gives a useful `IOptions<T>` vs `IOptionsSnapshot<T>` vs
 `IOptionsMonitor<T>` table, and
-[`anti-patterns-quick-reference.md`](../../src/skills/martix-dotnet-csharp/references/anti-patterns-quick-reference.md)
+[`anti-patterns-quick-reference.md`](../../skills/martix-dotnet-csharp/references/anti-patterns-quick-reference.md)
 flags missing startup validation directly.
 
 Aaronontheweb is still stronger when the request is specifically about
@@ -224,13 +224,13 @@ separate MartiX configuration skill.
 
 MartiX covers DI indirectly but usefully. The package ties DI choices to API
 shape in
-[`design-api-type-design.md`](../../src/skills/martix-dotnet-csharp/rules/design-api-type-design.md),
+[`design-api-type-design.md`](../../skills/martix-dotnet-csharp/rules/design-api-type-design.md),
 to common lifetime mistakes in
-[`anti-patterns-quick-reference.md`](../../src/skills/martix-dotnet-csharp/references/anti-patterns-quick-reference.md),
+[`anti-patterns-quick-reference.md`](../../skills/martix-dotnet-csharp/references/anti-patterns-quick-reference.md),
 to host overrides in
-[`testing-bootstrap-recipes.md`](../../src/skills/martix-dotnet-csharp/references/testing-bootstrap-recipes.md),
+[`testing-bootstrap-recipes.md`](../../skills/martix-dotnet-csharp/references/testing-bootstrap-recipes.md),
 and to cross-domain review routes in
-[`AGENTS.md`](../../src/skills/martix-dotnet-csharp/AGENTS.md).
+[`AGENTS.md`](../../skills/martix-dotnet-csharp/AGENTS.md).
 
 That integrated stance is valuable, but the stored `Dependency injection`
 finding is still fair: MartiX lacks a first-class DI decision aid for service
@@ -243,13 +243,13 @@ instead of widening the skill into specialized container theory.
 
 MartiX keeps serialization aligned with the rest of the app. The core evidence
 is
-[`data-serialization.md`](../../src/skills/martix-dotnet-csharp/rules/data-serialization.md),
+[`data-serialization.md`](../../skills/martix-dotnet-csharp/rules/data-serialization.md),
 the source trail in
-[`data-stack-map.md`](../../src/skills/martix-dotnet-csharp/references/data-stack-map.md),
+[`data-stack-map.md`](../../skills/martix-dotnet-csharp/references/data-stack-map.md),
 typed result and problem-details examples in
-[`web-bootstrap-recipes.md`](../../src/skills/martix-dotnet-csharp/references/web-bootstrap-recipes.md),
+[`web-bootstrap-recipes.md`](../../skills/martix-dotnet-csharp/references/web-bootstrap-recipes.md),
 and contract assertions in
-[`testing-bootstrap-recipes.md`](../../src/skills/martix-dotnet-csharp/references/testing-bootstrap-recipes.md).
+[`testing-bootstrap-recipes.md`](../../skills/martix-dotnet-csharp/references/testing-bootstrap-recipes.md).
 That structure is one of MartiX's advantages: payload guidance stays tied to
 HTTP contracts, tests, and EF adjacency.
 
@@ -264,14 +264,14 @@ like the normal path.
 
 MartiX intentionally keeps project structure and test infrastructure adjacent to
 the core router. The package covers SDK and repository layout in
-[`sdk-project-system.md`](../../src/skills/martix-dotnet-csharp/rules/sdk-project-system.md),
+[`sdk-project-system.md`](../../skills/martix-dotnet-csharp/rules/sdk-project-system.md),
 documents package shape and maintainer inventory in
-[`README.md`](../../src/skills/martix-dotnet-csharp/README.md) and
-[`metadata.json`](../../src/skills/martix-dotnet-csharp/metadata.json), and
+[`README.md`](../../skills/martix-dotnet-csharp/README.md) and
+[`metadata.json`](../../skills/martix-dotnet-csharp/metadata.json), and
 offers strong ASP.NET Core test bootstrapping in
-[`testing-unit-integration.md`](../../src/skills/martix-dotnet-csharp/rules/testing-unit-integration.md)
+[`testing-unit-integration.md`](../../skills/martix-dotnet-csharp/rules/testing-unit-integration.md)
 and
-[`testing-bootstrap-recipes.md`](../../src/skills/martix-dotnet-csharp/references/testing-bootstrap-recipes.md).
+[`testing-bootstrap-recipes.md`](../../skills/martix-dotnet-csharp/references/testing-bootstrap-recipes.md).
 
 Aaronontheweb's collection is broader around the edges. The inventory shows a
 direct-overlap `project-structure` skill plus adjacent `package-management`,
@@ -287,17 +287,17 @@ main router rather than turn every support topic into a separate core lane.
   13 references, and explicit package metadata instead of many loosely related
   entrypoints
 - Better source traceability through
-  [`doc-source-index.md`](../../src/skills/martix-dotnet-csharp/references/doc-source-index.md)
+  [`doc-source-index.md`](../../skills/martix-dotnet-csharp/references/doc-source-index.md)
   and the shared rule contract in
-  [`rules/_sections.md`](../../src/skills/martix-dotnet-csharp/rules/_sections.md)
+  [`rules/_sections.md`](../../skills/martix-dotnet-csharp/rules/_sections.md)
 - Stronger cross-domain routing between language, web, data, testing,
   diagnostics, and security via
-  [`SKILL.md`](../../src/skills/martix-dotnet-csharp/SKILL.md) and
-  [`AGENTS.md`](../../src/skills/martix-dotnet-csharp/AGENTS.md)
+  [`SKILL.md`](../../skills/martix-dotnet-csharp/SKILL.md) and
+  [`AGENTS.md`](../../skills/martix-dotnet-csharp/AGENTS.md)
 - Better first-party MartiX maintainer support through
-  [`README.md`](../../src/skills/martix-dotnet-csharp/README.md),
-  [`metadata.json`](../../src/skills/martix-dotnet-csharp/metadata.json), and
-  [`comparison-matrix-template.md`](../../src/skills/martix-dotnet-csharp/templates/comparison-matrix-template.md)
+  [`README.md`](../../skills/martix-dotnet-csharp/README.md),
+  [`metadata.json`](../../skills/martix-dotnet-csharp/metadata.json), and
+  [`comparison-matrix-template.md`](../../skills/martix-dotnet-csharp/templates/comparison-matrix-template.md)
 - A more measured Microsoft-first posture that resists absolutist rules, narrow
   ecosystem bias, and scope creep
 - Existing quick-start defaults, anti-pattern references, bootstrap recipes, and

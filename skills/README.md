@@ -21,17 +21,17 @@ manifest, root-level `SKILL.md`, `AGENTS.md`, and supporting package assets.
 
 ## Installation
 
-Install a specific skill using the `npx skills` CLI:
-
-```sh
-npx skills add https://github.com/MartiXDev/skills --skill martix-markdown
-```
-
-Or install via the `copilot plugin` commands after adding the marketplace:
+For normal Copilot CLI installs, add the marketplace and install by package name:
 
 ```sh
 copilot plugin marketplace add MartiXDev/skills
 copilot plugin install martix-markdown@martix-skills
+```
+
+For standalone skill installs, use repo-root skill selection:
+
+```sh
+npx skills add https://github.com/MartiXDev/skills --skill martix-markdown
 ```
 
 ## Structure

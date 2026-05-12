@@ -8,16 +8,16 @@ already make it maintainable and trustworthy.
 
 This plan is grounded in the current package shape:
 
-- [SKILL.md](../../src/skills/martix-fluentvalidation/SKILL.md)
-- [AGENTS.md](../../src/skills/martix-fluentvalidation/AGENTS.md)
-- [README.md](../../src/skills/martix-fluentvalidation/README.md)
-- [metadata.json](../../src/skills/martix-fluentvalidation/metadata.json)
+- [SKILL.md](../../skills/martix-fluentvalidation/SKILL.md)
+- [AGENTS.md](../../skills/martix-fluentvalidation/AGENTS.md)
+- [README.md](../../skills/martix-fluentvalidation/README.md)
+- [metadata.json](../../skills/martix-fluentvalidation/metadata.json)
 - key rules such as
-  [integration-aspnet-core.md](../../src/skills/martix-fluentvalidation/rules/integration-aspnet-core.md),
-  [integration-async-validation.md](../../src/skills/martix-fluentvalidation/rules/integration-async-validation.md),
-  [testing-validator-testhelper.md](../../src/skills/martix-fluentvalidation/rules/testing-validator-testhelper.md),
+  [integration-aspnet-core.md](../../skills/martix-fluentvalidation/rules/integration-aspnet-core.md),
+  [integration-async-validation.md](../../skills/martix-fluentvalidation/rules/integration-async-validation.md),
+  [testing-validator-testhelper.md](../../skills/martix-fluentvalidation/rules/testing-validator-testhelper.md),
   and
-  [runtime-severity-error-codes-state.md](../../src/skills/martix-fluentvalidation/rules/runtime-severity-error-codes-state.md)
+  [runtime-severity-error-codes-state.md](../../skills/martix-fluentvalidation/rules/runtime-severity-error-codes-state.md)
 
 ### Current strengths to preserve
 
@@ -25,19 +25,19 @@ This plan is grounded in the current package shape:
   `AGENTS.md`, atomic rules, reference maps, templates, and metadata is clear
   and maintainable.
 - **Strong source traceability**: the rule contract in
-  [`rules/_sections.md`](../../src/skills/martix-fluentvalidation/rules/_sections.md)
+  [`rules/_sections.md`](../../skills/martix-fluentvalidation/rules/_sections.md)
   keeps every rule anchored to official FluentValidation sources.
 - **Wide workstream coverage**: the package already covers authoring,
   composition, integration, async behavior, runtime metadata, testing, and
   upgrades across 23 rules and 10 references.
 - **Good cross-workstream review routes**:
-  [AGENTS.md](../../src/skills/martix-fluentvalidation/AGENTS.md) already gives
+  [AGENTS.md](../../skills/martix-fluentvalidation/AGENTS.md) already gives
   reviewers a solid scenario-to-file route table.
 - **Strong upgrade and compatibility guidance**:
-  [compatibility-matrix.md](../../src/skills/martix-fluentvalidation/references/compatibility-matrix.md)
+  [compatibility-matrix.md](../../skills/martix-fluentvalidation/references/compatibility-matrix.md)
   and the upgrade workstream make version decisions explicit.
 - **Registration-ready package inventory**:
-  [metadata.json](../../src/skills/martix-fluentvalidation/metadata.json)
+  [metadata.json](../../skills/martix-fluentvalidation/metadata.json)
   already records the current package structure in a way that future updates can
   extend.
 
@@ -67,7 +67,7 @@ This plan is grounded in the current package shape:
 ### P1 - Improve `SKILL.md` activation and first-use path
 
 The current
-[SKILL.md](../../src/skills/martix-fluentvalidation/SKILL.md) is a strong router,
+[SKILL.md](../../skills/martix-fluentvalidation/SKILL.md) is a strong router,
 but it still behaves mostly like a table of contents. That keeps it clean, but
 it also means the user has to decide where to go before getting a usable default
 path.
@@ -109,7 +109,7 @@ Suggested file changes:
 
 | Path | Action | Purpose |
 | --- | --- | --- |
-| `src/skills/martix-fluentvalidation/SKILL.md` | Update | Improve trigger coverage and first-use guidance |
+| `skills/martix-fluentvalidation/SKILL.md` | Update | Improve trigger coverage and first-use guidance |
 
 ### P1 - Add a centralized anti-pattern quick reference
 
@@ -130,7 +130,7 @@ for a review of "common mistakes" or wants a fast smell test.
 Recommended change:
 
 - Add a new supporting reference:
-  `src/skills/martix-fluentvalidation/references/anti-patterns-quick-reference.md`
+  `skills/martix-fluentvalidation/references/anti-patterns-quick-reference.md`
 
 Recommended shape:
 
@@ -144,9 +144,9 @@ Suggested file changes:
 
 | Path | Action | Purpose |
 | --- | --- | --- |
-| `src/skills/martix-fluentvalidation/references/anti-patterns-quick-reference.md` | New | Centralize repeated `Avoid` guidance from the rule library |
-| `src/skills/martix-fluentvalidation/SKILL.md` | Update | Link to the new quick reference |
-| `src/skills/martix-fluentvalidation/AGENTS.md` | Update | Route common review tasks to the quick reference |
+| `skills/martix-fluentvalidation/references/anti-patterns-quick-reference.md` | New | Centralize repeated `Avoid` guidance from the rule library |
+| `skills/martix-fluentvalidation/SKILL.md` | Update | Link to the new quick reference |
+| `skills/martix-fluentvalidation/AGENTS.md` | Update | Route common review tasks to the quick reference |
 
 ### P2 - Add recipe-style integration and testing references
 
@@ -164,13 +164,13 @@ stop short of giving a compact bootstrap recipe.
 
 Recommended new references:
 
-1. `src/skills/martix-fluentvalidation/references/web-bootstrap-recipes.md`
+1. `skills/martix-fluentvalidation/references/web-bootstrap-recipes.md`
    - DI registration examples
    - controller or Minimal API manual validation examples
    - `ValidationProblem` / `Results.ValidationProblem(...)` mapping
    - async validation with `CancellationToken`
    - legacy MVC auto-validation called out as migration or legacy-only
-2. `src/skills/martix-fluentvalidation/references/testing-bootstrap-recipes.md`
+2. `skills/martix-fluentvalidation/references/testing-bootstrap-recipes.md`
    - direct validator tests with `TestValidate` and `TestValidateAsync`
    - boundary tests for controllers, Minimal APIs, or filters
    - `InlineValidator<T>` as a boundary stub
@@ -187,10 +187,10 @@ Suggested file changes:
 
 | Path | Action | Purpose |
 | --- | --- | --- |
-| `src/skills/martix-fluentvalidation/references/web-bootstrap-recipes.md` | New | Common web integration scaffolds |
-| `src/skills/martix-fluentvalidation/references/testing-bootstrap-recipes.md` | New | Common validator and boundary test scaffolds |
-| `src/skills/martix-fluentvalidation/SKILL.md` | Update | Link recipe docs from the router |
-| `src/skills/martix-fluentvalidation/AGENTS.md` | Update | Point common routes to the new recipes |
+| `skills/martix-fluentvalidation/references/web-bootstrap-recipes.md` | New | Common web integration scaffolds |
+| `skills/martix-fluentvalidation/references/testing-bootstrap-recipes.md` | New | Common validator and boundary test scaffolds |
+| `skills/martix-fluentvalidation/SKILL.md` | Update | Link recipe docs from the router |
+| `skills/martix-fluentvalidation/AGENTS.md` | Update | Point common routes to the new recipes |
 
 ### P2 - Strengthen navigation and decision aids in existing maps
 
@@ -201,19 +201,19 @@ this rule?" They could also help with the next question users usually ask:
 Recommended updates:
 
 - Update
-  [`references/integration-map.md`](../../src/skills/martix-fluentvalidation/references/integration-map.md)
+  [`references/integration-map.md`](../../skills/martix-fluentvalidation/references/integration-map.md)
   with a quick decision table for:
   - manual validation
   - async-capable filter integration
   - legacy MVC auto-validation
 - Update
-  [`references/testing-map.md`](../../src/skills/martix-fluentvalidation/references/testing-map.md)
+  [`references/testing-map.md`](../../skills/martix-fluentvalidation/references/testing-map.md)
   with a compact `Use this test layer when...` table.
 - Update
-  [`references/runtime-metadata-map.md`](../../src/skills/martix-fluentvalidation/references/runtime-metadata-map.md)
+  [`references/runtime-metadata-map.md`](../../skills/martix-fluentvalidation/references/runtime-metadata-map.md)
   with a quick `message vs error code vs severity vs custom state` summary.
 - Update
-  [`AGENTS.md`](../../src/skills/martix-fluentvalidation/AGENTS.md) so the
+  [`AGENTS.md`](../../skills/martix-fluentvalidation/AGENTS.md) so the
   `Common review routes` section points users to recipe docs and quick
   references sooner.
 
@@ -228,10 +228,10 @@ Suggested file changes:
 
 | Path | Action | Purpose |
 | --- | --- | --- |
-| `src/skills/martix-fluentvalidation/references/integration-map.md` | Update | Add a quick boundary-selection aid |
-| `src/skills/martix-fluentvalidation/references/testing-map.md` | Update | Add a quick test-layer aid |
-| `src/skills/martix-fluentvalidation/references/runtime-metadata-map.md` | Update | Add a quick metadata-selection aid |
-| `src/skills/martix-fluentvalidation/AGENTS.md` | Update | Make route selection faster for common tasks |
+| `skills/martix-fluentvalidation/references/integration-map.md` | Update | Add a quick boundary-selection aid |
+| `skills/martix-fluentvalidation/references/testing-map.md` | Update | Add a quick test-layer aid |
+| `skills/martix-fluentvalidation/references/runtime-metadata-map.md` | Update | Add a quick metadata-selection aid |
+| `skills/martix-fluentvalidation/AGENTS.md` | Update | Make route selection faster for common tasks |
 
 ### P3 - Deepen selected high-value rules with small examples
 
@@ -261,10 +261,10 @@ Suggested file changes:
 
 | Path | Action | Purpose |
 | --- | --- | --- |
-| `src/skills/martix-fluentvalidation/rules/integration-aspnet-core.md` | Update | Add a compact preferred integration example |
-| `src/skills/martix-fluentvalidation/rules/integration-async-validation.md` | Update | Add a compact async call-path example |
-| `src/skills/martix-fluentvalidation/rules/testing-validator-testhelper.md` | Update | Add focused test examples |
-| `src/skills/martix-fluentvalidation/rules/runtime-severity-error-codes-state.md` | Update | Add a compact metadata-contract example |
+| `skills/martix-fluentvalidation/rules/integration-aspnet-core.md` | Update | Add a compact preferred integration example |
+| `skills/martix-fluentvalidation/rules/integration-async-validation.md` | Update | Add a compact async call-path example |
+| `skills/martix-fluentvalidation/rules/testing-validator-testhelper.md` | Update | Add focused test examples |
+| `skills/martix-fluentvalidation/rules/runtime-severity-error-codes-state.md` | Update | Add a compact metadata-contract example |
 
 ### P4 - Metadata updates and evaluation follow-up
 
@@ -274,7 +274,7 @@ assumed to be better.
 Recommended follow-up:
 
 1. Update
-   [`metadata.json`](../../src/skills/martix-fluentvalidation/metadata.json)
+   [`metadata.json`](../../skills/martix-fluentvalidation/metadata.json)
    to reflect any new reference files and counts.
 2. Use the loaded `skill-creator` workflow to compare the current package
    against the improved package with prompts such as:
@@ -291,8 +291,8 @@ Suggested file changes:
 
 | Path | Action | Purpose |
 | --- | --- | --- |
-| `src/skills/martix-fluentvalidation/metadata.json` | Update | Keep the package inventory accurate after content changes |
-| `src/skills/martix-fluentvalidation/SKILL.md` | Update later | Tune description after evaluation results |
+| `skills/martix-fluentvalidation/metadata.json` | Update | Keep the package inventory accurate after content changes |
+| `skills/martix-fluentvalidation/SKILL.md` | Update later | Tune description after evaluation results |
 
 ### Recommended implementation order
 

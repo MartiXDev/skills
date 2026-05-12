@@ -277,7 +277,7 @@
       ],
       "notes": [
         "Use the standalone package as the source of truth for local installs and direct folder-based validation.",
-        "For local installs use the full absolute folder path (e.g. C:\\Git\\MartiXDev\\skills\\skills\\martix-powershell). Relative paths such as .\\skills\\martix-powershell are treated as git URLs by the skills CLI on Windows and will fail.",
+        "For local-only validation, use an absolute folder path from your checkout. Relative paths such as .\\skills\\martix-powershell are treated as git URLs by the skills CLI on Windows and will fail.",
         "Prefer the GitHub tree URL for non-local installs."
       ]
     },

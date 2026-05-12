@@ -56,6 +56,158 @@ function Read-JsonFile {
     }
 }
 
+function Test-HistoricalContext {
+    param([string]$Text)
+
+    return $Text -match '(?i)\b(historic|historical|history|legacy|formerly|previous|prior|old|stale|obsolete|deprecated|migrat(?:e|ed|ion)|archive|archived|superseded|replaced)\b'
+}
+
+function Test-LocalAbsolutePath {
+    param([string]$Text)
+
+    return $Text -match '(?i)(^|[\s''"`(\[])([a-z]:\\|\\\\[a-z0-9._$-]+\\[a-z0-9._$-]+)'
+}
+
+function Get-JsonStringValues {
+    param(
+        [Parameter(Mandatory = $true)]$Value,
+        [string]$Path = '$'
+    )
+
+    if ($null -eq $Value) {
+        return
+    }
+
+    if ($Value -is [string]) {
+        [pscustomobject]@{
+            Path = $Path
+            Value = $Value
+        }
+        return
+    }
+
+    if ($Value -is [System.Collections.IEnumerable] -and $Value -isnot [string] -and $Value -isnot [pscustomobject]) {
+        $index = 0
+        foreach ($item in $Value) {
+            Get-JsonStringValues -Value $item -Path "$Path[$index]"
+            $index++
+        }
+        return
+    }
+
+    if ($Value -is [pscustomobject]) {
+        foreach ($property in $Value.PSObject.Properties) {
+            Get-JsonStringValues -Value $property.Value -Path "$Path.$($property.Name)"
+        }
+    }
+}
+
+function Get-ComparableTokens {
+    param([string]$Text)
+
+    $stopWords = @(
+        'and', 'the', 'for', 'with', 'using', 'skill', 'package', 'plugin',
+        'standalone', 'martix', 'workflows', 'guidance', 'source'
+    )
+
+    $normalized = $Text.ToLowerInvariant().Replace('.net', 'dotnet').Replace('c#', 'csharp')
+
+    return [regex]::Matches($normalized, '[a-z0-9][a-z0-9+.-]{3,}') |
+        ForEach-Object { $_.Value } |
+        Where-Object { $_ -notin $stopWords } |
+        Select-Object -Unique
+}
+
+function Test-DescriptionAlignment {
+    param(
+        [string]$MarketplaceDescription,
+        [string]$SourceDescription
+    )
+
+    if ([string]::IsNullOrWhiteSpace($MarketplaceDescription) -or [string]::IsNullOrWhiteSpace($SourceDescription)) {
+        return $true
+    }
+
+    $marketplaceTokens = @(Get-ComparableTokens -Text $MarketplaceDescription)
+    $sourceTokens = @(Get-ComparableTokens -Text $SourceDescription)
+    if ($marketplaceTokens.Count -lt 3 -or $sourceTokens.Count -lt 3) {
+        return $true
+    }
+
+    $shared = @($marketplaceTokens | Where-Object { $_ -in $sourceTokens })
+    return (($shared.Count / [Math]::Min($marketplaceTokens.Count, $sourceTokens.Count)) -ge 0.1)
+}
+
+function Add-StaleSrcSkillsWarnings {
+    param([string]$Path)
+
+    $relativePath = Get-RelativePath $Path
+    $lines = Get-Content -LiteralPath $Path
+    for ($index = 0; $index -lt $lines.Count; $index++) {
+        if ($lines[$index] -notmatch 'src[\\/]+skills') {
+            continue
+        }
+
+        $contextStart = [Math]::Max(0, $index - 2)
+        $contextEnd = [Math]::Min($lines.Count - 1, $index + 2)
+        $context = ($lines[$contextStart..$contextEnd] -join ' ')
+        if (-not (Test-HistoricalContext -Text $context)) {
+            Add-Warning -File $relativePath -Message "Possible stale 'src\skills' reference on line $($index + 1). Use 'skills' unless this is explicitly historical."
+        }
+    }
+}
+
+function Test-SkillRelationshipMetadata {
+    param(
+        $Metadata,
+        [string]$MetadataPath,
+        [string[]]$KnownSkillNames
+    )
+
+    $containers = @($Metadata.relationships, $Metadata) | Where-Object { $null -ne $_ }
+    foreach ($container in $containers) {
+        foreach ($propertyName in @('companionSkills', 'relatedSkills')) {
+            $property = $container.PSObject.Properties[$propertyName]
+            if (-not $property) {
+                continue
+            }
+
+            foreach ($item in @($property.Value)) {
+                if ($item -is [string]) {
+                    if ([string]::IsNullOrWhiteSpace($item)) {
+                        Add-Warning -File (Get-RelativePath $MetadataPath) -Message "$propertyName contains an empty skill name."
+                    }
+                    elseif ($item -notin $KnownSkillNames) {
+                        Add-Warning -File (Get-RelativePath $MetadataPath) -Message "$propertyName references unknown skill '$item'."
+                    }
+                    continue
+                }
+
+                if ($item -isnot [pscustomobject]) {
+                    Add-Warning -File (Get-RelativePath $MetadataPath) -Message "$propertyName entries should be objects with name, relationship, and handoffWhen/reason fields."
+                    continue
+                }
+
+                $name = [string]$item.name
+                if ([string]::IsNullOrWhiteSpace($name)) {
+                    Add-Warning -File (Get-RelativePath $MetadataPath) -Message "$propertyName entry is missing a non-empty name."
+                }
+                elseif ($name -notin $KnownSkillNames) {
+                    Add-Warning -File (Get-RelativePath $MetadataPath) -Message "$propertyName references unknown skill '$name'."
+                }
+
+                if ([string]::IsNullOrWhiteSpace([string]$item.relationship)) {
+                    Add-Warning -File (Get-RelativePath $MetadataPath) -Message "$propertyName entry '$name' should describe the relationship."
+                }
+
+                if ([string]::IsNullOrWhiteSpace([string]$item.handoffWhen) -and [string]::IsNullOrWhiteSpace([string]$item.reason)) {
+                    Add-Warning -File (Get-RelativePath $MetadataPath) -Message "$propertyName entry '$name' should include handoffWhen or reason."
+                }
+            }
+        }
+    }
+}
+
 Push-Location $root
 try {
     $jsonFiles = Get-ChildItem -Recurse -File -Include *.json |
@@ -109,6 +261,7 @@ try {
 
     $marketplacePath = Join-Path $root '.github\plugin\marketplace.json'
     $marketplace = Read-JsonFile -Path $marketplacePath
+    $knownSkillNames = @(Get-ChildItem -LiteralPath (Join-Path $root 'skills') -Directory | ForEach-Object { $_.Name })
 
     if ($marketplace) {
         foreach ($entry in @($marketplace.plugins)) {
@@ -116,6 +269,18 @@ try {
             if ([string]::IsNullOrWhiteSpace($source)) {
                 Add-Issue -File '.github\plugin\marketplace.json' -Message "Entry '$($entry.name)' has no source."
                 continue
+            }
+
+            if ($source -match '\\') {
+                Add-Issue -File '.github\plugin\marketplace.json' -Message "Entry '$($entry.name)' source should use forward slashes: '$source'."
+            }
+
+            if (Test-LocalAbsolutePath -Text $source) {
+                Add-Issue -File '.github\plugin\marketplace.json' -Message "Entry '$($entry.name)' source must be repository-relative, not a local absolute path."
+            }
+
+            if ($source -notmatch '^(skills|plugins)/[^/]+$') {
+                Add-Warning -File '.github\plugin\marketplace.json' -Message "Entry '$($entry.name)' source '$source' should normally point at a top-level skills or plugins package."
             }
 
             $sourcePath = Join-Path $root ($source -replace '/', '\')
@@ -141,6 +306,28 @@ try {
 
             if ($entry.description -ne $manifest.description) {
                 Add-Issue -File '.github\plugin\marketplace.json' -Message "Entry '$($entry.name)' description does not match source manifest description."
+            }
+
+            $sourceMetadataPath = Join-Path $sourcePath 'metadata.json'
+            if (Test-Path -LiteralPath $sourceMetadataPath) {
+                $sourceMetadata = Read-JsonFile -Path $sourceMetadataPath
+                if ($sourceMetadata) {
+                    $marketplaceSourceRoot = [string]$sourceMetadata.status.marketplaceSourceRoot
+                    if (-not [string]::IsNullOrWhiteSpace($marketplaceSourceRoot) -and $marketplaceSourceRoot -ne $source) {
+                        Add-Warning -File (Get-RelativePath $sourceMetadataPath) -Message "status.marketplaceSourceRoot '$marketplaceSourceRoot' does not match marketplace source '$source'."
+                    }
+
+                    $secondaryPluginName = [string]$sourceMetadata.distribution.secondarySurface.pluginName
+                    if (-not [string]::IsNullOrWhiteSpace($secondaryPluginName) -and $secondaryPluginName -ne $entry.name) {
+                        Add-Warning -File (Get-RelativePath $sourceMetadataPath) -Message "distribution.secondarySurface.pluginName '$secondaryPluginName' does not match marketplace entry '$($entry.name)'."
+                    }
+
+                    $metadataDescription = "$($sourceMetadata.summary) $($sourceMetadata.abstract) $(@($sourceMetadata.taxonomy.tags) -join ' ') $(@($sourceMetadata.compatibility.languageBaselines) -join ' ')"
+
+                    if (-not (Test-DescriptionAlignment -MarketplaceDescription ([string]$entry.description) -SourceDescription $metadataDescription)) {
+                        Add-Warning -File '.github\plugin\marketplace.json' -Message "Entry '$($entry.name)' description appears weakly aligned with source metadata summary."
+                    }
+                }
             }
         }
     }
@@ -196,6 +383,14 @@ try {
 
             $metadata = Read-JsonFile -Path $metadataPath
             if ($metadata) {
+                foreach ($jsonString in @(Get-JsonStringValues -Value $metadata)) {
+                    if (Test-LocalAbsolutePath -Text $jsonString.Value) {
+                        Add-Warning -File (Get-RelativePath $metadataPath) -Message "metadata.json contains a local absolute path at $($jsonString.Path); prefer repository-relative paths or clearly mark examples as local-only."
+                    }
+                }
+
+                Test-SkillRelationshipMetadata -Metadata $metadata -MetadataPath $metadataPath -KnownSkillNames $knownSkillNames
+
                 if (-not $metadata.executionProfile) {
                     Add-Issue -File (Get-RelativePath $metadataPath) -Message "metadata.json must define executionProfile."
                 }
@@ -323,6 +518,16 @@ try {
                 }
             }
         }
+    }
+
+    $staleReferenceFiles = Get-ChildItem -Recurse -File -Include *.md,*.json,*.yml,*.yaml |
+        Where-Object {
+            $_.FullName -notmatch '\\.git\\' -and
+            $_.FullName -notmatch '\\scripts\\validate-repository\.ps1$'
+        }
+
+    foreach ($file in $staleReferenceFiles) {
+        Add-StaleSrcSkillsWarnings -Path $file.FullName
     }
 
     $markdownFiles = Get-ChildItem -Recurse -File -Include README*.md,readme*.md,repo-overview.md |
