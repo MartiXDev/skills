@@ -1,5 +1,7 @@
 # Execution profiles
 
+<!-- markdownlint-disable MD013 -->
+
 Execution profiles describe how MartiX skills and plugins should be used by agents without wasting premium model requests, tokens, memory, or parallel-agent capacity.
 
 Use this document when adding or reviewing package metadata, evals, templates, plugin bundle instructions, and `/fleet` work plans.
@@ -15,6 +17,8 @@ Use this document when adding or reviewing package metadata, evals, templates, p
 ## Model tiers
 
 Use generic tier names instead of vendor-specific model names.
+For model-routing policy, unsupported schema locations, and anti-patterns, see
+`docs\llm-routing-strategy.md`.
 
 | Tier | Use for | Avoid using for |
 | --- | --- | --- |
@@ -22,6 +26,9 @@ Use generic tier names instead of vendor-specific model names.
 | `medium` | Standard implementation, documentation updates, eval authoring from an approved pattern, metadata normalization, package-local refactors. | High-risk decisions, new plugin-family design, or changes that span many shared files without a plan. |
 | `premium` | Planning, ambiguous architecture, security-sensitive review, final high-impact review, plugin-bundle boundary decisions, new reusable skill design. | Mechanical edits, repeated template application, formatting, or validation-only work. |
 | `mixed` | Workflows that should begin with premium planning and split into medium or cheap implementation slices. | Single-step tasks that can be assigned directly to one tier. |
+
+`medium` is the canonical middle tier. Treat `balanced` as an alias only when
+normalizing older notes or external references.
 
 ## Task types
 

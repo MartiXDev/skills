@@ -12,5 +12,6 @@
   ],
   "repository": "https://github.com/MartiXDev/skills",
   "agents": "agents/",
-  "skills": "skills/"
+  "skills": "skills/",
+  "hooks": "hooks.json"
 }
