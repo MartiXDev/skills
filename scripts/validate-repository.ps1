@@ -65,7 +65,7 @@ function Test-HistoricalContext {
 function Test-LocalAbsolutePath {
     param([string]$Text)
 
-    return $Text -match '(?i)(^|[\s''"`(\[])([a-z]:\\|\\\\[a-z0-9._$-]+\\[a-z0-9._$-]+)'
+    return $Text -match '(?i)(^|[\s''"`(\[])([a-z]:[\\/]|\\\\[a-z0-9._$-]+\\[a-z0-9._$-]+)'
 }
 
 function Get-JsonStringValues {
