@@ -1,12 +1,14 @@
 {
-  "hooks": [
-    {
-      "name": "<hook-name>",
-      "description": "<short deterministic hook purpose>",
-      "trigger": "<trigger-name>",
-      "command": "<command-to-run>",
-      "model_tier": "cheap",
-      "parallel_safe": true
-    }
-  ]
+  "version": 1,
+  "hooks": {
+    "<event-name>": [
+      {
+        "type": "command",
+        "powershell": "<powershell-command>",
+        "bash": "<bash-command>",
+        "cwd": "<optional-working-directory>",
+        "timeoutSec": 30
+      }
+    ]
+  }
 }

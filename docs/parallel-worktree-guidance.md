@@ -48,6 +48,7 @@ Only one active task should own these at a time:
 - `docs\repo-overview.md`
 - `docs\plugin-layout.yaml`
 - `docs\execution-profiles.md`
+- `docs\llm-routing-strategy.md`
 - shared templates under `templates\`
 - `scripts\validate-repository.ps1`
 

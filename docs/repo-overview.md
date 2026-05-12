@@ -1,5 +1,7 @@
 # MartiX Skills Repository Overview
 
+<!-- markdownlint-disable MD013 MD024 -->
+
 ## Purpose
 
 This repository is the MartiX catalog for reusable AI skills and GitHub Copilot CLI plugin packages. It is designed to support three install and discovery paths:
@@ -86,6 +88,7 @@ The machine-readable layout policy is `docs\plugin-layout.yaml`. It defines:
 Related maintainer guides:
 
 - [Execution profiles](./execution-profiles.md) for model-tier, token-budget, AFK/HITL, `/fleet`, and worktree guidance.
+- [LLM routing strategy](./llm-routing-strategy.md) for cost-aware model tier policy and unsupported routing anti-patterns.
 - [Plugin bundle strategy](./plugin-bundle-strategy.md) for MartiX project-family bundles and skill-versus-plugin decision rules.
 - [Parallel worktree guidance](./parallel-worktree-guidance.md) for splitting work across agents and isolated worktrees.
 

@@ -25,5 +25,6 @@ powershell -ExecutionPolicy Bypass `
   -All
 ```
 
-Hook metadata in `hooks.json` is conservative and may need adjustment if
-Copilot CLI changes its plugin hook schema.
+Hook metadata in `hooks.json` uses an event-keyed `version: 1` shape. If a
+target runtime requires different event casing or command fields, keep the local
+script behavior unchanged and adapt only the hook wrapper.

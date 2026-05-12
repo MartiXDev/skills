@@ -1,12 +1,12 @@
 {
-  "hooks": [
-    {
-      "name": "markdown-auto-fix",
-      "description": "Auto-fix changed Markdown files, rerun markdownlint checks, and report remaining issues.",
-      "trigger": "markdown-file-change",
-      "command": "powershell -ExecutionPolicy Bypass -File hooks/markdown-check.ps1",
-      "model_tier": "cheap",
-      "parallel_safe": true
-    }
-  ]
+  "version": 1,
+  "hooks": {
+    "postToolUse": [
+      {
+        "type": "command",
+        "powershell": "powershell -ExecutionPolicy Bypass -File hooks/markdown-check.ps1",
+        "timeoutSec": 120
+      }
+    ]
+  }
 }
