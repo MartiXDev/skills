@@ -357,7 +357,7 @@ description: 'Long-form companion guide for the martix-fluentvalidation standalo
 - This package is the canonical standalone skill under `skills`.
 - If you document or install it directly, use `npx skills add <source>`.
 - Future direct marketplace registration should point to
-  `skills\\martix-fluentvalidation` rather than duplicating the package
+  `skills/martix-fluentvalidation` rather than duplicating the package
   elsewhere.
 
 ## Source boundaries

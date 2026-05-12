@@ -390,7 +390,7 @@ functions; items marked *(advanced function analog)* show the equivalent.
 - This package is the canonical standalone skill under `skills`.
 - If you document or install it directly, use `npx skills add <source>`.
 - A future direct marketplace registration should point to
-  `skills\\martix-powershell` rather than duplicating the package elsewhere.
+  `skills/martix-powershell` rather than duplicating the package elsewhere.
 
 ## Source boundaries
 
