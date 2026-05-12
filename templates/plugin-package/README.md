@@ -1,6 +1,6 @@
-# Plugin Display Name
+# <Plugin Display Name>
 
-`plugin-name` is a thin MartiX plugin bundle for project family.
+`<plugin-name>` is a thin MartiX plugin bundle for <project-family>.
 
 ## Composed skills
 
