@@ -21,7 +21,10 @@
         "references/foundation-map.md"
       ],
       "model_tier": "medium",
-      "parallel_safe": true
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": false,
+      "escalation": null
     },
     {
       "id": "parallel-data-lifecycle-review",
@@ -45,7 +48,10 @@
         "rules/execution-parallelism.md"
       ],
       "model_tier": "medium",
-      "parallel_safe": true
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": false,
+      "escalation": null
     },
     {
       "id": "framework-comparison-plan",
@@ -68,7 +74,33 @@
         "..\\..\\docs\\execution-profiles.md"
       ],
       "model_tier": "premium",
-      "parallel_safe": false
+      "parallel_safe": false,
+      "token_budget": "large",
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "scope-boundary-general-handoff",
+      "prompt": "A user asks for help that is adjacent to martix-tunit but belongs to a different MartiX skill or general Copilot guidance. Assess whether this skill should handle it.",
+      "negative_activation": true,
+      "expected_sections": [
+        "Scope assessment",
+        "Out-of-scope identification",
+        "Recommended handoff or fallback"
+      ],
+      "assertions": [
+        "States whether the request is inside this skill boundary before applying rules.",
+        "Does not load unrelated rule files or claim ownership of another skill domain.",
+        "Recommends a companion skill or generic guidance path when this skill is not the right fit."
+      ],
+      "files": [
+        "SKILL.md",
+        "AGENTS.md"
+      ],
+      "model_tier": "cheap",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "escalation": null
     }
   ]
 }

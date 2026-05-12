@@ -68,7 +68,7 @@ guidance.
 ## Maintenance notes
 
 - Keep this workstream FastEndpoints-specific. General ASP.NET Core design
-  guidance belongs in `src/skills/martix-dotnet-csharp/`.
+  guidance belongs in `skills/martix-dotnet-csharp/`.
 - Coordinate with [`foundation-map.md`](./foundation-map.md) when request
   pipeline guidance depends on startup-time naming, serializer, or error
   response configuration.

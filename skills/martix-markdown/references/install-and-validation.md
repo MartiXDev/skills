@@ -18,8 +18,8 @@ Use `npx skills add`, not `npx skill add`.
 For local filesystem use in this repository, prefer an absolute path:
 
 ```powershell
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-markdown --list
-npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-markdown -a github-copilot --copy -y
+npx skills add C:\Git\MartiXDev\skills\skills\martix-markdown --list
+npx skills add C:\Git\MartiXDev\skills\skills\martix-markdown -a github-copilot --copy -y
 ```
 
 ## Validation workflow
@@ -30,7 +30,7 @@ npx skills add C:\Git\MartiXDev\ai-marketplace\src\skills\martix-markdown -a git
 4. Prefer existing repository lint commands if they already wrap markdownlint.
 
 ```powershell
-npx markdownlint-cli2 "src/skills/martix-markdown/**/*.md"
+npx markdownlint-cli2 "skills/martix-markdown/**/*.md"
 ```
 
 ## When to use the bundled template

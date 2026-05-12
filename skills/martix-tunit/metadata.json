@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "publisher": {
     "name": "MartiXDev",
-    "repository": "MartiXDev/ai-marketplace",
+    "repository": "MartiXDev/skills",
     "distributionModel": "standalone skill with direct Copilot marketplace registration"
   },
   "summary": "Standalone-first MartiX skill package for TUnit test authoring, parameterized data-driven tests, lifecycle hooks, parallel-by-default execution, async assertions, dependency injection, mocking, extensibility, and xUnit/NUnit/MSTest framework comparison.",
@@ -241,8 +241,8 @@
       "status": "canonical",
       "officialInstallCommand": "npx skills add <source>",
       "preferredSources": [
-        ".\\src\\skills\\martix-tunit",
-        "https://github.com/MartiXDev/ai-marketplace/tree/main/skills/martix-tunit"
+        ".\\skills\\martix-tunit",
+        "https://github.com/MartiXDev/skills/tree/main/skills/martix-tunit"
       ],
       "notes": [
         "Use the standalone package as the source of truth for local installs and direct folder-based validation.",
@@ -252,8 +252,8 @@
     "secondarySurface": {
       "id": "copilot-cli-plugin-marketplace",
       "status": "direct-registration",
-      "marketplaceRepository": "MartiXDev/ai-marketplace",
-      "marketplaceName": "martix-ai-marketplace",
+      "marketplaceRepository": "MartiXDev/skills",
+      "marketplaceName": "martix-skills",
       "pluginName": "martix-tunit",
       "strategy": "register the canonical standalone package directly from skills"
     }
@@ -348,6 +348,23 @@
         "title": "Skills CLI documentation",
         "url": "https://skills.sh/docs"
       }
+    ]
+  },
+  "executionProfile": {
+    "modelTier": "medium",
+    "taskTypes": [
+      "implementation",
+      "review",
+      "validation"
+    ],
+    "parallelSafety": "single-package",
+    "fleetReady": true,
+    "worktreeSafe": true,
+    "tokenBudget": "medium",
+    "contextStrategy": [
+      "Start with SKILL.md.",
+      "Open only the routed rule or reference file for the requested task.",
+      "Use README.md for install and validation guidance."
     ]
   }
 }

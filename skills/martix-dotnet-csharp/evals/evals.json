@@ -23,7 +23,10 @@
         "references/web-bootstrap-recipes.md"
       ],
       "model_tier": "medium",
-      "parallel_safe": true
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": false,
+      "escalation": null
     },
     {
       "id": "cross-skill-validation-handoff",
@@ -46,7 +49,10 @@
         "rules/design-exceptions-validation.md"
       ],
       "model_tier": "medium",
-      "parallel_safe": true
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": true,
+      "escalation": null
     },
     {
       "id": "architecture-planning-premium-boundary",
@@ -68,7 +74,10 @@
         "..\\..\\docs\\execution-profiles.md"
       ],
       "model_tier": "premium",
-      "parallel_safe": false
+      "parallel_safe": false,
+      "token_budget": "large",
+      "negative_activation": false,
+      "escalation": null
     }
   ]
 }

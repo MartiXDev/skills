@@ -84,6 +84,38 @@ needed.
 | Guide | Purpose |
 | --- | --- |
 | [Repository overview](./docs/repo-overview.md) | Architecture, package rules, marketplace model, and roadmap. |
+| [Custom AI artifact rules](./docs/custom-ai-artifact-rules.md) | Rules for instructions, skills, plugins, agents, prompts, hooks, MCP/LSP, metadata, templates, and evals. |
 | [Execution profiles](./docs/execution-profiles.md) | Model-tier, token-budget, AFK/HITL, `/fleet`, and worktree guidance. |
+| [LLM routing strategy](./docs/llm-routing-strategy.md) | Cost-aware model tier policy and unsupported routing anti-patterns. |
 | [Plugin bundle strategy](./docs/plugin-bundle-strategy.md) | MartiX project-family bundles and skill-versus-plugin decision rules. |
-| [Parallel worktree guidance](./docs/parallel-worktree-guidance.md) | How to split package work across agents and worktrees. |
+| [Parallel worktree guidance](./docs/parallel-worktree-guidance.md) | Splitting package work across agents and worktrees. |
+| [Skill portfolio coordination](./docs/skill-portfolio-coordination-plan.md) | Cross-skill routing and companion-skill handoff planning. |
+| [Recommended skills](./docs/recommended-skills.md) | External skill/plugin ecosystem shortlist and install notes. |
+| [Plugin layout policy](./docs/plugin-layout.yaml) | Machine-readable layout policy and validation assumptions. |
+
+## Documentation Map
+
+The root docs above are the active maintainer guides. Domain folders under
+`docs/` contain source research, comparisons, or implementation plans that
+informed the installable packages:
+
+| Folder | Purpose |
+| --- | --- |
+| `docs/martix-dotnet-csharp/` | .NET/C# comparisons and plans. |
+| `docs/martix-fastendpoints/` | FastEndpoints improvement plan. |
+| `docs/martix-fluentvalidation/` | FluentValidation improvement plan. |
+| `docs/martix-markdown/` | Markdown automation and package split rationale. |
+| `docs/martix-csharp/` | Planning artifacts for the standalone C# skill. |
+
+Canonical package behavior lives in each `skills/martix-*` package, especially
+its `SKILL.md`, `AGENTS.md`, rules, references, metadata, and evals.
+
+## Which Doc Should I Read?
+
+| Task | Start with |
+| --- | --- |
+| Understand repository structure | [Repository overview](./docs/repo-overview.md) and [Plugin layout policy](./docs/plugin-layout.yaml) |
+| Create or update a skill, plugin, or AI artifact | [Custom AI artifact rules](./docs/custom-ai-artifact-rules.md) |
+| Decide skill versus plugin boundaries | [Plugin bundle strategy](./docs/plugin-bundle-strategy.md) |
+| Assign model tier or split fleet work | [Execution profiles](./docs/execution-profiles.md) and [LLM routing strategy](./docs/llm-routing-strategy.md) |
+| Coordinate multiple skills | [Skill portfolio coordination](./docs/skill-portfolio-coordination-plan.md) |

@@ -14,7 +14,10 @@
         "SKILL.md"
       ],
       "model_tier": "medium",
-      "parallel_safe": true
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
     }
   ]
 }

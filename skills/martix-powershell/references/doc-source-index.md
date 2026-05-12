@@ -65,17 +65,17 @@ taxonomy) but are **not** sources of PowerShell SDK API facts.
 
 | Artifact | Role | Notes |
 | --- | --- | --- |
-| `src/skills/martix-powershell/SKILL.md` | Discovery router; defines workstream scope | Highest-priority package-structural file; governs what belongs in this skill |
-| `src/skills/martix-powershell/AGENTS.md` | Cross-workstream companion guide | Defines review routes and maintenance contract |
-| `src/skills/martix-powershell/metadata.json` | Package metadata; domain plan, rule prefixes, tags | Authoritative list of the 8 domains and their canonical prefix names |
-| `src/skills/martix-powershell/rules/_sections.md` | Rule section contract | Every rule must follow this 6-section shape exactly |
-| `src/skills/martix-powershell/assets/taxonomy.json` | Machine-readable domain taxonomy | Drives domain ordering and prefix assignment |
-| `src/skills/martix-powershell/assets/section-order.json` | Stable section and domain ordering | Drives `ruleSectionOrder` and `plannedDomainOrder` |
-| `src/skills/martix-powershell/references/documentation-style-map.md` | Entry map for the documentation, help, and style domain | Help section requirements, `.OUTPUTS`/`[OutputType]` alignment, alias avoidance, stream guidance, Tier-5 overlay pointer |
-| `src/skills/martix-powershell/templates/rule-template.md` | Rule authoring scaffold | Starting point for new rule files |
-| `src/skills/martix-powershell/templates/research-pack-template.md` | Research memo scaffold | Use when scoping sources for a new rule domain |
-| `src/skills/martix-powershell/templates/comparison-matrix-template.md` | Comparison scaffold | Use when benchmarking cmdlet patterns against advanced functions |
-| *(future)* `src/skills/martix-powershell/research/*.md` | Scoped research memos | Must be explicitly approved and listed here before use in rules |
+| `skills/martix-powershell/SKILL.md` | Discovery router; defines workstream scope | Highest-priority package-structural file; governs what belongs in this skill |
+| `skills/martix-powershell/AGENTS.md` | Cross-workstream companion guide | Defines review routes and maintenance contract |
+| `skills/martix-powershell/metadata.json` | Package metadata; domain plan, rule prefixes, tags | Authoritative list of the 8 domains and their canonical prefix names |
+| `skills/martix-powershell/rules/_sections.md` | Rule section contract | Every rule must follow this 6-section shape exactly |
+| `skills/martix-powershell/assets/taxonomy.json` | Machine-readable domain taxonomy | Drives domain ordering and prefix assignment |
+| `skills/martix-powershell/assets/section-order.json` | Stable section and domain ordering | Drives `ruleSectionOrder` and `plannedDomainOrder` |
+| `skills/martix-powershell/references/documentation-style-map.md` | Entry map for the documentation, help, and style domain | Help section requirements, `.OUTPUTS`/`[OutputType]` alignment, alias avoidance, stream guidance, Tier-5 overlay pointer |
+| `skills/martix-powershell/templates/rule-template.md` | Rule authoring scaffold | Starting point for new rule files |
+| `skills/martix-powershell/templates/research-pack-template.md` | Research memo scaffold | Use when scoping sources for a new rule domain |
+| `skills/martix-powershell/templates/comparison-matrix-template.md` | Comparison scaffold | Use when benchmarking cmdlet patterns against advanced functions |
+| *(future)* `skills/martix-powershell/research/*.md` | Scoped research memos | Must be explicitly approved and listed here before use in rules |
 
 ---
 

@@ -125,8 +125,8 @@ rule, reference, or comparison note might widen beyond the approved boundary.
 
 ## Standalone packaging note
 
-- This package is the canonical standalone skill under `src\skills`.
+- This package is the canonical standalone skill under `skills`.
 - If you document or install it directly, use `npx skills add <source>`.
 - A future direct marketplace registration should point to
-  `src\skills\martix-markdown` rather than duplicate the package in
+  `skills/martix-markdown` rather than duplicate the package in
   another location.

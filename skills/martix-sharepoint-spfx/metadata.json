@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "publisher": {
     "name": "MartiXDev",
-    "repository": "MartiXDev/ai-marketplace",
+    "repository": "MartiXDev/skills",
     "distributionModel": "standalone skill with optional direct Copilot marketplace registration"
   },
   "summary": "Standalone-first MartiX skill package for SharePoint Framework client-side development across SharePoint Online, Teams-connected, and Viva-connected SPFx scenarios.",
@@ -39,8 +39,8 @@
       "status": "canonical",
       "officialInstallCommand": "npx skills add <source>",
       "preferredSources": [
-        "C:/Git/MartiXDev/ai-marketplace/skills/martix-sharepoint-spfx",
-        "https://github.com/MartiXDev/ai-marketplace/tree/main/skills/martix-sharepoint-spfx"
+        "C:/Git/MartiXDev/skills/skills/martix-sharepoint-spfx",
+        "https://github.com/MartiXDev/skills/tree/main/skills/martix-sharepoint-spfx"
       ],
       "notes": [
         "Official docs currently show npx skills add, not npx skill add.",
@@ -50,8 +50,8 @@
     "secondarySurface": {
       "id": "copilot-cli-plugin-marketplace",
       "status": "shared-registration-ready",
-      "marketplaceRepository": "MartiXDev/ai-marketplace",
-      "marketplaceName": "martix-ai-marketplace",
+      "marketplaceRepository": "MartiXDev/skills",
+      "marketplaceName": "martix-skills",
       "pluginName": "martix-sharepoint-spfx",
       "strategy": "register the canonical standalone package directly from skills through repository-level shared metadata"
     },
@@ -312,6 +312,23 @@
       "assets/taxonomy.json",
       "assets/section-order.json",
       "assets/host-support-matrix.json"
+    ]
+  },
+  "executionProfile": {
+    "modelTier": "mixed",
+    "taskTypes": [
+      "planning",
+      "implementation",
+      "review"
+    ],
+    "parallelSafety": "single-package",
+    "fleetReady": true,
+    "worktreeSafe": true,
+    "tokenBudget": "medium",
+    "contextStrategy": [
+      "Start with SKILL.md.",
+      "Open only the routed rule or reference file for the requested task.",
+      "Use README.md for install and validation guidance."
     ]
   }
 }
