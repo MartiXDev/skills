@@ -101,13 +101,13 @@ informed the installable packages:
 
 | Folder | Purpose |
 | --- | --- |
-| `docs\martix-dotnet-csharp\` | .NET/C# comparisons and plans. |
-| `docs\martix-fastendpoints\` | FastEndpoints improvement plan. |
-| `docs\martix-fluentvalidation\` | FluentValidation improvement plan. |
-| `docs\martix-markdown\` | Markdown automation and package split rationale. |
-| `docs\martix-csharp\` | Planning artifacts for the standalone C# skill. |
+| `docs/martix-dotnet-csharp/` | .NET/C# comparisons and plans. |
+| `docs/martix-fastendpoints/` | FastEndpoints improvement plan. |
+| `docs/martix-fluentvalidation/` | FluentValidation improvement plan. |
+| `docs/martix-markdown/` | Markdown automation and package split rationale. |
+| `docs/martix-csharp/` | Planning artifacts for the standalone C# skill. |
 
-Canonical package behavior lives in each `skills\martix-*` package, especially
+Canonical package behavior lives in each `skills/martix-*` package, especially
 its `SKILL.md`, `AGENTS.md`, rules, references, metadata, and evals.
 
 ## Which Doc Should I Read?
