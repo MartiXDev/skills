@@ -3,10 +3,10 @@
 ### Scope and boundaries
 
 This plan coordinates the portfolio behavior of
-[`martix-fastendpoints`](../src/skills/martix-fastendpoints/SKILL.md),
-[`martix-fluentvalidation`](../src/skills/martix-fluentvalidation/SKILL.md),
-[`martix-markdown`](../src/skills/martix-markdown/SKILL.md),
-and [`martix-dotnet-csharp`](../src/skills/martix-dotnet-csharp/SKILL.md).
+[`martix-fastendpoints`](../skills/martix-fastendpoints/SKILL.md),
+[`martix-fluentvalidation`](../skills/martix-fluentvalidation/SKILL.md),
+[`martix-markdown`](../skills/martix-markdown/SKILL.md),
+and [`martix-dotnet-csharp`](../skills/martix-dotnet-csharp/SKILL.md).
 
 It is intentionally limited to:
 
@@ -103,6 +103,30 @@ when..." rather than copying another package's guidance.
 Keep package-specific taxonomies, rule prefixes, and domain counts local. Those
 differences are a strength, not a normalization bug.
 
+### Relationship metadata shape
+
+Add the optional `relationships` object to package `metadata.json` when a skill
+participates in portfolio hand-offs:
+
+```json
+{
+  "relationships": {
+    "companionSkills": [
+      {
+        "name": "martix-fastendpoints",
+        "relationship": "handoff",
+        "handoffWhen": "The API surface is explicitly FastEndpoints."
+      }
+    ],
+    "handoffPolicy": "Stay in this skill for its owned scope; open a companion skill only when that skill owns the narrower or supporting concern."
+  }
+}
+```
+
+Use `relationship` values such as `handoff`, `support`, or `supports`. Keep the
+text short and scenario-based so agents can route work without loading another
+skill's full instruction set.
+
 ### Versioning and release strategy considerations
 
 | Concern | Recommendation | Why |
@@ -152,7 +176,7 @@ Recommended config profiles:
 | Profile | Use for | Recommended defaults |
 | --- | --- | --- |
 | `martix-repo-docs` | `docs/**/*.md` and other repo-authored planning docs | `MD013.line_length = 400`, `code_blocks = false`, `tables = false`, and `MD041 = false` when the repo intentionally omits H1 headings. |
-| `martix-skill-packages` | `src/skills/**` Markdown maintained in this repository | Start from the same base as `martix-repo-docs`, then add only the narrowest package-entrypoint exceptions that remain necessary after the heading-policy decision. |
+| `martix-skill-packages` | `skills/**` Markdown maintained in this repository | Start from the same base as `martix-repo-docs`, then add only the narrowest package-entrypoint exceptions that remain necessary after the heading-policy decision. |
 | `portable-starter` | Repositories that use `martix-markdown` but lack a local config | Start from the bundled `markdownlint-cli2` template, keep `line_length = 120` as the generic fallback, and enable overrides such as `MD041 = false` only when the target repo really needs them. |
 
 Where the support track should cross-link:

@@ -41,32 +41,9 @@ machine-readable taxonomy that direct standalone installs should consume.
 
 ## Installation
 
-### Standalone skills CLI flow
+### Copilot CLI marketplace flow
 
-Use the standalone flow as the primary install surface for this package.
-
-- Official docs currently show `npx skills add <source>`.
-- Official docs do **not** currently show `npx skill add <source>`.
-- Because this repository keeps the package under `skills\...`, prefer an
-  absolute folder path or a direct GitHub tree URL instead of repo-root
-  discovery. In this environment, a Windows relative path such as
-  `.\skills\martix-sharepoint-spfx` is treated like a git source by the
-  `skills` CLI and fails preview or install.
-
-```powershell
-npx skills add C:\Git\MartiXDev\skills\skills\martix-sharepoint-spfx -a github-copilot -y
-npx skills add C:\Git\MartiXDev\skills\skills\martix-sharepoint-spfx -a github-copilot --copy -y
-```
-
-After the package is committed to a public branch, the same folder can also be
-installed from a direct GitHub tree URL.
-
-### Copilot CLI plugin marketplace flow
-
-Use the marketplace flow against the same standalone source package when the
-repository-level SharePoint marketplace entries are present. Shared marketplace
-metadata lives outside this folder and should point directly at
-`skills\martix-sharepoint-spfx`.
+Use the marketplace flow for normal GitHub Copilot CLI installs.
 
 ```powershell
 copilot plugin marketplace add MartiXDev/skills
@@ -75,8 +52,25 @@ copilot plugin marketplace browse martix-skills
 copilot plugin install martix-sharepoint-spfx@martix-skills
 ```
 
-Treat those commands as the shared-registration handoff, not as package-local
-proof that the SharePoint marketplace entry is already live.
+### Standalone skills CLI flow
+
+Use repo-root skill selection for standalone skill installs.
+
+```powershell
+npx skills add https://github.com/MartiXDev/skills --skill martix-sharepoint-spfx
+```
+
+### Direct source path flow
+
+Use a direct package path only for local validation or development.
+
+```powershell
+npx skills add C:\Git\MartiXDev\skills\skills\martix-sharepoint-spfx -a github-copilot -y
+npx skills add C:\Git\MartiXDev\skills\skills\martix-sharepoint-spfx -a github-copilot --copy -y
+```
+
+For validation from GitHub, point at the package folder:
+`https://github.com/MartiXDev/skills/tree/main/skills/martix-sharepoint-spfx`.
 
 ## Verification
 

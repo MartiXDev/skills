@@ -190,7 +190,7 @@
       "status": "canonical",
       "officialInstallCommand": "npx skills add <source>",
       "preferredSources": [
-        "C:/Git/MartiXDev/skills/skills/martix-sharepoint-server",
+        "skills/martix-sharepoint-server",
         "https://github.com/MartiXDev/skills/tree/main/skills/martix-sharepoint-server"
       ],
       "notes": [

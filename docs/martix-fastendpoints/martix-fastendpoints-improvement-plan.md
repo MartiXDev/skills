@@ -95,8 +95,8 @@ navigation without changing the deeper rule contract.
 
 | Path | Action | Purpose |
 | --- | --- | --- |
-| `src/skills/martix-fastendpoints/SKILL.md` | Update | Improve trigger coverage and add first-pass defaults |
-| `src/skills/martix-fastendpoints/AGENTS.md` | Update | Improve cross-workstream review routing |
+| `skills/martix-fastendpoints/SKILL.md` | Update | Improve trigger coverage and add first-pass defaults |
+| `skills/martix-fastendpoints/AGENTS.md` | Update | Improve cross-workstream review routing |
 
 ### P1 - Add a centralized anti-pattern quick reference
 
@@ -131,9 +131,9 @@ and reduces the time needed to find the right rule.
 
 | Path | Action | Purpose |
 | --- | --- | --- |
-| `src/skills/martix-fastendpoints/references/anti-patterns-quick-reference.md` | New | Centralize common FastEndpoints mistakes and fixes |
-| `src/skills/martix-fastendpoints/SKILL.md` | Update | Link to the quick reference from the router |
-| `src/skills/martix-fastendpoints/AGENTS.md` | Update | Add a review route for anti-pattern triage |
+| `skills/martix-fastendpoints/references/anti-patterns-quick-reference.md` | New | Centralize common FastEndpoints mistakes and fixes |
+| `skills/martix-fastendpoints/SKILL.md` | Update | Link to the quick reference from the router |
+| `skills/martix-fastendpoints/AGENTS.md` | Update | Add a review route for anti-pattern triage |
 
 ### P2 - Make startup ordering explicit
 
@@ -162,11 +162,11 @@ the later NSwag/OpenAPI and Native AOT improvements.
 
 | Path | Action | Purpose |
 | --- | --- | --- |
-| `src/skills/martix-fastendpoints/references/startup-pipeline-checklist.md` | New | Give users one place to verify startup sequence |
-| `src/skills/martix-fastendpoints/rules/foundation-startup-registration.md` | Update | Point startup rule readers to the shared checklist |
-| `src/skills/martix-fastendpoints/rules/foundation-configuration-options.md` | Update | Clarify where configuration choices affect ordering |
-| `src/skills/martix-fastendpoints/AGENTS.md` | Update | Add a startup-order review route |
-| `src/skills/martix-fastendpoints/references/foundation-map.md` | Update | Surface the new checklist from the foundation map |
+| `skills/martix-fastendpoints/references/startup-pipeline-checklist.md` | New | Give users one place to verify startup sequence |
+| `skills/martix-fastendpoints/rules/foundation-startup-registration.md` | Update | Point startup rule readers to the shared checklist |
+| `skills/martix-fastendpoints/rules/foundation-configuration-options.md` | Update | Clarify where configuration choices affect ordering |
+| `skills/martix-fastendpoints/AGENTS.md` | Update | Add a startup-order review route |
+| `skills/martix-fastendpoints/references/foundation-map.md` | Update | Surface the new checklist from the foundation map |
 
 ### P2 - Deepen NSwag and OpenAPI guidance
 
@@ -196,10 +196,10 @@ source synthesis for NSwag-heavy workflows.
 
 | Path | Action | Purpose |
 | --- | --- | --- |
-| `src/skills/martix-fastendpoints/rules/docs-swagger-openapi.md` | Update | Strengthen NSwag, export, and converter guidance |
-| `src/skills/martix-fastendpoints/references/nswag-openapi-playbook.md` | New | Hold concrete client-export and document-shaping examples if needed |
-| `src/skills/martix-fastendpoints/references/transport-docs-map.md` | Update | Route readers from the map to the deeper OpenAPI playbook |
-| `src/skills/martix-fastendpoints/rules/versioning-release-groups.md` | Update | Align release-group guidance with Swagger document strategy |
+| `skills/martix-fastendpoints/rules/docs-swagger-openapi.md` | Update | Strengthen NSwag, export, and converter guidance |
+| `skills/martix-fastendpoints/references/nswag-openapi-playbook.md` | New | Hold concrete client-export and document-shaping examples if needed |
+| `skills/martix-fastendpoints/references/transport-docs-map.md` | Update | Route readers from the map to the deeper OpenAPI playbook |
+| `skills/martix-fastendpoints/rules/versioning-release-groups.md` | Update | Align release-group guidance with Swagger document strategy |
 
 ### P3 - Deepen Native AOT and trimming guidance
 
@@ -229,10 +229,10 @@ ordering, and Swagger/OpenAPI behavior.
 
 | Path | Action | Purpose |
 | --- | --- | --- |
-| `src/skills/martix-fastendpoints/rules/foundation-source-generation-aot.md` | Update | Make trimming and generator review more explicit |
-| `src/skills/martix-fastendpoints/references/aot-trimming-playbook.md` | New | Hold multi-assembly, trimming, and publish examples |
-| `src/skills/martix-fastendpoints/references/foundation-map.md` | Update | Route readers to the deeper AOT reference |
-| `src/skills/martix-fastendpoints/references/startup-pipeline-checklist.md` | Update | Add or refine the AOT-specific startup branch |
+| `skills/martix-fastendpoints/rules/foundation-source-generation-aot.md` | Update | Make trimming and generator review more explicit |
+| `skills/martix-fastendpoints/references/aot-trimming-playbook.md` | New | Hold multi-assembly, trimming, and publish examples |
+| `skills/martix-fastendpoints/references/foundation-map.md` | Update | Route readers to the deeper AOT reference |
+| `skills/martix-fastendpoints/references/startup-pipeline-checklist.md` | Update | Add or refine the AOT-specific startup branch |
 
 ### P3 - Add recipe-style bootstrap references where policy-only guidance slows adoption
 
@@ -257,9 +257,9 @@ to replace the rules.
 
 | Path | Action | Purpose |
 | --- | --- | --- |
-| `src/skills/martix-fastendpoints/references/bootstrap-recipes.md` | New | Add copy-ready bootstrap examples |
-| `src/skills/martix-fastendpoints/SKILL.md` | Update | Link to the recipes after the default routing guidance |
-| `src/skills/martix-fastendpoints/AGENTS.md` | Update | Route greenfield setup reviews toward the recipe plus rules |
+| `skills/martix-fastendpoints/references/bootstrap-recipes.md` | New | Add copy-ready bootstrap examples |
+| `skills/martix-fastendpoints/SKILL.md` | Update | Link to the recipes after the default routing guidance |
+| `skills/martix-fastendpoints/AGENTS.md` | Update | Route greenfield setup reviews toward the recipe plus rules |
 
 ### P4 - Strengthen reference and cookbook maintenance
 
@@ -289,11 +289,11 @@ coverage and ordering contracts are made visible.
 
 | Path | Action | Purpose |
 | --- | --- | --- |
-| `src/skills/martix-fastendpoints/references/doc-source-index.md` | New | Track official source coverage and cookbook sections in one place |
-| `src/skills/martix-fastendpoints/references/cookbook-index.md` | Update | Clarify curated recipes, gaps, and maintenance notes |
-| `src/skills/martix-fastendpoints/README.md` | Update | Point maintainers to the source index and upkeep flow |
-| `src/skills/martix-fastendpoints/metadata.json` | Update | Keep artifact counts and reference lists accurate after future additions |
-| `src/skills/martix-fastendpoints/assets/section-order.json` | Update | Keep preferred reference ordering aligned with the new files |
+| `skills/martix-fastendpoints/references/doc-source-index.md` | New | Track official source coverage and cookbook sections in one place |
+| `skills/martix-fastendpoints/references/cookbook-index.md` | Update | Clarify curated recipes, gaps, and maintenance notes |
+| `skills/martix-fastendpoints/README.md` | Update | Point maintainers to the source index and upkeep flow |
+| `skills/martix-fastendpoints/metadata.json` | Update | Keep artifact counts and reference lists accurate after future additions |
+| `skills/martix-fastendpoints/assets/section-order.json` | Update | Keep preferred reference ordering aligned with the new files |
 
 ### Sequencing guidance for later implementation
 
@@ -319,7 +319,7 @@ coverage and ordering contracts are made visible.
 - Do not widen the package into generic ASP.NET Core or broad .NET guidance.
 - Do not turn cookbook material into the normative policy surface.
 - Do not remove the stable rule contract in
-  `src/skills/martix-fastendpoints/rules/_sections.md`.
+  `skills/martix-fastendpoints/rules/_sections.md`.
 - Do not let future references bypass `metadata.json` and
   `assets/section-order.json`; those files are part of the package contract.
 

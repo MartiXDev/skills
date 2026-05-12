@@ -316,6 +316,26 @@
       }
     ]
   },
+  "relationships": {
+    "companionSkills": [
+      {
+        "name": "martix-fastendpoints",
+        "relationship": "handoff",
+        "handoffWhen": "The API surface is explicitly FastEndpoints rather than generic ASP.NET Core, Minimal APIs, or controllers."
+      },
+      {
+        "name": "martix-fluentvalidation",
+        "relationship": "handoff",
+        "handoffWhen": "Validation becomes a first-class design topic with reusable validators, RuleSets, async rules, localization, or upgrade concerns."
+      },
+      {
+        "name": "martix-markdown",
+        "relationship": "support",
+        "handoffWhen": "Maintainers edit authored Markdown or need repo-aware markdownlint, accessibility, or formatting guidance."
+      }
+    ],
+    "handoffPolicy": "Stay in martix-dotnet-csharp for broad .NET, C#, ASP.NET Core, SDK, testing, diagnostics, and design guidance; hand off only when the companion skill owns the narrower surface."
+  },
   "executionProfile": {
     "modelTier": "mixed",
     "taskTypes": [

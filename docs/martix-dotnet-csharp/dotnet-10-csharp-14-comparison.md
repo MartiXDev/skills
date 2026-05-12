@@ -4,23 +4,23 @@
 
 This comparison reviews the current repo-local copies of:
 
-- `src/skills/martix-dotnet-csharp`
+- `skills/martix-dotnet-csharp`
 - `.agents/skills/dotnet-10-csharp-14`
 
 The comparison is intentionally limited to the approved MartiX source boundary in
-[`references/doc-source-index.md`](../../src/skills/martix-dotnet-csharp/references/doc-source-index.md)
+[`references/doc-source-index.md`](../../skills/martix-dotnet-csharp/references/doc-source-index.md)
 plus the tagged 3rd-party skill files that were requested for review.
 
 ### Key files reviewed
 
 - MartiX:
-  [`SKILL.md`](../../src/skills/martix-dotnet-csharp/SKILL.md),
-  [`AGENTS.md`](../../src/skills/martix-dotnet-csharp/AGENTS.md),
-  [`README.md`](../../src/skills/martix-dotnet-csharp/README.md),
-  [`metadata.json`](../../src/skills/martix-dotnet-csharp/metadata.json),
-  [`templates/comparison-matrix-template.md`](../../src/skills/martix-dotnet-csharp/templates/comparison-matrix-template.md),
+  [`SKILL.md`](../../skills/martix-dotnet-csharp/SKILL.md),
+  [`AGENTS.md`](../../skills/martix-dotnet-csharp/AGENTS.md),
+  [`README.md`](../../skills/martix-dotnet-csharp/README.md),
+  [`metadata.json`](../../skills/martix-dotnet-csharp/metadata.json),
+  [`templates/comparison-matrix-template.md`](../../skills/martix-dotnet-csharp/templates/comparison-matrix-template.md),
   and
-  [`references/doc-source-index.md`](../../src/skills/martix-dotnet-csharp/references/doc-source-index.md)
+  [`references/doc-source-index.md`](../../skills/martix-dotnet-csharp/references/doc-source-index.md)
 - 3rd-party:
   [`SKILL.md`](../../.agents/skills/dotnet-10-csharp-14/SKILL.md),
   [`anti-patterns.md`](../../.agents/skills/dotnet-10-csharp-14/anti-patterns.md),
@@ -60,14 +60,14 @@ plus the tagged 3rd-party skill files that were requested for review.
 MartiX is built as a standalone-first package that routes the reader into a
 layered library:
 
-- [`SKILL.md`](../../src/skills/martix-dotnet-csharp/SKILL.md) acts as the
+- [`SKILL.md`](../../skills/martix-dotnet-csharp/SKILL.md) acts as the
   router.
-- [`AGENTS.md`](../../src/skills/martix-dotnet-csharp/AGENTS.md) explains
+- [`AGENTS.md`](../../skills/martix-dotnet-csharp/AGENTS.md) explains
   cross-domain review routes.
 - `rules/*.md` holds 19 atomic decision guides.
 - `references/*.md` holds the source-backed map layer.
 - `templates/*.md`, `assets/*.json`, and
-  [`metadata.json`](../../src/skills/martix-dotnet-csharp/metadata.json)
+  [`metadata.json`](../../skills/martix-dotnet-csharp/metadata.json)
   support maintainers.
 
 The 3rd-party skill is much flatter. Its
@@ -166,7 +166,7 @@ feel more fragmented.
 #### 6. Testing guidance
 
 MartiX includes
-[`rules/testing-unit-integration.md`](../../src/skills/martix-dotnet-csharp/rules/testing-unit-integration.md),
+[`rules/testing-unit-integration.md`](../../skills/martix-dotnet-csharp/rules/testing-unit-integration.md),
 which fits the rule-library design. The 3rd-party
 [`testing.md`](../../.agents/skills/dotnet-10-csharp-14/testing.md) goes much
 further on immediate implementation support with:
@@ -203,14 +203,14 @@ This is where MartiX clearly leads.
 MartiX has:
 
 - an explicit approved-source boundary in
-  [`references/doc-source-index.md`](../../src/skills/martix-dotnet-csharp/references/doc-source-index.md)
+  [`references/doc-source-index.md`](../../skills/martix-dotnet-csharp/references/doc-source-index.md)
 - a rule contract in
-  [`rules/_sections.md`](../../src/skills/martix-dotnet-csharp/rules/_sections.md)
+  [`rules/_sections.md`](../../skills/martix-dotnet-csharp/rules/_sections.md)
 - a comparison template in
-  [`templates/comparison-matrix-template.md`](../../src/skills/martix-dotnet-csharp/templates/comparison-matrix-template.md)
+  [`templates/comparison-matrix-template.md`](../../skills/martix-dotnet-csharp/templates/comparison-matrix-template.md)
 - machine-readable taxonomy and ordering assets
 - package identity and structure in
-  [`metadata.json`](../../src/skills/martix-dotnet-csharp/metadata.json)
+  [`metadata.json`](../../skills/martix-dotnet-csharp/metadata.json)
 
 The 3rd-party skill is effective, but it does not provide the same maintainable
 authoring framework. It is better as a polished field guide than as a structured
@@ -256,7 +256,7 @@ MartiX should not blindly copy these traits:
 
 | Improvement target | Why it matters | Best fit in MartiX |
 | --- | --- | --- |
-| Add quick-start defaults to `SKILL.md` | Improves the first-use experience without changing the whole architecture | Update `src/skills/martix-dotnet-csharp/SKILL.md` |
+| Add quick-start defaults to `SKILL.md` | Improves the first-use experience without changing the whole architecture | Update `skills/martix-dotnet-csharp/SKILL.md` |
 | Add centralized anti-pattern reference | Makes repeated `Avoid` guidance easy to discover | Add a new `references/*.md` quick-reference file |
 | Add recipe-style bootstrap docs | Gives users concrete code without bloating the atomic rules | Add new `references/*.md` recipe docs |
 | Add package catalog guidance | Helps with package-selection tasks that users ask often | Add a new ecosystem or libraries reference |

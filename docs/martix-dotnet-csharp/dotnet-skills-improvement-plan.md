@@ -3,7 +3,7 @@
 ### Goal
 
 This plan turns the Aaronontheweb `dotnet-skills` comparison into a
-practical backlog for `src\skills\martix-dotnet-csharp`. For the source
+practical backlog for `skills\martix-dotnet-csharp`. For the source
 comparison, see
 [`dotnet-skills-comparison.md`](./dotnet-skills-comparison.md).
 
@@ -113,23 +113,23 @@ and ecosystem-specific material outside the core router.
 
 | Path | Change type | Reason |
 | --- | --- | --- |
-| `src\skills\martix-dotnet-csharp\SKILL.md` | Update | Add trigger terms for configuration and DI specifics, project structure, snapshot testing, and Testcontainers while keeping non-goals explicit |
-| `src\skills\martix-dotnet-csharp\AGENTS.md` | Update | Route to the new appendices and keep future-skill handoffs clear |
-| `src\skills\martix-dotnet-csharp\README.md` | Update | Keep the package summary and scope aligned after new references land |
-| `src\skills\martix-dotnet-csharp\metadata.json` | Review and maybe update | Keep discoverability text and maturity notes consistent with the package surface |
-| `src\skills\martix-dotnet-csharp\references\async-map.md` | Expand | Add the concurrency selector and example routes |
-| `src\skills\martix-dotnet-csharp\references\dotnet-sdk-map.md` | Expand | Add project-structure and package-management guidance |
-| `src\skills\martix-dotnet-csharp\references\testing-bootstrap-recipes.md` | Expand | Add Testcontainers and snapshot-testing decision points |
-| `src\skills\martix-dotnet-csharp\references\libraries-catalog.md` | Expand | Add `Verify.*`, `Testcontainers.*`, and related package guidance |
-| `src\skills\martix-dotnet-csharp\rules\design-api-type-design.md` | Expand | Add API compatibility, deprecation, and type-design heuristics |
-| `src\skills\martix-dotnet-csharp\rules\data-efcore.md` | Expand | Add database-performance and advanced EF Core guidance |
-| `src\skills\martix-dotnet-csharp\rules\data-serialization.md` | Expand | Add source generation, polymorphism, and tolerant-reader guidance |
-| `src\skills\martix-dotnet-csharp\rules\testing-unit-integration.md` | Expand | Add snapshot-testing and infrastructure-test patterns |
-| `src\skills\martix-dotnet-csharp\rules\sdk-build-test-pack-publish.md` | Expand | Add package-management checks and repo hygiene guidance |
-| `src\skills\martix-dotnet-csharp\rules\sdk-project-system.md` | Expand | Add modern repo-shape guidance |
-| `src\skills\martix-dotnet-csharp\references\api-compatibility-checklist.md` | New file | Capture API versioning, deprecation, approval testing, and PR checks |
-| `src\skills\martix-dotnet-csharp\references\configuration-recipes.md` | New file | Cover `IValidateOptions` dependencies, named options, `PostConfigure`, and validator tests |
-| `src\skills\martix-dotnet-csharp\references\di-lifetime-map.md` | New file | Cover lifetimes, keyed services, factory registrations, and test overrides |
+| `skills\martix-dotnet-csharp\SKILL.md` | Update | Add trigger terms for configuration and DI specifics, project structure, snapshot testing, and Testcontainers while keeping non-goals explicit |
+| `skills\martix-dotnet-csharp\AGENTS.md` | Update | Route to the new appendices and keep future-skill handoffs clear |
+| `skills\martix-dotnet-csharp\README.md` | Update | Keep the package summary and scope aligned after new references land |
+| `skills\martix-dotnet-csharp\metadata.json` | Review and maybe update | Keep discoverability text and maturity notes consistent with the package surface |
+| `skills\martix-dotnet-csharp\references\async-map.md` | Expand | Add the concurrency selector and example routes |
+| `skills\martix-dotnet-csharp\references\dotnet-sdk-map.md` | Expand | Add project-structure and package-management guidance |
+| `skills\martix-dotnet-csharp\references\testing-bootstrap-recipes.md` | Expand | Add Testcontainers and snapshot-testing decision points |
+| `skills\martix-dotnet-csharp\references\libraries-catalog.md` | Expand | Add `Verify.*`, `Testcontainers.*`, and related package guidance |
+| `skills\martix-dotnet-csharp\rules\design-api-type-design.md` | Expand | Add API compatibility, deprecation, and type-design heuristics |
+| `skills\martix-dotnet-csharp\rules\data-efcore.md` | Expand | Add database-performance and advanced EF Core guidance |
+| `skills\martix-dotnet-csharp\rules\data-serialization.md` | Expand | Add source generation, polymorphism, and tolerant-reader guidance |
+| `skills\martix-dotnet-csharp\rules\testing-unit-integration.md` | Expand | Add snapshot-testing and infrastructure-test patterns |
+| `skills\martix-dotnet-csharp\rules\sdk-build-test-pack-publish.md` | Expand | Add package-management checks and repo hygiene guidance |
+| `skills\martix-dotnet-csharp\rules\sdk-project-system.md` | Expand | Add modern repo-shape guidance |
+| `skills\martix-dotnet-csharp\references\api-compatibility-checklist.md` | New file | Capture API versioning, deprecation, approval testing, and PR checks |
+| `skills\martix-dotnet-csharp\references\configuration-recipes.md` | New file | Cover `IValidateOptions` dependencies, named options, `PostConfigure`, and validator tests |
+| `skills\martix-dotnet-csharp\references\di-lifetime-map.md` | New file | Cover lifetimes, keyed services, factory registrations, and test overrides |
 
 ### Recommended implementation order
 

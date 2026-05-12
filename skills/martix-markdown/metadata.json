@@ -387,6 +387,26 @@
       }
     ]
   },
+  "relationships": {
+    "companionSkills": [
+      {
+        "name": "martix-dotnet-csharp",
+        "relationship": "supports",
+        "handoffWhen": "Markdown work touches .NET or C# domain guidance that should remain owned by the umbrella .NET skill."
+      },
+      {
+        "name": "martix-fastendpoints",
+        "relationship": "supports",
+        "handoffWhen": "Markdown work touches FastEndpoints endpoint, pipeline, transport, or testing guidance that should remain owned by the FastEndpoints skill."
+      },
+      {
+        "name": "martix-fluentvalidation",
+        "relationship": "supports",
+        "handoffWhen": "Markdown work touches FluentValidation validator, integration, metadata, testing, or upgrade guidance that should remain owned by the FluentValidation skill."
+      }
+    ],
+    "handoffPolicy": "Stay in martix-markdown for Markdown authoring, markdownlint triage, repo-local overlay comparison, accessibility review, and formatter coexistence; return domain guidance to the owning companion skill."
+  },
   "executionProfile": {
     "modelTier": "cheap",
     "taskTypes": [

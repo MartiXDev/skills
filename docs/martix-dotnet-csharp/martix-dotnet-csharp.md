@@ -25,7 +25,7 @@
 - Prepare a comprehensive plan with many tasks as there is lot of information resources to be processed which is too much for any LLM context window, so prepare very detailed plan with multiple phases and many tasks to achieve this, use Copilot Fleet subagents to work on this in parallell
 - The result of research phase will be updated plan (or it can be a separate file, something like future-file-structure.md) which must contain all file names which will be created later in implementation phase, so we can approve it as a last step in planning phase
 - My new Skill(s) must be created mainly for Copilot CLI, but optionally also for Claude Code, Codex and Open Code
-- I NEED to be able to install the Skill as standalone Skill, so create it in src/skills folder and later reference it in plugin (which might have the same name) .github\plugin\marketplace.json
+- I NEED to be able to install the Skill as standalone Skill, so create it in skills/ folder and later reference it in plugin (which might have the same name) .github\plugin\marketplace.json
 - There must be more options to install the Skill:
   - Using `npx skill add` syntax
   - Using `/plugin` slash command in Copilot CLI

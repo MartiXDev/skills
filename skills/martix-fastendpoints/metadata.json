@@ -315,6 +315,26 @@
       }
     ]
   },
+  "relationships": {
+    "companionSkills": [
+      {
+        "name": "martix-dotnet-csharp",
+        "relationship": "handoff",
+        "handoffWhen": "The issue widens from FastEndpoints conventions to general host setup, options, resilience, diagnostics, or generic testing practice."
+      },
+      {
+        "name": "martix-fluentvalidation",
+        "relationship": "handoff",
+        "handoffWhen": "Validator authoring, async validation behavior, error metadata, or validator reuse becomes more important than endpoint plumbing."
+      },
+      {
+        "name": "martix-markdown",
+        "relationship": "support",
+        "handoffWhen": "Maintainers edit FastEndpoints skill Markdown or need repo-aware markdownlint, accessibility, or formatting guidance."
+      }
+    ],
+    "handoffPolicy": "Stay in martix-fastendpoints for endpoint, request-pipeline, transport, OpenAPI, and FastEndpoints testing guidance; hand off when the concern becomes platform-wide, validator-specific, or Markdown-maintenance work."
+  },
   "executionProfile": {
     "modelTier": "mixed",
     "taskTypes": [

@@ -6,12 +6,11 @@ license: Complete terms in LICENSE.txt
 
 ## MartiX .NET 10 and C# 14 router
 
-- Standalone-first skill package focused on released .NET 10+ and C# 14+
-  practices.
-- Keep decisions grounded in the bundled rule files and Microsoft-backed
-  reference maps.
-- Use [AGENTS.md](./AGENTS.md) when the task crosses multiple domains or needs a
-  longer review flow.
+- Standalone-first package for released .NET 10+ and C# 14+ practices.
+- Ground decisions in the bundled rule files and Microsoft-backed reference
+  maps.
+- Use [AGENTS.md](./AGENTS.md) when the task crosses domains or needs a longer
+  review flow.
 
 ## When to use this skill
 
@@ -26,8 +25,7 @@ license: Complete terms in LICENSE.txt
 
 ## Quick-start defaults
 
-Use this section for the first pass, then move into the domain rules and maps
-below for the specific change.
+Use this section for the first pass, then open the domain rule or map needed.
 
 ### Minimal `.csproj` baseline
 
@@ -101,8 +99,7 @@ sealed class ApiOptions
 
 ## Start with the source boundary
 
-1. Read the
-   [source index and guardrails](./references/doc-source-index.md).
+1. Read the [source index and guardrails](./references/doc-source-index.md).
 2. Pick the closest domain map below.
 3. Read only the linked rules needed for the current change.
 4. Open [AGENTS.md](./AGENTS.md) for cross-domain review routes and package
@@ -110,8 +107,8 @@ sealed class ApiOptions
 
 ## Bootstrap and reference routes
 
-- Use the quick references below when you need copy-ready entrypoint patterns,
-  then return to the rule library for detailed review guidance.
+- Use the quick references below for copy-ready entrypoint patterns, then return
+  to the rule library for detailed review guidance.
 - References:
   - [Anti-patterns quick reference](./references/anti-patterns-quick-reference.md)
   - [Web bootstrap recipes](./references/web-bootstrap-recipes.md)
@@ -198,8 +195,6 @@ sealed class ApiOptions
 
 ## Standalone-first note
 
-- This skill is authored as a standalone package under `skills`.
-- If you document or install the package directly, use
-  `npx skills add <source>` rather than `npx skill add`.
-- The highest-priority local brief remains
-  [docs\martix-dotnet-csharp\martix-dotnet-csharp.md](../../../docs/martix-dotnet-csharp/martix-dotnet-csharp.md).
+- This is a standalone package under `skills`; install with
+  `npx skills add <source>`, not `npx skill add`.
+- Local brief: [docs\martix-dotnet-csharp\martix-dotnet-csharp.md](../../docs/martix-dotnet-csharp/martix-dotnet-csharp.md).

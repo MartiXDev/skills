@@ -399,6 +399,26 @@
       }
     ]
   },
+  "relationships": {
+    "companionSkills": [
+      {
+        "name": "martix-dotnet-csharp",
+        "relationship": "handoff",
+        "handoffWhen": "The question expands into API failure contracts, Minimal API host shape, DI patterns, or host-level test harnesses."
+      },
+      {
+        "name": "martix-fastendpoints",
+        "relationship": "handoff",
+        "handoffWhen": "Validation executes inside FastEndpoints endpoints and endpoint pipeline behavior matters as much as the validator itself."
+      },
+      {
+        "name": "martix-markdown",
+        "relationship": "support",
+        "handoffWhen": "Maintainers edit FluentValidation skill Markdown or need repo-aware markdownlint, accessibility, or formatting guidance."
+      }
+    ],
+    "handoffPolicy": "Stay in martix-fluentvalidation for validator authoring, rule behavior, async validation, localization, error metadata, testing, and upgrade guidance; hand off when host, endpoint, or Markdown-maintenance ownership is clearer elsewhere."
+  },
   "executionProfile": {
     "modelTier": "medium",
     "taskTypes": [
