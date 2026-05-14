@@ -20,8 +20,8 @@ jobs:
             const issue = context.payload.issue;
             const labels = issue.labels.map(l => l.name);
 
-            // Already dispatched or done — nothing to do
-            const skipStates = ['afk/ready', 'afk/in-progress', 'afk/review', 'afk/done'];
+            // Already in progress or completed — nothing to do
+            const skipStates = ['afk/in-progress', 'afk/review', 'afk/done'];
             if (skipStates.some(s => labels.includes(s))) return;
 
             // Validate required label groups

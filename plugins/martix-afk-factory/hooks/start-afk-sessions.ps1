@@ -258,7 +258,7 @@ folder as a new session. Use /remote on for remote monitoring.*
 
 # ── Save sessions ──────────────────────────────────────────────────────────────
 if (-not $DryRun) {
-  $sessions | ConvertTo-Json -Depth 5 | Set-Content $sessionsFile -Encoding UTF8
+  ConvertTo-Json -InputObject $sessions -Depth 5 | Set-Content $sessionsFile -Encoding UTF8
 }
 
 Write-Host ''
