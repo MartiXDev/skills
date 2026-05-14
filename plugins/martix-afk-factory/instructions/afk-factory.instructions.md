@@ -12,7 +12,9 @@ This file is loaded when editing AFK factory artifacts installed from the
 ## agent-config.json
 
 - Is a **shared coordinator file**. Edit it on `main` only — never in a worktree.
-- `tiers` keys must be literal model names accepted by the cloud agent tasks API.
+- `tiers` keys must be the tier labels used by routing (for example `tier/cheap`,
+  `tier/medium`, `tier/premium`); each tier's `model` value must be a literal
+  model name accepted by the cloud agent tasks API.
 - `sharedFiles` must list every file that must not be edited in parallel.
 - `branchPrefix` must match the pattern used in `cleanup-merged.yml`.
 

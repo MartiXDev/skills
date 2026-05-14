@@ -56,7 +56,25 @@ area/backend   area/frontend   area/test   area/docs   area/ops
 # From your repo root, after plugin install:
 Copy-Item plugins/martix-afk-factory/workflows/*.yml .github/workflows/
 Copy-Item plugins/martix-afk-factory/issue-templates/*.md .github/ISSUE_TEMPLATE/
-Copy-Item plugins/martix-afk-factory/agent-config.json .github/agent-config.json
+@'
+{
+  "tiers": {
+    "cheap": "gpt-4.1-mini",
+    "medium": "gpt-4.1",
+    "premium": "gpt-5"
+  },
+  "areas": {
+    "backend": "backend",
+    "frontend": "frontend",
+    "test": "test",
+    "docs": "docs",
+    "ops": "ops"
+  },
+  "sharedFiles": [
+    ".github/agent-config.json"
+  ]
+}
+'@ | Set-Content .github/agent-config.json
 Copy-Item plugins/martix-afk-factory/agents/*.agent.md .github/agents/
 ```
 

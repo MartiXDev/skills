@@ -6,6 +6,7 @@ tools:
   - codebase
   - editFiles
   - githubRepo
+  - runCommands
 ---
 
 You are an architecture documentation agent for a MartiX Skills repository.

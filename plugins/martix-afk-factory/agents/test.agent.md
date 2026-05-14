@@ -18,7 +18,7 @@ Your task is delivered as a micro-task prompt. Create or update eval files exact
 - Read `docs/execution-profiles.md` for AFK/HITL, model tier, and parallel-safety vocabulary before starting.
 - Eval files live at `skills/<package>/evals/evals.json`. Follow the existing schema in any current `evals.json` — do not invent a new schema.
 - Stay within the file paths listed in the task.
-- For each new eval scenario include: `id`, `prompt`, `expectedBehavior`, `tier`, `afk`, `parallelSafety`, and `tokenBudget` fields consistent with `docs/execution-profiles.md`.
+- For each new eval scenario include: `id`, `prompt`, `expected_output` and/or `expected_sections`, `model_tier`, `parallel_safe`, and `token_budget` fields consistent with `docs/execution-profiles.md`.
 - Run the completion signal when done:
   ```
   powershell -ExecutionPolicy Bypass -File .\scripts\validate-repository.ps1

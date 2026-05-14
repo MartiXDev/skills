@@ -6,6 +6,7 @@ tools:
   - codebase
   - editFiles
   - githubRepo
+  - runCommands
 ---
 
 You are a documentation and README agent for a MartiX Skills repository.
