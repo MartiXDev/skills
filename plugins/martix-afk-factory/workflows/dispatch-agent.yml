@@ -1,0 +1,140 @@
+name: Dispatch to cloud agent
+
+# Requires: COPILOT_AGENT_TOKEN secret (user PAT with copilot scope).
+# The GitHub Actions GITHUB_TOKEN is a server-to-server token and is NOT
+# supported by the agent tasks API — a user PAT is mandatory.
+# Plan: Copilot Business or Enterprise subscription required for the cloud agent API.
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  dispatch:
+    if: github.event.label.name == 'afk/ready'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve model and agent from config
+        id: config
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const config = JSON.parse(fs.readFileSync('.github/agent-config.json', 'utf8'));
+
+            const labels = context.payload.issue.labels.map(l => l.name);
+            const tierLabel = labels.find(l => l.startsWith('tier/'));
+            const areaLabel = labels.find(l => l.startsWith('area/'));
+
+            const model = (tierLabel && config.tiers[tierLabel])
+              ? config.tiers[tierLabel].model
+              : 'gpt-4.1';
+
+            const agentFile = (areaLabel && config.areas[areaLabel])
+              ? config.areas[areaLabel].agentFile
+              : null;
+
+            core.setOutput('model', model);
+            core.setOutput('agentFile', agentFile || '');
+            core.info(`Tier: ${tierLabel} → model: ${model}`);
+            core.info(`Area: ${areaLabel} → agent: ${agentFile}`);
+
+      - name: Extract agent-prompt block
+        id: prompt
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body || '';
+            const match = body.match(/<!--\s*agent-prompt\s*([\s\S]*?)-->/);
+            if (!match || match[1].trim().length < 10) {
+              core.setFailed('No valid agent-prompt block found in issue body. Triage should have caught this.');
+              return;
+            }
+            const prompt = match[1].trim();
+            core.setOutput('prompt', prompt);
+
+      - name: Dispatch cloud agent task
+        id: dispatch
+        uses: actions/github-script@v7
+        env:
+          COPILOT_AGENT_TOKEN: ${{ secrets.COPILOT_AGENT_TOKEN }}
+          AGENT_PROMPT: ${{ steps.prompt.outputs.prompt }}
+          AGENT_MODEL: ${{ steps.config.outputs.model }}
+        with:
+          script: |
+            const prompt = process.env.AGENT_PROMPT || '';
+            const model = process.env.AGENT_MODEL || '';
+
+            const response = await fetch(
+              `https://api.github.com/agents/repos/${context.repo.owner}/${context.repo.repo}/tasks`,
+              {
+                method: 'POST',
+                headers: {
+                  'Accept': 'application/vnd.github+json',
+                  'X-GitHub-Api-Version': '2022-11-28',
+                  'Authorization': `Bearer ${process.env.COPILOT_AGENT_TOKEN}`,
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  prompt,
+                  base_ref: 'main',
+                  model,
+                  create_pull_request: true
+                })
+              }
+            );
+
+            if (!response.ok) {
+              const err = await response.text();
+              core.setFailed(`Cloud agent dispatch failed (${response.status}): ${err}`);
+              return;
+            }
+
+            const task = await response.json();
+            if (!task.id) {
+              core.setFailed(`Dispatch response missing task id: ${JSON.stringify(task)}`);
+              return;
+            }
+
+            core.setOutput('taskId', task.id);
+            core.info(`Task created: ${task.id}`);
+
+      - name: Transition label to afk/in-progress
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const n = context.payload.issue.number;
+            await github.rest.issues.removeLabel({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: n, name: 'afk/ready'
+            }).catch(() => {});
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: n, labels: ['afk/in-progress']
+            });
+
+      - name: Comment task link on issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const taskId = `${{ steps.dispatch.outputs.taskId }}`;
+            const model = `${{ steps.config.outputs.model }}`;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              body: [
+                '**AFK dispatch** — Cloud agent task started.',
+                '',
+                `- Model: \`${model}\``,
+                `- Task ID: \`${taskId}\``,
+                '',
+                `<!-- afk-task-id: ${taskId} -->`
+              ].join('\n')
+            });

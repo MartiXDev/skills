@@ -1,0 +1,25 @@
+{
+  "name": "martix-afk-factory",
+  "description": "AFK dev-factory plugin. Installs autonomous agent personas, a post-tool-use validation hook, a local worktree orchestrator, GitHub Actions workflows, and issue templates so any MartiX-style repository can run AFK Copilot CLI sessions and cloud-agent dispatch with optimized model-tier costs.",
+  "version": "0.1.0",
+  "author": {
+    "name": "MartiXDev"
+  },
+  "license": "MIT",
+  "keywords": [
+    "martix",
+    "afk",
+    "automation",
+    "agents",
+    "workflows",
+    "copilot-cli",
+    "worktree",
+    "cloud-agent",
+    "cost-optimization",
+    "hooks"
+  ],
+  "repository": "https://github.com/MartiXDev/skills",
+  "agents": "agents/",
+  "skills": "skills/",
+  "hooks": "hooks.json"
+}

@@ -1,0 +1,76 @@
+name: Triage issue
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    # Only process micro-tasks — skip root features and HITL decisions which carry 'hitl'
+    if: "!contains(github.event.issue.labels.*.name, 'hitl')"
+    permissions:
+      issues: write
+
+    steps:
+      - name: Validate and label
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const labels = issue.labels.map(l => l.name);
+
+            // Already in progress or completed — nothing to do
+            const skipStates = ['afk/in-progress', 'afk/review', 'afk/done'];
+            if (skipStates.some(s => labels.includes(s))) return;
+
+            // Validate required label groups
+            const hasTier = labels.some(l => l.startsWith('tier/'));
+            const hasArea = labels.some(l => l.startsWith('area/'));
+
+            // Validate agent-prompt block is filled (not a placeholder)
+            const body = issue.body || '';
+            const promptBlock = body.match(/<!--\s*agent-prompt\s*([\s\S]*?)-->/);
+            const hasPrompt = promptBlock &&
+              !promptBlock[1].includes('REPLACE THIS BLOCK') &&
+              promptBlock[1].trim().length > 10;
+
+            // Enforce prompt length cap (~400 characters)
+            const promptTooLong = hasPrompt && promptBlock[1].trim().length > 400;
+
+            const missing = [];
+            if (!hasTier) missing.push('a `tier/*` label — `tier/cheap`, `tier/medium`, or `tier/premium`');
+            if (!hasArea) missing.push('an `area/*` label — `area/backend`, `area/frontend`, `area/test`, `area/docs`, or `area/ops`');
+            if (!hasPrompt) missing.push('a filled-in `<!-- agent-prompt -->` block (remove the placeholder text and keep it under 400 characters)');
+            if (promptTooLong) missing.push('a shorter `<!-- agent-prompt -->` block — current length exceeds 400 characters');
+
+            if (missing.length > 0) {
+              await github.rest.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                name: 'afk/ready'
+              }).catch(() => {});
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: [
+                  '**AFK triage** — This issue is missing the following before it can be dispatched:',
+                  '',
+                  ...missing.map(m => `- ${m}`),
+                  '',
+                  'Fix these items and the triage check will re-run on the next edit.'
+                ].join('\n')
+              });
+              return;
+            }
+
+            // All checks passed — add afk/ready
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              labels: ['afk/ready']
+            });
