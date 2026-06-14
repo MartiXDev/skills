@@ -1,0 +1,63 @@
+{
+  "ruleSectionOrder": [
+    "Purpose",
+    "Default guidance",
+    "Avoid",
+    "Review checklist",
+    "Related files",
+    "Source anchors"
+  ],
+  "recommendedRuleOrder": [
+    "rules/foundation-scope-a-zdroje.md",
+    "rules/prijem-evidence-a-vady-dokumentu.md",
+    "rules/spisovy-plan-vecne-skupiny-a-spisy.md",
+    "rules/metadata-a-entity-model.md",
+    "rules/skartace-ukladani-prenos-a-vyrazeni.md",
+    "rules/sprava-bezpecnost-a-transakcni-protokol.md",
+    "rules/ws-api-a-vymena-dokumentu.md",
+    "rules/sip-a-mets-balicky.md",
+    "rules/migrace-a-exit-plan.md",
+    "rules/soulad-review-a-implementacni-checklisty.md",
+    "rules/code-review-a-implementacni-dopady.md"
+  ],
+  "referenceOrder": [
+    "references/doc-source-index.md",
+    "references/pravni-ramec-a-povinnosti-map.md",
+    "references/zivotni-cyklus-dokumentu-map.md",
+    "references/metadata-crosswalk.md",
+    "references/xsd-wsdl-xml-index.md",
+    "references/ws-api-schema-map.md",
+    "references/sip-mets-map.md",
+    "references/skartace-a-archivacni-predani-map.md",
+    "references/migrace-a-prenos-map.md",
+    "references/transakcni-protokol-a-audit-map.md",
+    "references/glosar-zakladnich-pojmu.md",
+    "references/atestacni-pripravenost-map.md"
+  ],
+  "templateOrder": [
+    "templates/rule-template.md",
+    "templates/research-pack-template.md",
+    "templates/comparison-matrix-template.md",
+    "templates/analyza-souladu-template.md",
+    "templates/implementacni-checklist-template.md",
+    "templates/metadata-mapping-template.md",
+    "templates/integracni-otazky-template.md",
+    "templates/migracni-review-template.md"
+  ],
+  "assetOrder": [
+    "assets/taxonomy.json",
+    "assets/section-order.json"
+  ],
+  "plannedDomainOrder": [
+    "foundation",
+    "intake",
+    "filing",
+    "metadata",
+    "retention",
+    "governance",
+    "ws-api",
+    "sip",
+    "migration",
+    "review"
+  ]
+}

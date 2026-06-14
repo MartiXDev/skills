@@ -1,0 +1,20 @@
+{
+  "name": "martix-essl",
+  "description": "Standalone skill pro české elektronické systémy spisové služby, soulad se zákonem 499/2004 Sb., vyhláškou 259/2012 Sb., Národním standardem eSSL, metadata, WS API, SIP a atestační připravenost.",
+  "version": "0.1.0",
+  "author": {
+    "name": "MartiXDev"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "martix",
+    "essl",
+    "spisova-sluzba",
+    "metadata",
+    "ws-api",
+    "sip",
+    "atestace"
+  ],
+  "repository": "https://github.com/MartiXDev/skills",
+  "skills": "skills/"
+}

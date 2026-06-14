@@ -1,0 +1,317 @@
+{
+  "name": "martix-essl",
+  "displayName": "MartiX eSSL",
+  "version": "0.1.0",
+  "publisher": {
+    "name": "MartiXDev",
+    "repository": "MartiXDev/skills",
+    "distributionModel": "standalone skill with direct Copilot marketplace registration"
+  },
+  "summary": "Standalone-first skill pro návrh, implementaci, review a atestační připravenost českých elektronických systémů spisové služby.",
+  "abstract": "Tento balíček je canonical source pro skill martix-essl. Spojuje právní rámec, provozní pravidla a technické části Národního standardu eSSL do routovatelné guidance pro architekturu, metadata, integraci, code review a auditní připravenost vlastního .NET 10+ řešení.",
+  "compatibility": {
+    "primaryTarget": "GitHub Copilot CLI",
+    "secondaryTargets": [
+      "Agent Skills-compatible tools"
+    ],
+    "languageBaselines": [
+      ".NET 10+",
+      "C# 14+",
+      "Zákon 499/2004 Sb.",
+      "Vyhláška 259/2012 Sb.",
+      "NSESSS 2024/85-VMV"
+    ]
+  },
+  "status": {
+    "maturity": "authoring",
+    "canonicalSkillRoot": "skills/martix-essl",
+    "marketplaceSourceRoot": "skills/martix-essl"
+  },
+  "layers": {
+    "skillEntry": "SKILL.md",
+    "maintainerGuide": "README.md",
+    "companionGuide": "AGENTS.md",
+    "metadata": "metadata.json",
+    "license": "LICENSE.txt",
+    "rules": "rules/*.md",
+    "references": "references/*.md",
+    "rulesSupport": [
+      "rules/_sections.md",
+      "rules/_template.md"
+    ],
+    "templates": "templates/*.md",
+    "assets": "assets/*.json",
+    "evals": "evals/evals.json"
+  },
+  "taxonomy": {
+    "mode": "standalone-first",
+    "prefixCount": 10,
+    "domainCount": 10,
+    "tags": [
+      "eSSL",
+      "spisová služba",
+      "zákon 499/2004",
+      "vyhláška 259/2012",
+      "národní standard",
+      "metadata entit",
+      "WS API",
+      "SIP",
+      "METS",
+      "migrace",
+      "transakční protokol",
+      "atestace"
+    ],
+    "rulePrefixes": {
+      "foundation": "Scope skillu, priorita zdrojů, handoffy a atestační rámec",
+      "intake": "Příjem dokumentů, vady, potvrzení doručení, identifikátory a evidence",
+      "filing": "Spisový plán, věcné skupiny, spisy, typové spisy a vazby",
+      "metadata": "Entity, hlavičky, metadata a jejich životní cyklus",
+      "retention": "Skartační režimy, ukládání, export, import a archivní předání",
+      "governance": "Přístup, bezpečnost, znepřístupnění a transakční protokol",
+      "ws-api": "WS API, synchronní a asynchronní rozhraní, WSDL a XSD artefakty",
+      "sip": "SIP, METS, XLink a balíčkování popisných a administrativních metadat",
+      "migration": "Migrace, dávky, manifest, potvrzení přenosu a exit plán",
+      "review": "Compliance review, implementační checklisty a code review dopadů"
+    },
+    "domains": [
+      {
+        "id": "foundation",
+        "displayName": "Scope, zdroje a handoffy",
+        "ruleCount": 1,
+        "rules": [
+          "rules/foundation-scope-a-zdroje.md"
+        ]
+      },
+      {
+        "id": "intake",
+        "displayName": "Příjem, evidence a vady dokumentů",
+        "ruleCount": 1,
+        "rules": [
+          "rules/prijem-evidence-a-vady-dokumentu.md"
+        ]
+      },
+      {
+        "id": "filing",
+        "displayName": "Spisový plán, věcné skupiny a spisy",
+        "ruleCount": 1,
+        "rules": [
+          "rules/spisovy-plan-vecne-skupiny-a-spisy.md"
+        ]
+      },
+      {
+        "id": "metadata",
+        "displayName": "Metadata a entity",
+        "ruleCount": 1,
+        "rules": [
+          "rules/metadata-a-entity-model.md"
+        ]
+      },
+      {
+        "id": "retention",
+        "displayName": "Skartace, ukládání, export a přenos",
+        "ruleCount": 1,
+        "rules": [
+          "rules/skartace-ukladani-prenos-a-vyrazeni.md"
+        ]
+      },
+      {
+        "id": "governance",
+        "displayName": "Správa, bezpečnost a transakční protokol",
+        "ruleCount": 1,
+        "rules": [
+          "rules/sprava-bezpecnost-a-transakcni-protokol.md"
+        ]
+      },
+      {
+        "id": "ws-api",
+        "displayName": "WS API a výměna dokumentů",
+        "ruleCount": 1,
+        "rules": [
+          "rules/ws-api-a-vymena-dokumentu.md"
+        ]
+      },
+      {
+        "id": "sip",
+        "displayName": "SIP a METS balíčky",
+        "ruleCount": 1,
+        "rules": [
+          "rules/sip-a-mets-balicky.md"
+        ]
+      },
+      {
+        "id": "migration",
+        "displayName": "Migrace a exit plán",
+        "ruleCount": 1,
+        "rules": [
+          "rules/migrace-a-exit-plan.md"
+        ]
+      },
+      {
+        "id": "review",
+        "displayName": "Soulad, checklisty a code review",
+        "ruleCount": 2,
+        "rules": [
+          "rules/soulad-review-a-implementacni-checklisty.md",
+          "rules/code-review-a-implementacni-dopady.md"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "ruleCount": 11,
+    "ruleSupportFiles": [
+      "rules/_sections.md",
+      "rules/_template.md"
+    ],
+    "rules": [
+      "rules/foundation-scope-a-zdroje.md",
+      "rules/prijem-evidence-a-vady-dokumentu.md",
+      "rules/spisovy-plan-vecne-skupiny-a-spisy.md",
+      "rules/metadata-a-entity-model.md",
+      "rules/skartace-ukladani-prenos-a-vyrazeni.md",
+      "rules/sprava-bezpecnost-a-transakcni-protokol.md",
+      "rules/ws-api-a-vymena-dokumentu.md",
+      "rules/sip-a-mets-balicky.md",
+      "rules/migrace-a-exit-plan.md",
+      "rules/soulad-review-a-implementacni-checklisty.md",
+      "rules/code-review-a-implementacni-dopady.md"
+    ],
+    "referenceCount": 12,
+    "references": [
+      "references/doc-source-index.md",
+      "references/pravni-ramec-a-povinnosti-map.md",
+      "references/zivotni-cyklus-dokumentu-map.md",
+      "references/metadata-crosswalk.md",
+      "references/ws-api-schema-map.md",
+      "references/sip-mets-map.md",
+      "references/skartace-a-archivacni-predani-map.md",
+      "references/migrace-a-prenos-map.md",
+      "references/transakcni-protokol-a-audit-map.md",
+      "references/glosar-zakladnich-pojmu.md",
+      "references/xsd-wsdl-xml-index.md",
+      "references/atestacni-pripravenost-map.md"
+    ],
+    "templateCount": 8,
+    "templates": [
+      "templates/rule-template.md",
+      "templates/research-pack-template.md",
+      "templates/comparison-matrix-template.md",
+      "templates/analyza-souladu-template.md",
+      "templates/implementacni-checklist-template.md",
+      "templates/metadata-mapping-template.md",
+      "templates/integracni-otazky-template.md",
+      "templates/migracni-review-template.md"
+    ],
+    "assetCount": 2,
+    "assets": [
+      "assets/taxonomy.json",
+      "assets/section-order.json"
+    ],
+    "evalCount": 7,
+    "evals": [
+      "evals/evals.json"
+    ]
+  },
+  "ordering": {
+    "ruleSectionOrder": [
+      "Purpose",
+      "Default guidance",
+      "Avoid",
+      "Review checklist",
+      "Related files",
+      "Source anchors"
+    ],
+    "recommendedRuleOrder": [
+      "rules/foundation-scope-a-zdroje.md",
+      "rules/prijem-evidence-a-vady-dokumentu.md",
+      "rules/spisovy-plan-vecne-skupiny-a-spisy.md",
+      "rules/metadata-a-entity-model.md",
+      "rules/skartace-ukladani-prenos-a-vyrazeni.md",
+      "rules/sprava-bezpecnost-a-transakcni-protokol.md",
+      "rules/ws-api-a-vymena-dokumentu.md",
+      "rules/sip-a-mets-balicky.md",
+      "rules/migrace-a-exit-plan.md",
+      "rules/soulad-review-a-implementacni-checklisty.md",
+      "rules/code-review-a-implementacni-dopady.md"
+    ],
+    "referenceOrder": [
+      "references/doc-source-index.md",
+      "references/pravni-ramec-a-povinnosti-map.md",
+      "references/zivotni-cyklus-dokumentu-map.md",
+      "references/metadata-crosswalk.md",
+      "references/xsd-wsdl-xml-index.md",
+      "references/ws-api-schema-map.md",
+      "references/sip-mets-map.md",
+      "references/skartace-a-archivacni-predani-map.md",
+      "references/migrace-a-prenos-map.md",
+      "references/transakcni-protokol-a-audit-map.md",
+      "references/glosar-zakladnich-pojmu.md",
+      "references/atestacni-pripravenost-map.md"
+    ],
+    "templateOrder": [
+      "templates/rule-template.md",
+      "templates/research-pack-template.md",
+      "templates/comparison-matrix-template.md",
+      "templates/analyza-souladu-template.md",
+      "templates/implementacni-checklist-template.md",
+      "templates/metadata-mapping-template.md",
+      "templates/integracni-otazky-template.md",
+      "templates/migracni-review-template.md"
+    ]
+  },
+  "distribution": {
+    "primarySurface": {
+      "id": "standalone-skills-cli",
+      "status": "canonical",
+      "officialInstallCommand": "npx skills add <source>",
+      "preferredSources": [
+        "https://github.com/MartiXDev/skills/tree/main/skills/martix-essl"
+      ],
+      "notes": [
+        "Pro lokální validaci používej absolutní cestu na Windows.",
+        "Repo-root selection je preferovaný standalone pattern."
+      ]
+    },
+    "secondarySurface": {
+      "id": "copilot-cli-plugin-marketplace",
+      "status": "registration-ready",
+      "marketplaceRepository": "MartiXDev/skills",
+      "marketplaceName": "martix-skills",
+      "pluginName": "martix-essl",
+      "strategy": "registrovat canonical standalone package přímo ze skills"
+    }
+  },
+  "relationships": {
+    "companionSkills": [
+      {
+        "name": "martix-dotnet-csharp",
+        "relationship": "handoff",
+        "handoffWhen": "Dotaz už řeší hlavně jazykové nebo frameworkové mechaniky .NET/C# a eSSL doména je jen nosič scénáře."
+      },
+      {
+        "name": "martix-markdown",
+        "relationship": "support",
+        "handoffWhen": "Udržovatel upravuje markdown artefakty balíčku a potřebuje repo-aware markdown guidance."
+      }
+    ],
+    "handoffPolicy": "Zůstaň v martix-essl pro eSSL doménu, právní rámec, metadata, schémata, audit, migraci a atestační připravenost; obecné .NET/C# mechaniky předávej do martix-dotnet-csharp."
+  },
+  "executionProfile": {
+    "modelTier": "mixed",
+    "taskTypes": [
+      "planning",
+      "implementation",
+      "review",
+      "validation"
+    ],
+    "parallelSafety": "single-package",
+    "fleetReady": true,
+    "worktreeSafe": true,
+    "tokenBudget": "medium",
+    "contextStrategy": [
+      "Začni v SKILL.md.",
+      "Otevři jen nejbližší routed rule nebo reference.",
+      "README.md používej pro instalaci a validaci."
+    ]
+  }
+}
