@@ -135,8 +135,9 @@ class BaseSchemaValidator:
                 if modified:
                     xml_file.write_bytes(dom.toxml(encoding="UTF-8"))
 
-            except Exception:
-                pass
+            except Exception as e:
+                if self.verbose:
+                    print(f"  Warning: could not process {xml_file.name}: {e}")
 
         return repairs
 
