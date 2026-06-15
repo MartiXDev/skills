@@ -53,8 +53,9 @@ class RedliningValidator:
                     print(f"PASSED - No tracked changes by {self.author} found.")
                 return True
 
-        except Exception:
-            pass
+        except Exception as e:
+            if self.verbose:
+                print(f"Fast-path XML check failed ({e}), falling back to ZIP comparison.")
 
         with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
