@@ -350,7 +350,6 @@ class DOCXSchemaValidator(BaseSchemaValidator):
                     f'  document.xml: commentRangeStart id="{comment_id}" has no matching commentRangeEnd'
                 )
 
-            comment_ids = set()
             if comments_xml and comments_xml.exists():
                 comments_root = lxml.etree.parse(str(comments_xml)).getroot()
                 comment_ids = {
