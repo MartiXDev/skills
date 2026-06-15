@@ -284,8 +284,8 @@ class DOCXSchemaValidator(BaseSchemaValidator):
                                     f"  {xml_file.name}:{elem.sourceline}: "
                                     f"durableId={val} >= 0x7FFFFFFF"
                                 )
-            except Exception:
-                pass
+            except Exception as exc:
+                errors.append(f"  {xml_file.name}: failed to parse ID constraints: {exc}")
 
         if errors:
             print(f"FAILED - {len(errors)} ID constraint violations:")
