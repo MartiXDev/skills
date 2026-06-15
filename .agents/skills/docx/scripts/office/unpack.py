@@ -95,8 +95,8 @@ def _escape_smart_quotes(xml_file: Path) -> None:
         for char, entity in SMART_QUOTE_REPLACEMENTS.items():
             content = content.replace(char, entity)
         xml_file.write_text(content, encoding="utf-8")
-    except Exception:
-        pass
+    except Exception as exc:
+        print(f"Warning: could not escape smart quotes in {xml_file}: {exc}", file=sys.stderr)
 
 
 if __name__ == "__main__":
