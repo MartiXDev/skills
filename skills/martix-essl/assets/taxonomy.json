@@ -1,0 +1,104 @@
+{
+  "package": "martix-essl",
+  "mode": "standalone-first",
+  "root": "skills/martix-essl",
+  "rulePrefixes": {
+    "foundation": "Scope skillu, zdrojová priorita a handoffy",
+    "intake": "Příjem, vady, evidence a identifikátory dokumentů",
+    "filing": "Spisový plán, věcné skupiny, spisy a typové spisy",
+    "metadata": "Metadata entit, hlavičky a vztahy mezi entitami",
+    "retention": "Skartace, ukládání, export, import a archivní předání",
+    "governance": "Přístup, bezpečnost, znepřístupnění a auditní stopa",
+    "ws-api": "WS API, synchronní/asynchronní rozhraní a schémata výměny",
+    "sip": "SIP, METS, XLink a balíčkování metadat",
+    "migration": "Migrace dat, dávky, manifest a potvrzení přenosu",
+    "review": "Soulad, checklisty a code review dopadů"
+  },
+  "domains": [
+    {
+      "id": "foundation",
+      "displayName": "Scope, zdroje a handoffy",
+      "rules": [
+        "rules/foundation-scope-a-zdroje.md"
+      ]
+    },
+    {
+      "id": "intake",
+      "displayName": "Příjem, evidence a vady dokumentů",
+      "rules": [
+        "rules/prijem-evidence-a-vady-dokumentu.md"
+      ]
+    },
+    {
+      "id": "filing",
+      "displayName": "Spisový plán, věcné skupiny a spisy",
+      "rules": [
+        "rules/spisovy-plan-vecne-skupiny-a-spisy.md"
+      ]
+    },
+    {
+      "id": "metadata",
+      "displayName": "Metadata a entity",
+      "rules": [
+        "rules/metadata-a-entity-model.md"
+      ]
+    },
+    {
+      "id": "retention",
+      "displayName": "Skartace, ukládání, export a přenos",
+      "rules": [
+        "rules/skartace-ukladani-prenos-a-vyrazeni.md"
+      ]
+    },
+    {
+      "id": "governance",
+      "displayName": "Správa, bezpečnost a transakční protokol",
+      "rules": [
+        "rules/sprava-bezpecnost-a-transakcni-protokol.md"
+      ]
+    },
+    {
+      "id": "ws-api",
+      "displayName": "WS API a výměna dokumentů",
+      "rules": [
+        "rules/ws-api-a-vymena-dokumentu.md"
+      ]
+    },
+    {
+      "id": "sip",
+      "displayName": "SIP a METS balíčky",
+      "rules": [
+        "rules/sip-a-mets-balicky.md"
+      ]
+    },
+    {
+      "id": "migration",
+      "displayName": "Migrace a exit plán",
+      "rules": [
+        "rules/migrace-a-exit-plan.md"
+      ]
+    },
+    {
+      "id": "review",
+      "displayName": "Soulad, checklisty a code review",
+      "rules": [
+        "rules/soulad-review-a-implementacni-checklisty.md",
+        "rules/code-review-a-implementacni-dopady.md"
+      ]
+    }
+  ],
+  "tags": [
+    "eSSL",
+    "spisová služba",
+    "zákon 499/2004",
+    "vyhláška 259/2012",
+    "národní standard",
+    "metadata",
+    "WS API",
+    "SIP",
+    "METS",
+    "migrace",
+    "audit",
+    "atestace"
+  ]
+}

@@ -7,6 +7,24 @@
       "skillPath": "skills/conventional-commit/SKILL.md",
       "computedHash": "f29c9486cede6c7b2df0cfb0a2e4aa67446552b991bcf17d1b309e903171f03d"
     },
+    "docx": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/docx/SKILL.md",
+      "computedHash": "703d78c15edc48bbb9a5f5da13cc80ff2ae64063fc01ab19114736ccf0f1f0c6"
+    },
+    "martix-markdown": {
+      "source": "MartiXDev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/martix-markdown/SKILL.md",
+      "computedHash": "cae428ddb3ae69fe232c9b968144a6344060aba540d75f968f59a6c2edd89f15"
+    },
+    "pdf": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/pdf/SKILL.md",
+      "computedHash": "11e7247ed58fc7144c45ff29345e2cc2c0ab9f1d5e1779a57803624c561ef870"
+    },
     "skill-creator": {
       "source": "anthropics/skills",
       "sourceType": "github",

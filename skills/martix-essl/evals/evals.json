@@ -1,0 +1,192 @@
+{
+  "skill": "martix-essl",
+  "evals": [
+    {
+      "id": "soulad-atestace-navrh-modulu",
+      "prompt": "Navrhuju nový modul evidence dokumentů pro vlastní eSSL v .NET 10+ a chci už teď zkontrolovat, jaké povinnosti ze zákona, vyhlášky a národního standardu musím pokrýt, aby mi návrh později nerozbil atestaci. Chci stručný compliance review výstup a seznam nejrizikovějších míst.",
+      "expected_sections": [
+        "Shrnutí compliance situace",
+        "Klíčové povinnosti nebo požadavky",
+        "Nejrizikovější místa pro atestační připravenost",
+        "Doporučené další kroky",
+        "Zdrojové soubory"
+      ],
+      "assertions": [
+        "Odpověď pracuje se všemi třemi vrstvami zdrojů: zákon, vyhláška i národní standard.",
+        "Výstup výslovně zmiňuje atestační připravenost nebo dopad na budoucí atestaci.",
+        "Nevystupuje jako čisté právní stanovisko; převádí požadavky do implementačních nebo review kroků.",
+        "Uvádí konkrétní zdrojové soubory nebo workstreamy, ne jen obecná tvrzení."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/foundation-scope-a-zdroje.md",
+        "rules/soulad-review-a-implementacni-checklisty.md",
+        "references/atestacni-pripravenost-map.md"
+      ],
+      "model_tier": "premium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "prijem-datove-zpravy-a-vady",
+      "prompt": "Potřebuju navrhnout příjem dokumentů z e-mailu a datové schránky do eSSL. Chci vědět, jak zachytit datum a čas doručení, co dělat s vadnými dokumenty, kdy posílat potvrzení doručení a jaké údaje musím zapsat do evidence.",
+      "expected_sections": [
+        "Příjem dokumentů",
+        "Vady a další zpracování",
+        "Evidence a identifikátory",
+        "Zdrojové soubory"
+      ],
+      "assertions": [
+        "Odpověď popisuje zachycení data a času doručení včetně digitálních dokumentů.",
+        "Odpověď řeší vadné dokumenty a situace, kdy se dokument dále nezpracovává.",
+        "Odpověď uvádí potvrzení doručení nebo jednoznačný identifikátor či podací razítko.",
+        "Výstup drží eSSL scope a nesklouzává do obecného frameworkového návrhu."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/prijem-evidence-a-vady-dokumentu.md",
+        "references/zivotni-cyklus-dokumentu-map.md",
+        "references/pravni-ramec-a-povinnosti-map.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "metadata-dokument-spis-komponenta",
+      "prompt": "Navrhuju datový model eSSL a potřebuju si ujasnit minimální metadata pro dokument, spis, komponentu a věcnou skupinu. Nechci jen seznam položek, ale i vysvětlení, kdy metadata vznikají a co je rizikové při jejich mapování do databáze.",
+      "expected_sections": [
+        "Klíčové entity",
+        "Metadata a okamžik jejich vzniku",
+        "Rizika při mapování",
+        "Zdrojové soubory"
+      ],
+      "assertions": [
+        "Odpověď rozlišuje entity alespoň dokument, spis, komponenta a věcná skupina.",
+        "Odpověď zmiňuje, že metadata mají vazbu na okamžik vzniku nebo změny.",
+        "Odpověď odkazuje na část 8 standardu nebo metadata crosswalk.",
+        "Výstup varuje před ztrátou vazeb, dědičnosti nebo auditovatelnosti."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/metadata-a-entity-model.md",
+        "references/metadata-crosswalk.md",
+        "references/glosar-zakladnich-pojmu.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "ws-api-integracni-navrh",
+      "prompt": "Musím napojit externí systém spravující dokumenty na eSSL přes standardní rozhraní. Potřebuju rychle rozhodnout, kdy otevírat WSDL, kdy synchronní a kdy asynchronní XSD, co je společný typový základ a jak si hlídat, že integrace pořád respektuje doménová metadata.",
+      "expected_sections": [
+        "Rozhodnutí o artefaktech",
+        "Doporučený postup čtení schémat",
+        "Doménové dopady na metadata",
+        "Zdrojové soubory"
+      ],
+      "assertions": [
+        "Odpověď rozlišuje WSDL od synchronních a asynchronních XSD artefaktů.",
+        "Odpověď odkazuje na část 1 standardu a příslušný schema map/index.",
+        "Výstup drží doménový eSSL kontext a nepřechází rovnou do obecných .NET integračních detailů.",
+        "Je zřejmé, kde řešit společné typy nebo metadata napříč operacemi."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/ws-api-a-vymena-dokumentu.md",
+        "references/ws-api-schema-map.md",
+        "references/xsd-wsdl-xml-index.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "sip-balik-a-popisna-metadata",
+      "prompt": "Připravuju archivní nebo skartační datový balíček SIP a potřebuji se zorientovat v tom, jak do něj vstupuje METS, kde jsou popisná a administrativní metadata a jaké vazby musím zachovat mezi entitami a komponentami.",
+      "expected_sections": [
+        "Role SIP a METS",
+        "Popisná a administrativní metadata",
+        "Vazby mezi entitami a komponentami",
+        "Zdrojové soubory"
+      ],
+      "assertions": [
+        "Odpověď pracuje s částí 2 standardu a zmiňuje METS nebo SIP.",
+        "Odpověď rozlišuje popisná a administrativní metadata.",
+        "Odpověď zmiňuje vazby mezi entitami a komponentami nebo strukturální mapu.",
+        "Výstup odkazuje na schémata nebo mapu SIP/METS artefaktů."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/sip-a-mets-balicky.md",
+        "references/sip-mets-map.md",
+        "references/xsd-wsdl-xml-index.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "migrace-a-potvrzeni-prenosu",
+      "prompt": "Připravuju exit plán ze starého eSSL do nového. Potřebuju zkontrolovat, jak má vypadat migrační dávka, co musí být v manifestu, kdy je možné po přenosu smazat zdrojová data a jaké potvrzení musí cílový systém vrátit.",
+      "expected_sections": [
+        "Struktura dávky",
+        "Manifest a přenos entit",
+        "Potvrzení přenosu",
+        "Rizika a zdrojové soubory"
+      ],
+      "assertions": [
+        "Odpověď zmiňuje ZIP dávku, manifest nebo kořenový soubor manifest.xml.",
+        "Odpověď popisuje potvrzení přenosu a okamžik, kdy lze odstranit zdrojová data.",
+        "Odpověď odkazuje na část 7 standardu nebo ermsExportPrenos.xsd.",
+        "Výstup upozorňuje na metadata nebo auditní kontinuitu během migrace."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/migrace-a-exit-plan.md",
+        "references/migrace-a-prenos-map.md",
+        "references/atestacni-pripravenost-map.md"
+      ],
+      "model_tier": "premium",
+      "token_budget": "medium",
+      "parallel_safe": false,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "negative-boundary-generic-dotnet-review",
+      "prompt": "Můžeš mi zrevidovat generický ASP.NET Core controller a poradit, jak zlepšit DI registraci, mapování DTO a výkon serializace? Není to eSSL modul, jen běžná interní aplikace v .NET 10.",
+      "expected_sections": [
+        "Scope assessment",
+        "Handoff recommendation",
+        "Minimal eSSL impact note"
+      ],
+      "assertions": [
+        "Odpověď výslovně vyhodnotí, že nejde primárně o eSSL problém.",
+        "Doporučí handoff do martix-dotnet-csharp místo toho, aby převzala obecný .NET review.",
+        "Nevymýšlí eSSL povinnosti tam, kde uživatel eSSL neřeší."
+      ],
+      "files": [
+        "SKILL.md",
+        "AGENTS.md",
+        "rules/foundation-scope-a-zdroje.md"
+      ],
+      "model_tier": "cheap",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": true,
+      "escalation": null
+    }
+  ]
+}
