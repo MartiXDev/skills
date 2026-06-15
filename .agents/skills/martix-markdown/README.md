@@ -26,7 +26,7 @@ registration should consume from `Skills`.
 | [templates/](./templates) | 4 authoring and config scaffolds. |
 | [assets/](./assets) | Machine-readable taxonomy and ordering data. |
 | [evals/](./evals) | Skill-creator style eval prompts for future benchmark and trigger-tuning loops. |
-| [metadata.json](./metadata.json) | Registration-ready package inventory. |
+| [plugin.json](./plugin.json) | Bundled package manifest for the imported agent-skill copy. |
 | [LICENSE.txt](./LICENSE.txt) | License terms for distributing the skill package. |
 | [`.markdownlint.json`](./.markdownlint.json) | Local lint policy for this package's own docs. |
 
@@ -56,12 +56,10 @@ registration should consume from `Skills`.
   [references/rule-family-map.md](./references/rule-family-map.md).
 - The config, suppression, and validation decision map lives in
   [references/config-and-validation-map.md](./references/config-and-validation-map.md).
-- The package inventory and distribution intent live in
-  [metadata.json](./metadata.json).
+- The imported package manifest lives in [plugin.json](./plugin.json).
 - Keep [evals/evals.json](./evals/evals.json) aligned with the router's main
   decision routes when grouped rules or overlay boundaries change.
-- Update [metadata.json](./metadata.json),
-  [assets/taxonomy.json](./assets/taxonomy.json), and
+- Update [plugin.json](./plugin.json), [assets/taxonomy.json](./assets/taxonomy.json), and
   [assets/section-order.json](./assets/section-order.json) together whenever
   rules, references, or templates move.
 - Marketplace registration points directly at this folder as the single source
