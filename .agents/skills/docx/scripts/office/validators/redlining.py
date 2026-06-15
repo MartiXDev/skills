@@ -191,8 +191,13 @@ class RedliningValidator:
                             content_lines.append(line)
                     return "\n".join(content_lines)
 
-        except (subprocess.CalledProcessError, FileNotFoundError, Exception):
-            pass
+        except (subprocess.CalledProcessError, FileNotFoundError, Exception) as error:
+            # Fall back to the generic diff message when git diff cannot run here.
+            if self.verbose:
+                print(
+                    f"Word diff generation failed ({error}); "
+                    "falling back to the generic diff message."
+                )
 
         return None
 
