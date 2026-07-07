@@ -78,6 +78,29 @@
       "token_budget": "large",
       "negative_activation": false,
       "escalation": null
+    },
+    {
+      "id": "fastendpoints-negative-activation",
+      "prompt": "Configure a FastEndpoints endpoint that uses IEndpoint, a custom PreProcessor, a custom PostProcessor, and FastEndpoints endpoint groups. Identify which skill handles this and whether martix-dotnet-csharp should be involved.",
+      "expected_sections": [
+        "Skill boundary",
+        "Handoff rationale",
+        "martix-fastendpoints referral"
+      ],
+      "assertions": [
+        "Recognizes this as FastEndpoints-specific work outside the martix-dotnet-csharp scope.",
+        "Does not provide FastEndpoints-specific IEndpoint configuration, pre/post-processor wiring, or endpoint group details.",
+        "Recommends handoff to martix-fastendpoints for endpoint-specific guidance."
+      ],
+      "files": [
+        "SKILL.md",
+        "AGENTS.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": true,
+      "escalation": null
     }
   ]
 }

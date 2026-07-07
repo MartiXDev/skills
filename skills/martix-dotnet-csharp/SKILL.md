@@ -1,6 +1,6 @@
 ---
 name: martix-dotnet-csharp
-description: Standalone-first .NET 10+ and C# 14+ guidance for code review, modernization, refactoring, and scaffolding. Use when working on SDK-style projects, ASP.NET Core, minimal APIs, EF Core, async flows, diagnostics, testing, security, or modern C# features. Trigger this skill for questions about the options pattern, TypedResults, `ValidateOnStart()`, HTTP resilience, `WebApplicationFactory`, extension blocks, channels, problem details, middleware ordering, or common app bootstrap defaults.
+description: Standalone-first .NET 10+ and C# 14+ guidance for code review, modernization, refactoring, and scaffolding. Use when working on SDK-style projects, ASP.NET Core, minimal APIs, EF Core, async flows, diagnostics, testing, security, or modern C# features. Trigger for options pattern, TypedResults, `ValidateOnStart()`, HTTP resilience, `WebApplicationFactory`, channels, problem details, or middleware ordering. Do not trigger for FastEndpoints-specific routing or FluentValidation validator authoring; hand off to martix-fastendpoints or martix-fluentvalidation instead.
 license: Complete terms in LICENSE.txt
 ---
 
@@ -115,86 +115,24 @@ sealed class ApiOptions
   - [Testing bootstrap recipes](./references/testing-bootstrap-recipes.md)
   - [Libraries catalog](./references/libraries-catalog.md)
 
-## Rule library by domain
+## Domain routing table
 
-### Language
+| Domain | Rule files | When |
+| --- | --- | --- |
+| Language | [lang-modern-features](./rules/lang-modern-features.md), [lang-pattern-matching](./rules/lang-pattern-matching.md), [lang-nullability](./rules/lang-nullability.md) | Modernizing syntax, branch clarity, or nullability contracts |
+| SDK and build | [sdk-project-system](./rules/sdk-project-system.md), [sdk-build-test-pack-publish](./rules/sdk-build-test-pack-publish.md) | Editing `.csproj`, `global.json`, or build workflow |
+| Runtime and performance | [runtime-memory-spans](./rules/runtime-memory-spans.md), [runtime-collections-immutability](./rules/runtime-collections-immutability.md) | Hot paths, spans, large buffers, or collection choices |
+| Async and concurrency | [async-tasks-valuetasks](./rules/async-tasks-valuetasks.md), [async-cancellation-timeouts](./rules/async-cancellation-timeouts.md), [async-concurrency-channels](./rules/async-concurrency-channels.md) | `Task` vs `ValueTask`, cancellation, channels, or background work |
+| Design | [design-api-type-design](./rules/design-api-type-design.md), [design-exceptions-validation](./rules/design-exceptions-validation.md) | New public APIs, DI boundaries, or exception contracts |
+| Web | [web-aspnet-core](./rules/web-aspnet-core.md), [web-http-resilience](./rules/web-http-resilience.md) | ASP.NET Core shape, Minimal APIs, or outbound HTTP |
+| Data | [data-serialization](./rules/data-serialization.md), [data-efcore](./rules/data-efcore.md) | JSON contracts or EF Core modeling and queries |
+| Quality and security | [testing-unit-integration](./rules/testing-unit-integration.md), [diagnostics-logging-tracing](./rules/diagnostics-logging-tracing.md), [security-auth-authz](./rules/security-auth-authz.md) | Testing strategy, observability, or auth defaults |
 
-- Use for released-feature adoption, branch clarity, and nullability contracts.
-- Rules:
-  - [Modern C# features](./rules/lang-modern-features.md)
-  - [Pattern matching](./rules/lang-pattern-matching.md)
-  - [Nullability and contracts](./rules/lang-nullability.md)
-- Map: [C# language map](./references/csharp-language-map.md)
+See [AGENTS.md](./AGENTS.md) for cross-domain review routes, maps, and package maintenance notes.
 
-### SDK and build
+## Handoff triggers
 
-- Use before changing `.csproj`, `global.json`, shared props or targets, or
-  validation commands.
-- Rules:
-  - [SDK-style projects and repository build structure](./rules/sdk-project-system.md)
-  - [Build, test, pack, and publish](./rules/sdk-build-test-pack-publish.md)
-- Map: [Dotnet SDK and build map](./references/dotnet-sdk-map.md)
-
-### Runtime and performance
-
-- Use for spans, memory ownership, collection choice, immutability, and hot-path
-  work.
-- Rules:
-  - [Memory, spans, and hot-path performance](./rules/runtime-memory-spans.md)
-  - [Collections, concurrency, and immutability](./rules/runtime-collections-immutability.md)
-- Map: [Runtime and BCL map](./references/runtime-bcl-map.md)
-
-### Async and concurrency
-
-- Use for `Task` vs `ValueTask`, streaming, cancellation, synchronization, and
-  channels.
-- Rules:
-  - [Tasks, ValueTasks, async streams, and API shape](./rules/async-tasks-valuetasks.md)
-  - [Cancellation and timeouts](./rules/async-cancellation-timeouts.md)
-  - [Concurrency, synchronization, and channels](./rules/async-concurrency-channels.md)
-- Map: [Async and concurrency map](./references/async-map.md)
-
-### Design
-
-- Use for API shape, type boundaries, validation, exception behavior, and
-  dependency decisions.
-- Rules:
-  - [API and type design](./rules/design-api-type-design.md)
-  - [Exceptions, validation, and failure contracts](./rules/design-exceptions-validation.md)
-- Map: [Design map](./references/design-map.md)
-
-### Web, data, quality, and security
-
-- Web:
-  - [HTTP clients and resilience](./rules/web-http-resilience.md)
-  - [ASP.NET Core application shape](./rules/web-aspnet-core.md)
-  - [Web stack map](./references/web-stack-map.md)
-- Data:
-  - [Serialization and payload contracts](./rules/data-serialization.md)
-  - [Entity Framework Core](./rules/data-efcore.md)
-  - [Data and serialization map](./references/data-stack-map.md)
-- Quality and security:
-  - [Unit and integration testing](./rules/testing-unit-integration.md)
-  - [Logging, metrics, tracing, and health signals](./rules/diagnostics-logging-tracing.md)
-  - [Authentication, authorization, and secure defaults](./rules/security-auth-authz.md)
-  - [Quality, diagnostics, and security map](./references/quality-security-map.md)
-
-## Package conventions
-
-- Every rule follows the same section contract in
-  [rules/_sections.md](./rules/_sections.md): `Purpose`, `Default guidance`,
-  `Avoid`, `Review checklist`, `Related files`, and `Source anchors`.
-- Use [the rule template](./templates/rule-template.md) for new rules,
-  [the research pack template](./templates/research-pack-template.md) for future
-  research packs, and
-  [the comparison matrix template](./templates/comparison-matrix-template.md)
-  for external comparisons.
-- The taxonomy and preferred ordering live in
-  [assets/taxonomy.json](./assets/taxonomy.json) and
-  [assets/section-order.json](./assets/section-order.json).
-
-## Standalone-first note
-
-- This is a standalone package under `skills`; install with
-  `npx skills add <source>`, not `npx skill add`.
-- Local brief: [docs\martix-dotnet-csharp\martix-dotnet-csharp.md](../../docs/martix-dotnet-csharp/martix-dotnet-csharp.md).
+| Hand off to | When |
+| --- | --- |
+| `martix-fastendpoints` | The API surface is explicitly FastEndpoints — `IEndpoint`, endpoint groups, pre/post-processors, or FastEndpoints-specific route configuration. |
+| `martix-fluentvalidation` | Validation is a first-class design topic with reusable validators, RuleSets, async rules, localization, or `FluentValidation.TestHelper` usage. |
