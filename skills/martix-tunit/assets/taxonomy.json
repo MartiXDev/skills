@@ -15,6 +15,7 @@
     {
       "id": "foundation",
       "displayName": "Foundation and project setup",
+      "ruleCount": 1,
       "rules": [
         "rules/foundation-installation-project.md"
       ]
@@ -22,6 +23,7 @@
     {
       "id": "data",
       "displayName": "Data-driven and parameterized tests",
+      "ruleCount": 3,
       "rules": [
         "rules/data-inline-method-sources.md",
         "rules/data-class-property-sources.md",
@@ -31,6 +33,7 @@
     {
       "id": "lifecycle",
       "displayName": "Lifecycle, hooks, and dependency injection",
+      "ruleCount": 3,
       "rules": [
         "rules/lifecycle-hooks.md",
         "rules/lifecycle-property-injection.md",
@@ -40,6 +43,7 @@
     {
       "id": "assertions",
       "displayName": "Assertions",
+      "ruleCount": 3,
       "rules": [
         "rules/assertions-fundamentals.md",
         "rules/assertions-value-collection-async.md",
@@ -49,6 +53,7 @@
     {
       "id": "execution",
       "displayName": "Parallel execution and execution control",
+      "ruleCount": 2,
       "rules": [
         "rules/execution-parallelism.md",
         "rules/execution-control.md"
@@ -57,6 +62,7 @@
     {
       "id": "mocking-extending",
       "displayName": "Mocking and extensibility",
+      "ruleCount": 2,
       "rules": [
         "rules/mocking-tunit-mocks.md",
         "rules/extending-extension-points.md"
@@ -65,6 +71,7 @@
     {
       "id": "migration",
       "displayName": "Migration and framework comparison",
+      "ruleCount": 1,
       "rules": [
         "rules/migration-comparison.md"
       ]

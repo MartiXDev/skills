@@ -1,6 +1,6 @@
 ---
 name: martix-tunit
-description: Standalone-first TUnit guidance for test authoring, data-driven tests, lifecycle hooks, parallel-by-default execution, async assertions, dependency injection, mocking, extensibility, and xUnit/NUnit/MSTest migration. Use when writing or reviewing .NET tests with TUnit, setting up TUnit test projects, authoring parameterized tests, managing test lifecycle and hooks, configuring parallel execution or test ordering, or extending TUnit with custom attributes and hooks.
+description: Standalone-first TUnit guidance for test authoring, data-driven tests, lifecycle hooks, parallel-by-default execution, async assertions, dependency injection, mocking, extensibility, and xUnit/NUnit/MSTest migration. Use when writing or reviewing .NET tests with TUnit, setting up a TUnit project with OutputType=Exe and Microsoft.Testing.Platform, running tests via dotnet run, authoring await Assert.That(...) assertions, authoring parameterized tests, managing test lifecycle hooks, configuring parallel execution or test ordering, or extending TUnit with custom attributes and hooks.
 license: Complete terms in LICENSE.txt
 ---
 
@@ -24,6 +24,24 @@ license: Complete terms in LICENSE.txt
 - Extend TUnit with custom attributes, hooks, or `ITestRegisteredEventReceiver`.
 - Migrate an existing xUnit, NUnit, or MSTest suite to TUnit.
 
+## Critical TUnit constraints
+
+Surface these before applying any rule. They are the most common source of
+broken setups and silent test failures:
+
+- **Unawaited assertions silently pass.** Every `Assert.That(...)` chain must
+  be `await`ed. An un-awaited call compiles and runs without failing.
+- **`dotnet run` is the canonical execution surface.** `dotnet test` works but
+  routes through a compatibility shim; TUnit-specific flags require `--`.
+- **`OutputType` must be `Exe`.** The source generator provides the `Main`
+  entry point; a library project breaks discovery.
+- **Never add `Microsoft.NET.Test.Sdk`.** It hooks the VSTest platform and
+  breaks TUnit discovery entirely.
+- **Coverlet packages are incompatible.** Use TUnit's bundled code-coverage
+  support instead.
+- **`TUnit.Mocks` is beta and requires C# 14.** Gate all mocking guidance on
+  this constraint.
+
 ## Start with the closest workstream
 
 1. Pick the closest workstream below.
@@ -34,7 +52,7 @@ license: Complete terms in LICENSE.txt
 
 ## Rule library by workstream
 
-## Foundation and project setup
+### Foundation and project setup
 
 - Use for package installation, NuGet references, project file configuration,
   `OutputType=Exe` shape, `Microsoft.Testing.Platform` runner wiring, source
@@ -44,7 +62,7 @@ license: Complete terms in LICENSE.txt
   - [TUnit foundation — installation and project shape](./rules/foundation-installation-project.md)
 - Map: [TUnit foundation map](./references/foundation-map.md)
 
-## Data-driven and parameterized tests
+### Data-driven and parameterized tests
 
 - Use for `[Arguments]`, `[MethodDataSource]`, `[ClassDataSource]`,
   `TestDataRow`, matrix tests, combined data sources, nested sources, generic
@@ -55,7 +73,7 @@ license: Complete terms in LICENSE.txt
   - [TUnit data — matrix tests, combined data sources, and custom generators](./rules/data-matrix-combined-generators.md)
 - Map: [TUnit data map](./references/data-map.md)
 
-## Lifecycle, hooks, and dependency injection
+### Lifecycle, hooks, and dependency injection
 
 - Use for `[Before]` and `[After]` hooks at Test, Class, Assembly, TestSession,
   and TestDiscovery scopes, `[BeforeEvery]` and `[AfterEvery]`, hook execution
@@ -67,7 +85,7 @@ license: Complete terms in LICENSE.txt
   - [TUnit dependency injection construction](./rules/lifecycle-di.md)
 - Map: [TUnit lifecycle map](./references/lifecycle-map.md)
 
-## Assertions
+### Assertions
 
 - Use for `await Assert.That(...)`, the unawaited-assertion pitfall, value and
   collection assertions, exception and async delegate assertions, `.And`/`.Or`
@@ -79,7 +97,7 @@ license: Complete terms in LICENSE.txt
   - [TUnit combining and custom assertions](./rules/assertions-combining-custom.md)
 - Map: [TUnit assertions map](./references/assertions-map.md)
 
-## Parallel execution and execution control
+### Parallel execution and execution control
 
 - Use for parallel-by-default behavior, `[ParallelLimiter<T>]`, `[NotInParallel]`,
   `[DependsOn]`, test ordering, retries, repeats, timeouts, test filters,
@@ -89,7 +107,7 @@ license: Complete terms in LICENSE.txt
   - [TUnit execution control](./rules/execution-control.md)
 - Map: [TUnit execution map](./references/execution-map.md)
 
-## Mocking and extensibility
+### Mocking and extensibility
 
 - Use for `TUnit.Mocks` (beta, requires C# 14), mock setup and verification,
   argument matchers, `ITestRegisteredEventReceiver`, custom test attributes,
@@ -100,7 +118,7 @@ license: Complete terms in LICENSE.txt
   - [TUnit extension points](./rules/extending-extension-points.md)
 - Map: [TUnit mocking and extending map](./references/mocking-extending-map.md)
 
-## Migration and framework comparison
+### Migration and framework comparison
 
 - Use for behavioral differences from xUnit, NUnit, and MSTest; attribute
   equivalence; class and method lifecycle mapping; assertion API differences;
@@ -109,7 +127,7 @@ license: Complete terms in LICENSE.txt
   - [TUnit migration and framework comparison](./rules/migration-comparison.md)
 - Reference: [TUnit migration attribute matrix](./references/migration-attribute-matrix.md)
 
-## Advanced scenarios
+### Advanced scenarios
 
 - Use for ASP.NET Core integration, .NET Aspire, Playwright, complex
   infrastructure fixtures, FsCheck, OpenTelemetry, and CI pipeline examples.
