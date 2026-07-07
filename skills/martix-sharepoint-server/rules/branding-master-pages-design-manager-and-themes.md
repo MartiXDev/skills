@@ -26,6 +26,7 @@ Use this rule for classic branding surfaces and publishing-era page customizatio
 
 ### Related files
 
+- [Rule section contract](./_sections.md)
 - [Site and branding map](../references/site-and-branding-map.md)
 - [Provisioning and modernization map](../references/provisioning-modernization-map.md)
 

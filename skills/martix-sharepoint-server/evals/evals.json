@@ -35,6 +35,19 @@
       "escalation": null
     },
     {
+      "id": "spfx-react-negative-activation",
+      "prompt": "I need help building a SharePoint Framework web part in React that reads from a SharePoint Online list and renders a custom property pane.",
+      "expected_output": "Declines and routes to martix-sharepoint-spfx rather than applying classic server-side guidance.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "cheap",
+      "parallel_safe": true,
+      "token_budget": "small",
+      "negative_activation": true,
+      "escalation": null
+    },
+    {
       "id": "scope-boundary-general-handoff",
       "prompt": "A user asks for help that is adjacent to martix-sharepoint-server but belongs to a different MartiX skill or general Copilot guidance. Assess whether this skill should handle it.",
       "negative_activation": true,

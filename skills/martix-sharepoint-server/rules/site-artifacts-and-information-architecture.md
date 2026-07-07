@@ -26,6 +26,7 @@ Use this rule for classic site-shape artifacts and information-architecture deci
 
 ### Related files
 
+- [Rule section contract](./_sections.md)
 - [Site and branding map](../references/site-and-branding-map.md)
 - [Packaging and extensibility map](../references/packaging-and-extensibility-map.md)
 
