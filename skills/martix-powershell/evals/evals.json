@@ -116,6 +116,51 @@
       "model_tier": "medium"
     },
     {
+      "id": "naming-approved-verb-selection",
+      "prompt": "I'm writing a PowerShell cmdlet in C# that retrieves all expired certificates from a Windows certificate store and returns each certificate as an object. What verb should I use for the cmdlet name, and how do I verify it is an approved PowerShell verb?",
+      "expected_sections": [
+        "Verb recommendation from the approved verb list",
+        "Rationale for the selected verb group (e.g., Diagnostic, Data, Common)",
+        "Get-Verb verification step",
+        "Typed constant from the Verbs* class (e.g., VerbsDiagnostic.Get or VerbsCommon.Get)",
+        "Warning about non-approved verbs",
+        "Suggested cmdlet noun with vendor prefix guidance"
+      ],
+      "assertions": [
+        "Recommends a verb that is on the approved PowerShell verb list — typically Get (VerbsCommon.Get) for retrieval operations",
+        "References Get-Verb as the runtime verification step",
+        "Provides the typed constant form (e.g., VerbsCommon.Get) not a raw string literal",
+        "Explains that using a non-approved verb causes an Import-Module warning",
+        "Mentions the vendor or module prefix convention for the noun (e.g., CompanyExpiredCertificate rather than a bare ExpiredCertificate)"
+      ],
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null,
+      "model_tier": "medium"
+    },
+    {
+      "id": "scope-boundary-dsc-resource",
+      "prompt": "I'm authoring a DSC resource class in C# that configures IIS application pool settings. The class implements the Get, Set, and Test methods with [DscProperty] attributes. Can you review it for compliance with the DSC resource authoring contract?",
+      "expected_sections": [
+        "Scope assessment — whether DSC resource authoring falls within the skill boundary",
+        "Identification that DSC resources are explicitly excluded from this skill",
+        "Redirect note pointing to appropriate DSC documentation or resource"
+      ],
+      "assertions": [
+        "Identifies that DSC resource authoring is explicitly outside this skill's scope",
+        "Does NOT apply PowerShell cmdlet rules (ErrorRecord, ThrowTerminatingError, ShouldProcess, [Cmdlet] attribute, ProcessRecord) to the DSC resource class",
+        "States clearly that DSC resources are excluded per the skill description",
+        "Does not confuse [DscProperty] with [Parameter] or DSC Get/Set/Test methods with BeginProcessing/ProcessRecord/EndProcessing",
+        "If offering any guidance, defers to official DSC or PowerShell resource documentation rather than applying cmdlet contract rules"
+      ],
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": true,
+      "escalation": null,
+      "model_tier": "medium"
+    },
+    {
       "id": "scope-boundary-generic-script",
       "prompt": "I have a plain PowerShell function (no [CmdletBinding()]) that loops through log files in a folder and deletes ones older than 30 days. Can you review it and suggest improvements? Here's the function:\n\nfunction Remove-OldLogs {\n    param($FolderPath, $Days)\n    Get-ChildItem $FolderPath | Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-$Days) } | Remove-Item\n}",
       "expected_sections": [

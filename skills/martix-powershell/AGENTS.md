@@ -90,6 +90,10 @@ functions; items marked *(advanced function analog)* show the equivalent.
 
 ## Workstream playbook
 
+Each workstream below maps to a specific domain. Open only the sections
+relevant to the current task; read the linked rule files and reference map
+before drawing conclusions.
+
 ## Foundation and base class selection
 
 - Open this workstream before creating a new cmdlet class, changing the base
@@ -362,6 +366,9 @@ functions; items marked *(advanced function analog)* show the equivalent.
   - [Strongly encouraged development guidelines](https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/strongly-encouraged-development-guidelines)
 
 ## Maintenance and package growth
+
+Use the guidance below when extending the package with new rules, templates,
+or research memos.
 
 ## Authoring contract
 

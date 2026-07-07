@@ -1,6 +1,6 @@
 ---
 name: martix-powershell
-description: Standalone-first PowerShell cmdlet developer guidance for compiled C# cmdlet authoring and cmdlet-style advanced functions that declare [CmdletBinding()]. Covers base class selection (Cmdlet vs PSCmdlet), [CmdletBinding()] declaration, parameter declaration and validation, parameter sets, pipeline input/output streaming via Begin/ProcessRecord/End, error handling (terminating vs non-terminating), confirmation and safety patterns (ShouldProcess/Force/WhatIf), dynamic parameters, and attribute validators. Use when authoring or reviewing compiled PowerShell cmdlets in C#, authoring advanced functions that declare [CmdletBinding()] and follow the cmdlet contract, selecting the right base class, designing parameter sets, implementing pipeline processing methods, handling errors with ErrorRecord, wiring ShouldProcess/Force/WhatIf safety patterns, or packaging a cmdlet module. Does not apply to generic PowerShell scripts or functions without [CmdletBinding()].
+description: Standalone-first PowerShell cmdlet developer guidance for compiled C# cmdlet authoring and cmdlet-style advanced functions that declare [CmdletBinding()]. Covers base class selection (Cmdlet vs PSCmdlet), parameter declaration and validation, parameter sets, pipeline input/output streaming, error handling (terminating vs non-terminating), ShouldProcess/Force/WhatIf safety patterns, dynamic parameters, and attribute validators. Use when authoring compiled cmdlets in C#, authoring [CmdletBinding()] advanced functions, selecting approved verbs with Get-Verb, designing parameter sets, implementing pipeline processing, handling errors with ErrorRecord, wiring ShouldProcess/WhatIf patterns, packaging cmdlet modules, authoring .psd1 module manifests, or choosing validators like ValidateSet or ValidateRange. Does not apply to generic scripts without [CmdletBinding()], DSC resources, or runbook automation.
 license: Complete terms in LICENSE.txt
 ---
 
@@ -45,7 +45,9 @@ license: Complete terms in LICENSE.txt
 - Generic PowerShell scripts or functions **without** `[CmdletBinding()]`.
 - Pipeline-only scripts that do not follow the cmdlet contract.
 - Automation scripts, runbooks, or DSC resources.
-- For broader C# or .NET guidance, use `martix-dotnet-csharp`.
+- For broader C# or .NET guidance beyond the PowerShell SDK — general class
+  design, LINQ, async/await, ASP.NET, or Entity Framework — use
+  `martix-dotnet-csharp`.
 
 ## Start with the closest workstream
 
@@ -56,6 +58,8 @@ license: Complete terms in LICENSE.txt
    inventory, and maintainer guidance.
 
 ## Rule library by workstream
+
+Open the section for your target domain and read only the rule files it lists.
 
 ## Foundation and base class selection
 
