@@ -57,6 +57,17 @@
       "escalation": null
     },
     {
+      "id": "new-spfx-project-scaffold",
+      "prompt": "I want to start a brand-new SPFx web part project for SharePoint Online. What global prerequisites do I need, which generator and component type should I choose, and what toolchain should I expect for a current project?",
+      "expected_output": "Routes through tooling and scaffolding workstream with Heft-based environment guidance for current SPFx, correct generator and component-type choice, and explicit prerequisite steps.",
+      "files": [],
+      "model_tier": "medium",
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
       "id": "scope-boundary-general-handoff",
       "prompt": "A user asks for help that is adjacent to martix-sharepoint-spfx but belongs to a different MartiX skill or general Copilot guidance. Assess whether this skill should handle it.",
       "negative_activation": true,

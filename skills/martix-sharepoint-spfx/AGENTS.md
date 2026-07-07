@@ -127,7 +127,7 @@ description: 'Long-form companion guide for the martix-sharepoint-spfx standalon
   - Should provisioning or operator-run API work move to separate provisioning
     or automation guidance?
 
-## Packaging, deployment, and rollout
+## Packaging, deployment, and tenant rollout
 
 - Open this workstream for `package-solution.json`, feature packaging, app
   catalog strategy, asset hosting, and tenant-wide rollout posture.
@@ -192,3 +192,13 @@ description: 'Long-form companion guide for the martix-sharepoint-spfx standalon
   reviews; broader source inventories belong in the reference maps.
 - Keep the Subscription Edition ambiguity conservative and well-cited until the
   official docs align more clearly.
+- Every rule follows the section contract in
+  [rules/_sections.md](./rules/_sections.md): `Purpose`, `Default guidance`,
+  `Avoid`, `Review checklist`, `Related files`, and `Source anchors`.
+- Use [the rule template](./templates/rule-template.md) for new rules,
+  [the research pack template](./templates/research-pack-template.md) for source
+  inventories, and
+  [the comparison matrix template](./templates/comparison-matrix-template.md)
+  for external comparisons.
+- Update `metadata.json`, `assets/taxonomy.json`, `assets/section-order.json`,
+  and `evals/evals.json` when rules, routes, or routing labels change.
