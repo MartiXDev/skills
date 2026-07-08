@@ -14,6 +14,7 @@ jobs:
     if: github.event.label.name == 'afk/ready'
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       issues: write
 
     steps:
