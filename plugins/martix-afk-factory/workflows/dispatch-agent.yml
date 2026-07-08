@@ -67,10 +67,20 @@ jobs:
           COPILOT_AGENT_TOKEN: ${{ secrets.COPILOT_AGENT_TOKEN }}
           AGENT_PROMPT: ${{ steps.prompt.outputs.prompt }}
           AGENT_MODEL: ${{ steps.config.outputs.model }}
+          AGENT_FILE: ${{ steps.config.outputs.agentFile }}
         with:
           script: |
-            const prompt = process.env.AGENT_PROMPT || '';
+            const fs = require('fs');
+            const rawPrompt = process.env.AGENT_PROMPT || '';
             const model = process.env.AGENT_MODEL || '';
+            const agentFile = process.env.AGENT_FILE || '';
+
+            let prompt = rawPrompt;
+            if (agentFile && fs.existsSync(agentFile)) {
+              const instructions = fs.readFileSync(agentFile, 'utf8');
+              prompt = `${instructions}\n\n---\n\n${rawPrompt}`;
+              core.info(`Prepended agent instructions from ${agentFile}`);
+            }
 
             const response = await fetch(
               `https://api.github.com/agents/repos/${context.repo.owner}/${context.repo.repo}/tasks`,

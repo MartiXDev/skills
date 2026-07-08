@@ -58,17 +58,18 @@ Copy-Item plugins/martix-afk-factory/workflows/*.yml .github/workflows/
 Copy-Item plugins/martix-afk-factory/issue-templates/*.md .github/ISSUE_TEMPLATE/
 @'
 {
+  "branchPrefix": "fix/issue-",
   "tiers": {
-    "cheap": "gpt-4.1-mini",
-    "medium": "gpt-4.1",
-    "premium": "gpt-5"
+    "tier/cheap":   { "model": "gpt-4.1-mini" },
+    "tier/medium":  { "model": "gpt-4.1" },
+    "tier/premium": { "model": "gpt-5" }
   },
   "areas": {
-    "backend": "backend",
-    "frontend": "frontend",
-    "test": "test",
-    "docs": "docs",
-    "ops": "ops"
+    "area/backend":  { "agentFile": ".github/agents/backend.agent.md" },
+    "area/frontend": { "agentFile": ".github/agents/frontend.agent.md" },
+    "area/test":     { "agentFile": ".github/agents/test.agent.md" },
+    "area/docs":     { "agentFile": ".github/agents/docs.agent.md" },
+    "area/ops":      { "agentFile": ".github/agents/ops.agent.md" }
   },
   "sharedFiles": [
     ".github/agent-config.json"

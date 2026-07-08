@@ -28,16 +28,16 @@ If any check fails, fix it before continuing.
 
 ```powershell
 # Preview without making changes
-.\hooks\start-afk-sessions.ps1 -DryRun
+.\scripts\start-afk-sessions.ps1 -DryRun
 
 # Start up to 3 sessions (default)
-.\hooks\start-afk-sessions.ps1
+.\scripts\start-afk-sessions.ps1
 
 # Start up to N sessions
-.\hooks\start-afk-sessions.ps1 -MaxSessions 5
+.\scripts\start-afk-sessions.ps1 -MaxSessions 5
 
 # Check current session state
-.\hooks\start-afk-sessions.ps1 -Monitor
+.\scripts\start-afk-sessions.ps1 -Monitor
 ```
 
 ## After running
@@ -52,7 +52,7 @@ For each VS Code window that opens:
 
 ```powershell
 # Local session state
-.\hooks\start-afk-sessions.ps1 -Monitor
+.\scripts\start-afk-sessions.ps1 -Monitor
 
 # GitHub issue state
 gh issue list --label afk/in-progress --state open
