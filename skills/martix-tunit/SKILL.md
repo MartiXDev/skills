@@ -30,7 +30,7 @@ Surface these before applying any rule. They are the most common source of
 broken setups and silent test failures:
 
 - **Unawaited assertions silently pass.** Every `Assert.That(...)` chain must
-  be `await`ed. An un-awaited call compiles and runs without failing.
+  be `await`ed. An unawaited call compiles and runs without failing.
 - **`dotnet run` is the canonical execution surface.** `dotnet test` works but
   routes through a compatibility shim; TUnit-specific flags require `--`.
 - **`OutputType` must be `Exe`.** The source generator provides the `Main`
