@@ -64,7 +64,7 @@ license: Complete terms in LICENSE.txt
 
 ### Foundation and support boundaries
 
-Scope checks, host identity, classic exclusions, 2019 or SE constraints.
+Scope checks, host identity, classic exclusions, 2019 or Subscription Edition constraints.
 Rule: [foundation-scope-and-support-boundaries](./rules/foundation-scope-and-support-boundaries.md)
 
 ### Versioning, compatibility, and scaffolding
