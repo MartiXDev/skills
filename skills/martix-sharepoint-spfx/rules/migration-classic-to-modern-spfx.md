@@ -25,8 +25,7 @@ modern replacement instead of a literal port.
   central to the old implementation.
 - Keep no-script support, app-catalog governance, and the current-user browser
   security model visible in the migration plan.
-- Hand classic/server-side maintenance back to
-  [martix-sharepoint-server](../../martix-sharepoint-server/SKILL.md) when the
+- Hand classic/server-side maintenance back to `martix-sharepoint-server` when the
   work is really about preserving farm-solution or Feature Framework behavior.
 
 ### Avoid

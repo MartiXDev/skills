@@ -13,8 +13,8 @@ task at all and which host or product surface defines the constraints.
 | Modern page chrome, placeholder content, or list command or cell UI | Yes | [Extensions rule](../rules/extensions-application-command-field.md) | The requirement becomes server-side, unsupported DOM surgery, or classic-only |
 | List or library form replacement | Yes, when the environment supports Form Customizer | [Form Customizers rule](../rules/components-form-customizers-and-library-components.md) | The environment or version cannot support the Form Customizer path |
 | Teams or Viva exposure where SPFx is the delivery vehicle | Yes | [Teams and Viva rule](../rules/hosts-teams-and-viva-integration.md) | The scenario mostly depends on non-SPFx Teams app capabilities |
-| Provisioning, tenant automation, or operator-run setup | No | Handoff to [martix-sharepoint-pnp](../../martix-sharepoint-pnp/SKILL.md) | A client-side component still needs separate SPFx guidance after provisioning |
-| Farm solution, WSP, Feature Framework, or server object model work | No | Handoff to [martix-sharepoint-server](../../martix-sharepoint-server/SKILL.md) | The work is actually a modernization review rather than classic implementation |
+| Provisioning, tenant automation, or operator-run setup | No | Handoff to `martix-sharepoint-pnp` | A client-side component still needs separate SPFx guidance after provisioning |
+| Farm solution, WSP, Feature Framework, or server object model work | No | Handoff to `martix-sharepoint-server` | The work is actually a modernization review rather than classic implementation |
 | SharePoint Server 2019 or Subscription Edition compatibility review | Yes, conservatively | [Version support map](./version-support-map.md) | The task is really about classic server-side customization |
 
 ### Support stance

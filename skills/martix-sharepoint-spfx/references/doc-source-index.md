@@ -64,10 +64,9 @@
   constraints, not as the default architectural lane.
 - When the current docs disagree about Subscription Edition support, call out
   the mismatch explicitly and stay conservative.
-- Route classic farm-solution or WSP work to
-  [martix-sharepoint-server](../../martix-sharepoint-server/SKILL.md).
+- Route classic farm-solution or WSP work to `martix-sharepoint-server`.
 - Route provisioning, tenant automation, or operator-run API work to
-  [martix-sharepoint-pnp](../../martix-sharepoint-pnp/SKILL.md).
+  `martix-sharepoint-pnp`.
 
 ### Explicit exclusions for first-pass routing
 

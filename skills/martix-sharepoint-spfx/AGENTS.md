@@ -63,8 +63,8 @@ description: 'Long-form companion guide for the martix-sharepoint-spfx standalon
   - What host or product surface is in play: SharePoint Online, Teams, Viva,
     SharePoint Server 2019, or Subscription Edition?
   - Does the task really belong in SPFx rather than
-    [martix-sharepoint-server](../martix-sharepoint-server/SKILL.md) or
-    [martix-sharepoint-pnp](../martix-sharepoint-pnp/SKILL.md)?
+    `martix-sharepoint-server` or
+    `martix-sharepoint-pnp`?
   - Are unsupported classic artifacts or DOM assumptions being smuggled in?
 
 ## Versioning, compatibility, and scaffolding
@@ -124,7 +124,7 @@ description: 'Long-form companion guide for the martix-sharepoint-spfx standalon
   - Which client truly owns the API call?
   - Are permission requests explicit and minimal?
   - Should provisioning or operator-run API work move to
-    [martix-sharepoint-pnp](../martix-sharepoint-pnp/SKILL.md)?
+    `martix-sharepoint-pnp`?
 
 ## Packaging, deployment, and tenant rollout
 
