@@ -122,7 +122,7 @@
         "Verb recommendation from the approved verb list",
         "Rationale for the selected verb group (e.g., Diagnostic, Data, Common)",
         "Get-Verb verification step",
-        "Typed constant from the Verbs* class (e.g., VerbsDiagnostic.Get or VerbsCommon.Get)",
+        "Typed constant from the Verbs* class (e.g., VerbsCommon.Get)",
         "Warning about non-approved verbs",
         "Suggested cmdlet noun with vendor prefix guidance"
       ],
