@@ -84,6 +84,30 @@
       "token_budget": "small",
       "parallel_safe": true,
       "escalation": null
+    },
+    {
+      "id": "generic-writing-coaching-handoff",
+      "prompt": "Please rewrite this README introduction so it sounds warmer and more persuasive for new contributors. I am not asking about markdownlint, lint findings, config, suppressions, or accessibility review.",
+      "negative_activation": true,
+      "expected_sections": [
+        "Scope assessment",
+        "Out-of-scope identification",
+        "Recommended handoff or fallback"
+      ],
+      "assertions": [
+        "Recognizes that generic prose coaching without a markdownlint or Markdown-review angle is out of scope.",
+        "Does not invent markdownlint issues just to keep the request inside this skill.",
+        "Routes to general Copilot guidance or a more appropriate writing-oriented skill instead of loading grouped markdownlint rules."
+      ],
+      "files": [
+        "SKILL.md",
+        "README.md",
+        "AGENTS.md"
+      ],
+      "model_tier": "cheap",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "escalation": null
     }
   ]
 }
