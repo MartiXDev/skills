@@ -1,6 +1,6 @@
 ---
 name: martix-powershell
-description: Standalone-first PowerShell cmdlet guidance for compiled C# cmdlets and advanced functions that declare [CmdletBinding()] and follow the cmdlet contract. Use when authoring or reviewing cmdlets, choosing approved verbs or parameter sets, wiring pipeline processing or ErrorRecord/ShouldProcess behavior, packaging binary modules or .psd1 manifests, or selecting validators like ValidateSet and ValidateRange. Do not use for generic scripts without [CmdletBinding()], DSC resources, or runbook automation.
+description: Standalone-first PowerShell cmdlet guidance for compiled C# cmdlets and advanced functions that declare [CmdletBinding()] and follow the cmdlet contract. Use when authoring or reviewing cmdlets, choosing approved verbs or parameter sets, wiring pipeline processing or ErrorRecord/ShouldProcess/Force/WhatIf behavior, packaging binary modules or .psd1 manifests, or selecting validators like ValidateSet and ValidateRange. Do not use for generic scripts without [CmdletBinding()], DSC resources, or runbook automation.
 license: Complete terms in LICENSE.txt
 ---
 
