@@ -15,20 +15,20 @@ My goal or idea is to prepare several features in GitHub. What would be the best
 ### Prompt 2
 
 To be more specific, Microsoft and Anthropic are going to make LLMs much more expensive soon, so I need to optimize the context window, token usage, premium requests, choose proper LLM multiplier for specific  task, etc.
-One of the ideas is to create for complex Root Issue many very small sub-tasks which are very focused on easy tasks or list of easy tasks so it then can be implemente using cheap or even fre LLM.
+One of the ideas is to create for complex Root Issue many very small sub-tasks which are very focused on easy tasks or list of easy tasks so it then can be implemented using cheap or even free LLM.
 Recommend me next steps, what to do, what to configure, what to prepare, which tools and how to use, etc.
 
 ## Copilot Responses
 
 ### Response 1
 
-**Short answer:** **Prepare a hierarchical issue tree in GitHub, triage with deterministic labels, and run Copilot agents either from the VS Code *Agents window* (interactive multi‑session orchestration) or from the *Copilot CLI* (background, isolated sessions).** Use GitHub Actions to automate triage/labeling and a small orchestrator (script or CI job) to spawn Copilot‑CLI sessions per label; use the Agents window when you want visual monitoring and hand‑offs.   [Github](https://github.com/microsoft/vscode-docs/blob/main/docs/copilot/agents/agents-window.md)  [Visual Studio Code](https://code.visualstudio.com/docs/copilot/agents/copilot-cli)
+**Short answer:** **Prepare a hierarchical issue tree in GitHub, triage with deterministic labels, and run Copilot agents either from the VS Code *Agents window* (interactive multi‑session orchestration) or from the *Copilot CLI* (background, isolated sessions).** Use GitHub Actions to automate triage/labeling and a small orchestrator (script or CI job) to spawn Copilot‑CLI sessions per label; use the Agents window when you want visual monitoring and hand‑offs.   [GitHub](https://github.com/microsoft/vscode-docs/blob/main/docs/copilot/agents/agents-window.md)  [Visual Studio Code](https://code.visualstudio.com/docs/copilot/agents/copilot-cli)
 
 #### Quick comparison (decision table)
 
 | **Approach** | **Best for** | **How sessions run** | **Isolation / safety** | **Visibility / control** |
 | --- | ---: | --- | --- | --- |
-| **Agents window (VS Code)** | Interactive orchestration across workspaces | VS Code manages sessions and shared sessions list | Runs inside VS Code; good for manual approvals | High — GUI, session list, chat, hand‑offs.   [Github](https://github.com/microsoft/vscode-docs/blob/main/docs/copilot/agents/agents-window.md) |
+| **Agents window (VS Code)** | Interactive orchestration across workspaces | VS Code manages sessions and shared sessions list | Runs inside VS Code; good for manual approvals | High — GUI, session list, chat, hand‑offs.   [GitHub](https://github.com/microsoft/vscode-docs/blob/main/docs/copilot/agents/agents-window.md) |
 | **Copilot CLI (background)** | Autonomous, long‑running tasks (many parallel jobs) | Local background sessions via Copilot CLI harness | Worktree or Workspace isolation modes available.   [Visual Studio Code](https://code.visualstudio.com/docs/copilot/agents/copilot-cli) | Medium — chat + status; designed for background runs.   [Visual Studio Code](https://code.visualstudio.com/docs/copilot/agents/copilot-cli) |
 | **Hybrid (orchestrator + labels)** | Scale many small issues/features in parallel | Orchestrator starts CLI sessions per labeled issue | Orchestrator controls concurrency; use worktrees for safety | High if you add logging + PR review gates (recommended) |
 
@@ -43,7 +43,7 @@ Recommend me next steps, what to do, what to configure, what to prepare, which t
 3. **Agent assignment rules** *(mapping labels → agent)*  
    - `area/frontend` → frontend agent skill; `area/backend` → backend agent; `task/test` → test agent; `task/docs` → docs agent. Store these mappings in a repo config file.  
 4. **Orchestration options**  
-   - **Interactive:** Open the Agents window and start sessions for each sub‑issue you want to supervise; hand off context between sessions. Use this when you want to review intermediate edits.   [Github](https://github.com/microsoft/vscode-docs/blob/main/docs/copilot/agents/agents-window.md)  
+   - **Interactive:** Open the Agents window and start sessions for each sub‑issue you want to supervise; hand off context between sessions. Use this when you want to review intermediate edits.   [GitHub](https://github.com/microsoft/vscode-docs/blob/main/docs/copilot/agents/agents-window.md)  
    - **Autonomous:** Run a small orchestrator (node/python) that polls GitHub issues with `triage/ready` and launches a Copilot CLI session per issue. Use **Worktree isolation** so each agent edits in a separate git worktree. Copilot CLI supports background sessions and slash commands for auto‑approval.   [Visual Studio Code](https://code.visualstudio.com/docs/copilot/agents/copilot-cli)  
 5. **Review & merge**  
    - Agents create branches/PRs. Keep human review gates: CI tests, code owners, and PR approvals before merging.
@@ -53,11 +53,11 @@ Recommend me next steps, what to do, what to configure, what to prepare, which t
 - **Use Worktree isolation** to avoid corrupting your main workspace.   [Visual Studio Code](https://code.visualstudio.com/docs/copilot/agents/copilot-cli)  
 - **Keep labels deterministic** and small in number; use a config file so the orchestrator can map labels to agent prompts/skills.  
 - **Risk:** Autonomous agents can produce incorrect code; always require CI and human PR review.  
-- **Suggestion:** Start with the Agents window for a few parallel sessions to refine prompts and skills, then scale with Copilot CLI + orchestrator.   [Github](https://github.com/microsoft/vscode-docs/blob/main/docs/copilot/agents/agents-window.md)  [Visual Studio Code](https://code.visualstudio.com/docs/copilot/agents/copilot-cli)
+- **Suggestion:** Start with the Agents window for a few parallel sessions to refine prompts and skills, then scale with Copilot CLI + orchestrator.   [GitHub](https://github.com/microsoft/vscode-docs/blob/main/docs/copilot/agents/agents-window.md)  [Visual Studio Code](https://code.visualstudio.com/docs/copilot/agents/copilot-cli)
 
 #### Final note
 
-**Based on these sources, this suggests** a two‑phase rollout: prototype with the Agents window (monitoring + hand‑offs), then automate at scale with Copilot CLI sessions launched by a small orchestrator that reads labeled issues.   [Github](https://github.com/microsoft/vscode-docs/blob/main/docs/copilot/agents/agents-window.md)  [Visual Studio Code](https://code.visualstudio.com/docs/copilot/agents/copilot-cli)  [getbeam.dev](https://getbeam.dev/blog/vscode-multi-agent-orchestration-tutorial.html)
+**Based on these sources, this suggests** a two‑phase rollout: prototype with the Agents window (monitoring + hand‑offs), then automate at scale with Copilot CLI sessions launched by a small orchestrator that reads labeled issues.   [GitHub](https://github.com/microsoft/vscode-docs/blob/main/docs/copilot/agents/agents-window.md)  [Visual Studio Code](https://code.visualstudio.com/docs/copilot/agents/copilot-cli)  [getbeam.dev](https://getbeam.dev/blog/vscode-multi-agent-orchestration-tutorial.html)
 
 If you want, I can **produce** (1) a sample GitHub issue template + label mapping file, and (2) a minimal orchestrator script that polls issues and starts Copilot CLI sessions using worktrees.
 
