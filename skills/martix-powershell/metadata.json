@@ -7,8 +7,8 @@
     "repository": "MartiXDev/skills",
     "distributionModel": "standalone skill with direct Copilot marketplace registration"
   },
-  "summary": "Standalone-first MartiX skill package for compiled PowerShell cmdlet development in C#, covering base class selection, naming and conventions, parameter declaration and validation, pipeline input/output streaming, error handling, confirmation safety patterns, advanced patterns, and attribute validators.",
-  "abstract": "This package is the canonical source for the MartiX PowerShell cmdlet skill. It ships the authored rule library, reference maps, maintainer docs, templates, and taxonomy for compiled binary cmdlet authoring in C# across 8 domains.",
+  "summary": "Standalone-first MartiX skill package for PowerShell cmdlet authoring and cmdlet-contract review across compiled C# cmdlets and [CmdletBinding()] advanced functions.",
+  "abstract": "This package is the canonical source for the MartiX PowerShell cmdlet skill. It ships the authored rule library, reference maps, maintainer docs, templates, evals, and taxonomy for compiled cmdlets and cmdlet-style advanced functions across 9 domains.",
   "compatibility": {
     "primaryTarget": "GitHub Copilot CLI",
     "secondaryTargets": [
@@ -40,7 +40,8 @@
       "rules/_template.md"
     ],
     "templates": "templates/*.md",
-    "assets": "assets/*.json"
+    "assets": "assets/*.json",
+    "evals": "evals/evals.json"
   },
   "taxonomy": {
     "mode": "standalone-first",
@@ -218,6 +219,11 @@
     "assets": [
       "assets/taxonomy.json",
       "assets/section-order.json"
+    ],
+    "evalSuiteCount": 1,
+    "evalPromptCount": 7,
+    "evals": [
+      "evals/evals.json"
     ]
   },
   "ordering": {
