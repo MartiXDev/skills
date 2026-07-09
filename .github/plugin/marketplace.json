@@ -109,7 +109,7 @@
     },
     {
       "name": "martix-powershell",
-      "description": "Standalone PowerShell cmdlet developer skill package for compiled C# cmdlet authoring and advanced functions, covering base class selection, parameter declaration, pipeline, error handling, ShouldProcess, dynamic parameters, and attribute validators.",
+      "description": "Standalone PowerShell cmdlet guidance for compiled C# cmdlets and [CmdletBinding()] advanced functions, covering approved verbs, parameter sets, pipeline processing, ErrorRecord and ShouldProcess behavior, module manifests, and validator selection.",
       "version": "0.1.0",
       "source": "skills/martix-powershell",
       "category": "development",

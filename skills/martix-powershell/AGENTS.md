@@ -23,6 +23,7 @@ description: 'Long-form companion guide for the martix-powershell standalone ski
 | References | 11 reference files (domain maps, error-category reference, cookbook, source index) | [Foundation map](./references/foundation-map.md) |
 | Templates | Authoring, research, and comparison scaffolds | [Rule template](./templates/rule-template.md) |
 | Assets | Preferred taxonomy and ordering data | [taxonomy.json](./assets/taxonomy.json) and [section-order.json](./assets/section-order.json) |
+| Evals | Routing and boundary-behavior evaluation prompts | [evals.json](./evals/evals.json) |
 | Metadata | Package identity, inventory, and distribution intent | [metadata.json](./metadata.json) |
 
 ## Working stance
@@ -380,6 +381,8 @@ or research memos.
 - When adding rules, update `metadata.json` (`artifacts.ruleCount`,
   `artifacts.rules`, the relevant domain's `ruleCount` and `rules` array,
   and `ordering.recommendedRuleOrder`).
+- When routing or eval coverage changes, update `metadata.json` inventory fields
+  and `evals/evals.json` together so the package surface stays synchronized.
 
 ## Research and comparison
 

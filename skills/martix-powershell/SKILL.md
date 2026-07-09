@@ -1,6 +1,6 @@
 ---
 name: martix-powershell
-description: Standalone-first PowerShell cmdlet developer guidance for compiled C# cmdlet authoring and cmdlet-style advanced functions that declare [CmdletBinding()]. Covers base class selection (Cmdlet vs PSCmdlet), parameter declaration and validation, parameter sets, pipeline input/output streaming, error handling (terminating vs non-terminating), ShouldProcess/Force/WhatIf safety patterns, dynamic parameters, and attribute validators. Use when authoring compiled cmdlets in C#, authoring [CmdletBinding()] advanced functions, selecting approved verbs with Get-Verb, designing parameter sets, implementing pipeline processing, handling errors with ErrorRecord, wiring ShouldProcess/WhatIf patterns, packaging cmdlet modules, authoring .psd1 module manifests, or choosing validators like ValidateSet or ValidateRange. Does not apply to generic scripts without [CmdletBinding()], DSC resources, or runbook automation.
+description: Standalone-first PowerShell cmdlet guidance for compiled C# cmdlets and advanced functions that declare [CmdletBinding()] and follow the cmdlet contract. Use when authoring or reviewing cmdlets, choosing approved verbs or parameter sets, wiring pipeline processing or ErrorRecord/ShouldProcess behavior, packaging binary modules or .psd1 manifests, or selecting validators like ValidateSet and ValidateRange. Do not use for generic scripts without [CmdletBinding()], DSC resources, or runbook automation.
 license: Complete terms in LICENSE.txt
 ---
 
@@ -14,31 +14,14 @@ license: Complete terms in LICENSE.txt
 
 ## When to use this skill
 
-- Author a new compiled PowerShell cmdlet class in C# from scratch.
-- Choose between `Cmdlet` and `PSCmdlet` as the base class.
-- Author a PowerShell advanced function that declares `[CmdletBinding()]` and
-  follows the cmdlet contract (`Begin`/`Process`/`End`, `WriteObject`,
-  `$PSCmdlet.ThrowTerminatingError`, `ShouldProcess`, etc.).
-- Declare parameters with `[Parameter]`, mandatory flags, position, and
-  validation attributes.
-- Design parameter sets for mutually exclusive argument groups.
-- Implement `BeginProcessing` / `Begin`, `ProcessRecord` / `Process`, and
-  `EndProcessing` / `End` for correct pipeline input handling and object
-  streaming.
-- Wire `ShouldProcess`, `ShouldContinue`, and the `Force` parameter for
-  safe destructive operations.
-- Handle terminating and non-terminating errors using `ErrorRecord` and
-  `WriteError` / `ThrowTerminatingError`.
-- Author dynamic parameters via `IDynamicParameters` (compiled) or
-  `DynamicParam` blocks (advanced function).
-- Package a cmdlet as a binary module (`.dll` + `.psd1` manifest).
-- Add validation attributes (`ValidateSet`, `ValidateRange`, `ValidatePattern`,
-  etc.) or `OutputType` declarations.
-- Author comment-based help blocks (`.SYNOPSIS`, `.DESCRIPTION`, `.PARAMETER`,
-  `.EXAMPLE`, `.OUTPUTS`, `.NOTES`) or MAML/PlatyPS help for compiled cmdlets.
-- Align `.OUTPUTS` help-block text with `[OutputType]` declarations.
-- Avoid script-body aliases, enforce `Write-Host` / `Read-Host` scope rules, or
-  apply the Tier-5 repo style overlay for `.ps1` / `.psm1` files.
+- Author or review a compiled PowerShell cmdlet class, cmdlet noun/verb pair,
+  or binary module manifest.
+- Author or review a PowerShell advanced function that declares
+  `[CmdletBinding()]` and follows the cmdlet contract.
+- Fix parameter binding, pipeline streaming, `ErrorRecord`, `ShouldProcess`, or
+  `Force` behavior.
+- Choose validation attributes, help-block structure, output declarations, or
+  script-style boundaries for cmdlet-style PowerShell code.
 
 ## Not for this skill
 
@@ -49,13 +32,18 @@ license: Complete terms in LICENSE.txt
   design, LINQ, async/await, ASP.NET, or Entity Framework — use
   `martix-dotnet-csharp`.
 
-## Start with the closest workstream
+## Quick-start routes
 
-1. Pick the closest workstream below.
-2. Read only the linked rules needed for the current change.
-3. Pull reference maps in only after the core workstream is chosen.
-4. Open [AGENTS.md](./AGENTS.md) for cross-workstream review routes, package
-   inventory, and maintainer guidance.
+Use the closest row first, then open the linked workstream map or companion
+guide only when the task widens.
+
+| Task | Start with | Add when |
+| --- | --- | --- |
+| New cmdlet or module shape | [Foundation — base class and attribute](./rules/foundation-base-class-attribute.md) + [Naming — approved verbs and cmdlet name contract](./rules/naming-approved-verbs-cmdlet-contract.md) | [Foundation — project and module shape](./rules/foundation-project-module-shape.md) for `.psd1` manifests, DLL layout, or `Import-Module` wiring. |
+| Parameter or pipeline bug | [Parameters — pipeline binding](./rules/parameters-pipeline-binding.md) + [Pipeline — input processing methods](./rules/pipeline-input-processing-methods.md) | [Parameters — sets and dynamic parameters](./rules/parameters-sets-dynamic.md) when multiple parameter sets or runtime parameters are involved. |
+| Error or destructive-operation review | [Error handling — terminating and non-terminating](./rules/error-handling-terminating-nonterminating.md) + [Confirmation — ShouldProcess and ShouldContinue](./rules/confirmation-shouldprocess-shouldcontinue.md) | [Confirmation — Force parameter and non-interactive safety](./rules/confirmation-force-parameter.md) when `Force`, automation safety, or second-level confirmation is in scope. |
+| Advanced function authoring | [Parameters — declaration and validation](./rules/parameters-declaration-validation.md) + [Documentation, help, and style](./rules/documentation-help-style.md) | [Pipeline — output and streaming](./rules/pipeline-output-streaming.md) when emitted object type, streaming, or `OutputType` alignment matters. |
+| Dynamic parameters or transactions | [Advanced patterns — dynamic parameters and aliases](./rules/advanced-dynamic-parameters-alias.md) | [Advanced patterns — transactions and jobs](./rules/advanced-transactions-jobs.md) only when transaction or job integration is explicitly required. |
 
 ## Rule library by workstream
 

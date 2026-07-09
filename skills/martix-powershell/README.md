@@ -20,6 +20,7 @@ standalone skill installs should consume directly.
 | [references/](./references) | 11 reference files (domain maps, error-category reference, cookbook, source index) |
 | [templates/](./templates) | Author scaffolds |
 | [assets/](./assets) | Taxonomy data |
+| [evals/](./evals) | Evaluation prompts for routing and boundary behavior |
 | [metadata.json](./metadata.json) | Package metadata |
 
 ## Maintainer notes
@@ -63,8 +64,8 @@ npx skills add https://github.com/MartiXDev/skills --skill martix-powershell
 Use a direct package path only for local validation or development.
 
 ```powershell
-npx skills add C:\Git\MartiXDev\skills\skills\martix-powershell -a github-copilot -y
-npx skills add C:\Git\MartiXDev\skills\skills\martix-powershell -a github-copilot --copy -y
+npx skills add C:\repo\skills\martix-powershell -a github-copilot -y
+npx skills add C:\repo\skills\martix-powershell -a github-copilot --copy -y
 ```
 
 For validation from GitHub, point at the package folder:
