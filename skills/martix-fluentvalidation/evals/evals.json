@@ -103,6 +103,58 @@
       "token_budget": "small",
       "parallel_safe": true,
       "escalation": null
+    },
+    {
+      "id": "integration-boundary-choice",
+      "prompt": "Choose the safest FluentValidation boundary for a new ASP.NET Core service that may add async rules later. Compare manual validation, filter-based integration, and the old MVC validation pipeline, then name the package files to consult first.",
+      "expected_sections": [
+        "Boundary choice",
+        "Async implications",
+        "Preferred route",
+        "Files to consult"
+      ],
+      "assertions": [
+        "Prefers manual validation as the first-party default for new application code.",
+        "Treats async-capable filter integration as an ecosystem option instead of the default route.",
+        "Keeps legacy MVC auto-validation as a migration-only path for existing synchronous code."
+      ],
+      "files": [
+        "SKILL.md",
+        "references/integration-map.md",
+        "rules/integration-aspnet-core.md",
+        "rules/integration-async-validation.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "runtime-metadata-selection",
+      "prompt": "A validator needs localized user-facing messages, a stable machine-readable failure key, warning-level severity in one branch, and structured extra state for downstream handling. Explain which FluentValidation output fields should carry each concern.",
+      "expected_sections": [
+        "Message text",
+        "Error code",
+        "Severity",
+        "Custom state"
+      ],
+      "assertions": [
+        "Routes user-facing or localized text through WithMessage instead of machine parsing.",
+        "Uses WithErrorCode for stable machine-readable reasons and WithState for structured extra payload.",
+        "Keeps severity separate from error codes so triage level does not replace the contract key."
+      ],
+      "files": [
+        "SKILL.md",
+        "references/runtime-metadata-map.md",
+        "rules/runtime-severity-error-codes-state.md",
+        "rules/runtime-localization-language-manager.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": false,
+      "escalation": null
     }
   ]
 }

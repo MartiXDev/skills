@@ -13,7 +13,11 @@
     "aspnetcore",
     "validators",
     "rulesets",
-    "async-validation"
+    "async-validation",
+    "validationproblem",
+    "testhelper",
+    "error-codes",
+    "localization"
   ],
   "repository": "https://github.com/MartiXDev/skills",
   "skills": "skills/"
