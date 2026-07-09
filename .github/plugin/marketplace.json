@@ -42,7 +42,7 @@
     },
     {
       "name": "martix-dotnet-csharp",
-      "description": "Standalone .NET 10+ and C# 14+ skill package for authoring, modernization, and review workflows.",
+      "description": "Trigger when the task involves SDK-style .NET modernization, ASP.NET Core, EF Core, async/concurrency, diagnostics, testing, or security defaults; hand off FastEndpoints endpoint work to `martix-fastendpoints` and validator-focused FluentValidation work to `martix-fluentvalidation`.",
       "version": "0.1.0",
       "source": "skills/martix-dotnet-csharp",
       "category": "development",

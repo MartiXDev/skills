@@ -36,6 +36,8 @@ complexity.
   explicit and the trade-off is documented.
 - Keep application code on stable abstractions where possible, such as
   `ILogger`, `HttpClient`, and framework DI registrations.
+- Hand off to `martix-fluentvalidation` when validators, RuleSets, async rules,
+  or `FluentValidation.TestHelper` become the primary design concern.
 
 ### Related files
 

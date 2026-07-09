@@ -16,6 +16,16 @@ intended release path and current package shape.
 - Secondary install surface: Copilot CLI plugin marketplace
 - Discovery key: `martix-dotnet-csharp`
 
+## Compatibility stance
+
+- Default guidance assumes released .NET 10+ and C# 14+ for greenfield work and
+  explicit upgrade tasks.
+- Older SDK-style repos remain in scope for modernization review; keep
+  recommendations within the repo's current target framework and language
+  version unless the task includes upgrading them.
+- Verify `.csproj`, `global.json`, and shared build props or targets before
+  recommending net10-only APIs, extension blocks, or other newer features.
+
 ## Package structure
 
 | Path | Purpose |

@@ -78,6 +78,56 @@
       "token_budget": "large",
       "negative_activation": false,
       "escalation": null
+    },
+    {
+      "id": "fastendpoints-negative-activation",
+      "prompt": "Configure a FastEndpoints endpoint that uses `Endpoint<TRequest, TResponse>`, a custom `IPreProcessor<TRequest>`, a custom `IPostProcessor<TRequest, TResponse>`, and `Group`/`SubGroup` configuration. Identify which skill handles this and whether martix-dotnet-csharp should be involved.",
+      "expected_sections": [
+        "Skill boundary",
+        "Handoff rationale",
+        "martix-fastendpoints referral"
+      ],
+      "assertions": [
+        "Recognizes this as FastEndpoints-specific work outside the martix-dotnet-csharp scope.",
+        "Does not provide FastEndpoints-specific endpoint class configuration (`Endpoint<TRequest, TResponse>`), pre/post-processor wiring (`IPreProcessor<>`/`IPostProcessor<>`), or `Group`/`SubGroup` configuration details.",
+        "Recommends handoff to martix-fastendpoints for endpoint-specific guidance."
+      ],
+      "files": [
+        "SKILL.md",
+        "AGENTS.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": true,
+      "escalation": null
+    },
+    {
+      "id": "older-sdk-style-modernization-compatibility",
+      "prompt": "Review an existing SDK-style ASP.NET Core service that still targets .NET 8 and defaults to the repo's current language version. The team wants modernization guidance for options binding, HttpClient resilience, testing, and middleware ordering without committing to a framework upgrade yet. Decide how martix-dotnet-csharp should guide the work.",
+      "expected_sections": [
+        "Compatibility stance",
+        "Modernization route",
+        "Upgrade boundary",
+        "Files to read"
+      ],
+      "assertions": [
+        "Keeps the package in scope for SDK-style modernization even when the repo is below .NET 10 or C# 14.",
+        "Avoids assuming that net10-only APIs, extension blocks, or newer language features can be adopted before the repo's baseline changes.",
+        "Routes the reader through SKILL.md, sdk-project-system, lang-modern-features, and the relevant web or testing guidance before suggesting upgrades."
+      ],
+      "files": [
+        "SKILL.md",
+        "AGENTS.md",
+        "rules/sdk-project-system.md",
+        "rules/lang-modern-features.md",
+        "rules/web-aspnet-core.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": false,
+      "escalation": null
     }
   ]
 }
