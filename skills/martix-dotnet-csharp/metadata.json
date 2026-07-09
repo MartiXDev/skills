@@ -244,6 +244,7 @@
       "status": "canonical",
       "officialInstallCommand": "npx skills add <source>",
       "preferredSources": [
+        ".\\skills\\martix-dotnet-csharp",
         "https://github.com/MartiXDev/skills",
         "https://github.com/MartiXDev/skills/tree/main/skills/martix-dotnet-csharp"
       ],
