@@ -1,6 +1,6 @@
 ---
 name: martix-fastendpoints
-description: Standalone-first FastEndpoints guidance for endpoint design, startup registration, DTO binding, validators, preprocessors, postprocessors, OpenAPI, files, SSE, RPC, security, testing, versioning, and Native AOT. Use when building or reviewing FastEndpoints services on ASP.NET Core.
+description: Standalone-first FastEndpoints guidance for `Endpoint<TRequest,TResponse>` design, `Configure()` routing and metadata, DTO binding, validators, processors, OpenAPI, file and streaming flows, SSE, RPC, security, testing, versioning, and Native AOT. Use when requests mention FastEndpoints primitives such as `AddFastEndpoints`, `UseFastEndpoints`, `Configure`, endpoint verbs/routes, `Summary`, processors, send helpers, `FastEndpoints.Swagger`, NSwag, `AllowAnonymous()`, release groups, or FastEndpoints command and event patterns.
 license: Complete terms in LICENSE.txt
 ---
 
@@ -10,91 +10,72 @@ license: Complete terms in LICENSE.txt
   .NET 10+, C# 14+, and ASP.NET Core services.
 - Keep decisions grounded in the bundled rule files and FastEndpoints reference
   maps.
-- Use [AGENTS.md](./AGENTS.md) when the task crosses multiple workstreams or
-  needs a longer review flow.
+- Use [AGENTS.md](./AGENTS.md) when work crosses multiple streams or needs the
+  long-form review routes.
 
 ## When to use this skill
 
-- Review or scaffold FastEndpoints applications and feature slices.
-- Shape request DTOs, validators, endpoint hooks, preprocessors, or
-  postprocessors.
-- Choose between standard HTTP endpoints, file flows, SSE, or RPC patterns.
-- Review FastEndpoints OpenAPI, security, runtime policies, testing, or
-  versioning behavior.
+- Review or scaffold FastEndpoints feature slices and endpoint classes.
+- Route `Configure()` + verb/route + summary/metadata decisions.
+- Shape DTO binding, validation, endpoint helpers, and processor flow.
+- Decide among HTTP, files, streaming, SSE, and RPC transport patterns.
+- Review FastEndpoints security/runtime behavior, testing, and versioning.
 
-## Start with the closest workstream
+## Quick-start routes
 
-1. Pick the closest workstream map below.
-2. Read only the linked rules needed for the current change.
-3. Pull cookbook recipes in only after the core workstream is chosen.
-4. Open [AGENTS.md](./AGENTS.md) for cross-workstream review routes, package
-   inventory, and maintainer guidance.
+Use the closest row first, then add workstream rules only when needed.
+
+| Task | Start with | Add when |
+| --- | --- | --- |
+| New endpoint slice (`Endpoint<TReq,TRes>`, `Configure`, `Get/Post`, `Routes`) | [FastEndpoints startup and registration](./rules/foundation-startup-registration.md) + [FastEndpoints request DTOs and binding](./rules/contracts-request-dtos-binding.md) | [FastEndpoints validation and error contracts](./rules/contracts-validation-errors.md) and [FastEndpoints endpoint conveniences and hooks](./rules/pipeline-endpoint-conveniences.md) for validator and send-helper behavior. |
+| Endpoint metadata and API docs (`Summary`, tags, `Description`, Swagger/NSwag) | [Swagger and OpenAPI with FastEndpoints](./rules/docs-swagger-openapi.md) | [FastEndpoints transport and docs map](./references/transport-docs-map.md) when transport choice also changes API shape. |
+| File uploads/downloads, streaming, SSE, or RPC endpoint shape | [File handling, streaming, and server-sent events](./rules/transport-files-streaming-sse.md) + [RPC and HTTP transport patterns](./rules/transport-rpc-http-patterns.md) | [FastEndpoints authentication, authorization, and secure defaults](./rules/security-authn-authz.md) when transport changes security requirements. |
+| Cross-cutting endpoint behavior (pre/post processors, hooks, command/event flows) | [FastEndpoints pre and post processors](./rules/pipeline-pre-post-processors.md) + [FastEndpoints commands, events, and bus composition](./rules/architecture-command-event-bus.md) | [FastEndpoints dependency injection and service resolution](./rules/architecture-di-service-resolution.md) for lifetime or scope concerns. |
+| Delivery hardening (AOT, auth, throttling, idempotency, tests, versioning) | [FastEndpoints source generation and Native AOT](./rules/foundation-source-generation-aot.md) + [FastEndpoints authentication, authorization, and secure defaults](./rules/security-authn-authz.md) | [FastEndpoints response caching and rate limiting](./rules/runtime-caching-rate-limits.md), [FastEndpoints idempotency and exception handling](./rules/runtime-idempotency-exceptions.md), [FastEndpoints testing](./rules/testing-fastendpoints.md), and [FastEndpoints versioning and release groups](./rules/versioning-release-groups.md). |
+
+## Quick defaults
+
+- **Endpoint shape:** Prefer `Endpoint<TReq,TRes>` with `Configure()`.
+  Escalate to attributes only for a small documented case.
+- **Auth posture:** Prefer explicit auth/authz.
+  Escalate only when public access truly needs `AllowAnonymous()`.
+- **Versioning:** Prefer built-in route versioning plus release groups.
+  Escalate to `Asp.Versioning.Http` only for a real platform requirement.
+- **Docs:** Prefer FE Swagger and keep `UseSwaggerGen()` after
+  `UseFastEndpoints()`. Escalate when NSwag export or doc shaping needs more
+  control.
+- **Tests:** Prefer integration tests first.
+  Escalate to handler-only focus when the pipeline is irrelevant.
+
+For mistake-first review, start with the
+[FastEndpoints anti-patterns quick reference](./references/anti-patterns-quick-reference.md)
+before opening deeper rules.
+
+## Boundaries and handoffs
+
+- Stay in `martix-fastendpoints` for endpoint contracts, `Configure()` behavior,
+  DTO binding, processors, transport decisions, endpoint-level
+  security/runtime policy, and FastEndpoints testing/versioning.
+- Hand off to `martix-dotnet-csharp` for broad ASP.NET Core host architecture,
+  resilience, diagnostics, logging, or non-FastEndpoints framework setup.
+- Hand off to `martix-fluentvalidation` for deep validator authoring patterns,
+  RuleSets, error metadata strategy, localization, or validator test helper
+  usage.
 
 ## Rule library by workstream
 
-## Foundation and hosting
-
-- Use for `AddFastEndpoints(...)`, `UseFastEndpoints(...)`, package setup,
-  shared options, scaffolding, source generation, and Native AOT.
-- Rules:
-  - [FastEndpoints startup and registration](./rules/foundation-startup-registration.md)
-  - [FastEndpoints configuration options](./rules/foundation-configuration-options.md)
-  - [FastEndpoints source generation and Native AOT](./rules/foundation-source-generation-aot.md)
-  - [FastEndpoints scaffolding](./rules/foundation-scaffolding.md)
-- Map: [FastEndpoints foundation map](./references/foundation-map.md)
-
-## Architecture and messaging
-
-- Use for mapper layout, dependency resolution, command or event bus decisions,
-  and queue-backed background execution.
-- Rules:
-  - [FastEndpoints request, entity, and response mapping](./rules/architecture-mapping.md)
-  - [FastEndpoints dependency injection and service resolution](./rules/architecture-di-service-resolution.md)
-  - [FastEndpoints job queues and background execution](./rules/architecture-job-queues.md)
-  - [FastEndpoints commands, events, and bus composition](./rules/architecture-command-event-bus.md)
-- Map: [FastEndpoints architecture map](./references/architecture-map.md)
-
-## Request pipeline
-
-- Use for request DTOs, model binding, validators, error contracts, endpoint
-  helpers, and reusable pre or post processor flow.
-- Rules:
-  - [FastEndpoints request DTOs and binding](./rules/contracts-request-dtos-binding.md)
-  - [FastEndpoints validation and error contracts](./rules/contracts-validation-errors.md)
-  - [FastEndpoints endpoint conveniences and hooks](./rules/pipeline-endpoint-conveniences.md)
-  - [FastEndpoints pre and post processors](./rules/pipeline-pre-post-processors.md)
-- Map: [FastEndpoints request pipeline map](./references/request-pipeline-map.md)
-
-## Transport and documentation
-
-- Use for Swagger or NSwag setup, endpoint metadata, uploads, downloads,
-  streaming, SSE, and RPC-versus-HTTP choices.
-- Rules:
-  - [Swagger and OpenAPI with FastEndpoints](./rules/docs-swagger-openapi.md)
-  - [File handling, streaming, and server-sent events](./rules/transport-files-streaming-sse.md)
-  - [RPC and HTTP transport patterns](./rules/transport-rpc-http-patterns.md)
-- Map: [FastEndpoints transport and docs map](./references/transport-docs-map.md)
-
-## Runtime and security
-
-- Use for auth, authz, throttling, response caching, idempotency, and
-  framework-specific exception handling.
-- Rules:
-  - [FastEndpoints response caching and rate limiting](./rules/runtime-caching-rate-limits.md)
-  - [FastEndpoints idempotency and exception handling](./rules/runtime-idempotency-exceptions.md)
-  - [FastEndpoints authentication, authorization, and secure defaults](./rules/security-authn-authz.md)
-- Map: [FastEndpoints security and runtime map](./references/security-runtime-map.md)
-
-## Testing and versioning
-
-- Use for endpoint integration tests, handler-only unit tests, release groups,
-  and built-in or package-based API versioning.
-- Rules:
-  - [FastEndpoints testing](./rules/testing-fastendpoints.md)
-  - [FastEndpoints versioning and release groups](./rules/versioning-release-groups.md)
-- Maps:
-  - [FastEndpoints testing and versioning map](./references/testing-versioning-map.md)
-  - [FastEndpoints cookbook index](./references/cookbook-index.md)
+- **Foundation and hosting**: [foundation map](./references/foundation-map.md)
+- **Architecture and messaging**:
+  [architecture map](./references/architecture-map.md)
+- **Request pipeline**:
+  [request pipeline map](./references/request-pipeline-map.md)
+- **Transport and documentation**:
+  [transport and docs map](./references/transport-docs-map.md)
+- **Runtime and security**:
+  [security and runtime map](./references/security-runtime-map.md)
+- **Testing and versioning**:
+  [testing and versioning map](./references/testing-versioning-map.md) and
+  [cookbook index](./references/cookbook-index.md)
 
 ## Package conventions
 
@@ -106,8 +87,8 @@ license: Complete terms in LICENSE.txt
   scoped source inventories, and
   [the comparison matrix template](./templates/comparison-matrix-template.md)
   for external comparisons.
-- The taxonomy and preferred ordering live in
-  [assets/taxonomy.json](./assets/taxonomy.json) and
+- Keep package routing data aligned in [metadata.json](./metadata.json),
+  [assets/taxonomy.json](./assets/taxonomy.json), and
   [assets/section-order.json](./assets/section-order.json).
 
 ## Standalone-first note

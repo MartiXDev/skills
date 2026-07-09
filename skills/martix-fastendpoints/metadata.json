@@ -7,8 +7,8 @@
     "repository": "MartiXDev/skills",
     "distributionModel": "standalone skill with direct Copilot marketplace registration"
   },
-  "summary": "Standalone-first MartiX skill package for FastEndpoints architecture, request-pipeline guidance, transport patterns, and delivery quality.",
-  "abstract": "This package is the canonical source for the MartiX FastEndpoints skill. It ships the authored entrypoints, first-pass rule library, reference maps, support templates, and machine-readable taxonomy that both standalone installs and direct marketplace registration consume.",
+  "summary": "Standalone-first MartiX skill router for FastEndpoints endpoint contracts, Configure-and-route decisions, quick defaults, anti-pattern triage, transport selection, and production hardening.",
+  "abstract": "This package is the canonical source for the MartiX FastEndpoints skill. It ships a tightened activation router, FastEndpoints-specific rule library, a quick anti-pattern reference, support templates, and machine-readable routing metadata that standalone installs and direct marketplace registration consume.",
   "compatibility": {
     "primaryTarget": "GitHub Copilot CLI",
     "secondaryTargets": [
@@ -31,6 +31,7 @@
     "maintainerGuide": "README.md",
     "companionGuide": "AGENTS.md",
     "metadata": "metadata.json",
+    "license": "LICENSE.txt",
     "rules": "rules/*.md",
     "references": "references/*.md",
     "rulesSupport": [
@@ -50,7 +51,9 @@
       ".NET 10",
       "C# 14",
       "request pipeline",
+      "NSwag",
       "OpenAPI",
+      "middleware ordering",
       "Native AOT",
       "SSE",
       "RPC",
@@ -164,8 +167,9 @@
       "rules/testing-fastendpoints.md",
       "rules/versioning-release-groups.md"
     ],
-    "referenceCount": 7,
+    "referenceCount": 8,
     "references": [
+      "references/anti-patterns-quick-reference.md",
       "references/foundation-map.md",
       "references/architecture-map.md",
       "references/request-pipeline-map.md",
@@ -218,6 +222,7 @@
       "rules/versioning-release-groups.md"
     ],
     "referenceOrder": [
+      "references/anti-patterns-quick-reference.md",
       "references/foundation-map.md",
       "references/architecture-map.md",
       "references/request-pipeline-map.md",
@@ -238,12 +243,12 @@
       "status": "canonical",
       "officialInstallCommand": "npx skills add <source>",
       "preferredSources": [
-        ".\\skills\\martix-fastendpoints",
+        "<absolute-path>\\skills\\martix-fastendpoints",
         "https://github.com/MartiXDev/skills/tree/main/skills/martix-fastendpoints"
       ],
       "notes": [
         "Use the standalone package as the source of truth for local installs and direct folder-based validation.",
-        "Prefer a direct folder path or direct GitHub tree URL because skills is not a documented repo-root discovery location."
+        "Use an absolute local path on Windows because relative paths may be interpreted as git sources."
       ]
     },
     "secondarySurface": {
@@ -270,6 +275,10 @@
       {
         "path": "rules/_template.md",
         "role": "starter scaffold for future rule authoring"
+      },
+      {
+        "path": "references/anti-patterns-quick-reference.md",
+        "role": "fast first-pass triage for common FastEndpoints mistakes before opening deeper rules"
       },
       {
         "path": "references/foundation-map.md",
@@ -333,7 +342,7 @@
         "handoffWhen": "Maintainers edit FastEndpoints skill Markdown or need repo-aware markdownlint, accessibility, or formatting guidance."
       }
     ],
-    "handoffPolicy": "Stay in martix-fastendpoints for endpoint, request-pipeline, transport, OpenAPI, and FastEndpoints testing guidance; hand off when the concern becomes platform-wide, validator-specific, or Markdown-maintenance work."
+    "handoffPolicy": "Stay in martix-fastendpoints for endpoint contracts, Configure/route metadata, request-pipeline behavior, transport, OpenAPI, endpoint security/runtime policy, and FastEndpoints testing/versioning. Hand off to martix-dotnet-csharp for broad ASP.NET Core host concerns and to martix-fluentvalidation when validator authoring policy becomes the primary concern."
   },
   "executionProfile": {
     "modelTier": "mixed",
@@ -348,8 +357,10 @@
     "worktreeSafe": true,
     "tokenBudget": "medium",
     "contextStrategy": [
-      "Start with SKILL.md.",
-      "Open only the routed rule or reference file for the requested task.",
+      "Start with SKILL.md quick-start routes.",
+      "Use the anti-patterns quick reference first for mistake-driven review.",
+      "Open only the routed workstream rule or reference map for the requested task.",
+      "Apply explicit handoff boundaries before broadening to general ASP.NET Core guidance.",
       "Use README.md for install and validation guidance."
     ]
   }

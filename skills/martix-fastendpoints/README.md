@@ -17,7 +17,7 @@ installs should consume directly.
 | [SKILL.md](./SKILL.md) | Activation router |
 | [AGENTS.md](./AGENTS.md) | Companion guide |
 | [rules/](./rules) | Twenty rule files |
-| [references/](./references) | Seven source maps |
+| [references/](./references) | Eight maps and quick references |
 | [templates/](./templates) | Author scaffolds |
 | [assets/](./assets) | Taxonomy data |
 | [metadata.json](./metadata.json) | Package metadata |
@@ -26,6 +26,9 @@ installs should consume directly.
 
 - The shared rule contract lives in
   [rules/_sections.md](./rules/_sections.md).
+- Use
+  [references/anti-patterns-quick-reference.md](./references/anti-patterns-quick-reference.md)
+  for fast review of common mistakes before opening deeper rule files.
 - The recommended workstream ordering lives in
   [assets/section-order.json](./assets/section-order.json).
 - The domain taxonomy lives in
@@ -59,8 +62,10 @@ npx skills add https://github.com/MartiXDev/skills --skill martix-fastendpoints
 Use a direct package path only for local validation or development.
 
 ```powershell
-npx skills add C:\Git\MartiXDev\skills\skills\martix-fastendpoints -a github-copilot -y
-npx skills add C:\Git\MartiXDev\skills\skills\martix-fastendpoints -a github-copilot --copy -y
+npx skills add C:\Git\MartiXDev\skills\skills\martix-fastendpoints `
+  -a github-copilot -y
+npx skills add C:\Git\MartiXDev\skills\skills\martix-fastendpoints `
+  -a github-copilot --copy -y
 ```
 
 For validation from GitHub, point at the package folder:
