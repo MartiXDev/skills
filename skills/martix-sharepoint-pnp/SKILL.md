@@ -1,15 +1,15 @@
 ---
 name: martix-sharepoint-pnp
 description: >-
-  Standalone-first SharePoint PnP guidance for provisioning, automation, and
-  cross-tool delivery practices using PnP PowerShell, CLI for Microsoft 365,
-  PnPjs, and related provisioning guidance. Use this skill whenever the user
-  mentions PnP PowerShell, CLI for Microsoft 365, PnPjs, provisioning
-  templates, site scripts or designs, tenant automation, SharePoint scripting,
-  or choosing between these tools for SharePoint delivery, even if they do not
-  explicitly say "PnP". Keep the scope on tooling, automation, provisioning,
-  auth, and operational safety. Do not use it for classic farm-solution
-  packaging or for pure SPFx component implementation work.
+  Standalone-first SharePoint PnP guidance for tool selection, provisioning,
+  automation, authentication, and cross-tool delivery using PnP PowerShell, CLI
+  for Microsoft 365, and PnPjs. Use this skill whenever the user mentions PnP
+  PowerShell cmdlets (for example Connect-PnPOnline), CLI for Microsoft 365
+  SharePoint commands (for example m365 spo), PnPjs, provisioning templates,
+  site scripts or site designs, tenant automation, SharePoint scripting, or
+  choosing among these tooling paths for SharePoint delivery. Keep scope on
+  tooling, automation, provisioning, auth, and operational safety. Do not use
+  for classic farm-solution packaging or pure SPFx component implementation.
 license: Complete terms in LICENSE.txt
 ---
 
@@ -21,15 +21,16 @@ license: Complete terms in LICENSE.txt
 
 ## When to use this skill
 
-- Choose between PnP PowerShell, CLI for Microsoft 365, and PnPjs for a SharePoint automation or provisioning task.
+- Choose between PnP PowerShell, CLI for Microsoft 365, and PnPjs for SharePoint automation or provisioning.
 - Set up authentication, app registration, or connection strategy for SharePoint automation tooling.
 - Author or review provisioning-oriented automation, tenant scripts, or idempotent operational routines.
-- Combine PnP tools with SPFx or native SharePoint APIs while keeping the tooling boundary clear.
+- Troubleshoot or design command-level workflows using PnP cmdlets, `m365 spo` commands, or PnPjs calls.
+- Combine PnP tooling with SPFx or native SharePoint APIs while keeping the automation-versus-runtime boundary clear.
 
 ## Not for this skill
 
-- Classic WSP, feature framework, event receiver, or master-page-centric work.
-- Pure SPFx component implementation where provisioning and automation are not the focus.
+- Classic WSP, Feature Framework, event receiver, or master-page work (handoff to `martix-sharepoint-server`).
+- Pure SPFx component implementation where provisioning and automation are not the focus (handoff to `martix-sharepoint-spfx`).
 - Generic PowerShell or JavaScript advice that is not tied to SharePoint PnP tooling decisions.
 
 ## Start with the closest workstream
@@ -75,7 +76,9 @@ license: Complete terms in LICENSE.txt
 - Use for idempotency, governance, rollback awareness, and SPFx handoff boundaries in PnP-heavy workflows.
 - Rules:
   - [SharePoint PnP operations — idempotency, governance, and SPFx integration boundaries](./rules/governance-idempotency-and-spfx-integration.md)
-- Map: [Provisioning composition map](./references/provisioning-composition-map.md)
+- Maps:
+  - [Provisioning composition map](./references/provisioning-composition-map.md)
+  - [Anti-patterns quick reference](./references/anti-patterns-quick-reference.md)
 
 ## Package conventions
 

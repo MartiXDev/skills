@@ -14,6 +14,7 @@
 | JavaScript or SPFx runtime access | PnPjs | Best fit inside application or SPFx code. |
 | Classic farm or WSP artifact | `martix-sharepoint-server` | That work belongs in the classic server-side package. |
 | Pure SPFx component implementation | `martix-sharepoint-spfx` | That work belongs in the modern client-side package. |
+| Mixed request with provisioning plus SPFx code | Split: this package plus `martix-sharepoint-spfx` | Keep automation and provisioning guidance separate from component implementation details. |
 
 ### Source families
 

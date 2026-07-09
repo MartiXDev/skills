@@ -10,8 +10,8 @@ Use this rule when deciding which PnP tool or adjacent package should own the ta
 ### Default guidance
 
 - Choose the tool from where the automation runs, what it needs to authenticate to, and how it will be maintained.
-- Use PnP PowerShell for PowerShell-centric SharePoint automation, CLI for Microsoft 365 for cross-platform command-line workflows, and PnPjs when SharePoint or Graph access belongs inside a JavaScript or SPFx solution.
-- Redirect classic server-side packaging or pure SPFx component implementation into the matching package.
+- Use PnP PowerShell for PowerShell-centric SharePoint automation, CLI for Microsoft 365 for cross-platform command-line workflows, and PnPjs when SharePoint or Graph access belongs inside a JavaScript or SPFx runtime.
+- Redirect classic server-side packaging work to `martix-sharepoint-server` and pure SPFx component implementation to `martix-sharepoint-spfx`.
 
 ### Avoid
 
@@ -22,6 +22,7 @@ Use this rule when deciding which PnP tool or adjacent package should own the ta
 
 - Confirm the selected tool matches the actual runtime and maintenance model.
 - Confirm adjacent package boundaries are explicit when the task could drift into SPFx or classic server-side work.
+- Confirm command-level trigger language is anchored to the chosen tool (for example PnP cmdlets versus `m365 spo` commands) instead of mixing tool syntax.
 - Confirm the answer explains why the chosen tool is the best fit.
 
 ### Related files

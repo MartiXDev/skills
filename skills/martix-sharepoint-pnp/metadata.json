@@ -18,7 +18,8 @@
       "PnP PowerShell",
       "CLI for Microsoft 365",
       "PnPjs",
-      "Provisioning"
+      "Provisioning",
+      "SharePoint Online"
     ]
   },
   "status": {
@@ -48,11 +49,18 @@
     "tags": [
       "PnP PowerShell",
       "CLI for Microsoft 365",
+      "m365 spo",
       "PnPjs",
       "provisioning",
+      "site scripts",
+      "site designs",
       "automation",
       "authentication",
       "SharePoint"
+    ],
+    "handoffBoundaries": [
+      "martix-sharepoint-spfx",
+      "martix-sharepoint-server"
     ],
     "rulePrefixes": {
       "foundation": "Tool selection and boundaries",
@@ -139,7 +147,8 @@
       "assets/taxonomy.json",
       "assets/section-order.json"
     ],
-    "evalCount": 3,
+    "evalFileCount": 1,
+    "evalPromptCount": 6,
     "evals": [
       "evals/evals.json"
     ]

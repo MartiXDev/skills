@@ -9,11 +9,15 @@
   "keywords": [
     "martix",
     "sharepoint",
+    "sharepoint-online",
     "pnp",
     "pnp-powershell",
     "cli-m365",
+    "m365",
     "pnpjs",
-    "provisioning"
+    "provisioning",
+    "site-scripts",
+    "site-designs"
   ],
   "repository": "https://github.com/MartiXDev/skills",
   "skills": "skills/"
