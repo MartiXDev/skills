@@ -142,5 +142,5 @@ See [AGENTS.md](./AGENTS.md) for cross-domain review routes, maps, and package m
 
 | Hand off to | When |
 | --- | --- |
-| `martix-fastendpoints` | The API surface is explicitly FastEndpoints — `IEndpoint`, endpoint groups, pre/post-processors, or FastEndpoints-specific route configuration. |
+| `martix-fastendpoints` | The API surface is explicitly FastEndpoints — endpoint base types (`Endpoint<TRequest>`, `Endpoint<TRequest, TResponse>`), `Group`/`SubGroup` configuration, `IPreProcessor<>`/`IPostProcessor<>`, or `AddFastEndpoints(...)`/`UseFastEndpoints(...)` setup. |
 | `martix-fluentvalidation` | Validation is a first-class design topic with reusable validators, RuleSets, async rules, localization, or `FluentValidation.TestHelper` usage. |

@@ -81,7 +81,7 @@
     },
     {
       "id": "fastendpoints-negative-activation",
-      "prompt": "Configure a FastEndpoints endpoint that uses IEndpoint, a custom PreProcessor, a custom PostProcessor, and FastEndpoints endpoint groups. Identify which skill handles this and whether martix-dotnet-csharp should be involved.",
+      "prompt": "Configure a FastEndpoints endpoint that uses `Endpoint<TRequest, TResponse>`, a custom `IPreProcessor<TRequest>`, a custom `IPostProcessor<TRequest, TResponse>`, and `Group`/`SubGroup` configuration. Identify which skill handles this and whether martix-dotnet-csharp should be involved.",
       "expected_sections": [
         "Skill boundary",
         "Handoff rationale",
@@ -89,7 +89,7 @@
       ],
       "assertions": [
         "Recognizes this as FastEndpoints-specific work outside the martix-dotnet-csharp scope.",
-        "Does not provide FastEndpoints-specific IEndpoint configuration, pre/post-processor wiring, or endpoint group details.",
+        "Does not provide FastEndpoints-specific endpoint class configuration (`Endpoint<TRequest, TResponse>`), pre/post-processor wiring (`IPreProcessor<>`/`IPostProcessor<>`), or `Group`/`SubGroup` configuration details.",
         "Recommends handoff to martix-fastendpoints for endpoint-specific guidance."
       ],
       "files": [

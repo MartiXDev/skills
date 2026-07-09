@@ -249,7 +249,7 @@
       ],
       "notes": [
         "Official docs currently show npx skills add, not npx skill add.",
-        "Prefer repo-root skill selection with --skill martix-dotnet-csharp when installing from GitHub.",
+        "When using the repo-root URL, prefer repo-root skill selection with --skill martix-dotnet-csharp when installing from GitHub.",
         "Use a direct folder path or direct GitHub tree URL for local validation, development, or when repo-root discovery is ambiguous in the current environment."
       ]
     },
