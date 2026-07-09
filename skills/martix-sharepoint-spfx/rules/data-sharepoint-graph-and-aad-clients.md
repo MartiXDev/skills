@@ -32,9 +32,9 @@ for SharePoint REST, Microsoft Graph, or another Entra-secured API.
 - If the API is multitenant and its service principal must be created in the
   current tenant, document `appId` plus `replyUrl` requirements instead of
   hand-waving the approval flow.
-- Route provisioning or admin API work to separate provisioning or automation
-  guidance rather than forcing a runtime SPFx client into an operator
-  workflow.
+- Route provisioning or admin API work to
+  [martix-sharepoint-pnp](../../martix-sharepoint-pnp/SKILL.md) rather than
+  forcing a runtime SPFx client into an operator workflow.
 
 ### Avoid
 

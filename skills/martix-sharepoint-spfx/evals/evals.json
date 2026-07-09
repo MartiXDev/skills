@@ -89,6 +89,31 @@
       "token_budget": "small",
       "parallel_safe": true,
       "escalation": null
+    },
+    {
+      "id": "pnp-provisioning-handoff",
+      "prompt": "We need CLI for Microsoft 365 and PnPjs to provision site assets, lists, and content before the SPFx web part is deployed. Should martix-sharepoint-spfx own this request?",
+      "negative_activation": true,
+      "expected_sections": [
+        "Scope assessment",
+        "Out-of-scope identification",
+        "Recommended handoff or fallback"
+      ],
+      "assertions": [
+        "Identifies provisioning and operator-run setup as a martix-sharepoint-pnp handoff, not a martix-sharepoint-spfx implementation task.",
+        "Keeps any remaining SPFx guidance limited to the client-side follow-up after provisioning.",
+        "Does not treat PnPjs for provisioning as the same branch as runtime SPFx data-access guidance."
+      ],
+      "files": [
+        "SKILL.md",
+        "AGENTS.md",
+        "references/foundation-scope-support-map.md",
+        "rules/data-sharepoint-graph-and-aad-clients.md"
+      ],
+      "model_tier": "cheap",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "escalation": null
     }
   ]
 }

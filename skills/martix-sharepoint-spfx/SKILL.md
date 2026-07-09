@@ -1,6 +1,6 @@
 ---
 name: martix-sharepoint-spfx
-description: 'Standalone-first SharePoint Framework guidance for SharePoint Online client-side work with SPFx, React, and TypeScript. Covers web parts, property panes, extensions, form customizers, library components, SharePoint and Graph API clients, packaging, deployment, Teams host exposure, Viva Connections integration, theming, toolchains, and migration from Script Editor or UserCustomAction patterns. Use this skill when the task mentions SPFx, SharePoint Framework, SharePoint Online client-side customization, web parts, extensions, Form Customizer, library components, React or TypeScript in SharePoint, supportedHosts, MSGraphClientV3, AadHttpClient, skipFeatureDeployment, Teams tabs from SPFx, PnPjs, ACE, Adaptive Card Extensions, Heft, gulp toolchain, or modernizing classic customizations into supported client-side solutions. Do not use it for classic farm solutions, WSPs, Feature Framework, master pages, server-side object model code, or provisioning-only work.'
+description: 'SharePoint Framework guidance for SharePoint Online client-side architecture, tooling, hosts, and modernization. Use when the task mentions SPFx, SharePoint Framework, SharePoint Online customizations, web parts, extensions, Form Customizer, library components, supportedHosts, Teams tabs, Viva Connections, ACE, Adaptive Card Extensions, MSGraphClientV3, AadHttpClient, PnPjs, Heft, gulp toolchain, skipFeatureDeployment, or modernizing Script Editor, JSLink, UserCustomAction, or ECB customizations. Do not use it for classic farm solutions, WSPs, Feature Framework, master pages, server-side object model code, or provisioning-only work.'
 license: Complete terms in LICENSE.txt
 ---
 
@@ -30,9 +30,10 @@ license: Complete terms in LICENSE.txt
 ## Not for this skill
 
 - Classic farm solutions, WSP packages, Feature Framework receivers, master
-  pages, page layouts, or other server-side SharePoint Server work.
-- Pure provisioning, tenant automation, or operator-run workflows that are
-  better handled as separate provisioning or automation guidance.
+  pages, page layouts, or other server-side SharePoint Server work better
+  handled by [martix-sharepoint-server](../martix-sharepoint-server/SKILL.md).
+- Pure provisioning, tenant automation, or operator-run workflows better
+  handled by [martix-sharepoint-pnp](../martix-sharepoint-pnp/SKILL.md).
 - Generic React or TypeScript advice that is not materially shaped by SPFx
   constraints.
 - Broad SharePoint governance, compliance, or tenant administration questions

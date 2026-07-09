@@ -23,8 +23,8 @@ the recommendation.
   master-page-first branding, and server object model code out of this
   package immediately.
 - Route pure provisioning, tenant automation, or operator-run setup tasks to
-  separate provisioning or automation guidance even when the end result is
-  later consumed by SPFx.
+  [martix-sharepoint-pnp](../../martix-sharepoint-pnp/SKILL.md) even when the
+  end result is later consumed by SPFx.
 - Use supported extensibility points instead of page DOM structure or
   undocumented CSS dependencies.
 
@@ -42,8 +42,10 @@ the recommendation.
 - [ ] The answer names the host, context, and component surface up front.
 - [ ] The answer stays in SPFx only if the requirement is genuinely
   client-side.
-- [ ] Classic/server-side and provisioning-only tasks are handed off
-  explicitly.
+- [ ] Classic/server-side tasks are handed to
+  [martix-sharepoint-server](../../martix-sharepoint-server/SKILL.md) and
+  provisioning-only tasks are handed to
+  [martix-sharepoint-pnp](../../martix-sharepoint-pnp/SKILL.md).
 - [ ] Any 2019 or SE note is presented as a compatibility constraint, not the
   default modern baseline.
 

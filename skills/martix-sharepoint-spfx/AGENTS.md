@@ -50,8 +50,6 @@ description: 'Long-form companion guide for the martix-sharepoint-spfx standalon
   keep the ambiguity explicit instead of flattening it into an overconfident
   promise.
 
-## Workstream playbook
-
 ## Foundation and support boundaries
 
 - Open this workstream when validating that the task belongs in SPFx at all and
@@ -64,8 +62,9 @@ description: 'Long-form companion guide for the martix-sharepoint-spfx standalon
 - Review questions:
   - What host or product surface is in play: SharePoint Online, Teams, Viva,
     SharePoint Server 2019, or Subscription Edition?
-  - Does the task really belong in SPFx rather than the server-side or PnP
-    package?
+  - Does the task really belong in SPFx rather than
+    [martix-sharepoint-server](../martix-sharepoint-server/SKILL.md) or
+    [martix-sharepoint-pnp](../martix-sharepoint-pnp/SKILL.md)?
   - Are unsupported classic artifacts or DOM assumptions being smuggled in?
 
 ## Versioning, compatibility, and scaffolding
@@ -124,8 +123,8 @@ description: 'Long-form companion guide for the martix-sharepoint-spfx standalon
 - Review questions:
   - Which client truly owns the API call?
   - Are permission requests explicit and minimal?
-  - Should provisioning or operator-run API work move to separate provisioning
-    or automation guidance?
+  - Should provisioning or operator-run API work move to
+    [martix-sharepoint-pnp](../martix-sharepoint-pnp/SKILL.md)?
 
 ## Packaging, deployment, and tenant rollout
 
