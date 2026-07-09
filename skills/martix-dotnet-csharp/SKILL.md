@@ -1,6 +1,6 @@
 ---
 name: martix-dotnet-csharp
-description: .NET and C# router for SDK-style modernization, ASP.NET Core, EF Core, async and concurrency, diagnostics, testing, and security defaults. Use when the task mentions options binding, `ValidateOnStart()`, TypedResults, problem details, `WebApplicationFactory`, `IHttpClientFactory`, HTTP resilience, channels, or upgrading an SDK-style project. Keep FastEndpoints endpoint work with `martix-fastendpoints` and validator-specific FluentValidation work with `martix-fluentvalidation`.
+description: Trigger when the task involves SDK-style .NET modernization, ASP.NET Core, EF Core, async/concurrency, diagnostics, testing, or security defaults; hand off FastEndpoints endpoint work to `martix-fastendpoints` and validator-focused FluentValidation work to `martix-fluentvalidation`.
 license: Complete terms in LICENSE.txt
 ---
 
@@ -135,6 +135,10 @@ sealed class ApiOptions
 | Web | [web-aspnet-core](./rules/web-aspnet-core.md), [web-http-resilience](./rules/web-http-resilience.md) | ASP.NET Core shape, Minimal APIs, or outbound HTTP |
 | Data | [data-serialization](./rules/data-serialization.md), [data-efcore](./rules/data-efcore.md) | JSON contracts or EF Core modeling and queries |
 | Quality and security | [testing-unit-integration](./rules/testing-unit-integration.md), [diagnostics-logging-tracing](./rules/diagnostics-logging-tracing.md), [security-auth-authz](./rules/security-auth-authz.md) | Testing strategy, observability, or auth defaults |
+
+Install or invoke this standalone package with `npx skills add <source>` (not
+`npx skill add`); for command variants and examples, see
+[README installation](./README.md#installation).
 
 See [AGENTS.md](./AGENTS.md) for cross-domain review routes, maps, and package maintenance notes.
 

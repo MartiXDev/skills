@@ -7,7 +7,7 @@
     "repository": "MartiXDev/skills",
     "distributionModel": "standalone skill with optional direct Copilot marketplace registration"
   },
-  "summary": "MartiX .NET and C# router for SDK-style modernization, ASP.NET Core, EF Core, async and concurrency, testing, diagnostics, and security defaults.",
+  "summary": "Trigger when the task involves SDK-style .NET modernization, ASP.NET Core, EF Core, async/concurrency, diagnostics, testing, or security defaults; hand off FastEndpoints endpoint work to `martix-fastendpoints` and validator-focused FluentValidation work to `martix-fluentvalidation`.",
   "abstract": "This package is the canonical source for the MartiX .NET and C# skill. It ships the authored entrypoints, rule library, quick-reference guides, source maps, templates, and taxonomy assets used for both modern .NET 10+ and C# 14+ defaults and incremental modernization of older SDK-style repos.",
   "compatibility": {
     "primaryTarget": "GitHub Copilot CLI",
