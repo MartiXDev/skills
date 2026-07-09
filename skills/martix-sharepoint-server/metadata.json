@@ -151,7 +151,7 @@
       "assets/taxonomy.json",
       "assets/section-order.json"
     ],
-    "evalCount": 6,
+    "evalCount": 7,
     "evals": [
       "evals/evals.json"
     ]
