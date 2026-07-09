@@ -129,6 +129,29 @@
       "escalation": null
     },
     {
+      "id": "sibling-handoff-boundary",
+      "prompt": "A user asks for FastEndpoints route-group design and API error contract guidance, then asks to add a few TUnit tests afterward. Decide skill ownership and what part martix-tunit should handle.",
+      "negative_activation": true,
+      "expected_sections": [
+        "Scope split",
+        "Companion skill handoff",
+        "TUnit-owned follow-up"
+      ],
+      "assertions": [
+        "Routes API design and contract shape to martix-fastendpoints instead of keeping it inside martix-tunit.",
+        "Keeps martix-tunit ownership limited to test-project, assertion, lifecycle, data-source, and execution concerns.",
+        "Names martix-dotnet-csharp only when broad .NET language/runtime guidance is required beyond TUnit."
+      ],
+      "files": [
+        "SKILL.md",
+        "AGENTS.md"
+      ],
+      "model_tier": "cheap",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "escalation": null
+    },
+    {
       "id": "scope-boundary-general-handoff",
       "prompt": "A user asks for help that is adjacent to martix-tunit but belongs to a different MartiX skill or general Copilot guidance. Assess whether this skill should handle it.",
       "negative_activation": true,

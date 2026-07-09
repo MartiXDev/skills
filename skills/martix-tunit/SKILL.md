@@ -1,6 +1,6 @@
 ---
 name: martix-tunit
-description: Standalone-first TUnit guidance for test authoring, data-driven tests, lifecycle hooks, parallel-by-default execution, async assertions, dependency injection, mocking, extensibility, and xUnit/NUnit/MSTest migration. Use when writing or reviewing .NET tests with TUnit, setting up a TUnit project with OutputType=Exe and Microsoft.Testing.Platform, running tests via dotnet run, authoring await Assert.That(...) assertions, authoring parameterized tests, managing test lifecycle hooks, configuring parallel execution or test ordering, or extending TUnit with custom attributes and hooks.
+description: Standalone-first TUnit guidance for project setup, awaitable assertions, data sources, lifecycle hooks, parallel execution, extensibility, and framework migration. Use when prompts mention TUnit, await Assert.That(...), dotnet run on Microsoft.Testing.Platform, TUnit attributes ([Test], [Before], [After], [Arguments]), or migrating xUnit/NUnit/MSTest tests to TUnit.
 license: Complete terms in LICENSE.txt
 ---
 
@@ -23,6 +23,15 @@ license: Complete terms in LICENSE.txt
 - Wire up dependency injection inside TUnit tests.
 - Extend TUnit with custom attributes, hooks, or `ITestRegisteredEventReceiver`.
 - Migrate an existing xUnit, NUnit, or MSTest suite to TUnit.
+
+## Out-of-scope handoffs
+
+- Use `martix-dotnet-csharp` for broad .NET or C# language guidance that is not
+  specific to TUnit test behavior.
+- Use `martix-fastendpoints` for endpoint design and API pipeline concerns that
+  are not test-framework routing decisions.
+- Use `martix-powershell` for script automation details unrelated to TUnit
+  runner, assertions, hooks, or data-source behavior.
 
 ## Critical TUnit constraints
 

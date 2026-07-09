@@ -39,6 +39,15 @@ description: 'Long-form companion guide for the martix-tunit standalone skill pa
 - Keep review notes concrete at test class, test method, attribute, hook,
   assertion, and runner level.
 
+### Boundary handoffs
+
+- Hand off to `martix-dotnet-csharp` when the request is primarily broad .NET,
+  C# language, or runtime guidance that is not specific to TUnit behavior.
+- Hand off to `martix-fastendpoints` when the request is mainly endpoint design,
+  contracts, or ASP.NET runtime pipeline work rather than test-framework choices.
+- Hand off to `martix-powershell` when the request is script automation that
+  does not change TUnit runner, assertion, lifecycle, or data-source decisions.
+
 ### Critical TUnit facts — front-load in every review
 
 - **Unawaited assertions silently pass.** Every assertion chain must be
@@ -68,7 +77,7 @@ description: 'Long-form companion guide for the martix-tunit standalone skill pa
 
 ## Workstream playbook
 
-## Foundation and project setup
+### Foundation and project setup
 
 - Open this workstream before changing package references, runner
   configuration, project layout, source generator wiring, or .NET SDK
@@ -88,7 +97,7 @@ description: 'Long-form companion guide for the martix-tunit standalone skill pa
   - Is the IDE configured (VS Test Explorer, Rider, or VS Code) to discover
     TUnit tests?
 
-## Data-driven and parameterized tests
+### Data-driven and parameterized tests
 
 - Open this workstream for parameterized test design, data-source attribute
   selection, inline versus method-backed versus class-backed data, and
@@ -112,7 +121,7 @@ description: 'Long-form companion guide for the martix-tunit standalone skill pa
   - Does the matrix pattern fit the combinatorial surface being tested, or
     does it generate an unexpectedly large test count?
 
-## Lifecycle, hooks, and dependency injection
+### Lifecycle, hooks, and dependency injection
 
 - Open this workstream for setup and teardown hook selection, hook scope,
   shared context initialization, property injection, `IAsyncInitializer`,
@@ -137,7 +146,7 @@ description: 'Long-form companion guide for the martix-tunit standalone skill pa
     genuinely needed?
   - Are service lifetimes aligned with the hook scope they live in?
 
-## Assertions
+### Assertions
 
 - Open this workstream for `Assert.That` usage, async assertion chains,
   collection assertions, exception and delegate assertions, `Assert.Multiple`,
@@ -164,7 +173,7 @@ description: 'Long-form companion guide for the martix-tunit standalone skill pa
   - Are custom assertion extension methods returning the correct awaitable
     type?
 
-## Parallel execution and execution control
+### Parallel execution and execution control
 
 - Open this workstream for `[ParallelLimiter<T>]`, `[NotInParallel]`,
   `[DependsOn]`, test ordering, retries, repeats, timeouts, test filters,
@@ -187,7 +196,7 @@ description: 'Long-form companion guide for the martix-tunit standalone skill pa
   - Are retry and repeat attributes applied at the right scope and with
     appropriate limits?
 
-## Mocking and extensibility
+### Mocking and extensibility
 
 - Open this workstream for `TUnit.Mocks` setup and verification, argument
   matchers, custom `[Test]`-derived attributes, `ITestRegisteredEventReceiver`,
@@ -212,7 +221,7 @@ description: 'Long-form companion guide for the martix-tunit standalone skill pa
   - Are dynamic tests used sparingly and only when static discovery is
     genuinely insufficient?
 
-## Migration and framework comparison
+### Migration and framework comparison
 
 - Open this workstream when migrating existing xUnit, NUnit, or MSTest tests
   to TUnit, or when onboarding a team that is familiar with those frameworks.
@@ -233,7 +242,7 @@ description: 'Long-form companion guide for the martix-tunit standalone skill pa
     removed?
   - Are discovery and execution verified with `dotnet run` after migration?
 
-## Common review routes
+### Common review routes
 
 | Scenario | Start with | Then add |
 | --- | --- | --- |
@@ -248,7 +257,7 @@ description: 'Long-form companion guide for the martix-tunit standalone skill pa
 | TUnit.Mocks usage | [TUnit.Mocks — source-generated mocking](./rules/mocking-tunit-mocks.md) | [TUnit mocking and extending map](./references/mocking-extending-map.md) |
 | Advanced integration scenarios | [TUnit cookbook index](./references/cookbook-index.md) | [TUnit foundation map](./references/foundation-map.md) |
 
-## Reference map index
+### Reference map index
 
 - [TUnit foundation map](./references/foundation-map.md)
 - [TUnit data map](./references/data-map.md)
@@ -260,7 +269,7 @@ description: 'Long-form companion guide for the martix-tunit standalone skill pa
 - [TUnit cookbook index](./references/cookbook-index.md)
 - [Source index and guardrails](./references/doc-source-index.md)
 
-## Official core docs
+### Official core docs
 
 - Foundation:
   - [Intro and overview](https://tunit.dev/docs/intro)
@@ -307,7 +316,7 @@ description: 'Long-form companion guide for the martix-tunit standalone skill pa
 
 ## Maintenance and package growth
 
-## Authoring contract
+### Authoring contract
 
 - Keep every rule aligned with [rules/_sections.md](./rules/_sections.md).
 - Use [the rule template](./templates/rule-template.md) when adding or
@@ -318,7 +327,7 @@ description: 'Long-form companion guide for the martix-tunit standalone skill pa
   `artifacts.rules`, the relevant domain's `ruleCount` and `rules` array,
   and `ordering.recommendedRuleOrder`).
 
-## Research and comparison
+### Research and comparison
 
 - Use [the research pack template](./templates/research-pack-template.md)
   when a future expansion needs a scoped source inventory before new rules
@@ -330,14 +339,14 @@ description: 'Long-form companion guide for the martix-tunit standalone skill pa
 - Treat [metadata.json](./metadata.json) as the registration-ready inventory
   and distribution contract for future package growth.
 
-## Standalone packaging note
+### Standalone packaging note
 
 - This package is the canonical standalone skill under `skills`.
 - If you document or install it directly, use `npx skills add <source>`.
 - A future direct marketplace registration should point to
   `skills/martix-tunit` rather than duplicating the package elsewhere.
 
-## Source boundaries
+### Source boundaries
 
 - Approved first-pass guidance comes from the official TUnit documentation
   (`https://tunit.dev/docs`) and the approved source inventory in
