@@ -21,7 +21,7 @@ description: 'Long-form companion guide for the martix-fastendpoints standalone 
 | Discovery | Quick activation and workstream routing | [SKILL.md](./SKILL.md) |
 | Companion | Cross-workstream guidance, review routes, and maintainer notes | [AGENTS.md](./AGENTS.md) |
 | Rules | 20 atomic FastEndpoints decision guides grouped by workstream | [Rule section contract](./rules/_sections.md) |
-| References | 7 official-doc and cookbook-backed maps | [Foundation map](./references/foundation-map.md) |
+| References | 8 maps and quick references | [Anti-patterns quick reference](./references/anti-patterns-quick-reference.md) |
 | Templates | Authoring, research, and comparison scaffolds | [Rule template](./templates/rule-template.md) |
 | Assets | Preferred taxonomy and ordering | [taxonomy.json](./assets/taxonomy.json) and [section-order.json](./assets/section-order.json) |
 | Metadata | Package identity, release notes, and distribution intent | [metadata.json](./metadata.json) |
@@ -40,6 +40,9 @@ description: 'Long-form companion guide for the martix-fastendpoints standalone 
   workstream; cookbook samples are implementation examples, not policy.
 - Keep review notes concrete at endpoint, validator, mapper, processor,
   transport, and startup level.
+- For mistake-first review, open
+  [the anti-patterns quick reference](./references/anti-patterns-quick-reference.md)
+  before expanding into workstream rules.
 
 ## Workstream playbook
 
@@ -166,6 +169,7 @@ description: 'Long-form companion guide for the martix-fastendpoints standalone 
 | New FastEndpoints feature slice | [FastEndpoints startup and registration](./rules/foundation-startup-registration.md) | [FastEndpoints request DTOs and binding](./rules/contracts-request-dtos-binding.md), [FastEndpoints validation and error contracts](./rules/contracts-validation-errors.md), [FastEndpoints endpoint conveniences and hooks](./rules/pipeline-endpoint-conveniences.md), [FastEndpoints testing](./rules/testing-fastendpoints.md) |
 | Shared configuration or AOT change | [FastEndpoints configuration options](./rules/foundation-configuration-options.md) | [FastEndpoints source generation and Native AOT](./rules/foundation-source-generation-aot.md), [Swagger and OpenAPI with FastEndpoints](./rules/docs-swagger-openapi.md), [FastEndpoints foundation map](./references/foundation-map.md) |
 | DTO binding or validation bug | [FastEndpoints request DTOs and binding](./rules/contracts-request-dtos-binding.md) | [FastEndpoints validation and error contracts](./rules/contracts-validation-errors.md), [FastEndpoints endpoint conveniences and hooks](./rules/pipeline-endpoint-conveniences.md), [FastEndpoints request pipeline map](./references/request-pipeline-map.md) |
+| Startup ordering or Swagger middleware bug | [FastEndpoints anti-patterns quick reference](./references/anti-patterns-quick-reference.md) | [FastEndpoints startup and registration](./rules/foundation-startup-registration.md), [Swagger and OpenAPI with FastEndpoints](./rules/docs-swagger-openapi.md), [FastEndpoints foundation map](./references/foundation-map.md) |
 | Processor or cross-cutting pipeline design | [FastEndpoints pre and post processors](./rules/pipeline-pre-post-processors.md) | [FastEndpoints endpoint conveniences and hooks](./rules/pipeline-endpoint-conveniences.md), [FastEndpoints dependency injection and service resolution](./rules/architecture-di-service-resolution.md), [FastEndpoints testing](./rules/testing-fastendpoints.md) |
 | File upload, download, streaming, or SSE work | [File handling, streaming, and server-sent events](./rules/transport-files-streaming-sse.md) | [Swagger and OpenAPI with FastEndpoints](./rules/docs-swagger-openapi.md), [FastEndpoints authentication, authorization, and secure defaults](./rules/security-authn-authz.md), [FastEndpoints testing](./rules/testing-fastendpoints.md) |
 | RPC, commands, events, or queues | [RPC and HTTP transport patterns](./rules/transport-rpc-http-patterns.md) | [FastEndpoints commands, events, and bus composition](./rules/architecture-command-event-bus.md), [FastEndpoints job queues and background execution](./rules/architecture-job-queues.md), [FastEndpoints architecture map](./references/architecture-map.md) |
@@ -175,6 +179,7 @@ description: 'Long-form companion guide for the martix-fastendpoints standalone 
 ## Reference map index
 
 - [FastEndpoints foundation map](./references/foundation-map.md)
+- [FastEndpoints anti-patterns quick reference](./references/anti-patterns-quick-reference.md)
 - [FastEndpoints architecture map](./references/architecture-map.md)
 - [FastEndpoints request pipeline map](./references/request-pipeline-map.md)
 - [FastEndpoints transport and docs map](./references/transport-docs-map.md)
@@ -205,6 +210,10 @@ description: 'Long-form companion guide for the martix-fastendpoints standalone 
   [section-order.json](./assets/section-order.json), and
   [metadata.json](./metadata.json) as the stable navigation, grouping, and
   distribution contract for future package growth.
+- Keep
+  [the anti-patterns quick reference](./references/anti-patterns-quick-reference.md)
+  aligned with the strongest `Avoid` guidance rather than inventing separate
+  policy.
 
 ## Standalone packaging note
 

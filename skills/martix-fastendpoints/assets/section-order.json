@@ -30,6 +30,7 @@
     "rules/versioning-release-groups.md"
   ],
   "referenceOrder": [
+    "references/anti-patterns-quick-reference.md",
     "references/foundation-map.md",
     "references/architecture-map.md",
     "references/request-pipeline-map.md",

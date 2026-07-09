@@ -29,6 +29,63 @@
       "escalation": null
     },
     {
+      "id": "configure-trigger-routing",
+      "prompt": "A request asks how to structure an Endpoint<TRequest,TResponse> class using Configure(), Verbs(), Routes(), Summary(), and pre/post processors while keeping Swagger output accurate. Route to the smallest FastEndpoints workstream and identify when to add related rules.",
+      "expected_sections": [
+        "Workstream selection",
+        "Configure and metadata guidance",
+        "Processor guidance",
+        "Files to consult"
+      ],
+      "assertions": [
+        "Recognizes FastEndpoints-specific triggers such as Configure(), Routes(), Summary(), and processors.",
+        "Starts with request-pipeline or transport/docs guidance instead of broad ASP.NET Core advice.",
+        "Adds only the minimum extra rule files needed to cover docs metadata and processor flow."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/pipeline-endpoint-conveniences.md",
+        "rules/pipeline-pre-post-processors.md",
+        "rules/docs-swagger-openapi.md",
+        "references/request-pipeline-map.md",
+        "references/transport-docs-map.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "anti-pattern-triage",
+      "prompt": "Review a FastEndpoints service where one endpoint mixes Configure() with attributes, the app calls UseSwaggerGen() before UseFastEndpoints(), serializer settings drift between FastEndpoints and JsonOptions, and an old version is rewritten in place. Triage the mistakes quickly and route to the smallest correction files.",
+      "expected_sections": [
+        "Quick triage",
+        "Primary corrections",
+        "When to open deeper rules",
+        "Files to consult"
+      ],
+      "assertions": [
+        "Starts with the anti-pattern quick reference for first-pass review.",
+        "Routes startup, Swagger ordering, serializer alignment, and versioning issues to the smallest rule set.",
+        "Keeps the answer FastEndpoints-specific instead of drifting into generic ASP.NET Core cleanup."
+      ],
+      "files": [
+        "SKILL.md",
+        "AGENTS.md",
+        "references/anti-patterns-quick-reference.md",
+        "rules/foundation-startup-registration.md",
+        "rules/foundation-configuration-options.md",
+        "rules/docs-swagger-openapi.md",
+        "rules/versioning-release-groups.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
       "id": "transport-choice-review",
       "prompt": "A team wants to expose file downloads, server-sent events, and command-like RPC endpoints from one FastEndpoints service. Review the transport choices and describe when to use HTTP endpoints versus streaming, SSE, or RPC patterns.",
       "expected_sections": [
@@ -85,7 +142,7 @@
     },
     {
       "id": "scope-boundary-general-handoff",
-      "prompt": "A user asks for help that is adjacent to martix-fastendpoints but belongs to a different MartiX skill or general Copilot guidance. Assess whether this skill should handle it.",
+      "prompt": "A user asks for ASP.NET Core host-level resilience and logging strategy, then asks separately for FluentValidation RuleSets and localization details for endpoint validators. Assess whether martix-fastendpoints should handle either request directly.",
       "negative_activation": true,
       "expected_sections": [
         "Scope assessment",
@@ -93,13 +150,14 @@
         "Recommended handoff or fallback"
       ],
       "assertions": [
-        "States whether the request is inside this skill boundary before applying rules.",
-        "Does not load unrelated rule files or claim ownership of another skill domain.",
-        "Recommends a companion skill or generic guidance path when this skill is not the right fit."
+        "States the FastEndpoints-first boundary before loading rule files.",
+        "Hands host-level ASP.NET Core concerns to martix-dotnet-csharp and validator-authoring concerns to martix-fluentvalidation.",
+        "Avoids claiming ownership of non-FastEndpoints domains."
       ],
       "files": [
         "SKILL.md",
-        "AGENTS.md"
+        "AGENTS.md",
+        "metadata.json"
       ],
       "model_tier": "cheap",
       "token_budget": "small",
