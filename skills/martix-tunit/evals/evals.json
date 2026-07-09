@@ -80,6 +80,78 @@
       "escalation": null
     },
     {
+      "id": "assertions-routing",
+      "prompt": "Review a TUnit test file and identify assertion issues: unawaited Assert.That calls, use of xUnit/NUnit assertion APIs, async delegates pre-awaited before passing to Assert.That, and missing async Task on test methods. Route to the minimum rule set.",
+      "expected_sections": [
+        "Unawaited assertion pitfall",
+        "Async model",
+        "Files to consult"
+      ],
+      "assertions": [
+        "Identifies unawaited Assert.That as the primary critical risk.",
+        "Routes through assertions-fundamentals before any other assertions rule.",
+        "Does not pull lifecycle or execution rules unless a cross-workstream concern is present."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/assertions-fundamentals.md",
+        "references/assertions-map.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "mocking-extending-routing",
+      "prompt": "A developer wants to add TUnit.Mocks to their test project and author a custom [Test]-derived attribute that skips slow tests based on an environment variable. Identify what is needed and route to the minimum rule set.",
+      "expected_sections": [
+        "TUnit.Mocks constraints",
+        "Extension point selection",
+        "Files to consult"
+      ],
+      "assertions": [
+        "Gates TUnit.Mocks usage on the C# 14 and beta constraints before any setup guidance.",
+        "Routes custom attribute authoring through extending-extension-points before mocking rules.",
+        "Does not pull unrelated lifecycle or data rules."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/mocking-tunit-mocks.md",
+        "rules/extending-extension-points.md",
+        "references/mocking-extending-map.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "sibling-handoff-boundary",
+      "prompt": "A user asks for FastEndpoints route-group design and API error contract guidance, then asks to add a few TUnit tests afterward. Decide skill ownership and what part martix-tunit should handle.",
+      "negative_activation": true,
+      "expected_sections": [
+        "Scope split",
+        "Companion skill handoff",
+        "TUnit-owned follow-up"
+      ],
+      "assertions": [
+        "Routes API design and contract shape to martix-fastendpoints instead of keeping it inside martix-tunit.",
+        "Keeps martix-tunit ownership limited to test-project, assertion, lifecycle, data-source, and execution concerns.",
+        "Names martix-dotnet-csharp only when broad .NET language/runtime guidance is required beyond TUnit."
+      ],
+      "files": [
+        "SKILL.md",
+        "AGENTS.md"
+      ],
+      "model_tier": "cheap",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "escalation": null
+    },
+    {
       "id": "scope-boundary-general-handoff",
       "prompt": "A user asks for help that is adjacent to martix-tunit but belongs to a different MartiX skill or general Copilot guidance. Assess whether this skill should handle it.",
       "negative_activation": true,
