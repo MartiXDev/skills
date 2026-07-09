@@ -7,8 +7,8 @@
     "repository": "MartiXDev/skills",
     "distributionModel": "standalone skill with optional direct Copilot marketplace registration"
   },
-  "summary": "Standalone-first MartiX skill package for modern .NET 10+ and C# 14+ engineering guidance.",
-  "abstract": "This package is the canonical source for the MartiX .NET and C# skill. It currently ships the authored entrypoints, rule library, quick-reference guides, source maps, templates, and taxonomy assets that marketplace packaging should build on.",
+  "summary": "MartiX .NET and C# router for SDK-style modernization, ASP.NET Core, EF Core, async and concurrency, testing, diagnostics, and security defaults.",
+  "abstract": "This package is the canonical source for the MartiX .NET and C# skill. It ships the authored entrypoints, rule library, quick-reference guides, source maps, templates, and taxonomy assets used for both modern .NET 10+ and C# 14+ defaults and incremental modernization of older SDK-style repos.",
   "compatibility": {
     "primaryTarget": "GitHub Copilot CLI",
     "secondaryTargets": [
@@ -17,7 +17,8 @@
     "languageBaselines": [
       ".NET 10+",
       "C# 14+"
-    ]
+    ],
+    "modernizationSupport": "SDK-style projects below .NET 10 or C# 14 remain in scope for incremental modernization; prefer the repo's current target framework and language version unless the task explicitly includes an upgrade."
   },
   "status": {
     "maturity": "authoring",
@@ -243,12 +244,13 @@
       "status": "canonical",
       "officialInstallCommand": "npx skills add <source>",
       "preferredSources": [
-        ".\\skills\\martix-dotnet-csharp",
+        "https://github.com/MartiXDev/skills",
         "https://github.com/MartiXDev/skills/tree/main/skills/martix-dotnet-csharp"
       ],
       "notes": [
         "Official docs currently show npx skills add, not npx skill add.",
-        "Prefer a direct folder path or direct GitHub tree URL because skills is not a documented repo-root discovery location."
+        "Prefer repo-root skill selection with --skill martix-dotnet-csharp when installing from GitHub.",
+        "Use a direct folder path or direct GitHub tree URL for local validation, development, or when repo-root discovery is ambiguous in the current environment."
       ]
     },
     "secondarySurface": {

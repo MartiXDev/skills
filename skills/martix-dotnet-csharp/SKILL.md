@@ -1,6 +1,6 @@
 ---
 name: martix-dotnet-csharp
-description: Standalone-first .NET 10+ and C# 14+ guidance for code review, modernization, refactoring, and scaffolding. Use when working on SDK-style projects, ASP.NET Core, minimal APIs, EF Core, async flows, diagnostics, testing, security, or modern C# features. Trigger for options pattern, TypedResults, `ValidateOnStart()`, HTTP resilience, `WebApplicationFactory`, channels, problem details, or middleware ordering. Do not trigger for FastEndpoints-specific routing or FluentValidation validator authoring; hand off to martix-fastendpoints or martix-fluentvalidation instead.
+description: .NET and C# router for SDK-style modernization, ASP.NET Core, EF Core, async and concurrency, diagnostics, testing, and security defaults. Use when the task mentions options binding, `ValidateOnStart()`, TypedResults, problem details, `WebApplicationFactory`, `IHttpClientFactory`, HTTP resilience, channels, or upgrading an SDK-style project. Keep FastEndpoints endpoint work with `martix-fastendpoints` and validator-specific FluentValidation work with `martix-fluentvalidation`.
 license: Complete terms in LICENSE.txt
 ---
 
@@ -14,14 +14,22 @@ license: Complete terms in LICENSE.txt
 
 ## When to use this skill
 
-- Review or modernize SDK-style .NET projects.
-- Shape ASP.NET Core or Minimal API services.
-- Refactor async code, cancellation flows, or background work.
-- Tune hot paths, spans, collections, or allocation-sensitive code.
-- Review EF Core, JSON contracts, diagnostics, testing, or security defaults.
-- Answer concrete bootstrap questions such as options binding,
-  `ValidateOnStart()`, TypedResults, problem details, `WebApplicationFactory`,
-  HTTP client resilience, extension blocks, or channels.
+- Review or modernize SDK-style .NET repos, including older baselines.
+- Shape ASP.NET Core HTTP surfaces, options binding, results, and middleware.
+- Review EF Core, async and concurrency, diagnostics, testing, or security
+  defaults.
+- Use companion skills for FastEndpoints endpoint authoring or
+  FluentValidation-specific validator design.
+
+## Compatibility stance
+
+- Default to released .NET 10+ and C# 14+ guidance for greenfield work and
+  explicit upgrade tasks.
+- Older SDK-style repos are still in scope; stay within the repo's current
+  target framework and language version unless the task includes upgrading
+  them.
+- Check the project file and shared build settings before recommending net10-only
+  APIs, extension blocks, or other newer language or runtime features.
 
 ## Quick-start defaults
 

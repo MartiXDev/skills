@@ -1,6 +1,6 @@
 {
   "name": "martix-dotnet-csharp",
-  "description": "Standalone .NET 10+ and C# 14+ skill package for authoring, modernization, and review workflows.",
+  "description": "MartiX .NET and C# router for SDK-style modernization, ASP.NET Core, EF Core, async/concurrency, and review workflows.",
   "version": "0.1.0",
   "author": {
     "name": "MartiXDev"
