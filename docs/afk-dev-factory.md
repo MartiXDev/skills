@@ -46,8 +46,8 @@ code --version         # VS Code with Copilot extension
 | [plugins/martix-afk-factory/agents/](../plugins/martix-afk-factory/agents/) | `.github/agents/` | Custom agent personas. Each declares its scope, file boundaries, and escalation rules. |
 | [plugins/martix-afk-factory/issue-templates/](../plugins/martix-afk-factory/issue-templates/) | `.github/ISSUE_TEMPLATE/` | Issue templates for micro-tasks, feature roots, and HITL decisions. |
 | [plugins/martix-afk-factory/workflows/](../plugins/martix-afk-factory/workflows/) | `.github/workflows/` | Track A workflows: triage, dispatch, poll, cleanup. |
-| [plugins/martix-afk-factory/hooks.json](../plugins/martix-afk-factory/hooks.json) | `.github/hooks/hooks.json` | Copilot CLI hook config. Runs the validation hook after each tool use. |
-| [plugins/martix-afk-factory/hooks/validate-session.ps1](../plugins/martix-afk-factory/hooks/validate-session.ps1) | `.github/hooks/validate-session.ps1` | Hook script. Runs `scripts/validate-repository.ps1` and surfaces failures to the agent. |
+| [plugins/martix-afk-factory/hooks.json](../plugins/martix-afk-factory/hooks.json) | `hooks.json` | Copilot CLI hook config. Runs the validation hook after each tool use. |
+| [plugins/martix-afk-factory/hooks/validate-session.ps1](../plugins/martix-afk-factory/hooks/validate-session.ps1) | `hooks/validate-session.ps1` | Hook script. Runs `scripts/validate-repository.ps1` and surfaces failures to the agent. |
 | [scripts/start-afk-sessions.ps1](../scripts/start-afk-sessions.ps1) | `scripts/start-afk-sessions.ps1` | Track B — local orchestrator. Creates worktrees and opens VS Code per issue. |
 
 ---
