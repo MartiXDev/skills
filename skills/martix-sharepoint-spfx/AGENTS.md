@@ -50,8 +50,6 @@ description: 'Long-form companion guide for the martix-sharepoint-spfx standalon
   keep the ambiguity explicit instead of flattening it into an overconfident
   promise.
 
-## Workstream playbook
-
 ## Foundation and support boundaries
 
 - Open this workstream when validating that the task belongs in SPFx at all and
@@ -64,8 +62,9 @@ description: 'Long-form companion guide for the martix-sharepoint-spfx standalon
 - Review questions:
   - What host or product surface is in play: SharePoint Online, Teams, Viva,
     SharePoint Server 2019, or Subscription Edition?
-  - Does the task really belong in SPFx rather than the server-side or PnP
-    package?
+  - Does the task really belong in SPFx rather than
+    `martix-sharepoint-server` or
+    `martix-sharepoint-pnp`?
   - Are unsupported classic artifacts or DOM assumptions being smuggled in?
 
 ## Versioning, compatibility, and scaffolding
@@ -124,10 +123,10 @@ description: 'Long-form companion guide for the martix-sharepoint-spfx standalon
 - Review questions:
   - Which client truly owns the API call?
   - Are permission requests explicit and minimal?
-  - Should provisioning or operator-run API work move to separate provisioning
-    or automation guidance?
+  - Should provisioning or operator-run API work move to
+    `martix-sharepoint-pnp`?
 
-## Packaging, deployment, and rollout
+## Packaging, deployment, and tenant rollout
 
 - Open this workstream for `package-solution.json`, feature packaging, app
   catalog strategy, asset hosting, and tenant-wide rollout posture.
@@ -192,3 +191,13 @@ description: 'Long-form companion guide for the martix-sharepoint-spfx standalon
   reviews; broader source inventories belong in the reference maps.
 - Keep the Subscription Edition ambiguity conservative and well-cited until the
   official docs align more clearly.
+- Every rule follows the section contract in
+  [rules/_sections.md](./rules/_sections.md): `Purpose`, `Default guidance`,
+  `Avoid`, `Review checklist`, `Related files`, and `Source anchors`.
+- Use [the rule template](./templates/rule-template.md) for new rules,
+  [the research pack template](./templates/research-pack-template.md) for source
+  inventories, and
+  [the comparison matrix template](./templates/comparison-matrix-template.md)
+  for external comparisons.
+- Update `metadata.json`, `assets/taxonomy.json`, `assets/section-order.json`,
+  and `evals/evals.json` when rules, routes, or routing labels change.

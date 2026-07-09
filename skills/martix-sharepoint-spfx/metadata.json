@@ -264,7 +264,7 @@
       "assets/host-support-matrix.json"
     ],
     "evalFileCount": 1,
-    "evalPromptCount": 5,
+    "evalPromptCount": 8,
     "evals": [
       "evals/evals.json"
     ]

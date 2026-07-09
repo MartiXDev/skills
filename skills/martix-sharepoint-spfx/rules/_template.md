@@ -18,9 +18,9 @@ used.
 
 ### Review checklist
 
-- Confirm the default path was considered.
-- Confirm the edge cases that matter were tested or reviewed.
-- Confirm the rule links to adjacent guidance when the topic crosses domains.
+- [ ] Confirm the default path was considered.
+- [ ] Confirm the edge cases that matter were tested or reviewed.
+- [ ] Confirm the rule links to adjacent guidance when the topic crosses domains.
 
 ### Related files
 

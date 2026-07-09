@@ -35,3 +35,7 @@ small bundle of rules and maps should be opened together.
    - [Migration rule](../rules/migration-classic-to-modern-spfx.md)
    - [Foundation rule](../rules/foundation-scope-and-support-boundaries.md)
    - [Component selection map](./component-selection-map.md)
+8. **Scaffold a new SPFx solution from scratch**
+   - [Projects and scaffolding rule](../rules/projects-toolchain-and-scaffolding.md)
+   - [Versioning and compatibility rule](../rules/tooling-versioning-and-compatibility.md)
+   - [Version support map](./version-support-map.md)
