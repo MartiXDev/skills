@@ -23,6 +23,6 @@
 
 ### Explicit exclusions for first-pass routing
 
-- Classic WSP, feature framework, event receiver, or master-page-centric work.
-- Pure SPFx component implementation where provisioning and automation are not the focus.
+- Classic WSP, feature framework, event receiver, or master-page-centric work. Route those requests to `martix-sharepoint-server`.
+- Pure SPFx component implementation where provisioning and automation are not the focus. Route those requests to `martix-sharepoint-spfx`.
 - Generic PowerShell or JavaScript advice that is not tied to SharePoint PnP tooling decisions.

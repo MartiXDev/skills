@@ -35,8 +35,19 @@
       "escalation": null
     },
     {
+      "id": "command-trigger-routing-coverage",
+      "prompt": "I need a repeatable SharePoint Online script: connect with Connect-PnPOnline using app-only auth, then run m365 spo commands for tenant checks. Which tool should own each part?",
+      "expected_output": "Recognizes command-level trigger language, separates PnP PowerShell versus CLI for Microsoft 365 responsibilities, and preserves auth plus automation boundaries.",
+      "files": [],
+      "model_tier": "medium",
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
       "id": "scope-boundary-general-handoff",
-      "prompt": "A user asks for help that is adjacent to martix-sharepoint-pnp but belongs to a different MartiX skill or general Copilot guidance. Assess whether this skill should handle it.",
+      "prompt": "Build an SPFx web part with React property panes and Fluent UI theme tokens. If this package is not the right owner, route to the correct MartiX SharePoint skill.",
       "negative_activation": true,
       "expected_sections": [
         "Scope assessment",
@@ -46,11 +57,35 @@
       "assertions": [
         "States whether the request is inside this skill boundary before applying rules.",
         "Does not load unrelated rule files or claim ownership of another skill domain.",
-        "Recommends a companion skill or generic guidance path when this skill is not the right fit."
+        "Recommends martix-sharepoint-spfx when the request is SPFx component implementation."
       ],
       "files": [
         "SKILL.md",
         "AGENTS.md"
+      ],
+      "model_tier": "cheap",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "escalation": null
+    },
+    {
+      "id": "scope-boundary-classic-server-handoff",
+      "prompt": "I need a SharePoint farm solution with Feature Framework receivers, WSP packaging, and master page deployment. If this package is not the right owner, route to the correct MartiX SharePoint skill.",
+      "negative_activation": true,
+      "expected_sections": [
+        "Scope assessment",
+        "Out-of-scope identification",
+        "Recommended handoff or fallback"
+      ],
+      "assertions": [
+        "States that classic server-side SharePoint artifacts are outside this package boundary.",
+        "Does not answer as though PnP tooling owns WSP or Feature Framework implementation.",
+        "Recommends martix-sharepoint-server when the request is classic farm-solution work."
+      ],
+      "files": [
+        "SKILL.md",
+        "AGENTS.md",
+        "references/doc-source-index.md"
       ],
       "model_tier": "cheap",
       "token_budget": "small",

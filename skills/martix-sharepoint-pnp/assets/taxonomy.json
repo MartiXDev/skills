@@ -50,10 +50,17 @@
   "tags": [
     "PnP PowerShell",
     "CLI for Microsoft 365",
+    "m365 spo",
     "PnPjs",
     "provisioning",
+    "site scripts",
+    "site designs",
     "automation",
     "authentication",
     "SharePoint"
+  ],
+  "handoffBoundaries": [
+    "martix-sharepoint-spfx",
+    "martix-sharepoint-server"
   ]
 }

@@ -27,6 +27,12 @@ description: 'Long-form companion guide for the martix-sharepoint-pnp standalone
 - Use provisioning and automation guidance to reduce repeated setup work, not to hide ownership or idempotency concerns.
 - Cross-link to the SPFx or server-side packages when the task leaves tooling and becomes component implementation or classic artifact maintenance.
 
+## Handoff boundaries
+
+- Route classic SharePoint server-side artifacts to `martix-sharepoint-server`.
+- Route SPFx component design and implementation to `martix-sharepoint-spfx`.
+- Keep this package as the owner for PnP tooling decisions, automation flow, provisioning composition, and auth or connection posture.
+
 ### Critical package facts — front-load in every review
 
 - Recent PnP PowerShell guidance assumes you register your own Entra ID application; auth and connection advice must reflect that reality.

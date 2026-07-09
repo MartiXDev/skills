@@ -30,6 +30,7 @@ standalone skill installs should consume directly.
 - The domain taxonomy lives in [assets/taxonomy.json](./assets/taxonomy.json).
 - The approved source boundaries and precedence rules live in [references/doc-source-index.md](./references/doc-source-index.md).
 - The registration-ready inventory lives in [metadata.json](./metadata.json).
+- Handoff boundaries route classic server-side artifacts to `martix-sharepoint-server` and SPFx component implementation to `martix-sharepoint-spfx`.
 - Marketplace registration should point directly at this folder as the single source of truth when the shared marketplace metadata is updated.
 
 ## Installation
