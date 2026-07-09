@@ -1,17 +1,17 @@
 ---
 name: martix-sharepoint-server
 description: >-
-  Standalone-first SharePoint server-side guidance for classic and on-prem
-  development targeting SharePoint 2019 and Subscription Edition, with
-  SharePoint 2010 and 2013 legacy context for migration and compatibility
-  review. Covers farm solutions, WSP packaging, feature framework, event
-  receivers, site definitions, master pages, Design Manager, themes, classic
-  publishing, and provisioning boundaries. Use this skill whenever the user
-  mentions classic SharePoint artifacts, on-prem customization, WSPs,
-  features, event receivers, site templates, master pages, composed looks,
-  SharePoint Server 2019, or Subscription Edition, even if they do not
-  explicitly say "server-side". Do not use it for primarily SPFx, React,
-  TypeScript, or SharePoint Online client-side work.
+  SharePoint Server classic on-prem guidance for farm solutions, WSPs,
+  Feature Framework, feature receivers, event receivers, site definitions,
+  delegate controls, application pages, master pages, page layouts, Design
+  Manager, and classic provisioning targeting SharePoint 2019 and
+  Subscription Edition, with SharePoint 2010 and 2013 legacy context. Use
+  this skill when the task mentions WSPs, farm solutions, feature XML or
+  receivers, site or list definitions, delegate controls, application pages,
+  master pages, page layouts, composed looks, or classic on-prem
+  modernization; route SPFx web parts or extensions to
+  `martix-sharepoint-spfx` and PnP automation or provisioning tooling to
+  `martix-sharepoint-pnp`.
 license: Complete terms in LICENSE.txt
 ---
 
@@ -27,22 +27,26 @@ license: Complete terms in LICENSE.txt
 
 ## When to use this skill
 
-- Author or review farm solutions, WSP packages, or feature-based deployments.
-- Design event receivers, list event receivers, remote event receivers, or
-  remote timer jobs.
+- Author or review farm solutions, WSP packages, feature XML, feature
+  receivers, or feature-based deployments.
+- Design event receivers, list event receivers, remote event receivers,
+  supporting timer jobs, or related classic extensibility points.
 - Work with site definitions, list definitions, modules, delegate controls,
-  or classic provisioning artifacts.
+  application pages, or classic provisioning artifacts.
 - Maintain or modernize master pages, page layouts, Design Manager assets,
   themes, or composed looks.
 - Target SharePoint 2019 or Subscription Edition while using SharePoint 2010
   and 2013 guidance as legacy context.
 
-## Not for this skill
+## Route these requests to companion skills
 
-- Modern SPFx-first SharePoint Online customizations.
-- React or TypeScript implementation details inside client-side web parts.
-- PnP PowerShell, CLI for Microsoft 365, or PnPjs automation decisions that
-  are not tied to classic server-side artifacts.
+- Use [`martix-sharepoint-spfx`](../martix-sharepoint-spfx/SKILL.md) for SPFx,
+  React, TypeScript, web parts, extensions, Form Customizers, or SharePoint
+  Online client-side customization.
+- Use [`martix-sharepoint-pnp`](../martix-sharepoint-pnp/SKILL.md) for PnP
+  PowerShell, CLI for Microsoft 365, PnPjs, tenant automation, site scripts,
+  or provisioning tooling decisions that are not anchored in classic
+  server-side artifacts.
 
 ## Quick default choices
 

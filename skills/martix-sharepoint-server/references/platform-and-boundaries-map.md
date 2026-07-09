@@ -9,7 +9,7 @@
 
 | Scenario | Preferred package | Reason |
 | --- | --- | --- |
-| Farm solution, WSP, feature XML, or event receiver | `martix-sharepoint-server` | These are classic server-side/on-prem artifact families. |
+| Farm solution, WSP, feature XML, feature receiver, delegate control, application page, or event receiver | `martix-sharepoint-server` | These are classic server-side/on-prem artifact families. |
 | SPFx web part or extension | `martix-sharepoint-spfx` | Client-side SharePoint Framework work belongs in the modern package. |
 | PnP PowerShell or CLI automation | `martix-sharepoint-pnp` | Tooling, automation, and provisioning choices belong in the PnP package. |
 
@@ -20,5 +20,6 @@
 
 ### First-pass cues
 
-- Words like `WSP`, `feature receiver`, `site definition`, or `master page` are strong signals for this package.
-- Words like `SPFx`, `React`, `property pane`, or `web part` should redirect to the SPFx package unless the user is explicitly modernizing a classic artifact.
+- Words like `WSP`, `feature receiver`, `delegate control`, `application page`, `site definition`, or `master page` are strong signals for this package.
+- Words like `SPFx`, `React`, `property pane`, `Form Customizer`, or `web part` should redirect to `martix-sharepoint-spfx` unless the user is explicitly modernizing a classic artifact.
+- Words like `PnP PowerShell`, `CLI for Microsoft 365`, `PnPjs`, `site script`, or `tenant provisioning` should redirect to `martix-sharepoint-pnp` unless the automation is inseparable from a classic farm artifact already owned here.

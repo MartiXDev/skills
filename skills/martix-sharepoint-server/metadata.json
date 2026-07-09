@@ -8,7 +8,7 @@
     "distributionModel": "standalone skill with optional direct Copilot marketplace registration"
   },
   "summary": "Standalone-first MartiX skill package for classic and on-prem SharePoint development.",
-  "abstract": "This package is the canonical source for SharePoint farm-solution, WSP, feature-framework, event-receiver, branding, and classic provisioning guidance targeting SharePoint 2019 and Subscription Edition with SharePoint 2010/2013 legacy context.",
+  "abstract": "This package is the canonical source for SharePoint farm-solution, WSP, Feature Framework, feature-receiver, delegate-control, application-page, branding, and classic provisioning guidance targeting SharePoint 2019 and Subscription Edition with SharePoint 2010/2013 legacy context.",
   "compatibility": {
     "primaryTarget": "GitHub Copilot CLI",
     "secondaryTargets": [
@@ -51,7 +51,10 @@
       "farm solutions",
       "WSP",
       "features",
+      "feature receivers",
       "event receivers",
+      "delegate controls",
+      "application pages",
       "branding",
       "classic provisioning"
     ],
@@ -148,7 +151,7 @@
       "assets/taxonomy.json",
       "assets/section-order.json"
     ],
-    "evalCount": 4,
+    "evalCount": 6,
     "evals": [
       "evals/evals.json"
     ]
