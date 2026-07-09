@@ -23,7 +23,7 @@ the recommendation.
   master-page-first branding, and server object model code out of this
   package immediately.
 - Route pure provisioning, tenant automation, or operator-run setup tasks to
-  [martix-sharepoint-pnp](../../martix-sharepoint-pnp/SKILL.md) even when the
+  `martix-sharepoint-pnp` even when the
   end result is later consumed by SPFx.
 - Use supported extensibility points instead of page DOM structure or
   undocumented CSS dependencies.

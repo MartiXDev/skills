@@ -31,9 +31,9 @@ license: Complete terms in LICENSE.txt
 
 - Classic farm solutions, WSP packages, Feature Framework receivers, master
   pages, page layouts, or other server-side SharePoint Server work better
-  handled by [martix-sharepoint-server](../martix-sharepoint-server/SKILL.md).
+  handled by `martix-sharepoint-server`.
 - Pure provisioning, tenant automation, or operator-run workflows better
-  handled by [martix-sharepoint-pnp](../martix-sharepoint-pnp/SKILL.md).
+  handled by `martix-sharepoint-pnp`.
 - Generic React or TypeScript advice that is not materially shaped by SPFx
   constraints.
 - Broad SharePoint governance, compliance, or tenant administration questions
