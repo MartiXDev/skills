@@ -7,8 +7,8 @@
     "repository": "MartiXDev/skills",
     "distributionModel": "standalone skill with direct Copilot marketplace registration"
   },
-  "summary": "Standalone-first skill pro návrh, implementaci, review a atestační připravenost českých elektronických systémů spisové služby.",
-  "abstract": "Tento balíček je canonical source pro skill martix-essl. Spojuje právní rámec, provozní pravidla a technické části Národního standardu eSSL do routovatelné guidance pro architekturu, metadata, integraci, code review a auditní připravenost vlastního .NET 10+ řešení.",
+  "summary": "Standalone-first skill pro návrh, implementaci, review a atestační připravenost českých elektronických systémů spisové služby se zřetelnými aktivačními hranicemi.",
+  "abstract": "Tento balíček je canonical source pro skill martix-essl. Spojuje právní rámec, provozní pravidla a technické části Národního standardu eSSL do routovatelné guidance pro architekturu, metadata, integraci, code review a auditní připravenost vlastního .NET 10+ řešení, včetně explicitního oddělení od čistě obecných .NET/C# dotazů a od požadavků na formální právní stanoviska.",
   "compatibility": {
     "primaryTarget": "GitHub Copilot CLI",
     "secondaryTargets": [
@@ -207,7 +207,7 @@
       "assets/taxonomy.json",
       "assets/section-order.json"
     ],
-    "evalCount": 7,
+    "evalCount": 9,
     "evals": [
       "evals/evals.json"
     ]
@@ -294,7 +294,7 @@
         "handoffWhen": "Udržovatel upravuje markdown artefakty balíčku a potřebuje repo-aware markdown guidance."
       }
     ],
-    "handoffPolicy": "Zůstaň v martix-essl pro eSSL doménu, právní rámec, metadata, schémata, audit, migraci a atestační připravenost; obecné .NET/C# mechaniky předávej do martix-dotnet-csharp."
+    "handoffPolicy": "Zůstaň v martix-essl pro eSSL doménu, právní rámec, metadata, schémata, audit, migraci a atestační připravenost; obecné .NET/C# mechaniky předávej do martix-dotnet-csharp. U požadavků na formální právní stanovisko vysvětli limity a vrať technicko-doménové doporučení."
   },
   "executionProfile": {
     "modelTier": "mixed",
@@ -309,9 +309,10 @@
     "worktreeSafe": true,
     "tokenBudget": "medium",
     "contextStrategy": [
-      "Začni v SKILL.md.",
-      "Otevři jen nejbližší routed rule nebo reference.",
-      "README.md používej pro instalaci a validaci."
+      "Začni v SKILL.md a urč branch podle aktivačních signálů.",
+      "Otevři jen nejbližší routed rule a jednu navazující reference.",
+      "README.md používej pro instalaci a validaci.",
+      "Udrž trojvrstvý rámec: zákon + vyhláška + národní standard."
     ]
   }
 }

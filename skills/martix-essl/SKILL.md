@@ -1,69 +1,70 @@
 ---
 name: martix-essl
 description: >-
-  Český standalone-first skill pro návrh, implementaci, code review a
-  atestační připravenost elektronických systémů spisové služby podle zákona
-  499/2004 Sb., vyhlášky 259/2012 Sb. a Národního standardu eSSL. Použij tento
-  skill vždy, když uživatel řeší eSSL, spisovou službu, metadata entit, spisy,
-  skartační režimy, SIP/METS, WS API, migraci, transakční protokol, atestaci
-  nebo chce posoudit .NET řešení vůči českým eSSL pravidlům, i když se ptá
-  hlavně na architekturu, review nebo kód.
+  Český standalone-first skill pro eSSL návrh, implementaci, code review a
+  atestační připravenost podle zákona 499/2004 Sb., vyhlášky 259/2012 Sb.
+  a Národního standardu eSSL. Použij, když dotaz řeší eSSL soulad nebo
+  atestaci, metadata a životní cyklus dokumentu, WS API, SIP/METS, migraci,
+  transakční protokol nebo auditovatelnost.
 license: Complete terms in LICENSE.txt
 ---
 
 # MartiX eSSL router
 
-- Použij tento skill pro **doménovou a compliance expertízu eSSL**.
-- Převáděj právní a standardizační požadavky do návrhu, implementačních
-  rozhodnutí, code review a checklistů.
-- Drž odpověď stručnou, ale neschovávej rizika, povinnosti ani nejasnosti.
-- Když už dotaz není primárně o eSSL, atestaci, metadatech, životním cyklu
-  dokumentu nebo standardizačních schématech, předej obecné .NET/C# mechaniky
-  do `martix-dotnet-csharp`.
+Použij tento skill pro **doménovou a compliance expertízu eSSL**. Převáděj
+právní a standardizační požadavky do návrhu, implementačních rozhodnutí, code
+review a checklistů.
 
-## Kdy tento skill použít
+Vedoucí pojem pro rozhodování: **trojvrstvý rámec** (zákon, vyhláška
+a národní standard).
 
-- Navrhuješ nebo reviduješ vlastní eSSL řešení v `.NET 10+`.
-- Potřebuješ vyložit požadavek ze zákona, vyhlášky nebo národního standardu a
-  převést ho do implementačních kroků.
-- Řešíš příjem dokumentů, evidenci, metadata, věcné skupiny, typové spisy,
-  skartační režimy, export/import, přenos, audit nebo bezpečnost.
-- Potřebuješ pracovat s částmi standardu pro `WS API`, `SIP/METS`, migraci,
-  transakční protokol nebo entity metadata.
-- Děláš code review a chceš zkontrolovat, že změna nepoškozuje eSSL soulad ani
-  atestační připravenost.
+## Aktivace a hranice
 
-## Kdy tento skill nepoužít
+### Aktivační signály
 
-- Dotaz je čistě o obecném `.NET`, `C#`, `ASP.NET Core`, DI, výkonu nebo test
-  frameworku bez jasné eSSL vazby.
-- Uživatel chce formální právní stanovisko místo technického a doménového
-  vysvětlení.
-- Téma patří do jiného MartiX skillu a eSSL je jen okrajová zmínka.
+| Branch | Aktivační signál |
+| --- | --- |
+| Soulad a atestace | eSSL, spisová služba, atestace, auditovatelnost |
+| Evidence a metadata | příjem/evidence dokumentů, vady, spisy, metadata entit |
+| Životní cyklus a skartace | skartace, archivní předání, export/import |
+| Integrace a schémata | `WS API`, `WSDL`, `XSD`, `SIP`, `METS`, `manifest` |
+| Migrace a přenos | migrace mezi eSSL, přenosové dávky, potvrzení přenosu |
 
-## Výchozí pracovní režim
+### Nespouštět jako hlavní skill
 
-1. Urči, zda jde hlavně o **soulad**, **návrh**, **integraci**, nebo
+- čistě obecný `.NET/C#` dotaz bez jasné eSSL vazby -> handoff do
+  `martix-dotnet-csharp`
+- požadavek na formální právní stanovisko bez technického kontextu -> vysvětli
+  limity a vrať technicko-doménové doporučení
+
+## Výchozí postup
+
+1. Urči, jestli jde primárně o **soulad**, **návrh**, **integraci**, nebo
    **review změny**.
-2. Otevři nejmenší relevantní `rule` a k ní jednu odpovídající `reference`.
-3. Odpověz tak, aby bylo zřejmé:
-   - co je normativní požadavek,
-   - co je implementační doporučení,
-   - co je riziko nebo chybějící důkaz,
-   - které zdroje to podpírají.
-4. Pokud je potřeba, doporuč další krok nebo handoff na
-   `martix-dotnet-csharp`.
+1. Otevři nejmenší relevantní `rule` a k ní jednu `reference`.
+1. Odděl:
+   - normativní požadavek,
+   - implementační doporučení,
+   - riziko nebo chybějící důkaz,
+   - zdroje.
+1. Když eSSL doména končí, proveď handoff do `martix-dotnet-csharp`.
+
+### Hotovo když
+
+- je explicitně oddělen normativní požadavek od implementačního doporučení;
+- je uvedené riziko pro audit nebo atestační připravenost;
+- jsou uvedené konkrétní zdrojové soubory;
+- u čistě obecných `.NET/C#` částí je doporučen handoff.
 
 ## Preferovaný tvar odpovědi
 
-Použij podle situace co nejmenší užitečný formát:
+Použij co nejmenší užitečný formát:
 
-- **Compliance / review:** `Shrnutí`, `Požadavky`, `Rizika`, `Doporučené kroky`,
-  `Zdrojové soubory`
+- **Compliance/review:** `Shrnutí`, `Požadavky`, `Rizika`, `Doporučené kroky`,
+  `Zdrojové soubory`.
 - **Návrh řešení:** `Cíl`, `Dopady eSSL`, `Doporučený návrh`, `Otevřené otázky`,
-  `Zdrojové soubory`
-- **Rychlá orientace ve zdrojích:** `Krátká odpověď`, `Kde to hledat`,
-  `Co ověřit dál`
+  `Zdrojové soubory`.
+- **Rychlá orientace:** `Krátká odpověď`, `Kde to hledat`, `Co ověřit dál`.
 
 ## Začni nejbližším workstreamem
 
@@ -89,12 +90,3 @@ Použij podle situace co nejmenší užitečný formát:
 - [Metadata crosswalk](./references/metadata-crosswalk.md)
 - [Index schémat](./references/xsd-wsdl-xml-index.md)
 - [Mapa atestační připravenosti](./references/atestacni-pripravenost-map.md)
-
-## Konvence balíčku
-
-- `SKILL.md` routuje; detail drž v `rules\` a `references\`.
-- `AGENTS.md` používej pro delší review route, maintainer guidance a handoffy.
-- Když potřebuješ vysvětlit termín, raději odkaž na glosář než načítat celý
-  hlavní standard.
-- Když potřebuješ technický artefakt, otevři nejdřív jeho mapu a teprve pak
-  konkrétní `WSDL`, `XSD` nebo `XML`.

@@ -51,8 +51,10 @@ npx skills add https://github.com/MartiXDev/skills --skill martix-essl
 Přímou cestu k balíčku používej jen pro lokální validaci nebo vývoj.
 
 ```powershell
-npx skills add C:\Git\MartiXDev\skills\skills\martix-essl -a github-copilot -y
-npx skills add C:\Git\MartiXDev\skills\skills\martix-essl -a github-copilot --copy -y
+npx skills add C:\Git\MartiXDev\skills\skills\martix-essl `
+  -a github-copilot -y
+npx skills add C:\Git\MartiXDev\skills\skills\martix-essl `
+  -a github-copilot --copy -y
 ```
 
 ## Struktura balíčku
@@ -87,8 +89,10 @@ npx skills add C:\Git\MartiXDev\skills\skills\martix-essl -a github-copilot --co
 ```powershell
 Get-Content .\skills\martix-essl\metadata.json | ConvertFrom-Json | Out-Null
 Get-Content .\skills\martix-essl\plugin.json | ConvertFrom-Json | Out-Null
-Get-Content .\skills\martix-essl\assets\taxonomy.json | ConvertFrom-Json | Out-Null
-Get-Content .\skills\martix-essl\assets\section-order.json | ConvertFrom-Json | Out-Null
+Get-Content .\skills\martix-essl\assets\taxonomy.json `
+  | ConvertFrom-Json | Out-Null
+Get-Content .\skills\martix-essl\assets\section-order.json `
+  | ConvertFrom-Json | Out-Null
 Get-Content .\skills\martix-essl\evals\evals.json | ConvertFrom-Json | Out-Null
 ```
 
@@ -105,7 +109,7 @@ powershell -ExecutionPolicy Bypass `
 powershell -ExecutionPolicy Bypass -File .\scripts\validate-repository.ps1
 ```
 
-## Update a uninstall
+## Update a odinstalace
 
 ```powershell
 npx skills check

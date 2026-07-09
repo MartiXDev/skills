@@ -187,6 +187,59 @@
       "parallel_safe": true,
       "negative_activation": true,
       "escalation": null
+    },
+    {
+      "id": "negative-boundary-formal-legal-opinion",
+      "prompt": "Potřebuju od tebe závazné právní stanovisko, jestli moje organizace přesně plní zákon 499/2004 Sb. Nechci technický návrh ani checklist, jen jasné právní rozhodnutí ano/ne.",
+      "expected_sections": [
+        "Scope assessment",
+        "Limity odpovědi",
+        "Technicko-doménové doporučení"
+      ],
+      "assertions": [
+        "Odpověď výslovně uvede, že neposkytuje formální právní stanovisko.",
+        "Neodmítne celé téma eSSL; místo toho nabídne technicko-doménový rámec pro další postup.",
+        "Výstup zůstane stručný a nebude předstírat právní autoritu."
+      ],
+      "files": [
+        "SKILL.md",
+        "AGENTS.md",
+        "rules/foundation-scope-a-zdroje.md",
+        "references/pravni-ramec-a-povinnosti-map.md"
+      ],
+      "model_tier": "cheap",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": true,
+      "escalation": null
+    },
+    {
+      "id": "hybrid-essl-a-obecny-dotnet",
+      "prompt": "Navrhuju modul skartačního řízení v eSSL a zároveň řeším čistě technickou otázku, jestli je lepší použít Source Generators nebo klasickou reflexi pro mapování DTO. Chci, aby ses držel eSSL souladu a zároveň jasně oddělil, co už je obecný .NET návrh.",
+      "expected_sections": [
+        "Scope assessment",
+        "eSSL požadavky a rizika",
+        "Handoff pro obecný .NET návrh",
+        "Zdrojové soubory"
+      ],
+      "assertions": [
+        "Odpověď zůstane aktivovaná v martix-essl kvůli eSSL jádru dotazu.",
+        "Jasně oddělí eSSL část od čistě frameworkové .NET části.",
+        "Doporučí handoff do martix-dotnet-csharp pro technické rozhodnutí mimo eSSL doménu.",
+        "Uvede konkrétní pravidla nebo reference relevantní pro skartaci."
+      ],
+      "files": [
+        "SKILL.md",
+        "AGENTS.md",
+        "rules/skartace-ukladani-prenos-a-vyrazeni.md",
+        "rules/foundation-scope-a-zdroje.md",
+        "references/skartace-a-archivacni-predani-map.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
     }
   ]
 }
