@@ -26,6 +26,7 @@ Use this rule for classic event-driven extensibility patterns and long-running b
 
 ### Related files
 
+- [Rule section contract](./_sections.md)
 - [Packaging and extensibility map](../references/packaging-and-extensibility-map.md)
 - [Provisioning and modernization map](../references/provisioning-modernization-map.md)
 

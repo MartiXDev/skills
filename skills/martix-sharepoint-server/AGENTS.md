@@ -1,5 +1,9 @@
 ---
-description: 'Long-form companion guide for the martix-sharepoint-server standalone skill package'
+description: >-
+  Long-form companion guide for the martix-sharepoint-server standalone skill
+  package. Use when a scenario spans multiple workstreams, you need the full
+  review route, package inventory, maintainer cues, or authoring conventions
+  for new rules and references.
 ---
 
 ## MartiX SharePoint server companion
@@ -141,6 +145,21 @@ description: 'Long-form companion guide for the martix-sharepoint-server standal
     should move to newer approaches later?
   - Is publishing or portal modernization part of the delivery plan rather
     than a vague future promise?
+
+## Authoring package artifacts
+
+- Every rule file must follow the shared section contract in
+  [rules/_sections.md](./rules/_sections.md): `Purpose`, `Default guidance`,
+  `Avoid`, `Review checklist`, `Related files`, and `Source anchors`.
+- Use [the rule template](./templates/rule-template.md) when adding a new
+  rule, [the research pack template](./templates/research-pack-template.md)
+  when scoping a future research memo, and
+  [the comparison matrix template](./templates/comparison-matrix-template.md)
+  when comparing this package with external skills or revisions.
+- Update [metadata.json](./metadata.json), [assets/taxonomy.json](./assets/taxonomy.json),
+  [assets/section-order.json](./assets/section-order.json), and
+  [evals/evals.json](./evals/evals.json) whenever rules, references, or
+  routing choices change.
 
 ## Maintainer cues
 

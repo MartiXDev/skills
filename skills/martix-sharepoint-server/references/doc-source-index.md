@@ -27,3 +27,4 @@
 - Modern SPFx-first SharePoint Online customizations.
 - React or TypeScript implementation details inside client-side web parts.
 - PnP PowerShell, CLI for Microsoft 365, or PnPjs automation decisions that are not tied to classic server-side artifacts.
+- When one of those exclusions is the real task, hand off to `martix-sharepoint-spfx` or `martix-sharepoint-pnp` instead of stretching this package.

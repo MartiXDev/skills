@@ -13,7 +13,10 @@
     "sharepoint-2019",
     "sharepoint-se",
     "wsp",
-    "farm-solutions"
+    "farm-solutions",
+    "feature-receivers",
+    "delegate-controls",
+    "application-pages"
   ],
   "repository": "https://github.com/MartiXDev/skills",
   "skills": "skills/"

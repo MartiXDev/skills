@@ -26,6 +26,7 @@ Use this rule for classic site provisioning decisions and modernization-aware on
 
 ### Related files
 
+- [Rule section contract](./_sections.md)
 - [Provisioning and modernization map](../references/provisioning-modernization-map.md)
 - [Site and branding map](../references/site-and-branding-map.md)
 

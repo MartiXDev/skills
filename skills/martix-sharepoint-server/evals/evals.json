@@ -35,6 +35,47 @@
       "escalation": null
     },
     {
+      "id": "delegate-control-and-feature-receiver-review",
+      "prompt": "We still ship a SharePoint Server solution package with delegate controls, feature receivers, and an application page for admin support. Help me review whether the packaging and rollout story still make sense for Subscription Edition.",
+      "expected_output": "Stays in martix-sharepoint-server and covers feature ownership, classic artifact boundaries, and rollout implications for delegate controls and application pages.",
+      "files": [
+        "SKILL.md",
+        "references/platform-and-boundaries-map.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "spfx-react-negative-activation",
+      "prompt": "I need help building a SharePoint Framework web part in React that reads from a SharePoint Online list and renders a custom property pane.",
+      "expected_output": "Declines and routes to martix-sharepoint-spfx rather than applying classic server-side guidance.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "cheap",
+      "parallel_safe": true,
+      "token_budget": "small",
+      "negative_activation": true,
+      "escalation": null
+    },
+    {
+      "id": "pnp-provisioning-negative-activation",
+      "prompt": "I need to choose between PnP PowerShell and CLI for Microsoft 365 for tenant provisioning and site script rollout across SharePoint Online.",
+      "expected_output": "Declines and routes to martix-sharepoint-pnp rather than treating the request as a classic server-side farm artifact task.",
+      "files": [
+        "SKILL.md",
+        "references/platform-and-boundaries-map.md"
+      ],
+      "model_tier": "cheap",
+      "parallel_safe": true,
+      "token_budget": "small",
+      "negative_activation": true,
+      "escalation": null
+    },
+    {
       "id": "scope-boundary-general-handoff",
       "prompt": "A user asks for help that is adjacent to martix-sharepoint-server but belongs to a different MartiX skill or general Copilot guidance. Assess whether this skill should handle it.",
       "negative_activation": true,
