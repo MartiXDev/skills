@@ -6,11 +6,11 @@
 
 There is a new VS Code Agents window - see <https://code.visualstudio.com/docs/copilot/agents/agents-window>
 
-I like the to work on several features in parallel.
+I like to work on several features in parallel.
 
 I also like the way the work is prepared using GitHub SpecKit or Matt Pocock Sandcastle <https://github.com/mattpocock/sandcastle> or Skills <https://github.com/mattpocock/skills>
 
-My goal or idea is to prepare several features in GitHub, what would be the best way to prepare hierarchical issues and then let single agent or multiple agens work on implementation. So I can imagine something like each issue or sub-issu is marked with specific label by triage workflow, so we know if it's frontend, backend, test, documentation or other type of task. So then "something" can run multiple agents to pickup own issues to work on. How to achieve this using Copilot CLI or new Agents window?
+My goal or idea is to prepare several features in GitHub. What would be the best way to prepare hierarchical issues and then let single agent or multiple agents work on implementation? So I can imagine something like each issue or sub-issue is marked with specific label by triage workflow, so we know if it's frontend, backend, test, documentation or other type of task. So then "something" can run multiple agents to pick up own issues to work on. How to achieve this using Copilot CLI or new Agents window?
 
 ### Prompt 2
 

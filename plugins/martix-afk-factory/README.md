@@ -72,6 +72,16 @@ Copy-Item plugins/martix-afk-factory/issue-templates/*.md .github/ISSUE_TEMPLATE
     "area/ops":      { "agentFile": ".github/agents/ops.agent.md" }
   },
   "sharedFiles": [
+    ".github/plugin/marketplace.json",
+    "README.md",
+    "skills/README.md",
+    "plugins/README.md",
+    "docs/repo-overview.md",
+    "docs/plugin-layout.yaml",
+    "docs/execution-profiles.md",
+    "docs/llm-routing-strategy.md",
+    "scripts/validate-repository.ps1",
+    "templates/",
     ".github/agent-config.json"
   ]
 }

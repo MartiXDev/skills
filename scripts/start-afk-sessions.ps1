@@ -52,6 +52,15 @@ if (-not (Test-Path $configPath)) {
 }
 $config = Get-Content $configPath -Raw | ConvertFrom-Json
 
+if (-not $config.PSObject.Properties.Match('branchPrefix') -or [string]::IsNullOrWhiteSpace($config.branchPrefix)) {
+  Write-Error "agent-config.json is missing required property 'branchPrefix' (expected e.g. 'fix/issue-')."
+  exit 1
+}
+if (-not $config.PSObject.Properties.Match('sharedFiles')) {
+  Write-Error "agent-config.json is missing required property 'sharedFiles' (array of shared coordinator file paths)."
+  exit 1
+}
+
 # ── Monitor mode ───────────────────────────────────────────────────────────────
 if ($Monitor) {
   if (-not (Test-Path $sessionsFile)) {
@@ -115,25 +124,31 @@ if (-not (Test-Path $worktreeRoot)) {
 
 $sessions = @()
 if (Test-Path $sessionsFile) {
-  $sessions = Get-Content $sessionsFile -Raw | ConvertFrom-Json
+  $sessions = @((Get-Content $sessionsFile -Raw | ConvertFrom-Json))
 }
 $activeIssueNumbers = $sessions | ForEach-Object { $_.issueNumber }
 
 # ── Fetch ready issues ─────────────────────────────────────────────────────────
 Write-Host 'Fetching afk/ready issues...'
-$issuesJson = gh issue list `
+
+$ghErr = New-TemporaryFile
+$issuesJson = & gh issue list `
   --label 'afk/ready' `
   --state open `
-  --json number, title, body, labels `
+  --json number,title,body,labels `
   --limit 20 `
-  2>&1
+  2> $ghErr
 
 if ($LASTEXITCODE -ne 0) {
-  Write-Error "gh issue list failed: $issuesJson"
+  $errText = Get-Content $ghErr -Raw
+  Remove-Item $ghErr -Force -ErrorAction SilentlyContinue
+  Write-Error "gh issue list failed: $errText"
   exit 1
 }
 
-$issues = $issuesJson | ConvertFrom-Json
+Remove-Item $ghErr -Force -ErrorAction SilentlyContinue
+
+$issues = ($issuesJson | Out-String).Trim() | ConvertFrom-Json
 
 if ($issues.Count -eq 0) {
   Write-Host 'No afk/ready issues found.'
@@ -261,7 +276,7 @@ remote monitoring.*
 
 # ── Save sessions ──────────────────────────────────────────────────────────────
 if (-not $DryRun) {
-  ConvertTo-Json -InputObject $sessions -Depth 5 | Set-Content $sessionsFile -Encoding UTF8
+  ConvertTo-Json -InputObject @($sessions) -Depth 5 | Set-Content $sessionsFile -Encoding UTF8
 }
 
 Write-Host ''

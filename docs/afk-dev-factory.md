@@ -40,20 +40,15 @@ code --version         # VS Code with Copilot extension
 
 ## Key files
 
-| File | Role |
-| --- | --- |
-| [.github/agent-config.json](../.github/agent-config.json) | Single source of truth. Maps `tier/*` labels → model names, `area/*` labels → `.agent.md` files, and lists shared coordinator files. |
-| [.github/agents/*.agent.md](../.github/agents/) | Custom agent personas. Each declares its scope, file boundaries, and escalation rules. |
-| [.github/ISSUE_TEMPLATE/micro-task.md](../.github/ISSUE_TEMPLATE/micro-task.md) | Issue template for AFK-dispatchable work. |
-| [.github/ISSUE_TEMPLATE/feature-root.md](../.github/ISSUE_TEMPLATE/feature-root.md) | Parent issue for feature branches. Carries `hitl` — never dispatched automatically. |
-| [.github/ISSUE_TEMPLATE/hitl-decision.md](../.github/ISSUE_TEMPLATE/hitl-decision.md) | Architecture or planning decision requiring human input before agent work can begin. |
-| [.github/workflows/triage.yml](../.github/workflows/triage.yml) | Validates micro-task issues and adds `afk/ready` when all conditions pass. |
-| [.github/workflows/dispatch-agent.yml](../.github/workflows/dispatch-agent.yml) | Track A — dispatches `afk/ready` issues to the cloud agent REST API. |
-| [.github/workflows/poll-agent.yml](../.github/workflows/poll-agent.yml) | Track A — polls in-progress cloud tasks every 15 minutes and updates labels. |
-| [.github/workflows/cleanup-merged.yml](../.github/workflows/cleanup-merged.yml) | Closes the linked issue and applies `afk/done` when a `fix/issue-N` PR is merged. |
-| [scripts/start-afk-sessions.ps1](../scripts/start-afk-sessions.ps1) | Track B — local orchestrator. Creates worktrees and opens VS Code per issue. |
-| [.github/hooks/hooks.json](../.github/hooks/hooks.json) | Copilot CLI hook config. Runs the validation hook after each tool use. |
-| [.github/hooks/validate-session.ps1](../.github/hooks/validate-session.ps1) | Hook script. Runs `scripts/validate-repository.ps1` and surfaces failures to the agent. |
+| Source (this repo) | Installed location | Role |
+| --- | --- | --- |
+| `agent-config.json` (create in your repo) | `.github/agent-config.json` | Routing config. Maps `tier/*` → model names, `area/*` → `.agent.md` files, and lists shared coordinator files. |
+| [plugins/martix-afk-factory/agents/](../plugins/martix-afk-factory/agents/) | `.github/agents/` | Custom agent personas. Each declares its scope, file boundaries, and escalation rules. |
+| [plugins/martix-afk-factory/issue-templates/](../plugins/martix-afk-factory/issue-templates/) | `.github/ISSUE_TEMPLATE/` | Issue templates for micro-tasks, feature roots, and HITL decisions. |
+| [plugins/martix-afk-factory/workflows/](../plugins/martix-afk-factory/workflows/) | `.github/workflows/` | Track A workflows: triage, dispatch, poll, cleanup. |
+| [plugins/martix-afk-factory/hooks.json](../plugins/martix-afk-factory/hooks.json) | `.github/hooks/hooks.json` | Copilot CLI hook config. Runs the validation hook after each tool use. |
+| [plugins/martix-afk-factory/hooks/validate-session.ps1](../plugins/martix-afk-factory/hooks/validate-session.ps1) | `.github/hooks/validate-session.ps1` | Hook script. Runs `scripts/validate-repository.ps1` and surfaces failures to the agent. |
+| [scripts/start-afk-sessions.ps1](../scripts/start-afk-sessions.ps1) | `scripts/start-afk-sessions.ps1` | Track B — local orchestrator. Creates worktrees and opens VS Code per issue. |
 
 ---
 
@@ -87,11 +82,11 @@ Keep it self-contained — the agent receives only this text plus its `.agent.md
 
 **Tier** controls model cost:
 
-| Label | Model | Use for |
+| Label | Where model is set | Use for |
 | --- | --- | --- |
-| `tier/cheap` | gpt-4o-mini | Formatting, link checks, simple README sync, template application |
-| `tier/medium` | gpt-4.1 | Package implementation, eval authoring, focused review |
-| `tier/premium` | claude-opus-4 | Planning, ambiguous architecture, security-sensitive review |
+| `tier/cheap` | `.github/agent-config.json` (`tiers["tier/cheap"].model`) | Formatting, link checks, simple README sync, template application |
+| `tier/medium` | `.github/agent-config.json` (`tiers["tier/medium"].model`) | Package implementation, eval authoring, focused review |
+| `tier/premium` | `.github/agent-config.json` (`tiers["tier/premium"].model`) | Planning, ambiguous architecture, security-sensitive review |
 
 **Area** selects the agent persona:
 
@@ -166,7 +161,7 @@ In the VS Code window that opens at the worktree:
 2. Start a new session — the agent reads `COPILOT_START.md` automatically.
 3. Run `/remote on` to enable monitoring from `github.com/mobile`.
 
-The post-tool-use hook (`.github/hooks/validate-session.ps1`) runs
+The post-tool-use hook (`plugins/martix-afk-factory/hooks/validate-session.ps1`) runs
 `scripts/validate-repository.ps1` after every tool call and surfaces failures
 in the session output so the agent can self-correct without aborting.
 

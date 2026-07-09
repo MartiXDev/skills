@@ -36,7 +36,8 @@ Then generate:
 
 Validate that:
 - The agent-prompt block does not reference shared coordinator files
-  (`README.md`, `docs/repo-overview.md`, `docs/execution-profiles.md`,
+  (`.github/plugin/marketplace.json`, `README.md`, `skills/README.md`, `plugins/README.md`,
+  `docs/repo-overview.md`, `docs/plugin-layout.yaml`, `docs/execution-profiles.md`,
   `docs/llm-routing-strategy.md`, `scripts/validate-repository.ps1`, `templates/`).
 - The total character count of the agent-prompt block is ≤ 400.
 
