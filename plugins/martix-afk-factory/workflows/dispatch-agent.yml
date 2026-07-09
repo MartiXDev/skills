@@ -31,20 +31,13 @@ jobs:
 
             const labels = context.payload.issue.labels.map(l => l.name);
             const tierLabel = labels.find(l => l.startsWith('tier/'));
-            const areaLabel = labels.find(l => l.startsWith('area/'));
 
             const model = (tierLabel && config.tiers[tierLabel])
               ? config.tiers[tierLabel].model
               : 'gpt-4.1';
 
-            const agentFile = (areaLabel && config.areas[areaLabel])
-              ? config.areas[areaLabel].agentFile
-              : null;
-
             core.setOutput('model', model);
-            core.setOutput('agentFile', agentFile || '');
             core.info(`Tier: ${tierLabel} → model: ${model}`);
-            core.info(`Area: ${areaLabel} → agent: ${agentFile}`);
 
       - name: Extract agent-prompt block
         id: prompt
@@ -71,6 +64,12 @@ jobs:
         with:
           script: |
             const fs = require('fs');
+            const token = process.env.COPILOT_AGENT_TOKEN;
+            if (!token) {
+              core.setFailed('COPILOT_AGENT_TOKEN secret is not set. Configure it as a repository secret (user PAT with copilot scope).');
+              return;
+            }
+
             const rawPrompt = process.env.AGENT_PROMPT || '';
             const model = process.env.AGENT_MODEL || '';
             const agentFile = process.env.AGENT_FILE || '';
@@ -78,7 +77,11 @@ jobs:
             let prompt = rawPrompt;
             if (agentFile && fs.existsSync(agentFile)) {
               const instructions = fs.readFileSync(agentFile, 'utf8');
-              prompt = `${instructions}\n\n---\n\n${rawPrompt}`;
+              prompt = `${instructions}
+
+---
+
+${rawPrompt}`;
               core.info(`Prepended agent instructions from ${agentFile}`);
             }
 
@@ -89,7 +92,7 @@ jobs:
                 headers: {
                   'Accept': 'application/vnd.github+json',
                   'X-GitHub-Api-Version': '2022-11-28',
-                  'Authorization': `Bearer ${process.env.COPILOT_AGENT_TOKEN}`,
+                  'Authorization': `Bearer ${token}`,
                   'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
