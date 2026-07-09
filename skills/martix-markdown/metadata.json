@@ -7,7 +7,7 @@
     "repository": "MartiXDev/skills",
     "distributionModel": "standalone skill with direct Copilot marketplace registration"
   },
-  "summary": "Standalone-first MartiX skill package for markdownlint-aware Markdown authoring, MD-code triage, grouped rule routing, repo-local overlay comparison, custom-rule decisions, Prettier coexistence, and accessibility-aware review.",
+  "summary": "Standalone-first MartiX skill package for markdownlint triage, durable fixes, repo-local overlay comparison, custom-rule decisions, Prettier coexistence, and accessibility-aware review.",
   "abstract": "This package is the canonical source for the MartiX Markdown skill. It now ships the authored entrypoints, 7 grouped rule files, 8 reference docs including the instruction-bridge layer, 4 templates, taxonomy assets, and registration-ready metadata that standalone installs and direct marketplace registration should consume from skills.",
   "compatibility": {
     "primaryTarget": "GitHub Copilot CLI",
@@ -205,7 +205,7 @@
       "assets/section-order.json"
     ],
     "evalSuiteCount": 1,
-    "evalPromptCount": 3,
+    "evalPromptCount": 6,
     "evals": [
       "evals/evals.json"
     ]
@@ -419,7 +419,7 @@
     "worktreeSafe": true,
     "tokenBudget": "small",
     "contextStrategy": [
-      "Start with SKILL.md.",
+      "Start with SKILL.md and assess scope before opening deeper files.",
       "Open only the routed rule or reference file for the requested task.",
       "Use README.md for install and validation guidance."
     ]

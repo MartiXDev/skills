@@ -5,6 +5,8 @@ description: 'Long-form companion guide for the martix-markdown standalone skill
 # MartiX Markdown companion
 
 - This file is the long-form companion to [SKILL.md](./SKILL.md).
+- Route tight here too: assess scope first, open the nearest grouped rule, then
+  add only the reference layer the question actually needs.
 - The package now follows a layered, standalone-first split: `SKILL.md` routes
   activation, `AGENTS.md` explains how to apply the library, `rules\*.md`
   holds the grouped markdownlint guidance, `references\*.md` provides maps and
@@ -29,6 +31,9 @@ description: 'Long-form companion guide for the martix-markdown standalone skill
 
 ## Working stance
 
+- Assess the boundary before loading deep context. If the request is generic
+  writing help, repo publishing process, or another domain skill's technical
+  guidance, hand off instead of forcing a markdownlint route.
 - Keep this package markdownlint-specific. General writing coaching, publishing
   workflows, or broad documentation style guidance belongs elsewhere unless it
   changes a markdownlint rule, config choice, or review route.
@@ -93,8 +98,6 @@ rule, reference, or comparison note might widen beyond the approved boundary.
 - [Default rule profile](./references/default-rule-profile.md)
 - [Install and validation notes](./references/install-and-validation.md)
 - [Prettier and tooling notes](./references/prettier-and-tooling-notes.md)
-
-## Maintenance and package growth
 
 ## Authoring contract
 

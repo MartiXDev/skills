@@ -8,7 +8,7 @@ description: 'Maintainer and user guide for the martix-markdown standalone skill
 the MartiX Markdown skill. It now ships the authored router, grouped rule
 library, instruction-bridge layer, reference maps, templates, and
 machine-readable taxonomy that standalone installs and direct marketplace
-registration should consume from `Skills`.
+registration should consume from `skills`.
 
 - Canonical source root: `skills\martix-markdown`
 - Primary install surface: standalone `skills` CLI
@@ -44,6 +44,14 @@ registration should consume from `Skills`.
   review still matters.
 - Use [AGENTS.md](./AGENTS.md) for cross-family review routes, source boundaries,
   and package maintenance notes.
+
+## Package boundary
+
+- Use this package for markdownlint behavior, markdownlint-cli2 findings,
+  content-versus-config decisions, suppressions, custom rules, Prettier
+  coexistence, and accessibility-adjacent Markdown review.
+- Do not use this package for generic prose improvement, repository publishing
+  workflow, or technical guidance owned by another MartiX skill.
 
 ## Maintainer notes
 
