@@ -96,9 +96,11 @@ Assert-Command 'code'
 
 # ── Shared-file guard ──────────────────────────────────────────────────────────
 function Test-TouchesSharedFiles([string[]]$filePaths) {
+  $normalizedShared = $config.sharedFiles | ForEach-Object { $_.TrimStart('/\').Replace('\', '/') }
   foreach ($path in $filePaths) {
-    foreach ($shared in $config.sharedFiles) {
-      if ($path -like "*$shared*" -or $path.TrimStart('/\') -like "$shared*") {
+    $normalizedPath = $path.TrimStart('/\').Replace('\', '/')
+    foreach ($shared in $normalizedShared) {
+      if ($normalizedPath -eq $shared -or $normalizedPath -like "$shared/*") {
         return $true
       }
     }
@@ -224,7 +226,7 @@ foreach ($issue in $issues) {
   }
   else {
     Push-Location $repoRoot
-    git worktree add $worktreePath -b $branch 2>&1 | Out-Null
+    git worktree add $worktreePath -b $branch origin/main 2>&1 | Out-Null
     if ($LASTEXITCODE -ne 0) {
       Write-Warning "    Failed to create worktree. Skipping issue #$($issue.number)."
       Pop-Location

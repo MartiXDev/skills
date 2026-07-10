@@ -31,13 +31,20 @@ jobs:
 
             const labels = context.payload.issue.labels.map(l => l.name);
             const tierLabel = labels.find(l => l.startsWith('tier/'));
+            const areaLabel = labels.find(l => l.startsWith('area/'));
 
             const model = (tierLabel && config.tiers[tierLabel])
               ? config.tiers[tierLabel].model
               : 'gpt-4.1';
 
+            const agentFile = (areaLabel && config.areas && config.areas[areaLabel])
+              ? config.areas[areaLabel].agentFile
+              : '';
+
             core.setOutput('model', model);
+            core.setOutput('agentFile', agentFile);
             core.info(`Tier: ${tierLabel} → model: ${model}`);
+            core.info(`Area: ${areaLabel} → agentFile: ${agentFile || '(none)'}`);
 
       - name: Extract agent-prompt block
         id: prompt

@@ -22,6 +22,12 @@ jobs:
           COPILOT_AGENT_TOKEN: ${{ secrets.COPILOT_AGENT_TOKEN }}
         with:
           script: |
+            const token = process.env.COPILOT_AGENT_TOKEN;
+            if (!token) {
+              core.setFailed('COPILOT_AGENT_TOKEN secret is not configured. This workflow requires a user PAT with copilot scope. Set it as a repository secret to enable Track A polling.');
+              return;
+            }
+
             const { data: issues } = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
