@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "hooks": {
+    "postToolUse": [
+      {
+        "type": "command",
+        "powershell": "powershell -ExecutionPolicy Bypass -File hooks/validate-session.ps1",
+        "timeoutSec": 120
+      }
+    ]
+  }
+}
