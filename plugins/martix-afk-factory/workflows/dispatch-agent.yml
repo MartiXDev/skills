@@ -84,11 +84,7 @@ jobs:
             let prompt = rawPrompt;
             if (agentFile && fs.existsSync(agentFile)) {
               const instructions = fs.readFileSync(agentFile, 'utf8');
-              prompt = `${instructions}
-
----
-
-${rawPrompt}`;
+              prompt = `${instructions}\n\n---\n\n${rawPrompt}`;
               core.info(`Prepended agent instructions from ${agentFile}`);
             }
 
