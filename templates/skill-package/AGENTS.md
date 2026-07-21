@@ -11,14 +11,14 @@ skill-authoring tool defaults.
 
 - Keep `SKILL.md` as the compact activation router.
 - Put normative guidance in `rules/`, supporting maps and dated facts in
- `references/`, and reusable scaffolds in `templates/`.
+  `references/`, and reusable scaffolds in `templates/`.
 - Keep `plugin.json`, `metadata.json`, README, taxonomy, and section ordering
- synchronized when package identity or routes change.
+  synchronized when package identity or routes change.
 - Keep all behavior and trigger regressions in the single canonical
- `evals/evals.json`; use `negative_activation: true` for should-not-trigger
- prompts. Do not add `trigger-evals.json`.
+  `evals/evals.json`; use `negative_activation: true` for should-not-trigger
+  prompts. Do not add `trigger-evals.json`.
 - Treat tool-specific trigger query arrays as temporary benchmark inputs, not
- package artifacts.
+  package artifacts.
 
 ## Cost-aware routing
 

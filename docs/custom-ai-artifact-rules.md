@@ -312,7 +312,7 @@ Repository eval shape:
 
 Repository rules:
 
-- Keep one committed eval file per skill at `evals\evals.json`.
+- Keep one committed eval file per skill at `evals/evals.json`.
 - Put positive and negative trigger scenarios in the same `evals` array; mark
   should-not-trigger scenarios with `negative_activation: true`.
 - Do not add tool-specific package files such as `trigger-evals.json`. Keep
