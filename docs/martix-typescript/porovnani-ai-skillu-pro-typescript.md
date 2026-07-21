@@ -1,5 +1,7 @@
 # Porovnání AI skillů pro TypeScript
 
+<!-- markdownlint-disable MD013 -->
+
 Stav rešerše: 21. července 2026. Hodnocen byl skutečný obsah `SKILL.md` a přidružených souborů v konkrétních revizích, nikoli pouze popisy v katalogu nebo počet instalací.
 
 ## Krátká odpověď
