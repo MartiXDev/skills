@@ -3,8 +3,12 @@
   "compilerOptions": {
     "target": "ES2025",
     "module": "Preserve",
-    "moduleResolution": "Bundler"
-    "lib": ["ES2025", "DOM", "DOM.Iterable"],
+    "moduleResolution": "Bundler",
+    "lib": [
+      "ES2025",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "strict": true,
     "types": [],
     "noEmit": true,
@@ -14,7 +18,12 @@
     "exactOptionalPropertyTypes": true,
     "noUncheckedIndexedAccess": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["dist", "node_modules"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
 }
-

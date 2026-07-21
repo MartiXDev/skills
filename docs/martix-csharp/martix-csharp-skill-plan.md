@@ -67,6 +67,24 @@ Review these assets to extract reusable patterns and identify blind spots:
   - `csharp-xunit`
   - `dotnet-best-practices`
   - `dotnet-design-pattern-review`
+- Microsoft (.NET) Agent Skills <https://github.com/microsoft/skills#net>:
+  - most of them are somehow related to azure services, their name usually starts with azure-*
+- .NET Agent Skills <https://github.com/dotnet/skills>:
+  - dotnet
+  - dotnet-advanced
+  - dotnet-data
+  - dotnet-diag
+  - dotnet-msbuild
+  - dotnet-nuget
+  - dotnet-upgrade
+  - dotnet-maui
+  - dotnet-ai
+  - dotnet-template-engine
+  - dotnet-test
+  - dotnet-test-migration
+  - dotnet-aspnetcore
+  - dotnet-blazor
+  - dotnet11
 
 Capture:
 
