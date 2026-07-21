@@ -20,7 +20,8 @@
         "SKILL.md",
         "rules/foundation-packages-provider-theme.md",
         "rules/styling-tokens-griffel.md",
-        "templates/fluent-provider.template.tsx"
+        "templates/fluent-provider.template.tsx",
+        "templates/token-styles.template.module.css"
       ],
       "model_tier": "medium",
       "token_budget": "medium",
