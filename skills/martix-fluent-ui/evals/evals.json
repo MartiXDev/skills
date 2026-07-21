@@ -3,7 +3,7 @@
   "evals": [
     {
       "id": "react-provider-brand-theme",
-      "prompt": "Our Vite React app already uses @fluentui/react-components v9. Build the provider and theme boundary for a branded light/dark application shell. Explain where the provider belongs and how feature components should consume color and spacing.",
+      "prompt": "Our Vite React app already uses @fluentui/react-components v9 and has no application styling convention yet. Build the provider and theme boundary for a branded light/dark application shell. Explain where the provider belongs and how feature components should consume color and spacing.",
       "expected_sections": [
         "Repository and version assumptions",
         "Provider implementation",
@@ -12,14 +12,43 @@
       ],
       "assertions": [
         "Uses the public v9 FluentProvider and a supported theme object rather than v8 ThemeProvider or copied CSS values.",
-        "Uses semantic Fluent tokens for feature styling and avoids hard-coded theme colors.",
+        "Maps one client brand source through a theme adapter to complete light and dark Fluent themes, with namespaced application variables only for missing semantics.",
+        "Uses a CSS Module with semantic Fluent CSS variables for feature styles and avoids hard-coded theme or palette colors.",
         "Places the provider at an intentional application or themed-subtree boundary and includes theme-switch validation."
       ],
       "files": [
         "SKILL.md",
         "rules/foundation-packages-provider-theme.md",
         "rules/styling-tokens-griffel.md",
-        "templates/fluent-provider.template.tsx"
+        "templates/fluent-provider.template.tsx",
+        "templates/token-styles.template.module.css"
+      ],
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "css-first-runtime-value",
+      "prompt": "Implement a reusable StorageUsageMeter in a Fluent UI React v9 account page. It receives a runtime percentage from 0 to 100, has normal, warning, and critical states, supports a client light/dark theme, and must remain correct in RTL and forced-colors mode. The repository has no styling convention yet.",
+      "expected_sections": [
+        "Component and state contract",
+        "CSS Module",
+        "TSX implementation",
+        "Theme and accessibility validation"
+      ],
+      "assertions": [
+        "Keeps static presentation in a CSS Module and binds only documented root or slot classes from TSX.",
+        "Represents normal, warning, and critical as classes, data attributes, or component state rather than dynamic inline colors.",
+        "Lets the public ProgressBar value prop own the continuous percentage; if no public API owns a future continuous value, permits only a CSS custom property. Components, stories, tests, and fixtures contain no ordinary style-prop declarations.",
+        "Uses semantic Fluent variables, logical CSS properties, and forced-colors behavior without Tailwind or application makeStyles."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/foundation-packages-provider-theme.md",
+        "rules/styling-tokens-griffel.md",
+        "templates/token-styles.template.module.css"
       ],
       "model_tier": "medium",
       "token_budget": "medium",
@@ -85,19 +114,20 @@
       "prompt": "Our Fluent UI v9 card wrapper mixes makeStyles, Tailwind utilities, inline styles, and !important overrides. Dark mode and RTL now fail. Diagnose the ownership problem and propose a minimal style refactor that preserves consumer className.",
       "expected_sections": [
         "Style ownership diagnosis",
-        "Token and Griffel refactor",
+        "CSS-first refactor",
         "Override contract",
         "Theme and direction validation"
       ],
       "assertions": [
-        "Uses Fluent semantic tokens and stable makeStyles hooks for design-system values.",
-        "Preserves consumer className with deliberate class composition and removes broad specificity escalation.",
+        "Moves touched static application styles to the repository stylesheet convention, using a CSS Module when no convention exists, and does not add Tailwind utilities.",
+        "Uses Fluent semantic CSS variables and logical properties; prefers an owning public prop before limiting any necessary inline style to a continuous runtime custom property, and names any retained Griffel capability.",
+        "Preserves consumer className and public slot classes with deliberate composition while removing broad specificity escalation.",
         "Includes dark theme, RTL, and forced-colors checks."
       ],
       "files": [
         "SKILL.md",
         "rules/styling-tokens-griffel.md",
-        "templates/token-styles.template.ts"
+        "templates/token-styles.template.module.css"
       ],
       "model_tier": "medium",
       "token_budget": "medium",
@@ -117,6 +147,7 @@
       "assertions": [
         "Inventories package generations, providers, styling, DOM-coupled tests, and component behavior before replacement.",
         "Migrates one coherent slice and maps behavior plus accessibility instead of mechanically renaming imports.",
+        "Moves legacy application styles to the repository stylesheet convention, using CSS Modules by default and retaining Griffel only for a documented capability that classes cannot safely preserve.",
         "Moves tests to public semantics and defines bounded coexistence with an adapter deletion condition."
       ],
       "files": [
@@ -325,7 +356,7 @@
     {
       "id": "activation-griffel-tailwind-ownership",
       "prompt": "Our makeStyles and Tailwind overrides fight in RTL and dark mode. Repair the Fluent token and Griffel ownership without private selectors.",
-      "expected_output": "Activates martix-fluent-ui and routes to token, Griffel, RTL, theme, and override ownership guidance.",
+      "expected_output": "Activates martix-fluent-ui and routes to CSS-first token ownership, bounded Griffel exceptions, RTL, theme, and override guidance.",
       "files": [
         "SKILL.md"
       ],

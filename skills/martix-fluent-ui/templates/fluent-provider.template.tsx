@@ -1,12 +1,19 @@
 import type { PropsWithChildren } from "react";
 import {
   FluentProvider,
-  webLightTheme,
 } from "@fluentui/react-components";
+import type { Theme } from "@fluentui/react-components";
 
-export function AppFluentProvider({ children }: PropsWithChildren) {
+export type AppFluentProviderProps = PropsWithChildren<{
+  theme: Theme;
+}>;
+
+export function AppFluentProvider({
+  children,
+  theme,
+}: AppFluentProviderProps) {
   return (
-    <FluentProvider theme={webLightTheme}>
+    <FluentProvider theme={theme}>
       {children}
     </FluentProvider>
   );

@@ -1,6 +1,6 @@
 {
   "name": "martix-fluent-ui",
-  "description": "React-first Fluent UI v9 guidance for providers, themes, tokens, Griffel styling, accessible component composition, SSR, icons, motion, charts, migration, and the narrow Vue Web Components exception.",
+  "description": "React-first Fluent UI v9 guidance for providers, client-brand themes, CSS-first token styling, bounded Griffel use, accessible component composition, SSR, icons, motion, charts, migration, and the narrow Vue Web Components exception.",
   "version": "0.1.0",
   "author": {
     "name": "MartiXDev"
@@ -13,6 +13,7 @@
     "fluent-ui",
     "react",
     "typescript",
+    "css-modules",
     "griffel",
     "accessibility",
     "design-system",

@@ -13,7 +13,10 @@ creating an unbounded mixed-generation layer.
   and define a cutover criterion for each slice.
 - Map behavior and accessibility first, then visual styling. A same-named component
   is not proof of API or interaction equivalence.
-- Replace legacy styling with tokens and Griffel at the migrated boundary.
+- Move legacy styling to the repository's stylesheet convention at the migrated
+  boundary, using CSS Modules by default and semantic Fluent variables. Retain
+  application Griffel only for a documented capability that classes cannot safely
+  preserve.
 - Isolate unavoidable v8/v9 interop and remove the adapter after its migration slice.
 
 ## Decision branches

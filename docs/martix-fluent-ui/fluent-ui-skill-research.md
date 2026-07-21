@@ -395,7 +395,7 @@ skills/martix-fluent-ui/
     ecosystem-boundaries.md
   templates/
     fluent-provider.template.tsx
-    token-styles.template.ts
+    token-styles.template.module.css
     accessible-toolbar.template.tsx
   assets/
     taxonomy.json

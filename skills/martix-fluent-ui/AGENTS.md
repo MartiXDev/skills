@@ -11,7 +11,7 @@ shows a migration or Web Components scenario.
 | Concern | Owner |
 | --- | --- |
 | Fluent package generation and component selection | `martix-fluent-ui` |
-| Provider, themes, tokens, Griffel, slots, accessibility | `martix-fluent-ui` |
+| Provider, themes, CSS-first token styling, Griffel boundaries, slots, accessibility | `martix-fluent-ui` |
 | Fluent SSR, icons, motion, charts, migration | `martix-fluent-ui` |
 | TypeScript language design, tsconfig, declarations | `martix-typescript` |
 | SPFx host, packaging, deployment, SharePoint theme variants | `martix-sharepoint-spfx` |
@@ -34,7 +34,7 @@ shows a migration or Web Components scenario.
 | Change | Review |
 | --- | --- |
 | New React component guidance | Component selection, slots, tokens, semantics, keyboard, focus, tests |
-| New styling guidance | Token use, Griffel precedence, RTL, forced colors, consumer overrides |
+| New styling guidance | Stylesheet ownership, token variables, Griffel exception, RTL, forced colors, consumer overrides |
 | New package recommendation | Current version, release channel, peer range, official support status |
 | New SSR recipe | Renderer lifecycle, style insertion order, hydration, current Next.js compatibility |
 | New Vue guidance | Web Components v3 API, registration, custom-element typing, no React-only concepts |

@@ -7,13 +7,18 @@ import {
   RendererProvider,
   renderToStyleElements,
   SSRProvider,
-  webLightTheme,
 } from "@fluentui/react-components";
+import type { Theme } from "@fluentui/react-components";
 import { useServerInsertedHTML } from "next/navigation";
+
+export type FluentRegistryProps = React.PropsWithChildren<{
+  theme: Theme;
+}>;
 
 export function FluentRegistry({
   children,
-}: React.PropsWithChildren) {
+  theme,
+}: FluentRegistryProps) {
   const [renderer] = React.useState(() => createDOMRenderer());
   const didRenderRef = React.useRef(false);
 
@@ -29,7 +34,7 @@ export function FluentRegistry({
   return (
     <RendererProvider renderer={renderer}>
       <SSRProvider>
-        <FluentProvider theme={webLightTheme}>
+        <FluentProvider theme={theme}>
           {children}
         </FluentProvider>
       </SSRProvider>
