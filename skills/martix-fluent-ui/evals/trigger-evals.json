@@ -1,0 +1,82 @@
+[
+  {
+    "query": "Our React 19 dashboard uses @fluentui/react-components v9. Build a branded light/dark FluentProvider boundary and refactor the hard-coded card colors to semantic tokens.",
+    "should_trigger": true
+  },
+  {
+    "query": "fabric commandbar migration: we still have office-ui-fabric-react, mergeStyleSets and tests coupled to ms-Button. Plan one safe v9 slice.",
+    "should_trigger": true
+  },
+  {
+    "query": "The Next.js App Router build flashes unstyled Fluent UI content and logs hydration class mismatches. Check Griffel renderer and server style insertion.",
+    "should_trigger": true
+  },
+  {
+    "query": "Create an accessible icon-only formatting toolbar from Fluent UI components in TSX, including keyboard and focus tests.",
+    "should_trigger": true
+  },
+  {
+    "query": "Should our wrapper use useButton_unstable/renderButton_unstable, or can Fluent v9 slots preserve icon, loading, click and className behavior?",
+    "should_trigger": true
+  },
+  {
+    "query": "Our makeStyles and Tailwind overrides fight in RTL and dark mode. Repair the Fluent token and Griffel ownership without private selectors.",
+    "should_trigger": true
+  },
+  {
+    "query": "Use Fluent UI in Vue 3 SSR. We installed @fluentui/web-components 3.x, but the article we found uses provideFluentDesignSystem.",
+    "should_trigger": true
+  },
+  {
+    "query": "Review @fluentui/react-charts for an accessible themed line chart before we commit to Recharts in our Fluent dashboard.",
+    "should_trigger": true
+  },
+  {
+    "query": "Three @fluentui/react-icons imports fail in our TSX package and the color icon disappears in Windows High Contrast. Separate icon fixes from tsconfig ownership.",
+    "should_trigger": true
+  },
+  {
+    "query": "The Dialog looks right but Escape, initial focus and focus restore are broken after our custom Fluent slot rendering. Fix the behavior and tests.",
+    "should_trigger": true
+  },
+  {
+    "query": "Optimize rerenders in a React product card built with CSS Modules. There are no @fluentui packages or Microsoft design requirements.",
+    "should_trigger": false
+  },
+  {
+    "query": "Design a generic TypeScript polymorphic component API and publish declarations under NodeNext. It is not tied to any UI library.",
+    "should_trigger": false
+  },
+  {
+    "query": "Create an SPFx Application Customizer, package the .sppkg, configure tenant-wide deployment and request Microsoft Graph permissions.",
+    "should_trigger": false
+  },
+  {
+    "query": "Implement a FluentValidation AbstractValidator for a .NET request with async database rules and RuleSets.",
+    "should_trigger": false
+  },
+  {
+    "query": "Use Microsoft's Fluent 2 visual language to prepare a Figma mood board; no code or Fluent UI package is involved.",
+    "should_trigger": false
+  },
+  {
+    "query": "Our Vue app uses Vuetify. Fix its Pinia store and route guards; do not change the design-system dependency.",
+    "should_trigger": false
+  },
+  {
+    "query": "Configure Tailwind container queries and CSS cascade layers for a plain HTML marketing page.",
+    "should_trigger": false
+  },
+  {
+    "query": "Run an accessibility audit of a native HTML checkout form that does not use React or Fluent components.",
+    "should_trigger": false
+  },
+  {
+    "query": "Upgrade React Testing Library and Vitest mocks in a Chakra UI application. Component behavior is unchanged.",
+    "should_trigger": false
+  },
+  {
+    "query": "Write a PowerShell function that exports Microsoft 365 audit logs in the Fluent Bit format.",
+    "should_trigger": false
+  }
+]

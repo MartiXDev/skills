@@ -1,0 +1,85 @@
+{
+  "name": "martix-fluent-ui",
+  "displayName": "MartiX Fluent UI",
+  "version": "0.1.0",
+  "summary": "React-first Fluent UI v9 engineering with accessible composition, tokens, Griffel, SSR, migration, and ecosystem routing.",
+  "abstract": "Use this standalone skill for @fluentui/react-components package selection, FluentProvider and theme setup, token-driven styling, slots and compound components, accessibility and focus, Next.js SSR, icons, motion, charts, v8 or v0 migration, and the exceptional Vue Web Components path.",
+  "license": "Apache-2.0",
+  "maturity": "preview",
+  "taxonomy": {
+    "domain": "frontend",
+    "subdomains": [
+      "design-systems",
+      "react-components",
+      "accessibility"
+    ],
+    "tags": [
+      "fluent-ui",
+      "react",
+      "typescript",
+      "griffel",
+      "design-tokens",
+      "accessibility",
+      "nextjs",
+      "web-components"
+    ]
+  },
+  "compatibility": {
+    "primaryFramework": "React",
+    "primaryPackage": "@fluentui/react-components",
+    "primaryMajor": 9,
+    "exceptionalFrameworks": [
+      "Vue with @fluentui/web-components"
+    ],
+    "languageBaselines": [
+      "TypeScript",
+      "TSX"
+    ],
+    "checkedAt": "2026-07-21"
+  },
+  "entrypoints": {
+    "skill": "SKILL.md",
+    "maintainers": "AGENTS.md",
+    "readme": "README.md",
+    "sourceIndex": "references/source-index.md"
+  },
+  "content": {
+    "rules": 9,
+    "references": 7,
+    "templates": 5,
+    "behaviorEvals": 10,
+    "triggerEvals": 20
+  },
+  "executionProfile": {
+    "modelTier": "balanced",
+    "tokenBudget": "medium",
+    "parallelSafety": "single-package",
+    "humanInTheLoop": "Review public component APIs, accessibility behavior, and migration cutovers."
+  },
+  "relationships": {
+    "companionSkills": [
+      {
+        "name": "martix-typescript",
+        "relationship": "handoff",
+        "handoffWhen": "The task requires TypeScript API design, tsconfig, module resolution, declarations, or type-level tests beyond Fluent UI usage."
+      },
+      {
+        "name": "martix-sharepoint-spfx",
+        "relationship": "handoff",
+        "handoffWhen": "Fluent UI is embedded in an SPFx solution and SharePoint host, packaging, deployment, or theme-variant behavior becomes primary."
+      }
+    ],
+    "handoffPolicy": "Keep Fluent UI package, component, styling, accessibility, and migration decisions here; open a companion skill for the companion's owned concern without duplicating its rules."
+  },
+  "status": {
+    "distribution": "registration-ready",
+    "marketplaceSourceRoot": "skills/martix-fluent-ui"
+  },
+  "distribution": {
+    "primarySurface": "standalone-skill",
+    "secondarySurface": {
+      "type": "copilot-cli-marketplace",
+      "pluginName": "martix-fluent-ui"
+    }
+  }
+}

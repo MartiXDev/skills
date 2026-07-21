@@ -145,6 +145,23 @@
       ]
     },
     {
+      "name": "martix-fluent-ui",
+      "description": "React-first Fluent UI v9 guidance for providers, themes, tokens, Griffel styling, accessible component composition, SSR, icons, motion, charts, migration, and the narrow Vue Web Components exception.",
+      "version": "0.1.0",
+      "source": "skills/martix-fluent-ui",
+      "category": "development",
+      "tags": [
+        "martix",
+        "fluent-ui",
+        "react",
+        "typescript",
+        "griffel",
+        "accessibility",
+        "design-system",
+        "standalone-skill"
+      ]
+    },
+    {
       "name": "martix-sharepoint-server",
       "description": "Standalone SharePoint Server skill package for classic on-prem farm solutions, WSP packaging, feature framework, event receivers, branding, site artifacts, and SharePoint 2019 / Subscription Edition guidance.",
       "version": "0.1.0",

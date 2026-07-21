@@ -34,6 +34,7 @@ Read these on demand when changing the related package or reviewing its history.
 | `martix-dotnet-csharp\` | .NET/C# comparisons, plans, and research. |
 | `martix-fastendpoints\` | FastEndpoints improvement planning. |
 | `martix-fluentvalidation\` | FluentValidation improvement planning. |
+| `martix-fluent-ui\` | Fluent UI research, evidence, and skill blueprint. |
 | `martix-markdown\` | Markdown automation and package split notes. |
 | `martix-csharp\` | Earlier standalone C# skill planning artifacts. |
 
