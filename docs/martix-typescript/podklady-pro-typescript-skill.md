@@ -1,10 +1,9 @@
 # Podklady pro tvorbu špičkového TypeScript skillu
 
-**Stav zdrojů:** 21. července 2026  
-**Cílový balíček:** `skills/martix-typescript`  
-**Primární baseline:** TypeScript 7.0.x, s explicitní přechodovou větví pro TypeScript 6.0  
-**Účel dokumentu:** podklad pro následnou implementaci pomocí
-`writing-great-skills` a eval-driven review pomocí `skill-creator`
+- **Stav zdrojů:** 21. července 2026
+- **Cílový balíček:** `skills/martix-typescript`
+- **Primární baseline:** TypeScript 7.0.x, s explicitní přechodovou větví pro TypeScript 6.0
+- **Účel dokumentu:** podklad pro následnou implementaci pomocí `writing-great-skills` a eval-driven review pomocí `skill-creator`
 
 ## Executive summary
 
