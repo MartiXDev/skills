@@ -26,16 +26,20 @@ export function FormattingToolbar({
   return (
     <Toolbar aria-label="Text formatting" className={className}>
       <Tooltip content="Bold" relationship="inaccessible">
+        <ToolbarToggleButton
           appearance="subtle"
           checked={bold}
           icon={<TextBoldRegular />}
+          aria-label="Bold"
           onClick={() => onBoldChange(!bold)}
         />
       </Tooltip>
       <Tooltip content="Italic" relationship="inaccessible">
+        <ToolbarToggleButton
           appearance="subtle"
           checked={italic}
           icon={<TextItalicRegular />}
+          aria-label="Italic"
           onClick={() => onItalicChange(!italic)}
         />
       </Tooltip>
