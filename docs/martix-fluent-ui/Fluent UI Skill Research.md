@@ -1,7 +1,8 @@
 # Fluent UI Skill Research
 
-Nejdřív ti dám jasné, praktické doporučení – a pak to rozšířím do kompletního přehledu technologií, které dávají Fluent UI + React + TypeScript + .NET 10 backendu profesionální, dlouhodobě udržitelnou architekturu. Držím se tvého stylu: technické, strukturované, bez balastu.
+> Poznámka: Tento dokument je původní (neověřený) draft zachovaný pro kontext. Pro aktuální a kriticky ověřený blueprint použijte `fluent-ui-skill-research.md`.
 
+Nejdřív ti dám jasné, praktické doporučení – a pak to rozšířím do kompletního přehledu technologií, které dávají Fluent UI + React + TypeScript + .NET 10 backendu profesionální, dlouhodobě udržitelnou architekturu. Držím se tvého stylu: technické, strukturované, bez balastu.
 ---
 
 ## **Hlavní doporučení (takeaway)**
@@ -124,8 +125,7 @@ Použij:
 
 - `"strict": true`
 - `"noImplicitAny": true`
-- `"exactOptionalPropertyTypes": true"`
-
+- `"exactOptionalPropertyTypes": true`
 ### **6.2 ESLint + Prettier**
 
 - pravidla pro React Hooks

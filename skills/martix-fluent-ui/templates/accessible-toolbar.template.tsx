@@ -25,18 +25,14 @@ export function FormattingToolbar({
 }: FormattingToolbarProps) {
   return (
     <Toolbar aria-label="Text formatting" className={className}>
-      <Tooltip content="Bold" relationship="description">
-        <ToolbarToggleButton
-          aria-label="Bold"
+      <Tooltip content="Bold" relationship="inaccessible">
           appearance="subtle"
           checked={bold}
           icon={<TextBoldRegular />}
           onClick={() => onBoldChange(!bold)}
         />
       </Tooltip>
-      <Tooltip content="Italic" relationship="description">
-        <ToolbarToggleButton
-          aria-label="Italic"
+      <Tooltip content="Italic" relationship="inaccessible">
           appearance="subtle"
           checked={italic}
           icon={<TextItalicRegular />}

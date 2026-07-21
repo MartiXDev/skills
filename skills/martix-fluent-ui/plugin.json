@@ -9,14 +9,14 @@
   "homepage": "https://github.com/MartiXDev/skills/tree/main/skills/martix-fluent-ui",
   "repository": "https://github.com/MartiXDev/skills",
   "keywords": [
+    "martix",
     "fluent-ui",
     "react",
     "typescript",
     "griffel",
     "accessibility",
-    "design-system"
+    "design-system",
+    "standalone-skill"
   ],
-  "skills": [
-    "./SKILL.md"
-  ]
+  "skills": "skills/"
 }
