@@ -1,0 +1,52 @@
+{
+  "name": "martix-typescript",
+  "displayName": "MartiX TypeScript",
+  "version": "0.1.0",
+  "publisher": {
+    "name": "MartiXDev",
+    "repository": "MartiXDev/skills",
+    "distributionModel": "standalone skill with direct Copilot marketplace registration"
+  },
+  "summary": "Type-first TypeScript 7 authoring, migration, debugging, and review with explicit TypeScript 6 compiler-API compatibility guidance.",
+  "compatibility": {
+    "primaryTarget": "GitHub Copilot CLI",
+    "secondaryTargets": [
+      "Agent Skills-compatible tools"
+    ],
+    "languageBaselines": [
+      "TypeScript 7.0.x",
+      "TypeScript 6.0.x compatibility for compiler-API consumers"
+    ],
+    "baselineDate": "2026-07-21"
+  },
+  "executionProfile": {
+    "modelTier": "mixed",
+    "taskTypes": [
+      "planning",
+      "implementation",
+      "migration",
+      "review",
+      "validation"
+    ],
+    "parallelSafety": "single-package",
+    "fleetReady": true,
+    "worktreeSafe": true,
+    "tokenBudget": "medium",
+    "contextStrategy": [
+      "Start with SKILL.md.",
+      "Open only the routed rule or reference for the current TypeScript concern.",
+      "Use AGENTS.md for cross-branch work and companion-skill handoffs."
+    ]
+  },
+  "relationships": {
+    "companionSkills": [
+      {
+        "name": "martix-sharepoint-spfx",
+        "relationship": "handoff",
+        "handoffWhen": "SPFx, React, Teams, Viva, deployment, or SharePoint-specific APIs own the decision."
+      }
+    ],
+    "handoffPolicy": "Stay in martix-typescript for cross-cutting language and compiler concerns; open a companion skill when framework, runner, linter, bundler, or publishing behavior owns the narrower decision."
+  }
+}
+

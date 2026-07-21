@@ -129,6 +129,22 @@
       ]
     },
     {
+      "name": "martix-typescript",
+      "description": "Type-first TypeScript 7 authoring, migration, debugging, and review with explicit TypeScript 6 compiler-API compatibility guidance.",
+      "version": "0.1.0",
+      "source": "skills/martix-typescript",
+      "category": "development",
+      "tags": [
+        "martix",
+        "typescript",
+        "typescript-7",
+        "tsconfig",
+        "migration",
+        "advanced-types",
+        "standalone-skill"
+      ]
+    },
+    {
       "name": "martix-sharepoint-server",
       "description": "Standalone SharePoint Server skill package for classic on-prem farm solutions, WSP packaging, feature framework, event receivers, branding, site artifacts, and SharePoint 2019 / Subscription Edition guidance.",
       "version": "0.1.0",
