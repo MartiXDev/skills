@@ -1,0 +1,199 @@
+{
+  "skill": "martix-typescript",
+  "evals": [
+    {
+      "id": "typescript7-node-greenfield",
+      "prompt": "Create the TypeScript configuration and validation plan for a new Node 24 ESM service. TypeScript 7.0.2 owns JavaScript emit, source lives in src, output goes to dist, and Node globals are required. Explain the module choices and list the checks that prove the setup.",
+      "expected_sections": [
+        "Project inventory",
+        "NodeNext configuration",
+        "Validation commands"
+      ],
+      "assertions": [
+        "Uses NodeNext for both module and moduleResolution because Node owns runtime resolution.",
+        "Includes explicit rootDir, outDir, strict, and Node global types without using removed baseUrl or node10 resolution.",
+        "Separates typecheck or build validation from other project checks."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/config-project-shape.md",
+        "rules/modules-host-resolution.md",
+        "templates/tsconfig-node.template.jsonc"
+      ],
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "typescript7-bundler-app",
+      "prompt": "Our Vite browser app is upgrading to TypeScript 7. It emits through Vite, includes TSX, and currently uses moduleResolution node plus baseUrl aliases. Propose the TypeScript-side migration without inventing Vite configuration.",
+      "expected_sections": [
+        "Bundler host decision",
+        "Removed option migration",
+        "Runtime alias boundary"
+      ],
+      "assertions": [
+        "Selects module preserve with moduleResolution bundler and noEmit.",
+        "Removes TypeScript 7-incompatible node resolution and baseUrl.",
+        "Explains that paths or aliases require a matching runtime or bundler owner and hands Vite-specific configuration off."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/config-project-shape.md",
+        "rules/modules-host-resolution.md",
+        "templates/tsconfig-bundler.template.jsonc"
+      ],
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "typescript6-to-7-library-migration",
+      "prompt": "Plan a TypeScript 6.0 to 7.0 migration for a declaration-producing library. It uses typescript-eslint, has project references, and snapshots generated d.ts files. The team wants TS7 build speed without breaking lint or consumers.",
+      "expected_sections": [
+        "Compiler and API compatibility split",
+        "Declaration comparison",
+        "Project-reference validation"
+      ],
+      "assertions": [
+        "Separates TypeScript 7 CLI compilation from the TypeScript 6 compiler API needed by unsupported tooling.",
+        "Uses stableTypeOrdering only on the TypeScript 6 comparison side and treats it as temporary.",
+        "Runs project-reference builds and consumer declaration checks independently."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/migration-typescript-7.md",
+        "rules/tooling-api-compatibility.md",
+        "rules/libraries-declarations-publishing.md",
+        "references/typescript-7-compatibility-map.md"
+      ],
+      "model_tier": "premium",
+      "token_budget": "large",
+      "parallel_safe": false,
+      "negative_activation": false,
+      "escalation": "Escalate when the package export graph or consumer compatibility is ambiguous."
+    },
+    {
+      "id": "framework-tooling-handoff",
+      "prompt": "Upgrade a Svelte application and its editor tooling to TypeScript 7, then rewrite the Svelte component props and test setup to current best practices.",
+      "expected_sections": [
+        "TypeScript compatibility boundary",
+        "Framework handoff"
+      ],
+      "assertions": [
+        "Checks current Svelte embedded-tooling support instead of assuming TypeScript 7 compiler API compatibility.",
+        "Keeps cross-cutting TypeScript configuration here and hands Svelte component and test-runner details to their owning skills.",
+        "Does not provide speculative framework-specific rewrite instructions."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/tooling-api-compatibility.md",
+        "references/typescript-7-compatibility-map.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": true,
+      "escalation": null
+    },
+    {
+      "id": "advanced-generic-api",
+      "prompt": "Design a TypeScript helper whose return type preserves the literal keys selected from a readonly tuple. Include compile-time success and failure cases and keep diagnostics understandable.",
+      "expected_sections": [
+        "Type relationship",
+        "Implementation",
+        "Type tests"
+      ],
+      "assertions": [
+        "Uses generics only to preserve a real input-output relationship.",
+        "Includes a positive inference assertion and an intentional negative compile case.",
+        "Runs the selected compiler and confirms that success cases pass and every @ts-expect-error directive suppresses a real diagnostic.",
+        "Avoids unchecked any and unbounded recursive conditional types."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/language-generics-advanced-types.md",
+        "rules/quality-type-tests.md",
+        "templates/type-test.template.ts"
+      ],
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "slow-typescript7-monorepo",
+      "prompt": "Our TypeScript 7 monorepo typecheck is slow in CI. Add --checkers 12 and --builders 8 everywhere so it finishes faster.",
+      "expected_sections": [
+        "Baseline measurement",
+        "Project graph diagnosis",
+        "Worker tradeoff"
+      ],
+      "assertions": [
+        "Measures the existing project build before selecting worker counts.",
+        "Accounts for the multiplicative concurrency and memory effect of checkers and builders.",
+        "Keeps correctness checks enabled and reports gains as environment-specific."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/performance-diagnostics.md",
+        "references/compiler-diagnostics-map.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "node-native-type-stripping",
+      "prompt": "Run our TypeScript CLI directly with Node's built-in TypeScript support. It currently uses decorators, enums, tsconfig paths, and TSX. Tell us which parts work and produce a safe implementation route.",
+      "expected_sections": [
+        "Node stripping constraints",
+        "Full runtime alternative",
+        "Separate typecheck"
+      ],
+      "assertions": [
+        "States that Node strips types without typechecking and ignores tsconfig at runtime.",
+        "Identifies TSX, decorators, enums, and tsconfig paths as incompatible with lightweight stripping.",
+        "Routes transformed syntax to a full runner and retains an independent compiler check."
+      ],
+      "files": [
+        "SKILL.md",
+        "references/module-host-map.md",
+        "rules/modules-host-resolution.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "plain-javascript-runtime-negative",
+      "prompt": "A plain JavaScript Node service has an intermittent fetch timeout and no TypeScript files, tsconfig, JSDoc typing, or type-checking. Diagnose the runtime retry behavior.",
+      "expected_sections": [
+        "Scope boundary",
+        "JavaScript or runtime handoff"
+      ],
+      "assertions": [
+        "Recognizes that no TypeScript or typed-JavaScript concern is present.",
+        "Hands the task to JavaScript runtime or HTTP resilience guidance.",
+        "Does not introduce TypeScript configuration or type-system advice."
+      ],
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": true,
+      "escalation": null
+    }
+  ]
+}

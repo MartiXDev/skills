@@ -69,6 +69,7 @@ skills/
   martix-fluentvalidation/
   martix-tunit/
   martix-powershell/
+  martix-typescript/
   martix-sharepoint-server/
   martix-sharepoint-spfx/
   martix-sharepoint-pnp/
@@ -167,6 +168,7 @@ Standalone skills can be listed directly in the marketplace. Plugin bundles shou
 | `martix-fluentvalidation` | FluentValidation authoring, RuleSets, ASP.NET Core integration, async validation, localization, and testing. |
 | `martix-tunit` | TUnit test authoring, parameterized tests, lifecycle hooks, parallel execution, and framework comparison. |
 | `martix-powershell` | PowerShell cmdlet authoring, advanced functions, parameters, pipeline behavior, errors, and ShouldProcess patterns. |
+| `martix-typescript` | TypeScript 7 configuration, migration, libraries, advanced types, runtime boundaries, and TS6 compiler-API compatibility. |
 | `martix-sharepoint-server` | SharePoint Server farm solutions, WSP packaging, feature framework, event receivers, branding, and site artifacts. |
 | `martix-sharepoint-spfx` | SharePoint Framework development with React, TypeScript, web parts, extensions, Teams, Viva, deployment, theming, and modernization. |
 | `martix-sharepoint-pnp` | PnP PowerShell, CLI for Microsoft 365, PnPjs, provisioning, automation, authentication, and cross-tool delivery. |

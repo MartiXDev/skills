@@ -32,6 +32,7 @@ copilot plugin install martix-fastendpoints@martix-skills
 copilot plugin install martix-fluentvalidation@martix-skills
 copilot plugin install martix-tunit@martix-skills
 copilot plugin install martix-powershell@martix-skills
+copilot plugin install martix-typescript@martix-skills
 copilot plugin install martix-sharepoint-server@martix-skills
 copilot plugin install martix-sharepoint-spfx@martix-skills
 copilot plugin install martix-sharepoint-pnp@martix-skills
@@ -47,6 +48,7 @@ For standalone skill installs, use repo-root skill selection:
 ```sh
 npx skills add https://github.com/MartiXDev/skills --skill martix-markdown
 npx skills add https://github.com/MartiXDev/skills --skill martix-dotnet-csharp
+npx skills add https://github.com/MartiXDev/skills --skill martix-typescript
 ```
 
 For local validation or development, install directly from a repository path:
@@ -70,6 +72,7 @@ skills/
   martix-fluentvalidation/  # FluentValidation authoring and testing
   martix-tunit/             # TUnit test authoring and parallel execution
   martix-powershell/        # PowerShell cmdlet development
+  martix-typescript/        # TypeScript 7 engineering and migration
   martix-sharepoint-server/ # SharePoint Server on-prem farm solutions
   martix-sharepoint-spfx/   # SharePoint Framework (SPFx) development
   martix-sharepoint-pnp/    # SharePoint PnP PowerShell, CLI for M365, PnPjs
