@@ -256,6 +256,266 @@
       "parallel_safe": true,
       "negative_activation": true,
       "escalation": null
+    },
+    {
+      "id": "activation-provider-theme-tokens",
+      "prompt": "Our React 19 dashboard uses @fluentui/react-components v9. Build a branded light/dark FluentProvider boundary and refactor the hard-coded card colors to semantic tokens.",
+      "expected_output": "Activates martix-fluent-ui and routes to provider, theme, token, and React implementation guidance.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "activation-fabric-commandbar-migration",
+      "prompt": "fabric commandbar migration: we still have office-ui-fabric-react, mergeStyleSets and tests coupled to ms-Button. Plan one safe v9 slice.",
+      "expected_output": "Activates martix-fluent-ui and routes to the v8 or Fabric-to-v9 migration workflow.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "activation-nextjs-griffel-ssr",
+      "prompt": "The Next.js App Router build flashes unstyled Fluent UI content and logs hydration class mismatches. Check Griffel renderer and server style insertion.",
+      "expected_output": "Activates martix-fluent-ui and routes to the Next.js and Griffel SSR ownership guidance.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "activation-accessible-toolbar",
+      "prompt": "Create an accessible icon-only formatting toolbar from Fluent UI components in TSX, including keyboard and focus tests.",
+      "expected_output": "Activates martix-fluent-ui and routes to Fluent component composition, accessibility, focus, and test guidance.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "activation-unstable-button-api",
+      "prompt": "Should our wrapper use useButton_unstable/renderButton_unstable, or can Fluent v9 slots preserve icon, loading, click and className behavior?",
+      "expected_output": "Activates martix-fluent-ui and applies the public composition versus unstable API decision gate.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "activation-griffel-tailwind-ownership",
+      "prompt": "Our makeStyles and Tailwind overrides fight in RTL and dark mode. Repair the Fluent token and Griffel ownership without private selectors.",
+      "expected_output": "Activates martix-fluent-ui and routes to token, Griffel, RTL, theme, and override ownership guidance.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "activation-vue-web-components",
+      "prompt": "Use Fluent UI in Vue 3 SSR. We installed @fluentui/web-components 3.x, but the article we found uses provideFluentDesignSystem.",
+      "expected_output": "Activates martix-fluent-ui and routes to the narrow Vue 3 Fluent Web Components integration branch.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "activation-react-charts",
+      "prompt": "Review @fluentui/react-charts for an accessible themed line chart before we commit to Recharts in our Fluent dashboard.",
+      "expected_output": "Activates martix-fluent-ui and routes to Fluent chart selection, theming, accessibility, and package verification guidance.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "activation-react-icons",
+      "prompt": "Three @fluentui/react-icons imports fail in our TSX package and the color icon disappears in Windows High Contrast. Separate icon fixes from tsconfig ownership.",
+      "expected_output": "Activates martix-fluent-ui for icon and forced-colors guidance while handing TypeScript configuration ownership to martix-typescript.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "activation-dialog-focus",
+      "prompt": "The Dialog looks right but Escape, initial focus and focus restore are broken after our custom Fluent slot rendering. Fix the behavior and tests.",
+      "expected_output": "Activates martix-fluent-ui and routes to Fluent Dialog composition, keyboard, focus, and behavior-test guidance.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "activation-negative-generic-react-css",
+      "prompt": "Optimize rerenders in a React product card built with CSS Modules. There are no @fluentui packages or Microsoft design requirements.",
+      "expected_output": "Does not activate martix-fluent-ui and hands the task to React performance guidance.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": true,
+      "escalation": null
+    },
+    {
+      "id": "activation-negative-generic-typescript",
+      "prompt": "Design a generic TypeScript polymorphic component API and publish declarations under NodeNext. It is not tied to any UI library.",
+      "expected_output": "Does not activate martix-fluent-ui and hands the task to martix-typescript.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": true,
+      "escalation": null
+    },
+    {
+      "id": "activation-negative-spfx",
+      "prompt": "Create an SPFx Application Customizer, package the .sppkg, configure tenant-wide deployment and request Microsoft Graph permissions.",
+      "expected_output": "Does not activate martix-fluent-ui and hands the task to martix-sharepoint-spfx.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": true,
+      "escalation": null
+    },
+    {
+      "id": "activation-negative-fluentvalidation",
+      "prompt": "Implement a FluentValidation AbstractValidator for a .NET request with async database rules and RuleSets.",
+      "expected_output": "Does not confuse FluentValidation with Fluent UI and hands the task to martix-fluentvalidation.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": true,
+      "escalation": null
+    },
+    {
+      "id": "activation-negative-fluent-design",
+      "prompt": "Use Microsoft's Fluent 2 visual language to prepare a Figma mood board; no code or Fluent UI package is involved.",
+      "expected_output": "Does not activate martix-fluent-ui and routes the non-code design request to appropriate design guidance.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": true,
+      "escalation": null
+    },
+    {
+      "id": "activation-negative-vuetify-vue",
+      "prompt": "Our Vue app uses Vuetify. Fix its Pinia store and route guards; do not change the design-system dependency.",
+      "expected_output": "Does not activate martix-fluent-ui and keeps the task with Vue, Pinia, and routing guidance.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": true,
+      "escalation": null
+    },
+    {
+      "id": "activation-negative-tailwind-html",
+      "prompt": "Configure Tailwind container queries and CSS cascade layers for a plain HTML marketing page.",
+      "expected_output": "Does not activate martix-fluent-ui and routes to Tailwind and CSS guidance.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": true,
+      "escalation": null
+    },
+    {
+      "id": "activation-negative-native-html-a11y",
+      "prompt": "Run an accessibility audit of a native HTML checkout form that does not use React or Fluent components.",
+      "expected_output": "Does not activate martix-fluent-ui and routes to general web accessibility guidance.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": true,
+      "escalation": null
+    },
+    {
+      "id": "activation-negative-chakra-testing",
+      "prompt": "Upgrade React Testing Library and Vitest mocks in a Chakra UI application. Component behavior is unchanged.",
+      "expected_output": "Does not activate martix-fluent-ui and routes to React testing and Chakra UI guidance.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": true,
+      "escalation": null
+    },
+    {
+      "id": "activation-negative-fluent-bit",
+      "prompt": "Write a PowerShell function that exports Microsoft 365 audit logs in the Fluent Bit format.",
+      "expected_output": "Does not confuse Fluent Bit with Fluent UI and routes to PowerShell and logging guidance.",
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": true,
+      "escalation": null
     }
   ]
 }

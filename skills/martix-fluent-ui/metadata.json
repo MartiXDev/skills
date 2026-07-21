@@ -47,8 +47,7 @@
     "rules": 9,
     "references": 7,
     "templates": 5,
-    "behaviorEvals": 10,
-    "triggerEvals": 20
+    "evals": 30
   },
   "executionProfile": {
     "modelTier": "balanced",
