@@ -18,11 +18,14 @@ upgradeable, and consistent with the installed package generation.
    for Fabric/v8/v0 or mixed generations, and Web Components for Vue. **Done when
    one package family owns the implementation and cross-skill handoffs are named.**
 3. Implement from the interaction inward: choose the highest-level public
-   component, then public props, slots, or compound components; apply Fluent tokens
-   and Griffel while preserving semantics, focus, directionality, user preferences,
-   and consumer overrides. Use `_unstable` recomposition only behind a verified,
-   tested adapter when public surfaces cannot meet a concrete requirement. **Done
-   when the public contract and accessibility behavior are explicit in code.**
+   component, then public props, slots, or compound components. Keep static
+   application styling CSS-first, using the repository's stylesheet convention or
+   CSS Modules by default, and consume Fluent semantic tokens there. Use Griffel
+   only for a concrete capability that stylesheet classes cannot safely provide.
+   Preserve semantics, focus, directionality, user preferences, and consumer
+   overrides. Use `_unstable` recomposition only behind a verified, tested adapter
+   when public surfaces cannot meet a concrete requirement. **Done when the public
+   contract, style ownership, and accessibility behavior are explicit in code.**
 4. Verify the changed behavior with the target repository's test, typecheck, and
    build commands. Exercise relevant keyboard, focus, theme, forced-colors,
    reduced-motion, and hydration paths. **Done when every affected behavior passes
@@ -33,7 +36,7 @@ upgradeable, and consistent with the installed package generation.
 | Concern | Open |
 | --- | --- |
 | Packages, provider, themes, nested scopes | [Foundation, packages, and themes](./rules/foundation-packages-provider-theme.md) |
-| Tokens, Griffel, overrides, RTL, forced colors | [Tokens and Griffel styling](./rules/styling-tokens-griffel.md) |
+| CSS-first styling, tokens, Griffel exceptions, RTL, forced colors | [CSS-first tokens and Griffel boundaries](./rules/styling-tokens-griffel.md) |
 | Component choice, slots, compound components, custom composition | [Component composition](./rules/component-composition-slots.md) |
 | Semantics, keyboard, focus, overlays, forms | [Accessibility and focus](./rules/accessibility-focus.md) |
 | Server rendering, hydration, Next.js | [SSR and Next.js](./rules/ssr-nextjs.md) |

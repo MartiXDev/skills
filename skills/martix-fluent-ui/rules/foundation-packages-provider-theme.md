@@ -14,8 +14,12 @@ before component implementation begins.
   already optimizes dependencies that way.
 - Put `FluentProvider` at the application or independently themed subtree
   boundary. Pass a complete theme and preserve inherited document attributes.
-- Use exported Fluent themes and tokens as the starting point. Derive brand themes
-  through supported theme APIs rather than copying generated token values.
+- Treat the client's brand definition as the single input to one theme adapter.
+  Derive complete light and dark Fluent themes through supported theme APIs rather
+  than copying generated token values.
+- Let `FluentProvider` expose Fluent semantic CSS variables to component
+  stylesheets. Derive namespaced application variables from the same brand source
+  only when no Fluent semantic token expresses the requirement.
 - Keep provider nesting intentional. A nested provider creates a new token and
   directionality scope and may change portal behavior.
 
@@ -29,6 +33,9 @@ before component implementation begins.
   one generation's theme automatically configures the other.
 - If the host supplies a theme, map it into supported Fluent theme tokens at one
   adapter boundary instead of scattering host checks through components.
+- If CSP or SSR constrains generated styles, inspect the provider's actual output.
+  Fluent-generated style elements or attributes are runtime infrastructure, not
+  permission to author ordinary application styles inline.
 - If the repository uses SSR, route to the SSR rule before finalizing provider and
   renderer placement.
 
@@ -37,6 +44,8 @@ before component implementation begins.
 - [ ] Package generation and installed versions are known.
 - [ ] Public v9 imports are used for new React code.
 - [ ] Provider placement matches theme and portal boundaries.
+- [ ] One client brand source owns Fluent themes and any application variables.
+- [ ] Feature styles consume semantic variables rather than palette literals.
 - [ ] Theme switching preserves readable foreground/background pairs.
 - [ ] Mixed-generation behavior is explicit.
 - [ ] No version-sensitive API was assumed without verification.

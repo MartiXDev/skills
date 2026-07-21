@@ -20,8 +20,9 @@ npx skills add https://github.com/MartiXDev/skills --skill martix-fluent-ui
 ## Scope
 
 - `@fluentui/react-components` v9 selection and setup
-- `FluentProvider`, themes, design tokens, and nested scopes
-- Griffel `makeStyles`, overrides, RTL, and forced-colors behavior
+- `FluentProvider`, client-brand theme adapters, design tokens, and nested scopes
+- CSS-first application styling, CSS Modules, bounded Griffel use, RTL, and
+  forced-colors behavior
 - public slots, compound components, and advanced recomposition boundaries
 - semantics, keyboard interaction, focus, overlays, and form behavior
 - SSR and Next.js style extraction or hydration concerns
@@ -39,7 +40,7 @@ publishing, and type-level API design to `martix-typescript`.
 | `SKILL.md` | Activation, workflow, and topic routing |
 | `rules\` | Durable implementation and review policy |
 | `references\` | Dated version facts, source map, recipes, and decision maps |
-| `templates\` | TypeScript/TSX starting points |
+| `templates\` | TypeScript, TSX, and CSS Module starting points |
 | `assets\` | Machine-readable taxonomy and loading order |
 | `evals\` | Behavior and activation coverage |
 

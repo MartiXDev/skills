@@ -22,6 +22,7 @@
 | React v9 components | [Fluent UI React Storybook](https://react.fluentui.dev/) | Current public component APIs, examples, and accessibility notes |
 | Monorepo and packages | [microsoft/fluentui](https://github.com/microsoft/fluentui) | Source, package READMEs, migration docs, examples |
 | Converged package | [`react-components`](https://github.com/microsoft/fluentui/tree/master/packages/react-components/react-components) | Umbrella exports and package contract |
+| Theme CSS bridge | [`react-theme-sass`](https://github.com/microsoft/fluentui/tree/master/packages/react-components/react-theme-sass) | Official Sass aliases for provider-injected token variables; verify its release channel before adding it |
 | Styling engine | [Griffel](https://griffel.js.org/) | `makeStyles`, renderer, extraction, and RTL behavior |
 | React icons | [`@fluentui/react-icons`](https://www.npmjs.com/package/@fluentui/react-icons) | Published version and package metadata |
 | Web Components | [`packages/web-components`](https://github.com/microsoft/fluentui/tree/master/packages/web-components) | Current custom-element registration and API |

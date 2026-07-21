@@ -2,8 +2,8 @@
   "name": "martix-fluent-ui",
   "displayName": "MartiX Fluent UI",
   "version": "0.1.0",
-  "summary": "React-first Fluent UI v9 engineering with accessible composition, tokens, Griffel, SSR, migration, and ecosystem routing.",
-  "abstract": "Use this standalone skill for @fluentui/react-components package selection, FluentProvider and theme setup, token-driven styling, slots and compound components, accessibility and focus, Next.js SSR, icons, motion, charts, v8 or v0 migration, and the exceptional Vue Web Components path.",
+  "summary": "React-first Fluent UI v9 engineering with accessible composition, CSS-first token styling, bounded Griffel use, SSR, migration, and ecosystem routing.",
+  "abstract": "Use this standalone skill for @fluentui/react-components package selection, FluentProvider and client-brand theme setup, CSS-first token styling, public styling and Griffel boundaries, slots and compound components, accessibility and focus, Next.js SSR, icons, motion, charts, v8 or v0 migration, and the exceptional Vue Web Components path.",
   "license": "Apache-2.0",
   "maturity": "preview",
   "taxonomy": {
@@ -17,6 +17,7 @@
       "fluent-ui",
       "react",
       "typescript",
+      "css-modules",
       "griffel",
       "design-tokens",
       "accessibility",
@@ -47,7 +48,7 @@
     "rules": 9,
     "references": 7,
     "templates": 5,
-    "evals": 30
+    "evals": 31
   },
   "executionProfile": {
     "modelTier": "balanced",
