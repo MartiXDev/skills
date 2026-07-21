@@ -508,9 +508,9 @@ matching.
 10. Synchronizovat `plugin.json`, `metadata.json`, assets, README a marketplace
     entry a spustit repo validation.
 
-Marketplace je shared coordinator-owned soubor; má se upravovat až po dokončení
-package-local práce
-([`docs/plugin-bundle-strategy.md`, ř. 107–120](../plugin-bundle-strategy.md)).
+Marketplace (`.github/plugin/marketplace.json`) je shared coordinator-owned soubor; ideálně jej upravujte až po dokončení a validaci
+package-local práce (nebo v navazujícím PR, pokud jde jen o plánovací dokumentaci).
+Viz [`docs/plugin-bundle-strategy.md`, ř. 107–120](../plugin-bundle-strategy.md).
 
 ## 12. Nejistoty a otevřené body
 
