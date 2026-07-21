@@ -55,20 +55,20 @@ jen jako pomocný signál, nikdy jako důkaz technické správnosti.
 
 - Repo je standalone-first marketplace a preferuje instalaci přes marketplace
   nebo `npx skills add`; balíčky pod `skills/` jsou samostatné skilly
-  ([`README.md`, ř. 6–23](../../../Git/copilot-worktrees/skills/martinmikes-friendly-doodle/README.md),
-  [`docs/repo-overview.md`, ř. 7–14](../../../Git/copilot-worktrees/skills/martinmikes-friendly-doodle/docs/repo-overview.md)).
+  ([`README.md`, ř. 6–23](../../README.md),
+  [`docs/repo-overview.md`, ř. 7–14](../repo-overview.md)).
 - Reusable domain knowledge patří do `skills\martix-*`; plugin je odůvodněný až
   hooky, agenty, prompt assets, MCP/LSP nebo složeným workflow
-  ([`docs/custom-ai-artifact-rules.md`, ř. 43–63](../../../Git/copilot-worktrees/skills/martinmikes-friendly-doodle/docs/custom-ai-artifact-rules.md)).
+  ([`docs/custom-ai-artifact-rules.md`, ř. 43–63](../custom-ai-artifact-rules.md)).
 - Samostatný skill musí mít `plugin.json`, `metadata.json`, `README.md`,
   `SKILL.md`, `AGENTS.md`, licenci, `rules/`, `references/`, `templates/`,
   assets a evaly; `SKILL.md` je router, nikoli plná knowledge base
-  ([`docs/custom-ai-artifact-rules.md`, ř. 220–276](../../../Git/copilot-worktrees/skills/martinmikes-friendly-doodle/docs/custom-ai-artifact-rules.md)).
+  ([`docs/custom-ai-artifact-rules.md`, ř. 220–276](../custom-ai-artifact-rules.md)).
 - Změny routingu musí synchronizovat metadata, taxonomy, section order a evaly
-  ([`.github/instructions/skill-packages.instructions.md`, ř. 21–32](../../../Git/copilot-worktrees/skills/martinmikes-friendly-doodle/.github/instructions/skill-packages.instructions.md)).
+  ([`.github/instructions/skill-packages.instructions.md`, ř. 21–32](../../.github/instructions/skill-packages.instructions.md)).
 - Budoucí `martix-webapp` počítá s reusable React/TypeScript skillem; obecná
   TypeScript znalost proto nesmí zůstat skrytá uvnitř pluginu
-  ([`docs/plugin-bundle-strategy.md`, ř. 40–43, 60–64](../../../Git/copilot-worktrees/skills/martinmikes-friendly-doodle/docs/plugin-bundle-strategy.md)).
+  ([`docs/plugin-bundle-strategy.md`, ř. 40–43, 60–64](../plugin-bundle-strategy.md)).
 
 ### Klíčové externí zdroje
 
@@ -193,14 +193,13 @@ Skill má vlastnit:
 
 Repo portfolio již používá hand-off princip „stay here / open companion skill“
 místo kopírování pravidel
-([`docs/skill-portfolio-coordination-plan.md`, ř. 68–90](../../../Git/copilot-worktrees/skills/martinmikes-friendly-doodle/docs/skill-portfolio-coordination-plan.md)).
+([`docs/skill-portfolio-coordination-plan.md`, ř. 68–90](../skill-portfolio-coordination-plan.md)).
 Stejný vzor je vhodný i zde.
 
 ## 4. Poučení z existujících TypeScript skillů
 
 Detailní lokální audit je v
-[`docs/martix-typescript/porovnani-ai-skillu-pro-typescript.md`](../../../Git/copilot-worktrees/skills/martinmikes-friendly-doodle/docs/martix-typescript/porovnani-ai-skillu-pro-typescript.md).
-
+[`docs/martix-typescript/porovnani-ai-skillu-pro-typescript.md`](./porovnani-ai-skillu-pro-typescript.md).
 ### Co převzít
 
 - Z `Jeffallan/typescript-pro`: type-first proces, pět jasných fází a tabulku
@@ -226,7 +225,7 @@ Detailní lokální audit je v
 Lokální audit dospěl ke stejnému závěru: žádný veřejný kandidát není dost dobrý
 beze změn; nejlepší je vlastní hybrid s TS7 aktualizací a kompilací každého
 příkladu
-([srovnání, ř. 157–169](../../../Git/copilot-worktrees/skills/martinmikes-friendly-doodle/docs/martix-typescript/porovnani-ai-skillu-pro-typescript.md)).
+([srovnání, ř. 157–169](./porovnani-ai-skillu-pro-typescript.md)).
 
 ## 5. Návrh invocation podle `writing-great-skills`
 
@@ -317,7 +316,7 @@ Pro konzistenci s repo portfoliem:
 
 Repo dnes používá obdobný contract `Purpose`, `Default guidance`, `Avoid`,
 `Review checklist`, `Related files`, `Source anchors`
-([`martix-dotnet-csharp/assets/section-order.json`, ř. 1–9](../../../Git/copilot-worktrees/skills/martinmikes-friendly-doodle/skills/martix-dotnet-csharp/assets/section-order.json)).
+([`martix-dotnet-csharp/assets/section-order.json`, ř. 1–9](../../skills/martix-dotnet-csharp/assets/section-order.json)).
 Pro nový skill je pozitivně formulované „Decision branches“ lepší než rozsáhlá
 sekce zákazů; hard guardrails lze uvést uvnitř konkrétní větve.
 
@@ -511,7 +510,7 @@ matching.
 
 Marketplace je shared coordinator-owned soubor; má se upravovat až po dokončení
 package-local práce
-([`docs/plugin-bundle-strategy.md`, ř. 107–120](../../../Git/copilot-worktrees/skills/martinmikes-friendly-doodle/docs/plugin-bundle-strategy.md)).
+([`docs/plugin-bundle-strategy.md`, ř. 107–120](../plugin-bundle-strategy.md)).
 
 ## 12. Nejistoty a otevřené body
 

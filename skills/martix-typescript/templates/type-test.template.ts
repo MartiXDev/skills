@@ -17,7 +17,7 @@ type PreservesLiteralUnion = Expect<
   Equal<typeof value, "ready" | undefined>
 >;
 
-// @ts-expect-error -- first accepts a readonly tuple, not an arbitrary scalar.
+// @ts-expect-error -- first accepts a readonly array/tuple, not an arbitrary scalar.
 first(42);
 
 export type { PreservesLiteralUnion };
