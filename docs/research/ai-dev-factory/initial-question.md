@@ -1,5 +1,7 @@
 # Automated AI DEV Factory with GitHub Issues
 
+<!-- markdownlint-disable MD013 -->
+
 ## Copilot Prompts
 
 ### Prompt 1
