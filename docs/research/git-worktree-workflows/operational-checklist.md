@@ -33,6 +33,6 @@ git worktree list
 # List local branches
 git branch --list
 
-# Show merge status for a branch
+# List branches merged into main (reachability only; does not detect squash/rebase merges)
 git branch --merged main
 ```

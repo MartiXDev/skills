@@ -11,7 +11,6 @@ This audit was taken from the repository state on 2026-07-22.
 - Branches already merged into `main`:
   - `codex/review-dotnet-csharp-docs`
   - `martinmikes-improved-goggles`
-  - `main`
 - Branches not merged into `main`:
   - `chore/skill-planning-and-template-updates`
   - `feat/add-essl-and-imported-skills`
@@ -27,9 +26,9 @@ This audit was taken from the repository state on 2026-07-22.
 - The main working tree is the active repository checkout and should not be
 removed.
 - Several Copilot and Codex worktrees are attached to branches that are no
-longer tracking a remote branch.
+  longer tracking a remote branch.
 - The detached Codex worktree should be inspected first because it suggests a
-temporary agent session that may have been left behind.
+  temporary agent session that may have been left behind.
 
 ## Cleanup priorities
 
