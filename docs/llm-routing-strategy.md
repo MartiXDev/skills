@@ -1,5 +1,10 @@
 # LLM routing strategy
 
+<!--
+role: normative
+verified: 2026-07-22
+-->
+
 <!-- markdownlint-disable MD013 -->
 
 Use this policy when assigning model tiers, writing evals, editing package

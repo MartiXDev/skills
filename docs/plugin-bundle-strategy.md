@@ -1,5 +1,10 @@
 # Plugin bundle strategy
 
+<!--
+role: normative
+verified: 2026-07-22
+-->
+
 MartiX skills stay standalone by default. Plugins exist to make repeatable
 project families easy to install and to add only the project-level instructions,
 prompts, hooks, agents, or MCP configuration that cannot live cleanly in one

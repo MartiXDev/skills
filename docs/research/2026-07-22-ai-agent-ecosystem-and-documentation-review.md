@@ -1,5 +1,10 @@
 # MartiX Skills documentation and ecosystem review
 
+<!--
+role: research
+snapshot: 2026-07-22
+-->
+
 <!-- markdownlint-disable MD013 -->
 
 - Research date: 2026-07-22
@@ -10,6 +15,8 @@
 > [!NOTE]
 > This is a dated research snapshot, not a normative repository contract.
 > Revalidate volatile upstream claims before using them in current guidance.
+> **Review trigger:** After a major model or agent-platform wave, or within six
+> months (by 2027-01-22).
 
 ## Executive summary
 

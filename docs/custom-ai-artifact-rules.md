@@ -1,5 +1,10 @@
 # Custom AI artifact rules
 
+<!--
+role: normative
+verified: 2026-07-22
+-->
+
 ## Status
 
 This document is the phase 2 specification for custom AI artifacts in this

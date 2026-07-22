@@ -1,5 +1,10 @@
 # Execution profiles
 
+<!--
+role: normative
+verified: 2026-07-22
+-->
+
 <!-- markdownlint-disable MD013 -->
 
 Execution profiles describe how MartiX skills and plugins should be used by agents without wasting premium model requests, tokens, memory, or parallel-agent capacity.

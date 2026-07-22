@@ -1,5 +1,10 @@
 # Parallel worktree guidance
 
+<!--
+role: operational
+verified: 2026-07-22
+-->
+
 <!-- markdownlint-disable MD013 -->
 
 Use this guide when splitting MartiX skill or plugin work across Copilot CLI `/fleet`, multiple agents, or multiple git worktrees.

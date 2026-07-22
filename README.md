@@ -102,12 +102,12 @@ For a compact entry point to the documentation tree, see the
 | Guide | Purpose |
 | --- | --- |
 | [Repository overview](./docs/repo-overview.md) | Architecture, package rules, marketplace model, and roadmap. |
+| [Document roles and archive](./docs/document-roles.md) | Document roles, metadata, archive policy, and research snapshot lifecycle. |
 | [Custom AI artifact rules](./docs/custom-ai-artifact-rules.md) | Rules for instructions, skills, plugins, agents, prompts, hooks, MCP/LSP, metadata, templates, and evals. |
 | [Execution profiles](./docs/execution-profiles.md) | Model-tier, token-budget, decision-based task classification, `/fleet`, and worktree guidance. |
 | [LLM routing strategy](./docs/llm-routing-strategy.md) | Cost-aware model tier policy and unsupported routing anti-patterns. |
 | [Plugin bundle strategy](./docs/plugin-bundle-strategy.md) | MartiX project-family bundles and skill-versus-plugin decision rules. |
 | [Parallel worktree guidance](./docs/parallel-worktree-guidance.md) | Splitting package work across agents and worktrees. |
-| [Skill portfolio coordination](./docs/skill-portfolio-coordination-plan.md) | Cross-skill routing and companion-skill handoff planning. |
 | [Recommended skills](./docs/recommended-skills.md) | External skill/plugin ecosystem shortlist and install notes. |
 | [Plugin layout policy](./docs/plugin-layout.yaml) | Machine-readable layout policy and validation assumptions. |
 
@@ -137,7 +137,7 @@ its `SKILL.md`, `AGENTS.md`, rules, references, metadata, and evals.
 | Task | Start with |
 | --- | --- |
 | Understand repository structure | [Repository overview](./docs/repo-overview.md) and [Plugin layout policy](./docs/plugin-layout.yaml) |
+| Understand document roles | [Document roles and archive](./docs/document-roles.md) |
 | Create or update a skill, plugin, or AI artifact | [Custom AI artifact rules](./docs/custom-ai-artifact-rules.md) |
 | Decide skill versus plugin boundaries | [Plugin bundle strategy](./docs/plugin-bundle-strategy.md) |
 | Assign model tier or split fleet work | [Execution profiles](./docs/execution-profiles.md) and [LLM routing strategy](./docs/llm-routing-strategy.md) |
-| Coordinate multiple skills | [Skill portfolio coordination](./docs/skill-portfolio-coordination-plan.md) |

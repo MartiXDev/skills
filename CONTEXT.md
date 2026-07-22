@@ -1,5 +1,10 @@
 # Repository glossary
 
+<!--
+role: normative
+verified: 2026-07-22
+-->
+
 MartiX Skills exists to build evidence-backed domain capabilities that remain
 reliable across model tiers, then use the lowest-cost model that clears explicit
 quality and safety requirements for each task.
@@ -85,11 +90,13 @@ The declared purpose of a maintainer document: `normative`, `operational`,
 
 An immutable, dated evidence record. It may receive labeled errata, but newer
 findings belong in a new snapshot rather than silently replacing its conclusions.
+See [Document roles and archive policy](./docs/document-roles.md).
 
 ## Historical document
 
 A superseded record retained for context and excluded from active guidance.
-Historical is a document role; archive is its repository location.
+Historical is a document role; archive is its repository location. See
+[Document roles and archive policy](./docs/document-roles.md).
 
 ## Matt Pocock Skills
 

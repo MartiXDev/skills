@@ -1,5 +1,10 @@
 # Documentation index
 
+<!--
+role: reference
+verified: 2026-07-22
+-->
+
 Use this low-token map to choose the smallest useful maintainer document.
 Detailed package behavior belongs in each `skills\martix-*` or
 `plugins\martix-*` package.
@@ -16,12 +21,12 @@ Detailed package behavior belongs in each `skills\martix-*` or
 | Guide | Use when |
 | --- | --- |
 | [Repository overview](./repo-overview.md) | Understanding layout, package rules, installs, and roadmap. |
+| [Document roles and archive policy](./document-roles.md) | Understanding document roles, metadata, archive location, and research snapshot lifecycle. |
 | [Custom AI artifact rules](./custom-ai-artifact-rules.md) | Creating or updating skills, plugins, agents, prompts, hooks, metadata, templates, or evals. |
 | [Execution profiles](./execution-profiles.md) | Choosing model tier, token budget, task classification, or worktree safety. |
 | [LLM routing strategy](./llm-routing-strategy.md) | Reviewing cost-aware routing policy and unsupported routing locations. |
 | [Plugin bundle strategy](./plugin-bundle-strategy.md) | Deciding standalone skill versus plugin bundle boundaries. |
 | [Parallel worktree guidance](./parallel-worktree-guidance.md) | Splitting package work across agents or branches. |
-| [Skill portfolio coordination](./skill-portfolio-coordination-plan.md) | Coordinating related skills and handoffs. |
 | [Recommended skills](./recommended-skills.md) | Reviewing external skill or plugin candidates. |
 | [Plugin layout policy](./plugin-layout.yaml) | Checking machine-readable package layout assumptions. |
 
@@ -63,6 +68,7 @@ rewriting an older research baseline.
 | Task | Start with |
 | --- | --- |
 | Understand the repository | [Repository overview](./repo-overview.md) |
+| Understand document roles and archive | [Document roles and archive policy](./document-roles.md) |
 | Change a skill or plugin artifact | [Custom AI artifact rules](./custom-ai-artifact-rules.md) |
 | Choose skill versus plugin ownership | [Plugin bundle strategy](./plugin-bundle-strategy.md) |
 | Plan parallel package work | [Execution profiles](./execution-profiles.md) |

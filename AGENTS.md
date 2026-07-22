@@ -1,5 +1,10 @@
 # Repository agent guide
 
+<!--
+role: normative
+verified: 2026-07-22
+-->
+
 Use this file as the preflight router for repository work. Package-local
 `AGENTS.md`, `SKILL.md`, and `README.md` files add domain guidance but do not
 replace repository contracts.

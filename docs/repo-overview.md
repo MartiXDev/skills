@@ -1,5 +1,10 @@
 # MartiX Skills Repository Overview
 
+<!--
+role: operational
+verified: 2026-07-22
+-->
+
 <!-- markdownlint-disable MD013 MD024 -->
 
 ## Purpose
