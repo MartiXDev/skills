@@ -115,7 +115,9 @@ For a compact entry point to the documentation tree, see the
 
 The root docs above are the active maintainer guides. Domain folders under
 `docs/` contain source research, comparisons, or implementation plans that
-informed the installable packages:
+informed the installable packages. Keep new documentation in this tree, using
+`docs/research/` for repo-level notes and package-scoped subfolders such as
+`docs/martix-dotnet-csharp/` for domain-specific work:
 
 | Folder | Purpose |
 | --- | --- |

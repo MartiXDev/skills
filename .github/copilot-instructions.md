@@ -37,3 +37,9 @@ powershell -ExecutionPolicy Bypass `
 Treat `.github\plugin\marketplace.json`, root README files, shared templates,
 and `scripts\validate-repository.ps1` as coordinator-owned shared files.
 Package folders are safer parallel/worktree slices.
+
+## Documentation placement
+
+Keep repository documentation in the docs tree. New research, planning,
+investigation, or comparison notes should be placed under `docs\research` or
+under the relevant package folder inside `docs\`.

@@ -59,6 +59,10 @@ needed by the task.
  repository strategy docs, and `scripts/validate-repository.ps1` as
  coordinator-owned surfaces. See
  [parallel worktree guidance](./docs/parallel-worktree-guidance.md).
+- Keep repository documentation in the docs tree. New research, planning,
+  investigation, or comparison notes should be added under
+  [docs/research](./docs/research/) or the relevant package folder under
+  [docs](./docs/).
 - Do not revert edits you did not make. Coordinate when concurrent changes
  overlap the same contract.
 
