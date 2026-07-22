@@ -7,7 +7,7 @@ return to the linked rules for deeper review and trade-offs.
 
 ### Start with these routes
 
-- [Quick-start defaults](../SKILL.md#quick-start-defaults)
+- [Skill router and compatibility stance](../SKILL.md#compatibility-stance)
 - [ASP.NET Core application shape](../rules/web-aspnet-core.md)
 - [HTTP clients and resilience](../rules/web-http-resilience.md)
 - [Authentication, authorization, and secure defaults](../rules/security-auth-authz.md)
@@ -17,9 +17,20 @@ return to the linked rules for deeper review and trade-offs.
 
 ### Minimal API baseline
 
-Pair this with the
-[minimal `.csproj` baseline](../SKILL.md#minimal-csproj-baseline) when
-starting a new service.
+Use this ASP.NET Core baseline only for a greenfield service or an explicit
+upgrade. For an existing repository, first follow the compatibility stance in
+[`SKILL.md`](../SKILL.md#compatibility-stance).
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+</Project>
+```
 
 ```csharp
 using System.ComponentModel.DataAnnotations;

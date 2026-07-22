@@ -28,7 +28,7 @@ description: 'Long-form companion guide for the martix-dotnet-csharp standalone 
 ## Working stance
 
 - Treat
-  [docs\martix-dotnet-csharp\martix-dotnet-csharp.md](../../../docs/martix-dotnet-csharp/martix-dotnet-csharp.md)
+  [docs\martix-dotnet-csharp\martix-dotnet-csharp.md](../../docs/martix-dotnet-csharp/martix-dotnet-csharp.md)
   as the highest-priority local brief.
 - Stay inside the source boundary recorded in
   [doc-source-index.md](./references/doc-source-index.md).
@@ -266,7 +266,7 @@ description: 'Long-form companion guide for the martix-dotnet-csharp standalone 
 ## Source boundaries
 
 - Approved local direction begins with
-  [docs\martix-dotnet-csharp\martix-dotnet-csharp.md](../../../docs/martix-dotnet-csharp/martix-dotnet-csharp.md).
+  [docs\martix-dotnet-csharp\martix-dotnet-csharp.md](../../docs/martix-dotnet-csharp/martix-dotnet-csharp.md).
 - Approved and excluded sources are recorded in
   [doc-source-index.md](./references/doc-source-index.md).
 - Do not pull guidance from `docs\martix-csharp`,
