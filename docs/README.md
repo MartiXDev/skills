@@ -38,6 +38,17 @@ Read these on demand when changing the related package or reviewing its history.
 | `martix-markdown\` | Markdown automation and package split notes. |
 | `martix-csharp\` | Earlier standalone C# skill planning artifacts. |
 
+## Repository research snapshots
+
+Research snapshots preserve dated evidence and proposals for future refreshes.
+They are non-normative: revalidate volatile upstream claims before moving them
+into active guidance, and add a new dated snapshot rather than silently
+rewriting an older research baseline.
+
+| Snapshot | Scope | Review again |
+| --- | --- | --- |
+| [2026-07 AI agent ecosystem and documentation review](./research/2026-07-22-ai-agent-ecosystem-and-documentation-review.md) | Documentation drift, Agent Skills, Copilot plugins and hooks, MCP, prompt caching, cheap/local models, refactor options, and a cross-model eval playbook. | After a major model or agent-platform wave, or within six months. |
+
 ## Read-on-demand package docs
 
 - Use package `rules\` for enforceable guidance loaded by topic.
