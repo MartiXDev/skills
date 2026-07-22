@@ -7,8 +7,9 @@ a maintenance concern.
 ## Placement rule
 
 - Put new research or investigation notes in the docs tree.
-- Prefer a package-specific subfolder under this folder when the material
-  belongs to a specific domain.
+- Put repo-level or cross-cutting research in `docs/research/`.
+- Put domain/package documentation under the relevant `docs/<domain>/` folder.
+  Use a subfolder under `docs/research/` only for domain-specific research notes.
 - Keep the content linked from the relevant docs index or package README.
 
 ## Current subfolders
