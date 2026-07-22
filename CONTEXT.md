@@ -1,5 +1,9 @@
 # Repository glossary
 
+MartiX Skills exists to build evidence-backed domain capabilities that remain
+reliable across model tiers, then use the lowest-cost model that clears explicit
+quality and safety requirements for each task.
+
 ## MartiX Skills
 
 The GitHub Copilot CLI marketplace maintained by this repository. It contains
@@ -44,6 +48,65 @@ scenarios are rows in the canonical eval file, not a separate package artifact.
 A temporary file used by an external optimization or evaluation tool. It may
 use a tool-specific schema, but it is not a canonical package artifact and does
 not redefine repository conventions.
+
+## Model eval wave
+
+A frozen, dated comparison run triggered by a meaningful model or platform
+change. It compares candidate models using the same skill commit, fixtures,
+tools, scoring rules, and repeated trials.
+
+## Capability gate
+
+A binary requirement a model must support before entering an evaluation lane,
+such as the required context size, tool calling, or structured output.
+
+## Quality floor
+
+The minimum repeated task-quality result a model must achieve for a specific
+skill and task type.
+
+## Safety floor
+
+A non-compensable safety requirement. Lower cost or stronger results in another
+dimension cannot offset its failure.
+
+## Cheapest capable model
+
+The lowest-total-cost model for a specific skill and task type that repeatedly
+clears its capability gates, quality floor, safety floor, and variance limits.
+It is a dated benchmark result, not a permanent model label.
+
+## Document role
+
+The declared purpose of a maintainer document: `normative`, `operational`,
+`reference`, `research`, `roadmap`, or `historical`.
+
+## Research snapshot
+
+An immutable, dated evidence record. It may receive labeled errata, but newer
+findings belong in a new snapshot rather than silently replacing its conclusions.
+
+## Historical document
+
+A superseded record retained for context and excluded from active guidance.
+Historical is a document role; archive is its repository location.
+
+## Matt Pocock Skills
+
+The external planning and delivery workflow used to turn ideas into
+specifications, dependency-aware tickets, implementations, and reviews.
+Use `Matt Skills` after the first full-name mention.
+
+## Sandcastle
+
+The external sandboxed ticket-execution orchestrator used to run implementation
+work in isolated containers.
+
+## Integration adapter
+
+A thin boundary that translates ticket metadata into MartiX skill selection,
+model requirements, sandbox inputs, validation commands, and result metadata
+without taking ownership of planning or container orchestration.
 
 ## Coordinator-owned surface
 
