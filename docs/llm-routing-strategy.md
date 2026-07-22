@@ -1,5 +1,7 @@
 # LLM routing strategy
 
+<!-- markdownlint-disable MD013 -->
+
 Use this policy when assigning model tiers, writing evals, editing package
 metadata, or deciding whether automation should be a hook instead of LLM work.
 
@@ -33,7 +35,7 @@ alias for `medium`; do not use it as the preferred value in new MartiX artifacts
 
 | Artifact | Responsibility |
 | --- | --- |
-| `docs\execution-profiles.md` | Full tier, budget, AFK/HITL, and parallel-safety vocabulary. |
+| `docs\execution-profiles.md` | Full tier, budget, task-classification, and parallel-safety vocabulary. |
 | `metadata.json` `executionProfile` | Package-level routing contract. |
 | `evals\evals.json` | Per-scenario tier, budget, safety, and escalation expectations. |
 | `.github\instructions\*.instructions.md` | Path-scoped tier guidance. |

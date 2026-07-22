@@ -17,7 +17,7 @@ Detailed package behavior belongs in each `skills\martix-*` or
 | --- | --- |
 | [Repository overview](./repo-overview.md) | Understanding layout, package rules, installs, and roadmap. |
 | [Custom AI artifact rules](./custom-ai-artifact-rules.md) | Creating or updating skills, plugins, agents, prompts, hooks, metadata, templates, or evals. |
-| [Execution profiles](./execution-profiles.md) | Choosing model tier, token budget, AFK/HITL labels, or worktree safety. |
+| [Execution profiles](./execution-profiles.md) | Choosing model tier, token budget, task classification, or worktree safety. |
 | [LLM routing strategy](./llm-routing-strategy.md) | Reviewing cost-aware routing policy and unsupported routing locations. |
 | [Plugin bundle strategy](./plugin-bundle-strategy.md) | Deciding standalone skill versus plugin bundle boundaries. |
 | [Parallel worktree guidance](./parallel-worktree-guidance.md) | Splitting package work across agents or branches. |
@@ -35,6 +35,7 @@ Read these on demand when changing the related package or reviewing its history.
 | `martix-fastendpoints\` | FastEndpoints improvement planning. |
 | `martix-fluentvalidation\` | FluentValidation improvement planning. |
 | `martix-fluent-ui\` | Fluent UI research, evidence, and skill blueprint. |
+| `martix-essl\` | Czech eSSL source research and compliance maps. |
 | `martix-markdown\` | Markdown automation and package split notes. |
 | `martix-csharp\` | Earlier standalone C# skill planning artifacts. |
 

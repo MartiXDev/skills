@@ -26,8 +26,8 @@ skill.
 - The bundle needs project-level setup guidance, prompts, instructions, hooks,
   agents, or validation workflow.
 - The bundle reduces setup friction without duplicating standalone skill content.
-- The bundle can add concise model-tier, `/fleet`, worktree, AFK/HITL, or
-  validation orchestration.
+- The bundle can add concise model-tier, `/fleet`, worktree, task-classification,
+  or validation guidance.
 
 ### Do not create a plugin bundle when
 
