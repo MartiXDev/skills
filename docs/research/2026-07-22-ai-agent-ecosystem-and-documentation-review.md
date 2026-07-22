@@ -1,5 +1,7 @@
 # MartiX Skills documentation and ecosystem review
 
+<!-- markdownlint-disable MD013 -->
+
 - Research date: 2026-07-22
 - Repository: `MartiXDev/skills`
 - Reviewed commit: `a8cc28b` (`feat(fluent-ui): adopt CSS-first styling policy`)
