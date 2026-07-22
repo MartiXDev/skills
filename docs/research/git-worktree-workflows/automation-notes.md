@@ -23,9 +23,9 @@ The workflow can be triggered by:
 
 - `workflow_dispatch` for manual runs
 - `pull_request` with `types: [closed]` when the goal is to respond to merged
- PRs
+  PRs
 - `delete` for branch deletion events, if branch cleanup should happen after a
- remote branch is removed
+  remote branch is removed
 
 The official GitHub Actions docs note that `pull_request` closed events can be
 used to detect merges, while `delete` can be used to react to branch deletion.

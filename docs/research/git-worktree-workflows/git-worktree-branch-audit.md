@@ -8,15 +8,19 @@ This audit was taken from the repository state on 2026-07-22.
 - Main branch: `main`
 - Worktrees currently attached: 8
 - Local branches present: 9 (plus `main`)
-- Branches already merged into `main`: `codex/review-dotnet-csharp-docs`,
-`martinmikes-improved-goggles`, `main`
+- Branches already merged into `main`:
+  - `codex/review-dotnet-csharp-docs`
+  - `martinmikes-improved-goggles`
+  - `main`
 - Branches not merged into `main`:
-`chore/skill-planning-and-template-updates`,
-`feat/add-essl-and-imported-skills`, `feat/martix-afk-factory`,
-`fluent-ui-css-first`, `martinmikes-create-typescript-skill`,
-`martinmikes-research-doc-drift-2026`,
-`martinmikes-research-fluent-ui-skill`,
-`martinmikes-setup-matt-pocock-skills-config`
+  - `chore/skill-planning-and-template-updates`
+  - `feat/add-essl-and-imported-skills`
+  - `feat/martix-afk-factory`
+  - `fluent-ui-css-first`
+  - `martinmikes-create-typescript-skill`
+  - `martinmikes-research-doc-drift-2026`
+  - `martinmikes-research-fluent-ui-skill`
+  - `martinmikes-setup-matt-pocock-skills-config`
 
 ## Worktree findings
 

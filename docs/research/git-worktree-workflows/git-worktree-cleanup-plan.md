@@ -10,7 +10,7 @@ branches in this repository.
 - Add a local PowerShell cleanup script with a dry-run mode first.
 - Protect the current branch, `main`, and locked worktrees by default.
 - Only remove branches that are merged into `main` or explicitly approved by
-the user.
+  the user.
 - Warn about stale worktrees before deletion.
 - Optionally add a PR-close workflow later for remote branch cleanup.
 

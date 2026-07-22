@@ -22,7 +22,7 @@ Use this checklist when reviewing or cleaning up local worktrees and branches.
 - Never delete the current branch's worktree.
 - Never delete a locked worktree without explicit intent.
 - Do not remove local branches just because they have no remote tracking
-branch; confirm merge status first.
+  branch; confirm merge status first.
 
 ## Useful commands
 
