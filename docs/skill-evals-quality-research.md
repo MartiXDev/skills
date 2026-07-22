@@ -384,7 +384,7 @@ přidat druhý concrete near-miss mimo TUnit.
 
 ### Společné systémové mezery
 
-#### Evaly nejsou spustitelný regresní systém
+#### Evaly netvoří spustitelný regresní systém
 
 Mimo interní `skill-creator` není v repozitáři runner, který by portfolio
 evaly vykonal, odstupňoval a agregoval. CI spouští pouze strukturální
@@ -403,7 +403,7 @@ nelze portfolio soubory přímo použít v doporučeném benchmark workflow.
 Nedoporučuje se okamžitá hromadná migrace. Nejprve je třeba zvolit kanonické
 repo schéma, verzovat je a napsat malý adaptér pro runner/viewer.
 
-#### Negativní coverage je částečně nadhodnocená
+#### Negativní pokrytí je částečně nadhodnocené
 
 Šest Skills používá variantu obecného promptu „uživatel žádá pomoc, která
 patří jinam; posuď scope“ a stejné assertions. Takový prompt agentovi předem
