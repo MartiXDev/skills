@@ -31,7 +31,7 @@ Use this checklist when reviewing or cleaning up local worktrees and branches.
 - Never delete a locked worktree without explicit intent.
 - Do not remove local branches just because they have no remote tracking
   branch; confirm merge status first.
-- Do not use `git branch --merged` as the only evidence for squash- or
+- Do not use `git branch --merged main` as the only evidence for squash- or
   rebase-merged pull requests.
 - Do not infer ownership from a directory path or branch prefix.
 
