@@ -325,9 +325,8 @@ Layer 1: Local PowerShell command (PRIMARY — TO BUILD)
 
 ### Phase 1: Local cleanup command (Cleanup-Worktrees.ps1)
 
-**Location:** `plugins/martix-afk-factory/hooks/Cleanup-Worktrees.ps1`
+**Location:** `plugins/martix-git/hooks/Cleanup-Worktrees.ps1`
 (also symlinked/copied to `scripts/` for standalone use)
-
 #### 6.1 Parameters
 
 ```powershell
@@ -517,8 +516,8 @@ them, giving the developer visibility without risk.
 
 | File | Purpose |
 |------|---------|
-| `plugins/martix-afk-factory/hooks/Cleanup-Worktrees.ps1` | Primary cleanup script |
-| `plugins/martix-afk-factory/hooks/Cleanup-Worktrees.Tests.ps1` | Pester unit tests |
+| `plugins/martix-git/hooks/Cleanup-Worktrees.ps1` | Primary cleanup script |
+| `plugins/martix-git/hooks/Cleanup-Worktrees.Tests.ps1` | Pester unit tests |
 | `scripts/Cleanup-Worktrees.ps1` | Thin wrapper or symlink for repo-root access |
 | `docs/research/git-worktree-workflows/primary-source-review.md` | This document |
 
