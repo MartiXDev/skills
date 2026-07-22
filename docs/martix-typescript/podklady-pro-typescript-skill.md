@@ -192,7 +192,7 @@ Skill má vlastnit:
 
 Repo portfolio již používá hand-off princip „stay here / open companion skill“
 místo kopírování pravidel
-([`docs/skill-portfolio-coordination-plan.md`, ř. 68–90](../skill-portfolio-coordination-plan.md)).
+(viz [archived coordination plan](../archive/plans/skill-portfolio-coordination-plan.md) pro historický kontext).
 Stejný vzor je vhodný i zde.
 
 ## 4. Poučení z existujících TypeScript skillů
