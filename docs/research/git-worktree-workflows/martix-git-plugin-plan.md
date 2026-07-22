@@ -470,7 +470,7 @@ independent merge and attachment decision after reconciliation.
 - Unknown owner
 - Branch with open pull request
 - Branch with ambiguous squash/rebase merge evidence
-- Non-empty, reparse-point, or Git-bearing orphan directory
+- Non-empty, reparse point, or Git-bearing orphan directory
 
 ### Destructive operations
 

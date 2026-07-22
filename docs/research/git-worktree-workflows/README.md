@@ -28,6 +28,6 @@ describe the retiring `martix-afk-factory` architecture.
 
 The branch audit also records an observed Copilot app lifecycle transition:
 archiving sessions may deregister their clean worktrees, remove the directories
-or leave an empty orphan, and preserve the local branches. The current plugin
+or leave an empty orphan directory, and preserve the local branches. The current plugin
 plan treats this as external cleanup to reconcile, not as a stable ownership
 API or permission to delete a branch.

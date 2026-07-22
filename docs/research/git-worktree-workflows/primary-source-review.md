@@ -7,7 +7,7 @@ Status: Research complete, implementation not started
 
 > **Erratum recorded 2026-07-22**: Later local observation showed that
 > archiving sessions in the Copilot app can deregister their clean worktrees,
-> delete the directories or leave an empty orphan, and preserve the associated
+> delete the directories or leave an empty orphan directory, and preserve the associated
 > local branches. The original section 3.5 statement that no automatic cleanup
 > behavior exists is retained below as part of this dated snapshot, but it is
 > superseded by the branch audit and `martix-git-plugin-plan.md`. This observed
