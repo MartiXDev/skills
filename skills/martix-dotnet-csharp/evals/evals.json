@@ -128,6 +128,127 @@
       "token_budget": "medium",
       "negative_activation": false,
       "escalation": null
+    },
+    {
+      "id": "options-and-di-routing",
+      "prompt": "An ASP.NET Core worker uses named tenant options, IValidateOptions that depends on another service, and a keyed sender implementation selected per tenant. Show the first MartiX files to read and describe the lifetime and validation decisions before changing registrations.",
+      "expected_sections": [
+        "Compatibility check",
+        "Configuration and DI route",
+        "Lifetime and validation decisions"
+      ],
+      "assertions": [
+        "Starts with web or design guidance and does not invent a separate DI skill.",
+        "Checks the repository baseline before relying on newer DI features.",
+        "Explains the relationship between options validation and service lifetimes."
+      ],
+      "files": [
+        "SKILL.md",
+        "references/web-stack-map.md",
+        "references/design-map.md",
+        "rules/web-aspnet-core.md",
+        "rules/design-api-type-design.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "efcore-query-performance-routing",
+      "prompt": "Review an EF Core read endpoint that loads three navigation collections, returns entire entities, intermittently times out, and will be used by a paged admin screen. Identify the MartiX route and the decisions that need evidence before changing the query.",
+      "expected_sections": [
+        "Data route",
+        "Query-shape review",
+        "Evidence and tests"
+      ],
+      "assertions": [
+        "Starts with EF Core and data guidance rather than generic span or concurrency advice.",
+        "Covers projection, paging, query shape, tracking, and relational testing as decisions rather than blanket rules.",
+        "Requests evidence such as generated SQL, measurements, or focused tests before optimization."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/data-efcore.md",
+        "references/data-stack-map.md",
+        "rules/testing-unit-integration.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "serialization-contract-routing",
+      "prompt": "A public .NET API must add a new polymorphic event payload while old mobile clients still deserialize the existing JSON. Decide the MartiX files to consult and the compatibility questions to answer before selecting System.Text.Json configuration.",
+      "expected_sections": [
+        "Contract route",
+        "Compatibility questions",
+        "Validation strategy"
+      ],
+      "assertions": [
+        "Routes to serialization and public API guidance.",
+        "Treats wire compatibility and polymorphism as explicit contract decisions.",
+        "Includes tests for old and new payload shapes instead of assuming a serializer setting is sufficient."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/data-serialization.md",
+        "rules/design-api-type-design.md",
+        "references/data-stack-map.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "plain-csharp-public-type-design",
+      "prompt": "I am extracting a reusable C# library from an internal service. Should CustomerSummary be a class, record, or struct, and how should nullability and exception behavior appear in its public API? Keep the answer independent of ASP.NET Core.",
+      "expected_sections": [
+        "Language and design route",
+        "Public contract choices",
+        "Compatibility boundary"
+      ],
+      "assertions": [
+        "Activates for a pure C# public-type design task rather than assuming a web host.",
+        "Routes to language, nullability, and API design rules.",
+        "Avoids universal class, record, struct, or exception prescriptions."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/lang-modern-features.md",
+        "rules/lang-nullability.md",
+        "rules/design-api-type-design.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "non-dotnet-near-miss-negative-activation",
+      "prompt": "Our TypeScript React app needs a typed HTTP client with retries, runtime configuration validation, and integration tests. Recommend the right project guidance without assuming we use .NET.",
+      "expected_sections": [
+        "Out-of-scope decision",
+        "Appropriate referral"
+      ],
+      "assertions": [
+        "Does not activate martix-dotnet-csharp as the primary guidance.",
+        "Does not give C#, ASP.NET Core, EF Core, or .NET package instructions."
+      ],
+      "files": [
+        "SKILL.md"
+      ],
+      "model_tier": "medium",
+      "parallel_safe": true,
+      "token_budget": "medium",
+      "negative_activation": true,
+      "escalation": null
     }
   ]
 }

@@ -41,5 +41,5 @@ contracts so the compiler can enforce intent instead of being suppressed.
 ### Source anchors
 
 - [Nullable reference types](https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references)
-- [Project brief](../../../../docs/martix-dotnet-csharp/martix-dotnet-csharp.md)
+- [Project brief](../../../docs/martix-dotnet-csharp/martix-dotnet-csharp.md)
 - [C# language source map](../references/csharp-language-map.md)

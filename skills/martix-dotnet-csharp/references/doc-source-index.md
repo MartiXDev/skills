@@ -7,12 +7,7 @@ skill library and which source families are intentionally excluded.
 
 ### Source priority
 
-1. [Project brief](../../../../docs/martix-dotnet-csharp/martix-dotnet-csharp.md)
-1. Approved local research artifacts:
-   - `agent-skills-docs.md`
-   - `csharp-language.md`
-   - `dotnet-platform.md`
-   - `web-data-quality.md`
+1. [Project brief](../../../docs/martix-dotnet-csharp/martix-dotnet-csharp.md)
 1. Official documentation families:
    - [Agent Skills specification](https://agentskills.io/specification)
    - [GitHub Copilot skill docs](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/create-skills)
@@ -25,10 +20,12 @@ skill library and which source families are intentionally excluded.
 | Artifact | Role in this package | Notes |
 | --- | --- | --- |
 | `docs/martix-dotnet-csharp/martix-dotnet-csharp.md` | Canonical brief and direction | Highest-priority local source |
-| `research/agent-skills-docs.md` | Packaging and progressive-loading guidance | Drives standalone-first structure |
-| `research/csharp-language.md` | Language rule scope and topic mapping | Drives `lang-*` files |
-| `research/dotnet-platform.md` | SDK, runtime, async, and design mapping | Drives `sdk-*`, `runtime-*`, `async-*`, and `design-*` files |
-| `research/web-data-quality.md` | Web, data, testing, diagnostics, and security mapping | Drives `web-*`, `data-*`, `testing-*`, `diagnostics-*`, and `security-*` files |
+| `docs/martix-dotnet-csharp/*.md` | Comparisons and active planning | Historical comparisons are context; the phase-two plan is the active backlog. |
+
+The package does not retain the temporary first-pass research notes that
+informed its initial design. Treat the source anchors in each rule and map as
+the traceable technical source trail; add a local artifact here only when it is
+committed with its provenance and review date.
 
 ### Excluded in-repo sources
 

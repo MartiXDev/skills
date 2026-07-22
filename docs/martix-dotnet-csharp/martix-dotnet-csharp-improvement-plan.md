@@ -1,5 +1,10 @@
 ## MartiX dotnet-csharp improvement plan
 
+> Active phase-two plan. Use the package
+> [improvement analysis](../../skills/martix-dotnet-csharp/IMPROVEMENT-ANALYSIS.md)
+> for the implemented source-trail repair, evaluation protocol, and router
+> simplification; use recorded eval results to prioritize any further content.
+
 ### Goal
 
 The first comparison-driven upgrade pass is already implemented in

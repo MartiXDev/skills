@@ -41,7 +41,7 @@ complexity.
 
 ### Related files
 
-- [Quick-start defaults](../SKILL.md#quick-start-defaults)
+- [Web bootstrap recipes](./web-bootstrap-recipes.md)
 - [Anti-patterns quick reference](./anti-patterns-quick-reference.md)
 - [Web bootstrap recipes](./web-bootstrap-recipes.md)
 - [Testing bootstrap recipes](./testing-bootstrap-recipes.md)

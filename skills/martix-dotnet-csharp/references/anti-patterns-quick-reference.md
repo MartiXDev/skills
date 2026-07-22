@@ -13,7 +13,7 @@ return to the linked rules for the full review contract.
 | `.Result`, `.Wait()`, or dropped cancellation | Keep the call path async and pass the `CancellationToken` through | [Tasks, ValueTasks, async streams, and API shape](../rules/async-tasks-valuetasks.md); [Cancellation and timeouts](../rules/async-cancellation-timeouts.md) |
 | `async void` for app logic | Return `Task` or `ValueTask`; reserve `async void` for true event handlers | [Tasks, ValueTasks, async streams, and API shape](../rules/async-tasks-valuetasks.md); [Async and concurrency map](./async-map.md) |
 | Exceptions for expected misses | Use nullable, `Try*`, or result-style contracts for routine failures | [Exceptions, validation, and failure contracts](../rules/design-exceptions-validation.md); [Design map](./design-map.md) |
-| Missing options validation on critical settings | Bind options explicitly, validate them, and fail during startup | [ASP.NET Core application shape](../rules/web-aspnet-core.md); [Quick-start defaults](../SKILL.md#quick-start-defaults) |
+| Missing options validation on critical settings | Bind options explicitly, validate them, and fail during startup | [ASP.NET Core application shape](../rules/web-aspnet-core.md); [Web bootstrap recipes](./web-bootstrap-recipes.md) |
 | Singleton services that capture scoped dependencies | Align lifetimes or create a scope for the short-lived work | [API and type design](../rules/design-api-type-design.md); [Design map](./design-map.md) |
 | Endpoint lambdas that do transport, business, and data work together | Keep endpoints thin and move behavior into services or handlers | [ASP.NET Core application shape](../rules/web-aspnet-core.md); [API and type design](../rules/design-api-type-design.md) |
 | EF Core in-memory provider as a stand-in for relational integration tests | Use a relational test database when translation and constraints matter | [Unit and integration testing](../rules/testing-unit-integration.md); [Entity Framework Core](../rules/data-efcore.md) |
@@ -138,7 +138,7 @@ sealed class PaymentsOptions
 }
 ```
 
-Route back to [Quick-start defaults](../SKILL.md#quick-start-defaults),
+Route back to [Web bootstrap recipes](./web-bootstrap-recipes.md),
 [ASP.NET Core application shape](../rules/web-aspnet-core.md), and
 [Design map](./design-map.md).
 
@@ -276,8 +276,7 @@ Route back to
 
 ### Related files
 
-- [Quick-start defaults](../SKILL.md#quick-start-defaults)
-- [Default patterns](../SKILL.md#default-patterns)
+- [Skill router and compatibility stance](../SKILL.md#compatibility-stance)
 - [Web bootstrap recipes](./web-bootstrap-recipes.md)
 - [Testing bootstrap recipes](./testing-bootstrap-recipes.md)
 - [Libraries catalog](./libraries-catalog.md)
