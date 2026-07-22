@@ -14,4 +14,4 @@ actual labels in this repository's issue tracker.
 When a skill mentions a role (for example, "apply the agent-ready triage
 label"), use the corresponding label string from this table.
 
-Edit the right-hand column to match whatever vocabulary you actually use.
+Edit the `Tracker label` column to match the vocabulary used by your tracker.

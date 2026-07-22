@@ -16,7 +16,7 @@ Use this guide when splitting MartiX skill or plugin work across Copilot CLI `/f
 | Label | Meaning | Example |
 | --- | --- | --- |
 | `decision-free` | The agent can finish using documented requirements without more human decisions. | Add evals from an approved template for one skill. |
-| `decision-required` | A human decision is required before implementation. | Decide whether React/TypeScript guidance is a new skill or plugin-local content. |
+| `decision-required` | A human decision is required before implementation. | Decide whether a proposed bundle should be registered in the marketplace. |
 | `Coordinator` | The task owns shared files or merge ordering. | Update marketplace metadata after package branches land. |
 
 ## Worktree rules
