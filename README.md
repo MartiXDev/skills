@@ -32,6 +32,9 @@ copilot plugin install martix-fastendpoints@martix-skills
 copilot plugin install martix-fluentvalidation@martix-skills
 copilot plugin install martix-tunit@martix-skills
 copilot plugin install martix-powershell@martix-skills
+copilot plugin install martix-typescript@martix-skills
+copilot plugin install martix-fluent-ui@martix-skills
+copilot plugin install martix-essl@martix-skills
 copilot plugin install martix-sharepoint-server@martix-skills
 copilot plugin install martix-sharepoint-spfx@martix-skills
 copilot plugin install martix-sharepoint-pnp@martix-skills
@@ -47,6 +50,9 @@ For standalone skill installs, use repo-root skill selection:
 ```sh
 npx skills add https://github.com/MartiXDev/skills --skill martix-markdown
 npx skills add https://github.com/MartiXDev/skills --skill martix-dotnet-csharp
+npx skills add https://github.com/MartiXDev/skills --skill martix-typescript
+npx skills add https://github.com/MartiXDev/skills --skill martix-fluent-ui
+npx skills add https://github.com/MartiXDev/skills --skill martix-essl
 ```
 
 For local validation or development, install directly from a repository path:
@@ -70,6 +76,9 @@ skills/
   martix-fluentvalidation/  # FluentValidation authoring and testing
   martix-tunit/             # TUnit test authoring and parallel execution
   martix-powershell/        # PowerShell cmdlet development
+  martix-typescript/        # TypeScript 7 engineering and migration
+  martix-fluent-ui/         # React-first Fluent UI v9 engineering
+  martix-essl/              # Czech eSSL compliance and implementation
   martix-sharepoint-server/ # SharePoint Server on-prem farm solutions
   martix-sharepoint-spfx/   # SharePoint Framework (SPFx) development
   martix-sharepoint-pnp/    # SharePoint PnP PowerShell, CLI for M365, PnPjs
@@ -94,7 +103,7 @@ For a compact entry point to the documentation tree, see the
 | --- | --- |
 | [Repository overview](./docs/repo-overview.md) | Architecture, package rules, marketplace model, and roadmap. |
 | [Custom AI artifact rules](./docs/custom-ai-artifact-rules.md) | Rules for instructions, skills, plugins, agents, prompts, hooks, MCP/LSP, metadata, templates, and evals. |
-| [Execution profiles](./docs/execution-profiles.md) | Model-tier, token-budget, AFK/HITL, `/fleet`, and worktree guidance. |
+| [Execution profiles](./docs/execution-profiles.md) | Model-tier, token-budget, decision-based task classification, `/fleet`, and worktree guidance. |
 | [LLM routing strategy](./docs/llm-routing-strategy.md) | Cost-aware model tier policy and unsupported routing anti-patterns. |
 | [Plugin bundle strategy](./docs/plugin-bundle-strategy.md) | MartiX project-family bundles and skill-versus-plugin decision rules. |
 | [Parallel worktree guidance](./docs/parallel-worktree-guidance.md) | Splitting package work across agents and worktrees. |
@@ -106,13 +115,17 @@ For a compact entry point to the documentation tree, see the
 
 The root docs above are the active maintainer guides. Domain folders under
 `docs/` contain source research, comparisons, or implementation plans that
-informed the installable packages:
+informed the installable packages. Keep new documentation in this tree, using
+`docs/research/` for repo-level notes and package-scoped subfolders such as
+`docs/martix-dotnet-csharp/` for domain-specific work:
 
 | Folder | Purpose |
 | --- | --- |
 | `docs/martix-dotnet-csharp/` | .NET/C# comparisons and plans. |
 | `docs/martix-fastendpoints/` | FastEndpoints improvement plan. |
 | `docs/martix-fluentvalidation/` | FluentValidation improvement plan. |
+| `docs/martix-fluent-ui/` | Fluent UI research and skill blueprint. |
+| `docs/martix-essl/` | Czech eSSL source research and compliance maps. |
 | `docs/martix-markdown/` | Markdown automation and package split rationale. |
 | `docs/martix-csharp/` | Planning artifacts for the standalone C# skill. |
 

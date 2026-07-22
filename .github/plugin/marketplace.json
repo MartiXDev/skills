@@ -129,6 +129,57 @@
       ]
     },
     {
+      "name": "martix-typescript",
+      "description": "Type-first TypeScript 7 authoring, migration, debugging, and review with explicit TypeScript 6 compiler-API compatibility guidance.",
+      "version": "0.1.0",
+      "source": "skills/martix-typescript",
+      "category": "development",
+      "tags": [
+        "martix",
+        "typescript",
+        "typescript-7",
+        "tsconfig",
+        "migration",
+        "advanced-types",
+        "standalone-skill"
+      ]
+    },
+    {
+      "name": "martix-fluent-ui",
+      "description": "React-first Fluent UI v9 guidance for providers, client-brand themes, CSS-first token styling, bounded Griffel use, accessible component composition, SSR, icons, motion, charts, migration, and the narrow Vue Web Components exception.",
+      "version": "0.1.0",
+      "source": "skills/martix-fluent-ui",
+      "category": "development",
+      "tags": [
+        "martix",
+        "fluent-ui",
+        "react",
+        "typescript",
+        "css-modules",
+        "griffel",
+        "accessibility",
+        "design-system",
+        "standalone-skill"
+      ]
+    },
+    {
+      "name": "martix-essl",
+      "description": "Standalone skill pro české elektronické systémy spisové služby, soulad se zákonem 499/2004 Sb., vyhláškou 259/2012 Sb., Národním standardem eSSL, metadata, WS API, SIP a atestační připravenost.",
+      "version": "0.1.0",
+      "source": "skills/martix-essl",
+      "category": "development",
+      "tags": [
+        "martix",
+        "essl",
+        "spisova-sluzba",
+        "metadata",
+        "ws-api",
+        "sip",
+        "atestace",
+        "standalone-skill"
+      ]
+    },
+    {
       "name": "martix-sharepoint-server",
       "description": "Standalone SharePoint Server skill package for classic on-prem farm solutions, WSP packaging, feature framework, event receivers, branding, site artifacts, and SharePoint 2019 / Subscription Edition guidance.",
       "version": "0.1.0",

@@ -306,10 +306,18 @@ Repository eval shape:
 - each eval has a string `id`
 - each eval has `prompt`
 - each eval has `expected_output` or `expected_sections`
-- optional fields include `files`, `model_tier`, and `parallel_safe`
+- each eval has `model_tier`, `token_budget`, and boolean `parallel_safe`
+- optional fields include `files`, `assertions`, `negative_activation`, and
+  `escalation`
 
 Repository rules:
 
+- Keep one committed eval file per skill at `evals/evals.json`.
+- Put positive and negative trigger scenarios in the same `evals` array; mark
+  should-not-trigger scenarios with `negative_activation: true`.
+- Do not add tool-specific package files such as `trigger-evals.json`. Keep
+  temporary benchmark inputs outside the package and merge durable scenarios
+  into the repository schema.
 - Keep existing repository eval schema unless a deliberate migration is planned.
 - Add or update evals when skill routing, trigger behavior, or expected answer
   quality changes.

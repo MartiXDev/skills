@@ -11,7 +11,7 @@ Use this document when adding or reviewing package metadata, evals, templates, p
 - Route work to the cheapest model tier that can safely complete it.
 - Keep skill entrypoints concise and push detail into supporting files.
 - Make package-scoped work safe for parallel agents and separate git worktrees.
-- Mark tasks as AFK or HITL before handing them to agents.
+- Classify whether a task can proceed without additional human decisions.
 - Make validation deterministic enough for cheap or medium models.
 
 ## Model tiers
@@ -42,14 +42,15 @@ Use these labels in docs, evals, package metadata, and issue breakdowns:
 | `validation` | Run deterministic checks and report failures. | `cheap` |
 | `cleanup` | Apply mechanical formatting, metadata, or link fixes. | `cheap` |
 
-## AFK and HITL labels
+## Decision-based task classification
 
 | Label | Meaning | Examples |
 | --- | --- | --- |
-| `AFK` | Agent can complete the task without more human decisions. | Add missing evals from an approved template, run validation, update package-local metadata. |
-| `HITL` | Human input is required before or during execution. | Decide whether a new capability is standalone or bundled, approve plugin-family boundaries, choose a model-tier policy. |
+| `decision-free` | An agent can complete the task using documented requirements without more human decisions. | Add missing evals from an approved template, run validation, update package-local metadata. |
+| `decision-required` | Human input is required before or during execution. | Decide whether a new capability is standalone or bundled, approve plugin-family boundaries, choose a model-tier policy. |
 
-Prefer AFK slices when the acceptance criteria are clear. Mark a slice HITL when a decision would otherwise be guessed.
+Prefer decision-free slices when the acceptance criteria are clear. Classify a
+slice as decision-required when a decision would otherwise be guessed.
 
 ## Parallel and worktree safety
 
