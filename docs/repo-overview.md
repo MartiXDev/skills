@@ -70,10 +70,13 @@ skills/
   martix-tunit/
   martix-powershell/
   martix-typescript/
+  martix-fluent-ui/
+  martix-essl/
   martix-sharepoint-server/
   martix-sharepoint-spfx/
   martix-sharepoint-pnp/
 plugins/
+  martix-markdown-automation/
   martix-dotnet-library/
   martix-webapi/
 ```
@@ -88,7 +91,8 @@ The machine-readable layout policy is `docs\plugin-layout.yaml`. It defines:
 
 Related maintainer guides:
 
-- [Execution profiles](./execution-profiles.md) for model-tier, token-budget, AFK/HITL, `/fleet`, and worktree guidance.
+- [Execution profiles](./execution-profiles.md) for model-tier, token-budget,
+  decision-based task classification, `/fleet`, and worktree guidance.
 - [LLM routing strategy](./llm-routing-strategy.md) for cost-aware model tier policy and unsupported routing anti-patterns.
 - [Plugin bundle strategy](./plugin-bundle-strategy.md) for MartiX project-family bundles and skill-versus-plugin decision rules.
 - [Parallel worktree guidance](./parallel-worktree-guidance.md) for splitting work across agents and isolated worktrees.
@@ -169,6 +173,8 @@ Standalone skills can be listed directly in the marketplace. Plugin bundles shou
 | `martix-tunit` | TUnit test authoring, parameterized tests, lifecycle hooks, parallel execution, and framework comparison. |
 | `martix-powershell` | PowerShell cmdlet authoring, advanced functions, parameters, pipeline behavior, errors, and ShouldProcess patterns. |
 | `martix-typescript` | TypeScript 7 configuration, migration, libraries, advanced types, runtime boundaries, and TS6 compiler-API compatibility. |
+| `martix-fluent-ui` | React-first Fluent UI v9 design-system, accessibility, styling, SSR, and migration guidance. |
+| `martix-essl` | Czech eSSL compliance, metadata, WS API, SIP, and attestation readiness. |
 | `martix-sharepoint-server` | SharePoint Server farm solutions, WSP packaging, feature framework, event receivers, branding, and site artifacts. |
 | `martix-sharepoint-spfx` | SharePoint Framework development with React, TypeScript, web parts, extensions, Teams, Viva, deployment, theming, and modernization. |
 | `martix-sharepoint-pnp` | PnP PowerShell, CLI for Microsoft 365, PnPjs, provisioning, automation, authentication, and cross-tool delivery. |
@@ -177,6 +183,7 @@ Standalone skills can be listed directly in the marketplace. Plugin bundles shou
 
 | Plugin | Focus |
 | --- | --- |
+| `martix-markdown-automation` | Workspace-level Markdown check and fix workflows. |
 | `martix-dotnet-library` | Unified .NET library create, update, and review workflows. |
 | `martix-webapi` | Planning and implementation workflows for new .NET 10 web apps. |
 
@@ -300,7 +307,7 @@ Use [Execution profiles](./execution-profiles.md) to classify package work by ta
 - Premium models for ambiguous planning, architecture, security, and high-risk review.
 - Medium models for approved package-local implementation.
 - Cheap models for validation, metadata sync, link checks, and mechanical cleanup.
-- `/fleet` and worktree-ready slices for package-local AFK work.
+- `/fleet` and worktree-ready slices for scoped implementation work.
 
 ## Recommended implementation order
 

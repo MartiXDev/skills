@@ -65,7 +65,7 @@
       ],
       "assertions": [
         "Classifies the initial planning and high-risk review as premium or mixed model-tier work.",
-        "Splits follow-up implementation into package- or concern-scoped AFK slices suitable for medium models.",
+        "Splits follow-up implementation into package- or concern-scoped decision-free slices suitable for medium models.",
         "Avoids one broad agent task that edits many unrelated shared files without coordination."
       ],
       "files": [

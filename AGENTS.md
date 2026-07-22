@@ -82,13 +82,21 @@ powershell -ExecutionPolicy Bypass -File .\scripts\validate-repository.ps1
 Do not claim completion when validation fails. Report unrelated pre-existing
 failures separately from failures caused by the current change.
 
-## Issue workflow
+## Agent skills
 
-- Issues are tracked in GitHub Issues; external pull requests are not a triage
- request surface. See [issue tracker guidance](./docs/agents/issue-tracker.md).
-- Triage uses `needs-triage`, `needs-info`, `ready-for-agent`,
- `ready-for-human`, and `wontfix`. See
- [triage label guidance](./docs/agents/triage-labels.md).
-- Domain documentation is created lazily. This repository currently uses the
- root [CONTEXT.md](./CONTEXT.md); follow
- [domain documentation guidance](./docs/agents/domain.md).
+### Issue tracker
+
+Issues are tracked in GitHub Issues; external pull requests are not a triage
+request surface. See [issue tracker guidance](./docs/agents/issue-tracker.md).
+
+### Triage labels
+
+Triage uses `needs-triage`, `needs-info`, `ready-for-agent`,
+`ready-for-human`, and `wontfix`. See
+[triage label guidance](./docs/agents/triage-labels.md).
+
+### Domain docs
+
+This is a single-context repository with a root [CONTEXT.md](./CONTEXT.md).
+Domain documentation and ADRs are created lazily; follow
+[domain documentation guidance](./docs/agents/domain.md).
