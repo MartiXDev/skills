@@ -5,6 +5,14 @@
 Date: 2026-07-22
 Status: Research complete, implementation not started
 
+> **Erratum recorded 2026-07-22**: Later local observation showed that
+> archiving sessions in the Copilot app can deregister their clean worktrees,
+> delete the directories or leave an empty orphan directory, and preserve the associated
+> local branches. The original section 3.5 statement that no automatic cleanup
+> behavior exists is retained below as part of this dated snapshot, but it is
+> superseded by the branch audit and `martix-git-plugin-plan.md`. This observed
+> client behavior is not treated as a documented or stable API contract.
+
 ---
 
 ## 1. Executive summary
@@ -327,6 +335,7 @@ Layer 1: Local PowerShell command (PRIMARY — TO BUILD)
 
 **Location:** `plugins/martix-git/hooks/Cleanup-Worktrees.ps1`
 (also symlinked/copied to `scripts/` for standalone use)
+
 #### 6.1 Parameters
 
 ```powershell

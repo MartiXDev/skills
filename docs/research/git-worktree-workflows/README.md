@@ -25,3 +25,9 @@ The MartiX Git plugin plan is the current implementation direction. It absorbs
 the safe worktree-maintenance capability into a broader but bounded Git and
 GitHub workflow plugin. Earlier plans remain as research history and may
 describe the retiring `martix-afk-factory` architecture.
+
+The branch audit also records an observed Copilot app lifecycle transition:
+archiving sessions may deregister their clean worktrees, remove the directories,
+or leave an empty orphan directory, and preserve the local branches. The current
+plugin plan treats this as external cleanup to reconcile, not as a stable
+ownership API or permission to delete a branch.
