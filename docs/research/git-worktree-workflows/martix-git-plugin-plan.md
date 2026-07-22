@@ -7,6 +7,12 @@
 > **Status**: Implementation-ready proposal. Supersedes the narrower
 > `sandcastle-aligned-plugin-plan.md` conceptually; that document remains
 > unmodified for audit purposes.
+>
+> **Observed lifecycle update**: Archiving Copilot app sessions may deregister
+> their clean worktrees and remove the directories. It may leave an empty
+> directory, and it does not delete the associated local branches. The plugin
+> therefore reconciles external lifecycle changes instead of assuming it owns
+> every cleanup transition.
 
 ---
 
@@ -90,7 +96,7 @@ is unavailable; it must not silently copy the standalone rule library.
 | **Branch** - safe branch creation and switching | `git check-ref-format`, repository policy | Naming suggestion | Phase 1 |
 | **Local gates** - native Git hook setup | Hook installation and configured project checks | Setup guidance only | Phase 2 |
 | **Pull request** - PR creation and description | `gh pr create` orchestration | Title/body drafting | Phase 2 |
-| **Worktree** - lifecycle audit and cleanup | Report engine, state machine | Result explanation only | Phase 3 |
+| **Worktree** - lifecycle audit, reconciliation, and cleanup | Report engine, state machine | Result explanation only | Phase 3 |
 | **GitHub** - remote state queries | `gh` CLI wrapper | PR/issue summary | Phase 3 |
 | **Copilot guardrails** - agent tool policy | Structured hook input checks | None | Phase 3 |
 
@@ -146,8 +152,11 @@ A capability stays external when:
 ### J3: Worktree audit (weekly, report-only)
 
 1. User invokes `/audit-worktrees` or a `Stop` hook fires a bounded report.
-2. Report engine enumerates worktrees, classifies safety, reports.
-3. User optionally selects candidates for cleanup with confirmation.
+2. Report engine enumerates registered worktrees and local branches, then
+  reconciles worktrees removed externally since the previous observation.
+3. The report distinguishes registered worktrees, branches left unattached by
+  client cleanup, and empty orphan directories under configured roots.
+4. User optionally selects candidates for cleanup with confirmation.
 
 ### J4: Pre-commit quality gate (automatic, every commit)
 
@@ -321,7 +330,8 @@ agent. Quality enforcement belongs in native Git hooks and CI.
   "worktree": {
     "enableRemoteEvidence": false,   // gh CLI queries
     "reportOnSessionStop": true,
-    "protectedBranches": ["@default"] // resolve from remote/repository evidence
+    "protectedBranches": ["@default"], // resolve from remote/repository evidence
+    "scanRoots": []                  // explicit roots for report-only orphan detection
   },
   "pullRequest": {
     "defaultDraft": true,
@@ -367,14 +377,34 @@ Source: [Sandcastle `CloseResult` interface](https://github.com/mattpocock/sandc
 
 ### VS Code / Copilot
 
-Owns linked agent sessions. The plugin does not track these sessions itself and
-does not infer ownership from an open window or process. Without documented
-client evidence, ownership remains `unknown`.
+Owns linked agent sessions and may clean up their worktrees when sessions are
+archived. In the observed 2026-07-22 behavior, the Copilot app deregistered four
+clean worktrees, deleted three directories, left one empty directory, and
+preserved all associated local branches. It also left unrelated dirty Codex
+worktrees untouched.
+
+This is observed behavior, not a stable API contract. The plugin does not track
+Copilot sessions itself, infer ownership from an open window or process, or
+attempt to race the client cleanup. Each audit treats `git worktree list
+--porcelain -z` as authoritative for current registrations and independently
+classifies branches that remain after external worktree removal.
 
 ### Plugin (`martix-git`)
 
 May only remove worktrees it explicitly confirmed as safe candidates with
 operator confirmation during that invocation. Version 1 creates no worktrees.
+It must tolerate a candidate disappearing between inspection and application:
+an already-absent registration is a reconciled no-op, not an error and not
+permission to delete the associated branch.
+
+### Orphan directories
+
+An unregistered directory beneath an explicitly configured `scanRoots` entry
+is reported separately from Git worktrees. Path location is not ownership
+evidence. The plugin does not remove a non-empty directory, a reparse point, or
+a directory containing a `.git` entry. An empty ordinary directory may be
+offered for explicit operator-confirmed removal, but never from a hook or an
+automatic path.
 
 ### Unknown
 
@@ -424,6 +454,10 @@ The worktree engine **re-reads state immediately before every mutation**. A
 candidate classified as safe at inspection time must still be safe at apply
 time. `SupportsShouldProcess` provides `-WhatIf` and confirmation semantics;
 explicit implementation and tests provide the separate re-validation gate.
+External clients may remove registrations and directories at any time. If a
+candidate is already absent, the engine records `ReconciledExternalRemoval`
+and continues without deleting its branch. Branch deletion requires a fresh,
+independent merge and attachment decision after reconciliation.
 
 ### Protected states (unconditional)
 
@@ -436,6 +470,7 @@ explicit implementation and tests provide the separate re-validation gate.
 - Unknown owner
 - Branch with open pull request
 - Branch with ambiguous squash/rebase merge evidence
+- Non-empty, reparse-point, or Git-bearing orphan directory
 
 ### Destructive operations
 
@@ -535,6 +570,12 @@ bypassed local hook, and the PR prompt creates a reviewed draft PR.
 
 - [ ] Port `inspect-git-worktrees.ps1` from the previous plan's specification.
 - [ ] Implement NUL-safe parser, state classifier, protected-state checks.
+- [ ] Reconcile externally removed registrations without treating them as
+  failures or implicitly deleting their branches.
+- [ ] Classify branches left unattached after client cleanup independently from
+  the removed worktree.
+- [ ] Add report-only orphan scanning for explicit `scanRoots`; only empty,
+  ordinary directories may enter an operator-confirmed removal path.
 - [ ] Add `audit-worktrees.prompt.md` for guided cleanup.
 - [ ] Add `session-stop-report.ps1` as advisory `Stop` hook.
 - [ ] Add `SupportsShouldProcess` + `-Apply` path with per-item confirmation.
@@ -599,6 +640,10 @@ Disposable Git repos created in `$env:TEMP` covering:
 - Concurrent state changes between inspect and apply
 - Missing upstream remote
 - Detached HEAD
+- Worktree registration removed externally between inspect and apply
+- Client-removed worktree with its local branch left behind
+- Empty orphan directory under an explicit scan root
+- Non-empty, reparse-point, and `.git`-bearing orphan directories
 
 ### Compatibility matrix
 
@@ -643,6 +688,9 @@ running runtime. Unsupported runtimes are documented, not assumed.
 8. Repository validation passes.
 9. Pester tests pass on PowerShell 7+ on Windows.
 10. No Sandcastle-owned worktree is ever automatically removed.
+11. Copilot archive cleanup is reconciled idempotently: externally removed
+  worktrees do not fail an audit, do not trigger implicit branch deletion,
+  and any leftover directory is report-only by default.
 
 ---
 
@@ -657,6 +705,8 @@ running runtime. Unsupported runtimes are documented, not assumed.
 | Plugin scope creep into "everything Git" | Enforce product boundary; require HITL decision for new modules |
 | Conventional commit skill triggers where unwanted | Negative eval scenarios; narrow `description` |
 | Sandcastle ownership evidence is unavailable after a handle closes | Consume an explicit retained-path record or classify the owner as unknown |
+| Copilot archive behavior changes between client versions | Treat observations as non-contractual; re-read Git state and keep cleanup idempotent |
+| Client cleanup leaves an empty or partially removed directory | Scan only configured roots; report separately; require emptiness, no reparse point, no `.git`, and operator confirmation |
 
 ### Open questions
 
