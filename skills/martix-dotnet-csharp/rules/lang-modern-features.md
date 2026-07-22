@@ -44,6 +44,6 @@ features without pushing preview-only syntax or unnecessary novelty.
 
 ### Source anchors
 
-- [Project brief](../../../../docs/martix-dotnet-csharp/martix-dotnet-csharp.md)
+- [Project brief](../../../docs/martix-dotnet-csharp/martix-dotnet-csharp.md)
 - [C# version history](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history)
 - [What is new in C# 14](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-14)

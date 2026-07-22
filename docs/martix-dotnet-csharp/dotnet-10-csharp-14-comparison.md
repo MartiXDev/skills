@@ -1,5 +1,9 @@
 ## MartiX vs dotnet-10-csharp-14 comparison
 
+> Historical comparison. Its implementation status is superseded by
+> [`martix-dotnet-csharp-improvement-plan.md`](./martix-dotnet-csharp-improvement-plan.md)
+> and the package [improvement analysis](../../skills/martix-dotnet-csharp/IMPROVEMENT-ANALYSIS.md).
+
 ### Scope
 
 This comparison reviews the current repo-local copies of:

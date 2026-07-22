@@ -1,5 +1,9 @@
 ## MartiX dotnet-skills improvement plan
 
+> Historical first-pass backlog. Its implementation status is superseded by
+> [`martix-dotnet-csharp-improvement-plan.md`](./martix-dotnet-csharp-improvement-plan.md)
+> and the package [improvement analysis](../../skills/martix-dotnet-csharp/IMPROVEMENT-ANALYSIS.md).
+
 ### Goal
 
 This plan turns the Aaronontheweb `dotnet-skills` comparison into a

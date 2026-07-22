@@ -17,7 +17,7 @@ Detailed package behavior belongs in each `skills\martix-*` or
 | --- | --- |
 | [Repository overview](./repo-overview.md) | Understanding layout, package rules, installs, and roadmap. |
 | [Custom AI artifact rules](./custom-ai-artifact-rules.md) | Creating or updating skills, plugins, agents, prompts, hooks, metadata, templates, or evals. |
-| [Execution profiles](./execution-profiles.md) | Choosing model tier, token budget, AFK/HITL labels, or worktree safety. |
+| [Execution profiles](./execution-profiles.md) | Choosing model tier, token budget, task classification, or worktree safety. |
 | [LLM routing strategy](./llm-routing-strategy.md) | Reviewing cost-aware routing policy and unsupported routing locations. |
 | [Plugin bundle strategy](./plugin-bundle-strategy.md) | Deciding standalone skill versus plugin bundle boundaries. |
 | [Parallel worktree guidance](./parallel-worktree-guidance.md) | Splitting package work across agents or branches. |
@@ -31,11 +31,25 @@ Read these on demand when changing the related package or reviewing its history.
 
 | Folder | Scope |
 | --- | --- |
+| `research\` | Repository-level investigation notes, planning artifacts, and Git workflow research. See [git worktree workflows](./research/git-worktree-workflows/README.md) for cleanup planning and operational notes. |
 | `martix-dotnet-csharp\` | .NET/C# comparisons, plans, and research. |
 | `martix-fastendpoints\` | FastEndpoints improvement planning. |
 | `martix-fluentvalidation\` | FluentValidation improvement planning. |
+| `martix-fluent-ui\` | Fluent UI research, evidence, and skill blueprint. |
+| `martix-essl\` | Czech eSSL source research and compliance maps. |
 | `martix-markdown\` | Markdown automation and package split notes. |
 | `martix-csharp\` | Earlier standalone C# skill planning artifacts. |
+
+## Repository research snapshots
+
+Research snapshots preserve dated evidence and proposals for future refreshes.
+They are non-normative: revalidate volatile upstream claims before moving them
+into active guidance, and add a new dated snapshot rather than silently
+rewriting an older research baseline.
+
+| Snapshot | Scope | Review again |
+| --- | --- | --- |
+| [2026-07 AI agent ecosystem and documentation review](./research/2026-07-22-ai-agent-ecosystem-and-documentation-review.md) | Documentation drift, Agent Skills, Copilot plugins and hooks, MCP, prompt caching, cheap/local models, refactor options, and a cross-model eval playbook. | After a major model or agent-platform wave, or within six months. |
 
 ## Read-on-demand package docs
 

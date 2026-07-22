@@ -70,4 +70,4 @@ public async Task<CreateOrderResult> CreateAsync(
 
 - [Best practices for exceptions](https://learn.microsoft.com/en-us/dotnet/standard/exceptions/best-practices-for-exceptions)
 - [Design guidelines for exceptions](https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/exceptions)
-- [Project brief](../../../../docs/martix-dotnet-csharp/martix-dotnet-csharp.md)
+- [Project brief](../../../docs/martix-dotnet-csharp/martix-dotnet-csharp.md)

@@ -18,13 +18,10 @@ intended release path and current package shape.
 
 ## Compatibility stance
 
-- Default guidance assumes released .NET 10+ and C# 14+ for greenfield work and
-  explicit upgrade tasks.
-- Older SDK-style repos remain in scope for modernization review; keep
-  recommendations within the repo's current target framework and language
-  version unless the task includes upgrading them.
-- Verify `.csproj`, `global.json`, and shared build props or targets before
-  recommending net10-only APIs, extension blocks, or other newer features.
+The authoritative compatibility decision lives in
+[`SKILL.md`](./SKILL.md#compatibility-stance). It distinguishes greenfield or
+explicit-upgrade work from incremental modernization of an existing SDK-style
+repository; read that decision before using a net10-only API or C# 14 feature.
 
 ## Package structure
 
