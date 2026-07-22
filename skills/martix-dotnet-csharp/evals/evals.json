@@ -131,7 +131,7 @@
     },
     {
       "id": "options-and-di-routing",
-      "prompt": "An ASP.NET Core worker uses named tenant options, IValidateOptions that depends on another service, and a keyed sender implementation selected per tenant. Show the first MartiX files to read and describe the lifetime and validation decisions before changing registrations.",
+      "prompt": "An ASP.NET Core worker uses named tenant options, IValidateOptions that depends on another service, and a keyed sender implementation selected per tenant. What should I review first, and what lifetime/validation decisions matter before changing registrations.",
       "expected_sections": [
         "Compatibility check",
         "Configuration and DI route",
@@ -157,7 +157,7 @@
     },
     {
       "id": "efcore-query-performance-routing",
-      "prompt": "Review an EF Core read endpoint that loads three navigation collections, returns entire entities, intermittently times out, and will be used by a paged admin screen. Identify the MartiX route and the decisions that need evidence before changing the query.",
+      "prompt": "Review an EF Core read endpoint that loads three navigation collections, returns entire entities, intermittently times out, and will be used by a paged admin screen. What should I review first, and what decisions need evidence before changing the query.",
       "expected_sections": [
         "Data route",
         "Query-shape review",
@@ -182,7 +182,7 @@
     },
     {
       "id": "serialization-contract-routing",
-      "prompt": "A public .NET API must add a new polymorphic event payload while old mobile clients still deserialize the existing JSON. Decide the MartiX files to consult and the compatibility questions to answer before selecting System.Text.Json configuration.",
+      "prompt": "A public .NET API must add a new polymorphic event payload while old mobile clients still deserialize the existing JSON. What should I review first, and what compatibility questions should I answer before selecting System.Text.Json configuration.",
       "expected_sections": [
         "Contract route",
         "Compatibility questions",

@@ -43,7 +43,6 @@ complexity.
 
 - [Web bootstrap recipes](./web-bootstrap-recipes.md)
 - [Anti-patterns quick reference](./anti-patterns-quick-reference.md)
-- [Web bootstrap recipes](./web-bootstrap-recipes.md)
 - [Testing bootstrap recipes](./testing-bootstrap-recipes.md)
 
 ### Source anchors
