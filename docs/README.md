@@ -50,6 +50,7 @@ rewriting an older research baseline.
 | Snapshot | Scope | Review again |
 | --- | --- | --- |
 | [2026-07 AI agent ecosystem and documentation review](./research/2026-07-22-ai-agent-ecosystem-and-documentation-review.md) | Documentation drift, Agent Skills, Copilot plugins and hooks, MCP, prompt caching, cheap/local models, refactor options, and a cross-model eval playbook. | After a major model or agent-platform wave, or within six months. |
+| [2026-07 Matt Skills and Sandcastle integration](./research/2026-07-22-matt-skills-and-sandcastle-integration.md) | Matt Skills planning workflow, Sandcastle execution orchestrator, integration surfaces, extension points, evidence gaps, and thin-adapter seams for future MartiX integration. | After major Matt Skills or Sandcastle releases, or within six months. |
 
 ## Read-on-demand package docs
 
