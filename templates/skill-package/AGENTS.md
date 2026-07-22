@@ -1,4 +1,4 @@
-# Skill display name agents guide
+# [Skill display name] agents guide
 
 Replace the title with the package display name. Use this guide for maintainer
 workflows, cross-skill handoffs, and longer review routes.
