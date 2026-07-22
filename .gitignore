@@ -1,2 +1,5 @@
 # Local Git worktrees
 .worktrees/
+
+# Node dependencies
+node_modules/
