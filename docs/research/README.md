@@ -13,6 +13,7 @@ a maintenance concern.
 
 ## Current subfolders
 
-- `ai-dev-factory/` — notes related to AFK/dev-factory automation and related workflows.
+- `ai-dev-factory/` — notes related to AFK/dev-factory automation and related
+  workflows.
 - `git-worktree-workflows/` — worktree inventory, cleanup planning, operational
   checklists, and automation notes.
