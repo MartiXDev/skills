@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "commands": {
+    "format": ["dotnet", "format", "--verify-no-changes", "--no-restore"],
+    "lint": ["dotnet", "build", "--no-restore", "--configuration", "Release"],
+    "typecheck": [],
+    "testFast": ["dotnet", "test", "--no-restore", "--filter", "Category!=Integration"],
+    "testFull": ["dotnet", "test", "--no-restore"],
+    "build": ["dotnet", "build", "--no-restore", "--configuration", "Release"],
+    "secretScan": ["gitleaks", "detect", "--no-banner", "--redact"]
+  },
+  "phases": {
+    "quick": ["format", "lint"],
+    "stop": ["format", "lint", "testFast", "build", "secretScan"],
+    "ci": ["format", "lint", "testFull", "build", "secretScan"]
+  }
+}
+

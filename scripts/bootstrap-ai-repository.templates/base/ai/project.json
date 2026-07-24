@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "commands": {
+    "format": [],
+    "lint": [],
+    "typecheck": [],
+    "testFast": [],
+    "testFull": [],
+    "build": [],
+    "secretScan": []
+  },
+  "phases": {
+    "quick": ["format", "lint"],
+    "stop": ["format", "lint", "typecheck", "testFast", "build", "secretScan"],
+    "ci": ["format", "lint", "typecheck", "testFull", "build", "secretScan"]
+  }
+}
+

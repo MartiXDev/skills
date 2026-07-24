@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "profiles": {
+    "explorer": {
+      "write": false,
+      "network": false,
+      "purpose": "Repository search and evidence collection"
+    },
+    "implementer": {
+      "write": "workspace",
+      "network": "approval",
+      "purpose": "Scoped implementation and local verification"
+    },
+    "reviewer": {
+      "write": false,
+      "network": false,
+      "purpose": "Independent review of specification, diff and evidence"
+    }
+  }
+}
+

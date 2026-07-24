@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "commands": {
+    "dotnetFormat": ["dotnet", "format", "--verify-no-changes", "--no-restore"],
+    "dotnetBuild": ["dotnet", "build", "--no-restore", "--configuration", "Release"],
+    "dotnetTestFast": ["dotnet", "test", "--no-restore", "--filter", "Category!=Integration"],
+    "dotnetTestFull": ["dotnet", "test", "--no-restore"],
+    "nodeFormat": ["pnpm", "exec", "prettier", ".", "--check"],
+    "nodeLint": ["pnpm", "run", "lint"],
+    "nodeTypecheck": ["pnpm", "run", "typecheck"],
+    "nodeTestFast": ["pnpm", "run", "test:unit"],
+    "nodeTestFull": ["pnpm", "run", "test"],
+    "nodeBuild": ["pnpm", "run", "build"],
+    "secretScan": ["gitleaks", "detect", "--no-banner", "--redact"]
+  },
+  "phases": {
+    "quick": ["dotnetFormat", "dotnetBuild", "nodeFormat", "nodeLint", "nodeTypecheck"],
+    "stop": ["dotnetFormat", "dotnetBuild", "dotnetTestFast", "nodeFormat", "nodeLint", "nodeTypecheck", "nodeTestFast", "nodeBuild", "secretScan"],
+    "ci": ["dotnetFormat", "dotnetBuild", "dotnetTestFull", "nodeFormat", "nodeLint", "nodeTypecheck", "nodeTestFull", "nodeBuild", "secretScan"]
+  }
+}
+
