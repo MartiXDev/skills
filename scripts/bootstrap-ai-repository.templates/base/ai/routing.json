@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "aliases": {
+    "fast": {
+      "purpose": "Classification, bounded search, short summaries and mechanical edits",
+      "providerModel": "TODO",
+      "effort": "low"
+    },
+    "balanced-code": {
+      "purpose": "Normal implementation with strong deterministic verification",
+      "providerModel": "TODO",
+      "effort": "medium"
+    },
+    "frontier-reasoning": {
+      "purpose": "High ambiguity, weak oracle, broad architecture, security or data migrations",
+      "providerModel": "TODO",
+      "effort": "high"
+    }
+  },
+  "escalateWhen": {
+    "sameFailureWithoutNewEvidence": 2,
+    "contextBudgetPercent": 70,
+    "requiresUnplannedModule": true,
+    "requiresBroaderPermission": true
+  }
+}
+

@@ -211,7 +211,9 @@ function Test-SkillRelationshipMetadata {
 Push-Location $root
 try {
     $jsonFiles = Get-ChildItem -Recurse -File -Include *.json |
-        Where-Object { $_.FullName -notmatch '\\.git\\' }
+        Where-Object { $_.FullName -notmatch '\\.git\\' } |
+        Where-Object { $_.FullName -notmatch '\\node_modules\\' } |
+        Where-Object { $_.Name -ne 'package-lock.json' }
 
     foreach ($file in $jsonFiles) {
         [void](Read-JsonFile -Path $file.FullName)

@@ -1,0 +1,7 @@
+## .NET technology guidance
+
+- Treat the solution and project files as the authoritative project graph.
+- Preserve SDK-style project conventions and repository-pinned SDK/tool versions.
+- Prefer the smallest relevant project or test filter during iteration; run the configured CI phase before completion.
+- Do not edit generated C# or build artifacts directly.
+

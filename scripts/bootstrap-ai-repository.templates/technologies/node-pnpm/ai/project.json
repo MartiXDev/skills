@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "commands": {
+    "format": ["pnpm", "exec", "prettier", ".", "--check"],
+    "lint": ["pnpm", "run", "lint"],
+    "typecheck": ["pnpm", "run", "typecheck"],
+    "testFast": ["pnpm", "run", "test:unit"],
+    "testFull": ["pnpm", "run", "test"],
+    "build": ["pnpm", "run", "build"],
+    "secretScan": ["gitleaks", "detect", "--no-banner", "--redact"]
+  },
+  "phases": {
+    "quick": ["format", "lint", "typecheck"],
+    "stop": ["format", "lint", "typecheck", "testFast", "build", "secretScan"],
+    "ci": ["format", "lint", "typecheck", "testFull", "build", "secretScan"]
+  }
+}
+
