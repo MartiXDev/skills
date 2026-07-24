@@ -1,0 +1,7 @@
+## Node.js and pnpm technology guidance
+
+- Use the repository lockfile and the pinned package-manager/runtime versions.
+- Run package scripts through pnpm rather than invoking an unpinned global tool.
+- Do not hand-edit generated bundles, coverage output, package-store content, or generated type files.
+- In a workspace, scope iterative commands to affected packages and use the configured CI phase before completion.
+
