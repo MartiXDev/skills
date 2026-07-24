@@ -41,18 +41,25 @@ const planSchema = z.object({
 
 // Maximum number of plan→execute→merge cycles before stopping.
 // Raise this if your backlog is large; lower it for a quick smoke-test run.
-const MAX_ITERATIONS = 10;
+const MAX_ITERATIONS = 50;
+
+// Agent model configuration
+// const PLAN_AGENT_LLM = "claude-sonnet-4.5";
+// const IMPLEMENT_AGENT_LLM = "claude-sonnet-4.5";
+// const REVIEW_AGENT_LLM = "claude-sonnet-4.5";
+// const MERGE_AGENT_LLM = "claude-sonnet-4.5";
+
+const PLAN_AGENT_LLM = "gpt-5.6-terra";
+const IMPLEMENT_AGENT_LLM = "gpt-5.6-terra";
+const REVIEW_AGENT_LLM = "gpt-5.6-terra";
+const MERGE_AGENT_LLM = "gpt-5.6-terra";
 
 // Hooks run inside the sandbox before the agent starts each iteration.
-// npm install ensures the sandbox always has fresh dependencies.
+// Install dependencies in the Linux container instead of using Sandcastle's
+// host-side copyToWorktree option, which invokes `cp` and fails on Windows.
 const hooks = {
   sandbox: { onSandboxReady: [{ command: "npm install" }] },
 };
-
-// Copy node_modules from the host into the worktree before each sandbox
-// starts. Avoids a full npm install from scratch; the hook above handles
-// platform-specific binaries and any packages added since the last copy.
-const copyToWorktree = ["node_modules"];
 
 // ---------------------------------------------------------------------------
 // Main loop
@@ -78,7 +85,7 @@ for (let iteration = 1; iteration <= MAX_ITERATIONS; iteration++) {
     // not write code. (Structured output requires maxIterations: 1.)
     maxIterations: 1,
     // Premium reasoning for planning: dependency analysis benefits from deeper reasoning.
-    agent: sandcastle.copilot("claude-sonnet-4.5"),
+    agent: sandcastle.copilot(PLAN_AGENT_LLM),
     promptFile: "./.sandcastle/plan-prompt.md",
     // Extract and validate the <plan> JSON into a typed object. Throws
     // StructuredOutputError if the tag is missing, the JSON is malformed, or
@@ -117,7 +124,6 @@ for (let iteration = 1; iteration <= MAX_ITERATIONS; iteration++) {
         branch: issue.branch,
         sandbox: docker(),
         hooks,
-        copyToWorktree,
       });
 
       try {
@@ -125,7 +131,7 @@ for (let iteration = 1; iteration <= MAX_ITERATIONS; iteration++) {
         const implement = await sandbox.run({
           name: "implementer",
           maxIterations: 100,
-          agent: sandcastle.copilot("claude-sonnet-4.5"),
+          agent: sandcastle.copilot(IMPLEMENT_AGENT_LLM),
           promptFile: "./.sandcastle/implement-prompt.md",
           promptArgs: {
             TASK_ID: issue.id,
@@ -139,7 +145,7 @@ for (let iteration = 1; iteration <= MAX_ITERATIONS; iteration++) {
           const review = await sandbox.run({
             name: "reviewer",
             maxIterations: 1,
-            agent: sandcastle.copilot("claude-sonnet-4.5"),
+            agent: sandcastle.copilot(REVIEW_AGENT_LLM),
             promptFile: "./.sandcastle/review-prompt.md",
             promptArgs: {
               BRANCH: issue.branch,
@@ -210,7 +216,7 @@ for (let iteration = 1; iteration <= MAX_ITERATIONS; iteration++) {
     sandbox: docker(),
     name: "merger",
     maxIterations: 1,
-    agent: sandcastle.copilot("claude-sonnet-4.5"),
+    agent: sandcastle.copilot(MERGE_AGENT_LLM),
     promptFile: "./.sandcastle/merge-prompt.md",
     promptArgs: {
       // A markdown list of branch names, one per line.

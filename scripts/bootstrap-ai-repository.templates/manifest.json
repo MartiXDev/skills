@@ -1,0 +1,42 @@
+{
+  "$schema": "./manifest.schema.json",
+  "schemaVersion": 1,
+  "profileLayers": {
+    "Minimal": [
+      { "path": "base", "priority": 0 }
+    ],
+    "Standard": [
+      { "path": "base", "priority": 0 },
+      { "path": "profiles/standard", "priority": 10 }
+    ],
+    "Full": [
+      { "path": "base", "priority": 0 },
+      { "path": "profiles/standard", "priority": 10 },
+      { "path": "profiles/full", "priority": 20 }
+    ]
+  },
+  "technologyLayers": [
+    {
+      "name": "dotnet",
+      "description": ".NET solution or project using dotnet CLI",
+      "path": "technologies/dotnet",
+      "priority": 100
+    },
+    {
+      "name": "node-pnpm",
+      "description": "Node.js repository using pnpm",
+      "path": "technologies/node-pnpm",
+      "priority": 100
+    }
+  ],
+  "combinationLayers": [
+    {
+      "name": "dotnet-node-pnpm",
+      "description": "Repository containing both .NET and pnpm projects",
+      "technologies": ["dotnet", "node-pnpm"],
+      "match": "Exact",
+      "path": "combinations/dotnet-node-pnpm",
+      "priority": 200
+    }
+  ]
+}

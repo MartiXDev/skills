@@ -4,6 +4,9 @@ Use this file as the preflight router for repository work. Package-local
 `AGENTS.md`, `SKILL.md`, and `README.md` files add domain guidance but do not
 replace repository contracts.
 
+When writing plans or reporting information to me, be extremely concise.
+Sacrifice grammar for the sake of concision.
+
 ## Before editing
 
 1. Read [CONTEXT.md](./CONTEXT.md) for repository terminology.
@@ -63,7 +66,7 @@ needed by the task.
   investigation, or comparison notes should be added under
   [docs/research](./docs/research/) or the relevant package folder under
   [docs](./docs/).
-- Do not revert edits you did not make. Coordinate when concurrent changes
+- Do not revert edits you did not make. Coordinate when conciseurrent changes
  overlap the same contract.
 
 ## Validation
