@@ -1,0 +1,6 @@
+## Mixed .NET and Node.js repository guidance
+
+- Determine whether a change affects the .NET graph, the pnpm workspace graph, or both before selecting checks.
+- Changes to shared contracts, generated clients, schemas, authentication, deployment, or integration boundaries require verification on both sides.
+- Keep cross-stack generation commands deterministic and record which side owns each generated contract.
+

@@ -4,13 +4,8 @@ Review the code changes on branch `{{BRANCH}}` and improve code clarity, consist
 
 # CONTEXT
 
-## Branch diff
-
-!`git diff {{TARGET_BRANCH}}...{{BRANCH}}`
-
-## Commits on this branch
-
-!`git log {{TARGET_BRANCH}}..{{BRANCH}} --oneline`
+Inspect the commits with `git log {{TARGET_BRANCH}}..{{BRANCH}} --oneline`.
+Start with `git diff --stat {{TARGET_BRANCH}}...{{BRANCH}}`, then inspect the actual changes with focused diffs (for example, `git diff {{TARGET_BRANCH}}...{{BRANCH}} -- <path>`). Avoid printing the entire diff in one command when it is large.
 
 # REVIEW PROCESS
 

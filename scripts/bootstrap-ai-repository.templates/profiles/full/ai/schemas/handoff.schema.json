@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent handoff",
+  "type": "object",
+  "required": ["goal", "verifiedFacts", "artifacts", "validation", "openQuestions"],
+  "properties": {
+    "goal": { "type": "string" },
+    "verifiedFacts": { "type": "array", "items": { "type": "string" } },
+    "attempts": { "type": "array", "items": { "type": "string" } },
+    "artifacts": { "type": "array", "items": { "type": "string" } },
+    "validation": { "type": "array", "items": { "type": "string" } },
+    "openQuestions": { "type": "array", "items": { "type": "string" } },
+    "risks": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}
+

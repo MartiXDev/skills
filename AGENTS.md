@@ -4,6 +4,9 @@ Use this file as the preflight router for repository work. Package-local
 `AGENTS.md`, `SKILL.md`, and `README.md` files add domain guidance but do not
 replace repository contracts.
 
+When writing plans or reporting information to me, be extremely concise.
+Sacrifice grammar for the sake of concision.
+
 ## Before editing
 
 1. Read [CONTEXT.md](./CONTEXT.md) for repository terminology.
