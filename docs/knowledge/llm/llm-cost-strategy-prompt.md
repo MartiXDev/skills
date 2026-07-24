@@ -4,7 +4,7 @@
 >
 > **Important:** Create a **new, independent research output** using **GPT-5.6 Sol** so it can be compared later with other research outputs.
 >
-> **Hard constraint:** **Do not use, summarize, copy, or rely on any information** from `docs/knowledge/llm-cost-strategy-by-sonnet-5.md` (or any previous research file). Re-research all findings from primary/current sources.
+> **Hard constraint:** **Do not use, summarize, copy, or rely on any information** from `docs/knowledge/llm/llm-cost-strategy-by-sonnet-5.md` (or any previous research file). Re-research all findings from primary/current sources.
 
 ## Objective
 

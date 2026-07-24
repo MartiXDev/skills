@@ -65,7 +65,8 @@
         "description": { "type": "string", "minLength": 1 },
         "path": { "type": "string", "minLength": 1 },
         "priority": { "type": "integer" }
-      }
+      },
+      "additionalProperties": false
     }
   }
 }

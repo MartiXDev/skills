@@ -66,7 +66,7 @@ needed by the task.
   investigation, or comparison notes should be added under
   [docs/research](./docs/research/) or the relevant package folder under
   [docs](./docs/).
-- Do not revert edits you did not make. Coordinate when conciseurrent changes
+- Do not revert edits you did not make. Coordinate when concurrent changes
  overlap the same contract.
 
 ## Validation

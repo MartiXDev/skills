@@ -16,7 +16,7 @@ $resolvedConfig = (Resolve-Path -LiteralPath $ConfigPath).Path
 $repositoryRoot = Split-Path -Parent (Split-Path -Parent $resolvedConfig)
 $config = Get-Content -Raw -LiteralPath $resolvedConfig | ConvertFrom-Json
 $phaseName = $Phase.ToLowerInvariant()
-$checks = @($config.phases.$phaseName)
+$checks = @($config.phases.$phaseName) | Where-Object { $null -ne $_ }
 
 if ($checks.Count -eq 0) {
     $exception = [System.InvalidOperationException]::new("No checks configured for phase '$Phase'.")

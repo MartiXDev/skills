@@ -41,7 +41,7 @@ const planSchema = z.object({
 
 // Maximum number of plan→execute→merge cycles before stopping.
 // Raise this if your backlog is large; lower it for a quick smoke-test run.
-const MAX_ITERATIONS = 50;
+const MAX_ITERATIONS = Number.parseInt(process.env.SANDCASTLE_MAX_ITERATIONS ?? "10", 10);
 
 // Agent model configuration
 // const PLAN_AGENT_LLM = "claude-sonnet-4.5";
@@ -58,7 +58,7 @@ const MERGE_AGENT_LLM = "gpt-5.6-terra";
 // Install dependencies in the Linux container instead of using Sandcastle's
 // host-side copyToWorktree option, which invokes `cp` and fails on Windows.
 const hooks = {
-  sandbox: { onSandboxReady: [{ command: "npm install" }] },
+  sandbox: { onSandboxReady: [{ command: "npm ci" }] },
 };
 
 // ---------------------------------------------------------------------------
