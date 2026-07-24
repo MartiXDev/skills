@@ -99,7 +99,7 @@ Direct `docs/` Markdown files reviewed:
 - `docs/README.md`
 - `docs/recommended-skills.md`
 - `docs/repo-overview.md`
-- `docs/skill-portfolio-coordination-plan.md`
+- `docs/skill-portfolio-coordination-plan.md` **Errata (2026-07-22):** This file has been moved to `docs/archive/plans/skill-portfolio-coordination-plan.md`.
 
 ### External evidence standard
 
@@ -376,12 +376,14 @@ Add:
 
 ### `docs/skill-portfolio-coordination-plan.md`
 
+**Errata (2026-07-22):** This file has been archived to `docs/archive/plans/skill-portfolio-coordination-plan.md`.
+
 This is a useful historical plan, but it only covers four skills and therefore
 should not be presented as the current portfolio map.
 
 Choose one:
 
-1. Archive it as a dated historical plan; or
+1. ~~Archive it as a dated historical plan~~; or (completed: archived to `docs/archive/plans/skill-portfolio-coordination-plan.md`)
 2. Replace it with a generated portfolio relationship map covering all skills.
 
 Do not continuously expand the existing 230-line plan. Package metadata should
