@@ -36,7 +36,7 @@ done
 
 if [ "$FETCH" = true ]; then
     echo "==> Fetching latest refs without pruning remote-tracking refs"
-    git fetch --all
+    git fetch --all --no-prune
 else
     echo "==> Skipping fetch; use --fetch to refresh remote-tracking refs"
 fi
