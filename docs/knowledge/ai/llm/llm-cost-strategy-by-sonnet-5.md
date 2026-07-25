@@ -8,7 +8,7 @@
 
 **Review again:** before 2026-08-31 (Claude Sonnet 5 promo pricing ends) and whenever `docs/llm-routing-strategy.md` / `docs/execution-profiles.md` are refactored — this doc is a dated snapshot with volatile pricing/benchmark claims, not normative policy (see the "Repository research snapshots" convention in `docs/README.md`).
 
-**Related:** [`docs/knowledge/llm-cache.md`](./llm-cache.md) covers token/prompt-cache mechanics (cache-safe prefixes, reasoning-effort defaults, session hygiene). This doc covers a layer up — *which model* to use for which task/phase, and how to orchestrate agents cost-effectively. Read both; they don't overlap.
+**Related:** [`docs/knowledge/ai/llm/llm-cache.md`](./llm-cache.md) covers token/prompt-cache mechanics. This doc covers a layer up: which model to use for which task or phase, and how to orchestrate agents cost-effectively. Read both; they do not overlap.
 
 ---
 

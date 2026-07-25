@@ -1,122 +1,111 @@
-# Repository glossary
+# Repository context
 
-MartiX Skills exists to build evidence-backed domain capabilities that remain
-reliable across model tiers, then use the lowest-cost model that clears explicit
-quality and safety requirements for each task.
+MartiX Skills builds evidence-backed capabilities that remain reliable across
+model tiers, then uses the cheapest model that clears explicit quality and
+safety floors.
 
-## MartiX Skills
+## Core concepts
 
-The GitHub Copilot CLI marketplace maintained by this repository. It contains
-standalone skills and plugin bundles; it is not itself one installable package.
+- **Agent:** Model-driven task executor that gathers context, chooses actions,
+  invokes tools, and iterates toward a goal.
+- **Agentic loop:** Gather context, act, observe results, verify, and correct.
+- **Agentic harness:** Runtime around the model that supplies context, tools,
+  permissions, execution, and lifecycle behavior.
+- **Context window:** Bounded working input available to a model, including
+  instructions, files, tool results, skills, and conversation history.
+- **Compaction:** Summarization of older conversation material to continue work
+  within the context window.
+- **Prompt:** Input presented to a model for a response or action.
+- **Instruction:** Guidance that shapes model behavior; it is not enforcement.
+- **Model:** Inference component that interprets input and produces text,
+  structured output, reasoning, or tool calls.
+- **Token:** Model-processing unit; it is not equivalent to a word or the full
+  context window.
+- **Context engineering:** Selecting, ordering, compressing, retrieving,
+  isolating, and validating information supplied to a model.
+- **Prompt caching:** Reuse of an identical prompt prefix for lower repeated
+  processing cost and latency. It is not memory or semantic learning.
 
-## Standalone skill
+## Artifacts and execution
 
-A reusable, independently installable domain capability under
-`skills/martix-*`. Its canonical behavior lives in its `SKILL.md`, `AGENTS.md`,
-rules, references, templates, assets, metadata, and `evals/evals.json`.
+- **Skill:** Reusable instructions, knowledge, and optional resources. Agent
+  Skills uses `SKILL.md` and progressive disclosure.
+- **Progressive disclosure:** Load metadata first, instructions when activated,
+  and supporting resources only when needed.
+- **Standalone skill:** MartiX implementation under `skills/martix-*`. Its
+  behavior lives in `SKILL.md`, package docs, rules, references, templates,
+  assets, metadata, and evals.
+- **Plugin:** Distributable bundle that may contain skills, agents, hooks, MCP,
+  LSP, settings, and related components.
+- **Plugin bundle:** MartiX implementation under `plugins/martix-*`; it composes
+  workflow assets while reusable domain knowledge stays in skills.
+- **Router:** MartiX pattern: a compact `SKILL.md` entrypoint that decides
+  activation and points to the smallest relevant detail.
+- **Workflow:** Repeatable task sequence controlled by orchestration logic;
+  skills provide guidance, while workflows control phases and branching.
+- **Hook:** Automation triggered by a lifecycle event, such as before or after
+  a tool call. Hooks can enforce deterministic checks.
+- **Tool:** Callable capability that retrieves information or performs an
+  external action.
+- **MCP:** Model Context Protocol, an open protocol for connecting AI
+  applications to tools, data, resources, and prompts.
+- **MCP server:** MCP participant that exposes tools, resources, or prompts;
+  it is not the same thing as one exposed tool.
+- **Subagent:** Delegated model-driven worker with an isolated context that
+  reports a result to a parent agent.
+- **Verification loop:** Inspect results, run focused checks, compare with
+  requirements, and correct failures.
 
-## Plugin bundle
+## Evaluation and governance
 
-An installable package under `plugins/martix-*` that composes workflow assets
-such as skills, agents, prompts, instructions, hooks, or MCP/LSP configuration.
-Reusable domain guidance remains in standalone skills.
+- **Eval:** Structured test of activation and expected behavior for an agent or
+  skill.
+- **Canonical eval:** The one committed `skills/<package>/evals/evals.json`,
+  containing behavior and positive/negative activation cases.
+- **Trigger scenario:** Eval prompt testing whether a skill should activate; it
+  belongs in canonical evals.
+- **Benchmark input:** Temporary tool input; it does not redefine repository
+  eval conventions.
+- **Model eval wave:** Dated comparison using the same commit, fixtures, tools,
+  scoring, and repeated trials.
+- **Capability gate:** Required model capability, such as context, tools, or
+  structured output.
+- **Quality floor:** Minimum repeated task-quality result for a lane.
+- **Safety floor:** Non-compensable safety requirement. Cost cannot offset
+  failure.
+- **Cheapest capable model:** Lowest-total-cost model that clears capability,
+  quality, safety, and variance gates for a dated lane.
+- **Package:** One standalone skill or plugin bundle. Keep package edits within
+  its directory when possible.
+- **Coordinator-owned:** Shared surface whose concurrent edits affect packages
+  or worktrees; serialize changes.
+- **Completion signal:** `powershell -ExecutionPolicy Bypass -File
+  .\\scripts\\validate-repository.ps1`, plus focused checks.
+- **Document role:** `normative`, `operational`, `reference`, `research`,
+  `roadmap`, or `historical`.
+- **Research snapshot:** Immutable dated evidence; newer findings belong in a
+  new snapshot or labeled errata.
 
-## Package
+## MartiX integrations
 
-One standalone skill or one plugin bundle. Package-local work changes files
-inside a single package and avoids shared coordinator surfaces.
+- **MartiX Skills:** This GitHub Copilot CLI marketplace.
+- **Matt Skills:** External planning workflow for specifications,
+  dependency-aware tickets, implementation, and review.
+- **Sandcastle:** External sandboxed orchestrator for isolated ticket
+  execution.
+- **Integration adapter:** Thin translator from ticket metadata to skill
+  selection, model requirements, sandbox inputs, validation, and result
+  metadata.
 
-## Router
+## Sources
 
-The compact `SKILL.md` entrypoint that decides when a skill applies and points
-to the smallest relevant rule or reference. It is not the complete knowledge
-base.
-
-## Canonical eval file
-
-The single committed evaluation definition for a standalone skill:
-`skills/<package>/evals/evals.json`. It contains behavior, positive activation,
-and negative activation scenarios in the repository schema.
-
-## Trigger scenario
-
-An eval prompt that tests whether a skill should or should not activate. Trigger
-scenarios are rows in the canonical eval file, not a separate package artifact.
-
-## Benchmark input
-
-A temporary file used by an external optimization or evaluation tool. It may
-use a tool-specific schema, but it is not a canonical package artifact and does
-not redefine repository conventions.
-
-## Model eval wave
-
-A frozen, dated comparison run triggered by a meaningful model or platform
-change. It compares candidate models using the same skill commit, fixtures,
-tools, scoring rules, and repeated trials.
-
-## Capability gate
-
-A binary requirement a model must support before entering an evaluation lane,
-such as the required context size, tool calling, or structured output.
-
-## Quality floor
-
-The minimum repeated task-quality result a model must achieve for a specific
-skill and task type.
-
-## Safety floor
-
-A non-compensable safety requirement. Lower cost or stronger results in another
-dimension cannot offset its failure.
-
-## Cheapest capable model
-
-The lowest-total-cost model for a specific skill and task type that repeatedly
-clears its capability gates, quality floor, safety floor, and variance limits.
-It is a dated benchmark result, not a permanent model label.
-
-## Document role
-
-The declared purpose of a maintainer document: `normative`, `operational`,
-`reference`, `research`, `roadmap`, or `historical`.
-
-## Research snapshot
-
-An immutable, dated evidence record. It may receive labeled errata, but newer
-findings belong in a new snapshot rather than silently replacing its conclusions.
-
-## Historical document
-
-A superseded record retained for context and excluded from active guidance.
-Historical is a document role; archive is its repository location.
-
-## Matt Pocock Skills
-
-The external planning and delivery workflow used to turn ideas into
-specifications, dependency-aware tickets, implementations, and reviews.
-Use `Matt Skills` after the first full-name mention.
-
-## Sandcastle
-
-The external sandboxed ticket-execution orchestrator used to run implementation
-work in isolated containers.
-
-## Integration adapter
-
-A thin boundary that translates ticket metadata into MartiX skill selection,
-model requirements, sandbox inputs, validation commands, and result metadata
-without taking ownership of planning or container orchestration.
-
-## Coordinator-owned surface
-
-A shared file whose concurrent modification can affect multiple packages or
-worktrees. Changes to these surfaces are serialized by the repository
-coordinator.
-
-## Completion signal
-
-The repository-wide validation command
-`powershell -ExecutionPolicy Bypass -File .\scripts\validate-repository.ps1`.
-A task is not complete until relevant focused checks and this command pass, or
-an unrelated blocker is reported explicitly.
+- [Claude Code glossary](https://code.claude.com/docs/en/glossary)
+- [Claude Code context window](https://code.claude.com/docs/en/context-window)
+- [Claude Code skills](https://code.claude.com/docs/en/skills)
+- [Claude Code plugins](https://code.claude.com/docs/en/plugins)
+- [Claude Code subagents](https://code.claude.com/docs/en/sub-agents)
+- [Claude Code hooks](https://code.claude.com/docs/en/hooks)
+- [Claude Code MCP](https://code.claude.com/docs/en/mcp)
+- [Agent Skills specification](https://agentskills.io/specification)
+- [MCP specification](https://modelcontextprotocol.io/specification/latest)
+- [MartiX artifact rules](./docs/custom-ai-artifact-rules.md)
