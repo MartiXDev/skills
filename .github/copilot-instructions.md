@@ -1,45 +1,36 @@
 # Copilot instructions for MartiX Skills
 
-MartiX Skills is a Copilot CLI marketplace named `martix-skills`.
+MartiX Skills is the `martix-skills` Copilot CLI marketplace.
 
-Use `skills\martix-*` for reusable standalone skills. Use
-`plugins\martix-*` only for plugin-scoped bundles, agents, prompts,
-instructions, hooks, MCP, or LSP configuration.
+## Working rules
 
-## Generic guides
+- Be concise; surface uncertainty and tradeoffs.
+- Make the smallest change that meets explicit success criteria.
+- Preserve unrelated worktree changes and never claim success without validation.
+- Put reusable domain knowledge in `skills\martix-*`; reserve
+  `plugins\martix-*` for bundled workflow assets.
+- Treat `.github\plugin\marketplace.json`, root READMEs, shared templates,
+  repository strategy docs, and `scripts\validate-repository.ps1` as
+  coordinator-owned.
 
-- Don’t assume. Don’t hide confusion. Surface tradeoffs.
-- Minimum code that solves the problem. Nothing speculative.
-- Touch only what you must. Clean up only your own mess.
-- Define success criteria. Loop until verified.
+## Load on demand
 
-## Commands
+- Repository structure: `docs\repo-overview.md`
+- AI artifact contracts: `docs\custom-ai-artifact-rules.md`
+- Skill/plugin boundary: `docs\plugin-bundle-strategy.md`
+- Task tiers and worktrees: `docs\execution-profiles.md`
+- Model routing: `docs\llm-routing-strategy.md`
+- Package behavior: package `SKILL.md`, `AGENTS.md`, and `README.md`
+
+## Validation
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\validate-repository.ps1
-
 powershell -ExecutionPolicy Bypass `
   -File .\plugins\martix-markdown-automation\hooks\markdown-check.ps1 `
-  -CheckOnly
+  -CheckOnly -Path <changed-markdown-files>
+
+powershell -ExecutionPolicy Bypass -File .\scripts\validate-repository.ps1
 ```
 
-## Load deeper context only when needed
-
-- Architecture and maintenance: `docs\repo-overview.md`.
-- Custom AI artifacts: `docs\custom-ai-artifact-rules.md`.
-- Skill versus plugin decisions: `docs\plugin-bundle-strategy.md`.
-- Model tier, token budget, and worktrees: `docs\execution-profiles.md`.
-- LLM routing policy and anti-patterns: `docs\llm-routing-strategy.md`.
-- Package-local behavior: package `SKILL.md`, `AGENTS.md`, and `README.md`.
-
-## High-risk shared files
-
-Treat `.github\plugin\marketplace.json`, root README files, shared templates,
-and `scripts\validate-repository.ps1` as coordinator-owned shared files.
-Package folders are safer parallel/worktree slices.
-
-## Documentation placement
-
-Keep repository documentation in the docs tree. New research, planning,
-investigation, or comparison notes should be placed under `docs\research` or
-under the relevant package folder inside `docs\`.
+Keep new repository research, plans, and comparisons under `docs\research\`
+or the relevant package's `docs\` folder.
