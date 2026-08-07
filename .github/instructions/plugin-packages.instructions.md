@@ -6,8 +6,9 @@ applyTo: "plugins/**"
 
 # Plugin package rules
 
-Before changing a plugin package, read `docs\plugin-bundle-strategy.md` and
-`docs\custom-ai-artifact-rules.md`.
+Before changing a plugin package, read
+`docs\architecture\plugin-bundle-strategy.md` and
+`docs\policy\custom-ai-artifact-rules.md`.
 
 ## Model-tier guidance
 

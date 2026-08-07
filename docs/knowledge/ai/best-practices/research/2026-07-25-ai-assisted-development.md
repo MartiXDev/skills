@@ -2,6 +2,10 @@
 
 **Research date:** 2026-07-25
 
+> Role: dated research snapshot
+> Current companion: [knowledge.md](../knowledge.md)
+> Resource registry: [resources.md](../resources.md)
+
 ## Scope and reading rules
 
 This report expands the concise companion for planning AI-assisted work in

@@ -19,9 +19,9 @@ The repository should keep a clear boundary between reusable standalone skills a
 
 ## Source basis
 
-- The repository’s plugin strategy says standalone skills are the default and plugins are for project-family bundles that need workflow-level assets: [docs/plugin-bundle-strategy.md](../plugin-bundle-strategy.md).
-- The repository overview states that skills belong under the skills tree and plugins belong under the plugins tree, with marketplace entries aligned to package manifests: [docs/repo-overview.md](../repo-overview.md).
-- The existing Git worktree research already recommends a broader martix-git plugin and a standalone conventional-commit skill: [docs/research/git-worktree-workflows/martix-git-plugin-plan.md](./git-worktree-workflows/martix-git-plugin-plan.md).
+- The repository’s plugin strategy says standalone skills are the default and plugins are for project-family bundles that need workflow-level assets: [plugin bundle strategy](../../../plugin-bundle-strategy.md).
+- The repository overview states that skills belong under the skills tree and plugins belong under the plugins tree, with marketplace entries aligned to package manifests: [repository overview](../../../repo-overview.md).
+- The existing Git worktree research already recommends a broader martix-git plugin and a standalone conventional-commit skill: [Git worktree plugin plan](./git-worktree-workflows/martix-git-plugin-plan.md).
 - The Platform blueprint describes MartiX Platform as a standalone skill source in the Platform repository and as a canonical knowledge/router package, not as a thin plugin wrapper: <https://github.com/MartiXDev/Platform/blob/main/docs/wayfinder/martix-platform/platform-blueprint.md>.
 
 ## Current state
@@ -92,8 +92,8 @@ A good command name for this behavior would be something like "git-finalize" or 
 
 Why this is the right shape:
 
-- The Git plan already frames Git/PR/worktree operations as a bundled workflow lifecycle, not just a single skill: [docs/research/git-worktree-workflows/martix-git-plugin-plan.md](./git-worktree-workflows/martix-git-plugin-plan.md).
-- The repository rules say reusable domain knowledge should stay standalone: [docs/plugin-bundle-strategy.md](../plugin-bundle-strategy.md).
+- The Git plan already frames Git/PR/worktree operations as a bundled workflow lifecycle, not just a single skill: [Git worktree plugin plan](./git-worktree-workflows/martix-git-plugin-plan.md).
+- The repository rules say reusable domain knowledge should stay standalone: [plugin bundle strategy](../../../plugin-bundle-strategy.md).
 
 Recommended implementation shape:
 
@@ -118,7 +118,7 @@ Treat martix-platform as the primary package for the Platform guidance, not as a
 Why:
 
 - The Platform blueprint describes the Platform repository as owning a single editable skill source for its agent guidance and canonical knowledge, and it positions Platform as a reusable knowledge package: <https://github.com/MartiXDev/Platform/blob/main/docs/wayfinder/martix-platform/platform-blueprint.md>.
-- The repo’s own package rules prefer standalone skills for reusable guidance that can be installed independently: [docs/plugin-bundle-strategy.md](../plugin-bundle-strategy.md).
+- The repo’s own package rules prefer standalone skills for reusable guidance that can be installed independently: [plugin bundle strategy](../../../plugin-bundle-strategy.md).
 
 Recommended implementation shape:
 
@@ -154,14 +154,14 @@ If the package is a repeatable workflow bundle that needs prompts, instructions,
 
 ### Rule 3: keep plugin content thin
 
-Plugins should compose existing skills rather than duplicate the full guidance. The current plugin strategy already expects thin bundles that link to standalone skills rather than copying full skill content: [docs/plugin-bundle-strategy.md](../plugin-bundle-strategy.md).
+Plugins should compose existing skills rather than duplicate the full guidance. The current plugin strategy already expects thin bundles that link to standalone skills rather than copying full skill content: [plugin bundle strategy](../../../plugin-bundle-strategy.md).
 
 ### Rule 4: keep naming consistent
 
 Use a predictable naming pattern:
 
-- skills/martix-<capability>/ for reusable skills
-- plugins/martix-<workflow>/ for workflow bundles
+- `skills/martix-<capability>/` for reusable skills
+- `plugins/martix-<workflow>/` for workflow bundles
 
 ### Rule 5: avoid premature plugin expansion
 

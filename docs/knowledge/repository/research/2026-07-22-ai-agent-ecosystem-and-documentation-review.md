@@ -679,7 +679,7 @@ Generate, then validate:
 - Package counts.
 - Documentation folder inventory.
 - Portfolio companion-skill map from metadata relationships.
-- Source freshness report from `docs/research/sources.yaml`.
+- Source freshness report from [`docs/knowledge/repository/resources.md`](../resources.md).
 
 Use markers so generated blocks are not manually edited.
 

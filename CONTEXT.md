@@ -108,4 +108,4 @@ safety floors.
 - [Claude Code MCP](https://code.claude.com/docs/en/mcp)
 - [Agent Skills specification](https://agentskills.io/specification)
 - [MCP specification](https://modelcontextprotocol.io/specification/latest)
-- [MartiX artifact rules](./docs/custom-ai-artifact-rules.md)
+- [MartiX artifact rules](./docs/policy/custom-ai-artifact-rules.md)

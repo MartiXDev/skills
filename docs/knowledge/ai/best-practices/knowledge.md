@@ -1,5 +1,9 @@
 # AI-Assisted Development Practices
 
+> Role: current knowledge synthesis
+> Sources: [resources.md](./resources.md)
+> Evidence snapshot: [2026-07-25 research](./research/2026-07-25-ai-assisted-development.md)
+
 ## Scope
 
 Primary-source synthesis for planning AI-assisted development in MartiX Skills.
