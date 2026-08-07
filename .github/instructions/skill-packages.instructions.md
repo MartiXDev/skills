@@ -7,8 +7,9 @@ applyTo: "skills/**"
 # Skill package rules
 
 Before changing a skill package, read the package `SKILL.md`, `AGENTS.md`, and
-`README.md`. Use `docs\repo-overview.md` for repository maintenance rules and
-`docs\custom-ai-artifact-rules.md` for AI artifact formats.
+`README.md`. Use `docs\knowledge\repository\knowledge.md` for repository
+maintenance rules and `docs\policy\custom-ai-artifact-rules.md` for AI artifact
+formats.
 
 ## Model-tier guidance
 

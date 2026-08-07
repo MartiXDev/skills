@@ -52,14 +52,14 @@ prune`.
 
 ### Protected
 
-- `C:/Git/MartiXDev/skills`
+- `<repository-root>\skills`
   - Branch: `main`
   - State: synchronized with `origin/main`; this audit file is modified
   - Action: keep
 
 ### Clean cleanup candidates
 
-- `C:/Git/copilot-worktrees/skills/martinmikes-improved-goggles`
+- `<worktree-root>\skills\martinmikes-improved-goggles`
   - Branch: `martinmikes-improved-goggles`
   - Evidence: tip is contained directly in `main`
 
@@ -68,13 +68,13 @@ the corresponding local branch.
 
 ### Blocked by uncommitted work
 
-- `C:/Users/marti/.codex/worktrees/3617/skills`
+- `<codex-worktree-root>\3617\skills`
   - Branch: `codex/review-dotnet-csharp-docs`
   - State: 15 modified and 3 untracked files
   - Evidence: branch tip is contained directly in `main`
   - Action: review, commit, move, or discard the 18 working-tree changes before
     removing the worktree
-- `C:/Users/marti/.codex/worktrees/a00b/skills`
+- `<codex-worktree-root>\a00b\skills`
   - Branch: detached at `fb564a1`
   - State: 1 untracked file, `docs/skill-evals-quality-research.md`
   - Evidence: detached commit is retained by `main`

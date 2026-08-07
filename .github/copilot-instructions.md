@@ -15,11 +15,10 @@ MartiX Skills is the `martix-skills` Copilot CLI marketplace.
 
 ## Load on demand
 
-- Repository structure: `docs\repo-overview.md`
-- AI artifact contracts: `docs\custom-ai-artifact-rules.md`
-- Skill/plugin boundary: `docs\plugin-bundle-strategy.md`
-- Task tiers and worktrees: `docs\execution-profiles.md`
-- Model routing: `docs\llm-routing-strategy.md`
+- Repository structure: `docs\knowledge\repository\knowledge.md`
+- AI artifact contracts: `docs\policy\custom-ai-artifact-rules.md`
+- Skill/plugin boundary: `docs\architecture\plugin-bundle-strategy.md`
+- Task tiers, routing, and worktrees: `docs\guides\execution-and-routing.md`
 - Package behavior: package `SKILL.md`, `AGENTS.md`, and `README.md`
 
 ## Validation
@@ -32,5 +31,5 @@ powershell -ExecutionPolicy Bypass `
 powershell -ExecutionPolicy Bypass -File .\scripts\validate-repository.ps1
 ```
 
-Keep new repository research, plans, and comparisons under `docs\research\`
+Keep new repository research, plans, and comparisons under `docs\knowledge\`
 or the relevant package's `docs\` folder.

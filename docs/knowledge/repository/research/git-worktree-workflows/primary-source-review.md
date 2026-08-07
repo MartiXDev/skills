@@ -528,7 +528,7 @@ them, giving the developer visibility without risk.
 | `plugins/martix-git/hooks/Cleanup-Worktrees.ps1` | Primary cleanup script |
 | `plugins/martix-git/hooks/Cleanup-Worktrees.Tests.ps1` | Pester unit tests |
 | `scripts/Cleanup-Worktrees.ps1` | Thin wrapper or symlink for repo-root access |
-| `docs/research/git-worktree-workflows/primary-source-review.md` | This document |
+| `docs/knowledge/repository/research/git-worktree-workflows/primary-source-review.md` | This document |
 
 ---
 
@@ -641,5 +641,5 @@ Create `tests/fixtures/worktree-porcelain/` with sample porcelain outputs:
   transition
 - `docs/parallel-worktree-guidance.md` — worktree rules and coordinator
   ownership model
-- `docs/research/git-worktree-workflows/` — existing research documents under
+- `docs/knowledge/repository/research/git-worktree-workflows/` — existing research documents under
   review

@@ -150,7 +150,7 @@ ranking.
 - Keep `.github/copilot-instructions.md` and root `AGENTS.md` limited to rules
   that truly apply to every request. Keep package-specific detail in package
   docs and skill references; this matches both the repository contract and VS
-  Code's scope model. [Repository instructions](../../../../AGENTS.md),
+  Code's scope model. [Repository instructions](../../../../../AGENTS.md),
   [VS Code instructions](https://code.visualstudio.com/docs/agent-customization/custom-instructions#_tips-for-writing-effective-instructions)
 - Keep each standalone `SKILL.md` as a compact router: trigger boundary,
   core procedure, completion check, and exact relative pointers. Put detailed
@@ -158,7 +158,7 @@ ranking.
   `rules/`, `references/`, or `templates/`. The repository's required README,
   metadata, assets, and eval files are packaging contracts; the open standard
   does not make all of them runtime-loaded skill content.
-  [Repository rules](../../../../docs/custom-ai-artifact-rules.md),
+  [Repository rules](../../../../../docs/policy/custom-ai-artifact-rules.md),
   [Agent Skills structure](https://agentskills.io/specification#directory-structure)
 - Deduplicate repeated guidance across skills, prompts, instructions, and
   plugin bundles. Keep one authoritative rule and link to it. This is a
@@ -177,7 +177,7 @@ ranking.
   copying their rule libraries. Verify each target runtime's discovery and
   loading behavior independently.
   [VS Code plugins](https://code.visualstudio.com/docs/agent-customization/agent-plugins),
-  [Repository artifact rules](../../../../docs/custom-ai-artifact-rules.md#repository-source-boundaries)
+  [Repository artifact rules](../../../../../docs/policy/custom-ai-artifact-rules.md#repository-source-boundaries)
 - For SDK or custom-agent integrations, make eager preloading explicit in the
   package design and evaluation matrix. For VS Code, test both automatic and
   slash-command invocation; for Copilot CLI and other clients, document the

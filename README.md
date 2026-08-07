@@ -1,5 +1,7 @@
 # MartiX Skills
 
+<!-- markdownlint-configure-file { "MD013": { "tables": false } } -->
+
 MartiX AI Skills and Plugins for GitHub Copilot CLI — marketplace-ready skill
 packages and plugin bundles for .NET, SharePoint, Markdown, and more.
 
@@ -104,8 +106,10 @@ Legend: 🟢 bundled in the plugin, 🔴 not bundled in that plugin.
 ## Uninstall or Remove
 
 Use the following commands to remove a plugin or one or more installed skills.
-For the authoritative CLI reference, see [GitHub Copilot CLI plugin reference - GitHub Docs](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference).
-For the standalone skills workflow, see [vercel-labs/skills: The open agent skills tool - npx skills](https://github.com/vercel-labs/skills).
+For the authoritative CLI reference, see
+[GitHub Copilot CLI plugin reference - GitHub Docs](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference).
+For the standalone skills workflow, see
+[vercel-labs/skills: The open agent skills tool - npx skills](https://github.com/vercel-labs/skills).
 
 ### Remove a Copilot CLI plugin
 
@@ -121,7 +125,10 @@ copilot plugin uninstall martix-webapi
 npx skills list
 npx skills remove martix-dotnet-csharp
 npx skills remove martix-dotnet-csharp martix-markdown
-npx skills remove --global martix-dotnet-csharp martix-essl martix-fastendpoints martix-fluent-ui martix-fluentvalidation martix-markdown martix-powershell martix-sharepoint-pnp martix-sharepoint-server martix-sharepoint-spfx martix-tunit martix-typescript
+npx skills remove --global martix-dotnet-csharp martix-essl \
+  martix-fastendpoints martix-fluent-ui martix-fluentvalidation \
+  martix-markdown martix-powershell martix-sharepoint-pnp \
+  martix-sharepoint-server martix-sharepoint-spfx martix-tunit martix-typescript
 npx skills remove --all
 ```
 
@@ -165,37 +172,44 @@ needed.
 ## Maintainer Guides
 
 For a compact entry point to the documentation tree, see the
-[docs index](./docs/README.md).
+[docs index](./docs/README.md). It is the detailed maintainer router for the
+canonical role-based documentation tree.
 
 | Guide | Purpose |
 | --- | --- |
-| [Repository overview](./docs/repo-overview.md) | Architecture, package rules, marketplace model, and roadmap. |
-| [Custom AI artifact rules](./docs/custom-ai-artifact-rules.md) | Rules for instructions, skills, plugins, agents, prompts, hooks, MCP/LSP, metadata, templates, and evals. |
-| [Execution profiles](./docs/execution-profiles.md) | Model-tier, token-budget, decision-based task classification, `/fleet`, and worktree guidance. |
-| [LLM routing strategy](./docs/llm-routing-strategy.md) | Cost-aware model tier policy and unsupported routing anti-patterns. |
-| [Plugin bundle strategy](./docs/plugin-bundle-strategy.md) | MartiX project-family bundles and skill-versus-plugin decision rules. |
-| [Parallel worktree guidance](./docs/parallel-worktree-guidance.md) | Splitting package work across agents and worktrees. |
-| [Skill portfolio coordination](./docs/skill-portfolio-coordination-plan.md) | Cross-skill routing and companion-skill handoff planning. |
-| [Recommended skills](./docs/recommended-skills.md) | External skill/plugin ecosystem shortlist and install notes. |
+| [Repository knowledge](./docs/knowledge/repository/knowledge.md) | Architecture, package rules, marketplace model, and current maintenance guidance. |
+| [Custom AI artifact rules](./docs/policy/custom-ai-artifact-rules.md) | Rules for instructions, skills, plugins, agents, prompts, hooks, MCP/LSP, metadata, templates, and evals. |
+| [Custom AI artifact resources](./docs/policy/custom-ai-artifact-resources.md) | Primary-source links for reviewing and refreshing artifact rules. |
+| [Execution and routing](./docs/guides/execution-and-routing.md) | Model-tier, routing, token-budget, decision-based task classification, `/fleet`, and worktree guidance. |
+| [Plugin bundle strategy](./docs/architecture/plugin-bundle-strategy.md) | MartiX project-family bundles and skill-versus-plugin decision rules. |
+| [Parallel worktree guidance](./docs/guides/parallel-worktree-guidance.md) | Splitting package work across agents and worktrees. |
+| [Skills installation](./docs/guides/skills-installation.md) | Stable installation and verification mechanics for imported skills. |
+| [Skill portfolio coordination](./docs/knowledge/repository/plans/skill-portfolio-coordination-plan.md) | Cross-skill routing and companion-skill handoff planning. |
+| [Recommended skills research](./docs/knowledge/ai/ecosystem/research/2026-03-25-recommended-skills.md) | Dated external skill/plugin ecosystem shortlist. |
+| [Skill evaluation research](./docs/knowledge/ai/skills/research/2026-07-20-skill-evals-quality.md) | Dated evidence and quality criteria for skill evaluations. |
 | [Plugin layout policy](./docs/plugin-layout.yaml) | Machine-readable layout policy and validation assumptions. |
 
 ## Documentation Map
 
-The root docs above are the active maintainer guides. Domain folders under
-`docs/` contain source research, comparisons, or implementation plans that
-informed the installable packages. Keep new documentation in this tree, using
-`docs/research/` for repo-level notes and package-scoped subfolders such as
-`docs/martix-dotnet-csharp/` for domain-specific work:
+The [docs index](./docs/README.md) is the detailed maintainer map. Canonical
+documentation is organized by role, while package-scoped source research and
+implementation plans remain under [`docs/martix/`](./docs/martix/):
 
 | Folder | Purpose |
 | --- | --- |
-| `docs/martix-dotnet-csharp/` | .NET/C# comparisons and plans. |
-| `docs/martix-fastendpoints/` | FastEndpoints improvement plan. |
-| `docs/martix-fluentvalidation/` | FluentValidation improvement plan. |
-| `docs/martix-fluent-ui/` | Fluent UI research and skill blueprint. |
-| `docs/martix-essl/` | Czech eSSL source research and compliance maps. |
-| `docs/martix-markdown/` | Markdown automation and package split rationale. |
-| `docs/martix-csharp/` | Planning artifacts for the standalone C# skill. |
+| [`docs/policy/`](./docs/policy/README.md) | Normative artifact rules and their primary-source registry. |
+| [`docs/guides/`](./docs/guides/README.md) | Operational maintainer procedures. |
+| [`docs/architecture/`](./docs/architecture/README.md) | Stable package-boundary and composition decisions. |
+| [`docs/knowledge/`](./docs/knowledge/README.md) | Unified topic maps, source registries, current knowledge, and dated research. |
+| [`docs/agents/`](./docs/agents/) | Issue tracking, triage, and agent-domain operating guidance. |
+| [`docs/martix/martix-dotnet-csharp/`](./docs/martix/martix-dotnet-csharp/) | .NET/C# comparisons and plans. |
+| [`docs/martix/martix-fastendpoints/`](./docs/martix/martix-fastendpoints/) | FastEndpoints improvement plan. |
+| [`docs/martix/martix-fluentvalidation/`](./docs/martix/martix-fluentvalidation/) | FluentValidation improvement plan. |
+| [`docs/martix/martix-fluent-ui/`](./docs/martix/martix-fluent-ui/) | Fluent UI research and skill blueprint. |
+| [`docs/martix/martix-essl/`](./docs/martix/martix-essl/) | Czech eSSL source research and compliance maps. |
+| [`docs/martix/martix-markdown/`](./docs/martix/martix-markdown/) | Markdown automation and package split rationale. |
+| [`docs/martix/martix-csharp/`](./docs/martix/martix-csharp/) | Planning artifacts for the standalone C# skill. |
+| [`docs/martix/martix-typescript/`](./docs/martix/martix-typescript/) | TypeScript skill planning and source research. |
 
 Canonical package behavior lives in each `skills/martix-*` package, especially
 its `SKILL.md`, `AGENTS.md`, rules, references, metadata, and evals.
@@ -204,8 +218,8 @@ its `SKILL.md`, `AGENTS.md`, rules, references, metadata, and evals.
 
 | Task | Start with |
 | --- | --- |
-| Understand repository structure | [Repository overview](./docs/repo-overview.md) and [Plugin layout policy](./docs/plugin-layout.yaml) |
-| Create or update a skill, plugin, or AI artifact | [Custom AI artifact rules](./docs/custom-ai-artifact-rules.md) |
-| Decide skill versus plugin boundaries | [Plugin bundle strategy](./docs/plugin-bundle-strategy.md) |
-| Assign model tier or split fleet work | [Execution profiles](./docs/execution-profiles.md) and [LLM routing strategy](./docs/llm-routing-strategy.md) |
-| Coordinate multiple skills | [Skill portfolio coordination](./docs/skill-portfolio-coordination-plan.md) |
+| Understand repository structure | [Repository knowledge](./docs/knowledge/repository/knowledge.md) and [Plugin layout policy](./docs/plugin-layout.yaml) |
+| Create or update a skill, plugin, or AI artifact | [Custom AI artifact rules](./docs/policy/custom-ai-artifact-rules.md) |
+| Decide skill versus plugin boundaries | [Plugin bundle strategy](./docs/architecture/plugin-bundle-strategy.md) |
+| Assign model tier or split fleet work | [Execution and routing](./docs/guides/execution-and-routing.md) |
+| Coordinate multiple skills | [Skill portfolio coordination](./docs/knowledge/repository/plans/skill-portfolio-coordination-plan.md) |

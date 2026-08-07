@@ -626,7 +626,7 @@ This research snapshot establishes the current (2026-07-22) responsibilities, ex
 
 ## Related research
 
-- [Sandcastle-aligned worktree maintenance plugin plan](../git-worktree-workflows/sandcastle-aligned-plugin-plan.md)
+- [Sandcastle-aligned worktree maintenance plugin plan](./git-worktree-workflows/sandcastle-aligned-plugin-plan.md)
 - [2026-07 AI agent ecosystem and documentation review](./2026-07-22-ai-agent-ecosystem-and-documentation-review.md)
 
 ---

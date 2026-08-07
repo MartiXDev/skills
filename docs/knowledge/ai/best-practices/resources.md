@@ -1,5 +1,10 @@
 # Best practices for using AI (in VS Code)
 
+> Role: canonical resource registry
+> Reviewed: 2026-07-25
+> Refresh: verify upstream URLs before updating the companion knowledge or
+> research files.
+
 ## Resources
 
 - <https://code.visualstudio.com/docs/agents/best-practices>

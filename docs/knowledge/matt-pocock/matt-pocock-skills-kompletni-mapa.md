@@ -2,16 +2,16 @@
 
 ## Praktický provozní manuál s Mermaid schématy
 
-**Stav k:** 18. červenci 2026  
-**Analyzovaná sada:** `mattpocock/skills` `v1.1.0` a aktuální větev `main`  
-**Rozsah hlavní mapy:** 22 aktuálně publikovaných Engineering a Productivity skills — 13 user-invoked a 9 model-invoked  
+**Stav k:** 7. srpnu 2026
+**Analyzovaná sada:** `mattpocock/skills` `v1.2.3` (nejnovější release) a aktuální `main` commit [`84fdeffd`](https://github.com/mattpocock/skills/commit/84fdeffd12f2ee307994d1eb6feb48173b6e0502)
+**Rozsah hlavní mapy:** 25 aktuálně publikovaných Engineering a Productivity skills — 14 user-invoked a 11 model-invoked
 **Účel:** rozhodnout, kterou skill spustit, co spustí uvnitř, jaký artefakt vznikne a co má následovat
 
 > [!IMPORTANT]
 > „Automaticky spouštěná skill“ zde neznamená událost na pozadí ani hook sledující repozitář. Znamená buď (a) výslovný krok uvnitř jiné skill, nebo (b) model-invoked skill, kterou může agent vybrat podle popisu aktuálního úkolu. Git commit, nový issue ani selhání testu samy o sobě nic nespustí, pokud tuto událost nepřekládá agentní hostitel, hook, CI nebo vlastní orchestrace.
 
 > [!NOTE]
-> Upstream README má aktuálně 22 položek, zatímco [AI Hero katalog](https://www.aihero.dev/skills) zobrazuje 21 a zatím vynechává novější `resolving-merge-conflicts`. Také lokálně nainstalovaný snapshot může být starší: například současný upstream `wayfinder` při chartingu automaticky zakládá paralelní `research` subagenty pro vytvořené research tickets. Mapa níže je proto **upstream-complete**, nikoli pouhý popis jednoho lokálního snapshotu.
+> AI Hero [Skills hub](https://www.aihero.dev/skills) už není plochý katalog s konkurenčním počtem položek, ale first-party rozcestník s pilíři a changelogem. Přesný seznam a invokační metadata proto beru z upstream README a `.claude-plugin/plugin.json`; release `v1.2.3` je reprodukovatelný základ a výše uvedený commit zachycuje aktuální `main`. `wayfinder` při chartingu nadále zakládá paralelní `research` subagenty pro research tickets. Mapa níže je proto **upstream-complete**, nikoli popis jednoho lokálního snapshotu.
 
 ## Stručný provozní verdikt
 
@@ -43,7 +43,7 @@ Ne každá změna potřebuje celou páteř:
 - architektonická údržba začíná `improve-codebase-architecture`;
 - probíhající konflikt merge/rebase patří do `resolving-merge-conflicts`.
 
-Nejdůležitější pravidlo sady je zachovat hranice rolí. `wayfinder` vyrábí rozhodnutí, ne implementaci. `to-tickets` vyrábí agent-ready tickets, které se už znovu netřídí přes `triage`. `prototype` vyrábí poznatek, nikoli produkční kód. `code-review` posuzuje hotový diff proti standardům a zadání; nenahrazuje testy.
+Nejdůležitější pravidlo sady je zachovat hranice rolí. `wayfinder` vyrábí rozhodnutí, ne implementaci. `to-tickets` vyrábí agent-ready tickets, které se už znovu netřídí přes `triage`. `prototype` vyrábí poznatek a izolovaný primární artifact, nikoli produkční kód. `code-review` posuzuje hotový diff proti standardům a zadání; nenahrazuje testy.
 
 ## Hlavní tisknutelná mapa: idea → Matt Skills → Sandcastle → PR → `main`
 
@@ -59,6 +59,9 @@ flowchart LR
         UNCERTAIN{Co ještě není známo?}
         RESEARCH["research<br/>primární zdroje"]
         PROTOTYPE["handoff → prototype → handoff<br/>runnable nebo vizuální otázka"]
+        QUESTIONNAIRE["to-questionnaire<br/>odpověď od konkrétního člověka"]
+        WAITWHAT["wait-what<br/>zpráva nedopadla"]
+        WIZARD["wizard<br/>lidský setup krok"]
         SHAPED[Vyjasněný a zdokumentovaný záměr]
 
         IDEA -.->|první použití| SETUP
@@ -67,9 +70,15 @@ flowchart LR
         GRILL --> UNCERTAIN
         UNCERTAIN -->|externí fakta| RESEARCH
         UNCERTAIN -->|nutno spustit nebo vidět| PROTOTYPE
+        UNCERTAIN -->|odpověď drží jiný člověk| QUESTIONNAIRE
+        UNCERTAIN -->|poslední zpráva nedopadla| WAITWHAT
+        UNCERTAIN -->|nutný živý CLI krok| WIZARD
         UNCERTAIN -->|nic zásadního| SHAPED
         RESEARCH --> SHAPED
         PROTOTYPE --> SHAPED
+        QUESTIONNAIRE --> SHAPED
+        WAITWHAT --> SHAPED
+        WIZARD --> SHAPED
     end
 
     subgraph PLAN["2 — PLAN: Matt Skills + issue tracker"]
@@ -139,12 +148,12 @@ flowchart LR
 
 1. **Integrační větev nevytváří automaticky ani `to-spec`, ani `to-tickets`.** Vytvořte ji explicitně po schválení a publikování child tickets, bezprostředně před prvním Sandcastle během. V té chvíli už je znám parent issue, finální implementační frontier i přesný scope větve.
 2. **Výchozím bodem je čerstvý remote-tracking ref default branch, v tomto diagramu `origin/main`, ne libovolný lokální `main`.** Před vytvořením větve i před agregátním review proveďte `git fetch origin`. Pokud se default branch jmenuje jinak, použijte `origin/<default-branch>`. Lokální `main` může být stale nebo mohl být omylem posunut dřívějším `merge-to-head` během.
-3. **Sandcastle musí startovat s integrační větví aktivní.** Aktuální upstream definuje `TARGET_BRANCH` jako hostitelskou aktivní větev v okamžiku `run()` a parallel planner merger slučuje dokončené branches do „current branch“. Spuštění na `main` proto může přesunout integrační výsledek právě do lokálního `main`; nejde o bezpečný feature workflow. Viz [Sandcastle branch strategies a built-in prompt arguments](https://github.com/mattpocock/sandcastle#how-it-works).
+3. **Sandcastle musí startovat s integrační větví aktivní.** Aktuální upstream definuje `TARGET_BRANCH` jako hostitelskou aktivní větev v okamžiku `run()` a parallel planner merger slučuje dokončené branches do „current branch“. Spuštění na `main` proto může přesunout integrační výsledek právě do lokálního `main`; nejde o bezpečný feature workflow. Viz [Sandcastle repository a v0.12.0 templates](https://github.com/mattpocock/sandcastle/tree/v0.12.0).
 4. **Per-ticket Sandcastle review není finální Matt review.** Sandcastle reviewer vidí jednu ticket branch; agregátní `code-review origin/main` vidí celý výsledný diff parent feature a odděleně kontroluje repo Standards a parent Spec. [`code-review`](https://github.com/mattpocock/skills/blob/main/skills/engineering/code-review/SKILL.md) používá three-dot diff proti merge-base a přijímá branch jako fixed point.
 5. **Parent spec issue zůstává otevřený až do merge integračního PR.** `to-tickets` výslovně říká parent issue nezavírat ani nemodifikovat. Do PR mířícího na default branch vložte `Closes #P`; GitHub jej automaticky zavře až při merge do default branch. Closing keyword je na PR cíleném do jiné než default branch ignorován. Viz [GitHub: linking a pull request to an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue).
 6. **Po úplném Sandcastle fan-in jej znovu nespouštějte jen kvůli delivery.** Jakmile jsou child branches sloučené, tickets dokončené a integrační větev pushnutá, další práce patří aggregate review, opravám, CI a PR review. Nový Sandcastle run je oprávněný jen pro nový/vrácený agent-ready child ticket nebo recovery neúspěšného runu.
 7. **Untracked soubory nejsou součástí feature PR.** `.sandcastle/`, research Markdowny ani jiné lokální vstupy se do PR nedostanou, dokud nejsou explicitně přidány a commitnuty. Sandcastle infrastrukturu držte raději v samostatném reviewovaném PR, pokud není záměrnou součástí parent specu.
-8. **Integrační větev určuje kam; ticket query určuje co.** Výchozí GitHub Issues scaffold Sandcastle vybírá open issues s globálním labelem Sandcastle, ne automaticky pouze children jednoho parentu. Před runem proto použijte parent-specific label, explicitní allowlist child IDs nebo jiný spolehlivý parent filter. Jinak může správně checkoutnutá integration branch pohltit tickets jiné feature. Viz [Sandcastle `InitService.ts`](https://github.com/mattpocock/sandcastle/blob/main/src/InitService.ts).
+8. **Integrační větev určuje kam; ticket query určuje co.** Výchozí GitHub Issues scaffold Sandcastle vybírá open issues s globálním labelem Sandcastle, ne automaticky pouze children jednoho parentu. Před runem proto použijte parent-specific label, explicitní allowlist child IDs nebo jiný spolehlivý parent filter. Jinak může správně checkoutnutá integration branch pohltit tickets jiné feature. Viz [Sandcastle `InitService.ts`](https://github.com/mattpocock/sandcastle/blob/v0.12.0/src/InitService.ts).
 
 ### Přesný okamžik vytvoření integrační větve
 
@@ -256,6 +265,7 @@ flowchart TD
 3. `research` a `prototype` jsou odbočky pro různé typy nejistoty: první odpovídá čtením důvěryhodných zdrojů, druhý levným spustitelným experimentem.
 4. `to-spec` a `to-tickets` se vyplatí, když práce přesáhne jedno sezení nebo potřebuje explicitní graf závislostí.
 5. `implement` má uvnitř používat `tdd`, průběžné kontroly a nakonec `code-review` ještě před commitem.
+6. `to-questionnaire` a `wait-what` jsou human-in-the-loop vstupy pro chybějící odpovědi nebo nedorozumění; `wizard` řeší konkrétní lidský krok v jinak automatizovaném toku.
 
 ## 3. Přesný graf skutečných invokací
 
@@ -278,6 +288,7 @@ flowchart LR
         DESIGN[codebase-design]
         RESEARCH[research]
         PROTO[prototype]
+        WIZARD[wizard]
         TDD[tdd]
         REVIEW[code-review]
     end
@@ -306,7 +317,7 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    RESEARCH["research"] --> RA["1 background research agent<br/>primární zdroje + Markdown findings"]
+    RESEARCH["research"] --> RA["background research agent<br/>primární zdroje + Markdown findings"]
     REVIEW["code-review"] --> SA["subagent Standards<br/>repo pravidla + smell baseline"]
     REVIEW --> SP["subagent Spec, pokud existuje spec<br/>issue nebo PRD + diff"]
     DESIGN["codebase-design"] -->|volitelný design-it-twice| D1[varianta rozhraní A]
@@ -366,7 +377,10 @@ flowchart TD
     Q -->|Git je uprostřed konfliktu| MC[resolving-merge-conflicts]
     Q -->|Kontext je plný nebo je třeba větev sezení| H[handoff]
     Q -->|Chci se něco systematicky naučit| TE[teach]
-    Q -->|Navrhuji nebo reviduji skill| WG[writing-great-skills]
+    Q -->|Potřebuji odpověď od konkrétního člověka| TQ[to-questionnaire]
+    Q -->|Poslední zpráva nedopadla| WW[wait-what]
+    Q -->|Je nutný lidský setup krok| WZ[wizard]
+    Q -->|Navrhuji nebo reviduji skill| WG[writing-for-agents]
 
     G -.->|velká změna| TS[to-spec]
     G -.->|malá změna| I
@@ -414,8 +428,12 @@ flowchart LR
     DOMAIN --> ADR
 
     RESEARCH[research] --> FINDINGS["cited research Markdown"]
-    PROTO[prototype] --> EXP["throwaway executable artifact"]
+    PROTO[prototype] --> EXP["single shareable HTML<br/>na prototype/&lt;name&gt; branch"]
+    PROTO --> POINTER["context pointer na implementation issue"]
     PROTO --> LEARN["durable answer or decision"]
+    WIZARD[wizard] --> WIZFILE["interaktivní bash wizard<br/>bash -n + shellcheck"]
+    TQ[to-questionnaire] --> QFILE["to-questionnaire-&lt;slug&gt;.md"]
+    WAIT[wait-what] --> REPHRASE["plain-language re-pitch"]
     HANDOFF[handoff] --> HFILE["temporary handoff Markdown"]
 
     SPEC[to-spec] --> SPECISSUE["spec on issue tracker"]
@@ -431,6 +449,8 @@ flowchart LR
 
     FINDINGS -.-> GWD
     LEARN -.-> GWD
+    QFILE -.-> GWD
+    REPHRASE -.-> GWD
     SPECISSUE -.-> TICKETS
     GRAPH -.-> IMPL
     BRIEF -.-> IMPL
@@ -487,12 +507,13 @@ sequenceDiagram
 Pravidla kontextové hygieny z [`ask-matt`](https://github.com/mattpocock/skills/blob/main/skills/engineering/ask-matt/SKILL.md):
 
 1. Držte `grill-with-docs → to-spec → to-tickets` v jednom nepřerušeném kontextu, protože každý krok syntetizuje předchozí uvažování.
-2. Pokud se shaping blíží „smart zone“, proveďte `handoff` do nového sezení; netlačte model do degradovaného dlouhého kontextu.
+2. Pokud se shaping blíží „smart zone“ (přibližně 150k tokenů u současných state-of-the-art modelů), proveďte `handoff` do nového sezení; netlačte model do degradovaného dlouhého kontextu.
 3. Každý `implement` ticket začínejte v čerstvém kontextu a načtěte jen ticket, relevantní repo instrukce, dotčené zdroje, glossary a ADR.
 4. Built-in compact používejte mezi fázemi, když chcete pokračovat ve stejném vlákně. `handoff` použijte, když chcete skutečně nové sezení nebo paralelní odbočku.
-5. Wayfinder řeší nanejvýš jeden nerešeršní decision ticket na jedno sezení. Research tickets jsou výjimka a mohou běžet paralelně.
+5. Na hranici fáze preferujte v pořadí pokračování, `/clear`, `/handoff`, delegaci subagentovi a teprve potom `/compact`; volba závisí na tom, zda je potřeba zachovat stejný kontext, nebo přejít do čistého sezení.
+6. Wayfinder řeší nanejvýš jeden nerešeršní decision ticket na jedno sezení. Research tickets jsou výjimka a mohou běžet paralelně.
 
-## 8. Kompletní katalog 22 hlavních skills
+## 8. Kompletní katalog 25 hlavních skills
 
 ### 8.1 Engineering: user-invoked orchestrace
 
@@ -512,14 +533,15 @@ Pravidla kontextové hygieny z [`ask-matt`](https://github.com/mattpocock/skills
 
 | Skill | Typický trigger | Automatická/explicitní vazba | Výstup a hranice |
 |---|---|---|---|
-| [`prototype`](https://github.com/mattpocock/skills/blob/main/skills/engineering/prototype/SKILL.md) | Návrhovou otázku nelze levně vyřešit diskusí; je třeba vidět UI nebo spustit logiku/stav. | Volá ji `wayfinder` pro prototype ticket; jinak ji může zvolit model nebo uživatel. | Throwaway program/varianty + poznatek. Kód se má zahodit nebo vědomě přepsat, ne propašovat do produkce. |
-| [`diagnosing-bugs`](https://github.com/mattpocock/skills/blob/main/skills/engineering/diagnosing-bugs/SKILL.md) | Tvrdá chyba, flake, performance regression, nejasná příčina. | Po opravě může doporučit `improve-codebase-architecture`. | Reproduce → minimise → hypothesise → instrument → fix → regression test. Nejdřív tight feedback loop, teprve potom teorie. |
+| [`prototype`](https://github.com/mattpocock/skills/blob/main/skills/engineering/prototype/SKILL.md) | Návrhovou otázku nelze levně vyřešit diskusí; je třeba vidět UI nebo spustit logiku/stav. | Volá ji `wayfinder` pro prototype ticket; jinak ji může zvolit model nebo uživatel. | Jeden shareable HTML prototype s free-play/guided walkthrough variantami; výsledek se zachytí na `prototype/<name>` branch mimo `main` a issue dostane context pointer. |
+| [`diagnosing-bugs`](https://github.com/mattpocock/skills/blob/main/skills/engineering/diagnosing-bugs/SKILL.md) | Tvrdá chyba, flake, performance regression, nejasná příčina. | Po opravě může doporučit `improve-codebase-architecture`. | Reproduce → minimise → hypothesise → instrument → fix → regression test; captured commands/output nejprve redigovat přes `<REDACTED>`. |
 | [`research`](https://github.com/mattpocock/skills/blob/main/skills/engineering/research/SKILL.md) | Rozhodnutí blokuje dokumentace, API fakt, paper nebo jiný primární zdroj. | `wayfinder` ji spouští pro research tickets; sama deleguje background agentovi. | Citovaný Markdown findings v repu; vstup do shaping, ne náhrada product decision. |
 | [`tdd`](https://github.com/mattpocock/skills/blob/main/skills/engineering/tdd/SKILL.md) | Stavba konkrétního chování nebo oprava chyby test-first. | Používá ji `implement`; lze spustit samostatně. | Malé red-green-refactor vertikální slices. Testovat přes veřejný seam a chování, ne implementační detaily. |
 | [`domain-modeling`](https://github.com/mattpocock/skills/blob/main/skills/engineering/domain-modeling/SKILL.md) | Fuzzy/overloaded term, nekonzistentní jazyk, důležité rozhodnutí nebo edge-case, který mění model. | Používají ji `grill-with-docs`, `triage`, `improve-codebase-architecture`, `wayfinder`. | Ubiquitous language v `CONTEXT.md`, scénáře a ADR. Má být aktivní disciplína, ne jednorázové generování glossary. |
 | [`codebase-design`](https://github.com/mattpocock/skills/blob/main/skills/engineering/codebase-design/SKILL.md) | Potřeba navrhnout deep module, interface a seam nebo porovnat radikálně odlišná rozhraní. | Výslovně ji používá `improve-codebase-architecture`; její slovník používá také `tdd`. | Návrh s vysokou depth/leverage/locality; volitelně dvě paralelní varianty interface. |
 | [`code-review`](https://github.com/mattpocock/skills/blob/main/skills/engineering/code-review/SKILL.md) | Existuje diff proti známému fixed point a je známo zadání nebo alespoň repo standardy. | Povinný závěr `implement`; spouští izolovaný Standards subagent a při dostupném specu také Spec subagent. | Sloučené, prioritizované findings. Review není implementace opravy, pokud o ni uživatel zvlášť nepožádá. |
 | [`resolving-merge-conflicts`](https://github.com/mattpocock/skills/blob/main/skills/engineering/resolving-merge-conflicts/SKILL.md) | Git je právě uprostřed merge/rebase a existují konfliktní hunks. | Žádné další katalogové skills. | Dohledá primární intent obou stran, vyřeší každý hunk, spustí checks a merge/rebase dokončí; nemá operaci abortovat ani vymýšlet nové chování. |
+| [`wizard`](https://github.com/mattpocock/skills/blob/main/skills/engineering/wizard/SKILL.md) | Automatizovaný tok narazí na lidský krok, například credentials, dashboard nebo migraci. | Model-invoked; generuje konkrétní wizard podle prostředí a může ho ověřit přes `bash -n`/`shellcheck`. | Interaktivní bash wizard pro člověka; v `v1.2.3` už neuvádí odhad zbývajícího času, pouze fáze. |
 
 ### 8.3 Productivity skills
 
@@ -528,8 +550,10 @@ Pravidla kontextové hygieny z [`ask-matt`](https://github.com/mattpocock/skills
 | [`grill-me`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grill-me/SKILL.md) | **U** | Plán nebo design bez codebase, případně když nechcete stav zapisovat do repo docs. | Spustí `grilling`; nezapisuje `CONTEXT.md`. |
 | [`handoff`](https://github.com/mattpocock/skills/blob/main/skills/productivity/handoff/SKILL.md) | **U** | Kontext se plní, chcete nové sezení, jiný agent nebo dočasnou prototype větev. | Vytvoří kompaktní Markdown pro pokračování v novém sezení. Nezaměňovat s compact ve stejném vlákně. |
 | [`teach`](https://github.com/mattpocock/skills/blob/main/skills/productivity/teach/SKILL.md) | **U** | Chcete systematické učení konceptu napříč sezeními v aktuálním workspace. | Stateful výukový prostor, diagnostika znalostí, lekce a cvičení; mimo delivery pipeline. |
-| [`writing-great-skills`](https://github.com/mattpocock/skills/blob/main/skills/productivity/writing-great-skills/SKILL.md) | **U** | Píšete nebo revidujete vlastní skills a potřebujete konzistentní slovník a zásady. | Referenční disciplína pro authoring; mimo feature pipeline. |
-| [`grilling`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md) | **M** | Plán, design nebo rozhodnutí má neprozkoumané větve. | Reusable one-question-at-a-time loop; používají ji `grill-me`, `grill-with-docs`, `triage`, `wayfinder` a architecture flow. |
+| [`to-questionnaire`](https://github.com/mattpocock/skills/blob/main/skills/productivity/to-questionnaire/SKILL.md) | **U** | Odpověď drží jeden konkrétní člověk, který není v aktuálním sezení. | Vytvoří `to-questionnaire-<slug>.md`; interviewuje způsob odeslání a návratu odpovědí, ne znovu celé téma. |
+| [`wait-what`](https://github.com/mattpocock/skills/blob/main/skills/productivity/wait-what/SKILL.md) | **U** | Poslední zpráva nebo vysvětlení „nedopadlo“ a potřebuje rychlý nový pokus. | Třířádkový plain-language re-pitch poslední zprávy; neřeší opakované nedorozumění, na to patří `grill-with-docs`. |
+| [`writing-for-agents`](https://github.com/mattpocock/skills/blob/main/skills/productivity/writing-for-agents/SKILL.md) | **M** | Agent potřebuje vytvořit nebo revidovat vlastní skill/instructions a dodržet konzistentní slovník. | Model-invoked authoring discipline; v1.2 nahrazuje user-invoked `writing-great-skills`. |
+| [`grilling`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md) | **M** | Plán, design nebo rozhodnutí má neprozkoumané větve. | Reusable round-by-round frontier loop; v každém kole položí všechny aktuálně odblokované otázky a frontier přepočítá. Používají ji `grill-me`, `grill-with-docs`, `triage`, `wayfinder` a architecture flow. |
 
 ## 9. Recepty pro nejčastější situace
 
@@ -644,7 +668,45 @@ research question s přesným scope
 
 Výzkum má oddělit fakta, inference a doporučení. Nemá sám rozhodnout product trade-off, který patří člověku.
 
-### 9.9 Plný kontext nebo potřeba paralelní odbočky
+### 9.9 Odpověď čeká na jiného člověka
+
+```text
+to-questionnaire
+→ interview o adresátovi, kanálu a návratu odpovědí
+→ to-questionnaire-<slug>.md
+→ člověk odešle dotaz a vrátí odpovědi
+→ pokračovat ve shaping nebo decision ticketu
+```
+
+`to-questionnaire` je user-invoked transportní krok: nenahrazuje `grilling` ani
+za adresáta nevymýšlí odpověď.
+
+### 9.10 Poslední zpráva nedopadla
+
+```text
+wait-what
+→ identifikovat poslední neúspěšnou zprávu
+→ tři krátké věty v plain English
+→ pokračovat bez opakování celé historie
+```
+
+Pokud se nedorozumění vrací, přepněte na `grill-with-docs`; `wait-what` je
+rychlý re-pitch, ne prevence dalšího nedorozumění.
+
+### 9.11 Lidský setup krok uvnitř automatizace
+
+```text
+wizard
+→ vygenerovat konkrétní bash wizard pro prostředí
+→ člověk doplní credentials, dashboard nebo migraci
+→ bash -n + shellcheck
+→ pokračovat v původním toku
+```
+
+Wizard nesmí simulovat lidské odpovědi ani obcházet permissions; jeho výstup
+má být malý, interaktivní a ověřitelný.
+
+### 9.12 Plný kontext nebo potřeba paralelní odbočky
 
 ```text
 handoff
@@ -666,11 +728,14 @@ Pro prototype odbočku udělejte handoff ven i zpět. Pro čistě sekvenční p�
 | Implementovat destination uvnitř wayfinder mapy | Decision tickets přestanou být mapou a vznikne směs plánování a delivery. | Mapu uzavřete a předejte do `to-spec`; výjimku uveďte explicitně v Notes. |
 | Pokračovat v shaping po výrazné degradaci dlouhého kontextu | Spec a tickets mohou ztratit rozhodovací logiku. | Udělejte `handoff` a pokračujte v novém sezení se souhrnem. |
 | Compact uprostřed grillu nebo ticketu | Shrnutí může ztratit otevřené větve a přesné důkazy. | Compact jen na hranici fáze; jinak handoff nebo dokončení fáze. |
-| Použít prototype jako první produkční implementaci | Prototype optimalizuje rychlost učení, ne kvalitu, bezpečnost a maintainability. | Zachovejte rozhodnutí, experiment zahoďte a implementujte ze specu přes TDD. |
+| Použít prototype jako první produkční implementaci | Prototype optimalizuje rychlost učení, ne kvalitu, bezpečnost a maintainability. | Zachovejte rozhodnutí, shareable experiment uložte na `prototype/<name>` branch mimo `main` a implementujte ze specu přes TDD. |
 | Refaktorovat architekturu před opravou bug | Rozšiřuje scope a maže diagnostické důkazy. | Nejdřív `diagnosing-bugs`, oprava a regression test; potom architecture handoff. |
 | Spustit `tdd` bez použitelného seam | Vede k testům implementation detailů nebo k rozsáhlému mockování. | Nejprve navrhnout seam přes `codebase-design`, případně architecture flow. |
 | `code-review` bez fixed point nebo bez původního zadání | Není jasné, co je diff a co znamená „správně“. | Určete merge-base/commit a issue/spec; chybí-li spec, jasně omezte review jen na Standards. |
 | Automaticky opravovat každé review finding | Review je diagnostika; ne každé pozorování je správné nebo ve scope. | Prioritizovat, ověřit a až pak zvlášť implementovat schválené opravy. |
+| Odkazovat na `writing-great-skills` nebo instalovat starý path | V1.2 tento název nahradil `writing-for-agents`; starý adresář není alias. | Aktualizovat odkaz i instalaci na `writing-for-agents`. |
+| Instalovat současně Claude plugin a editable `skills` snapshot | Vzniknou duplicitní kopie a nejasnost, která metadata či verze platí. | Zvolte managed plugin pro Claude Code, nebo editable `npx skills@latest add` pro vlastní/harness-neutral workflow. |
+| Ukládat neupravený terminal output z diagnostiky | Zachycený příkaz nebo log může obsahovat secret. | Před uložením použijte `<REDACTED>` a pracujte pouze s redigovaným artifactem. |
 | Ukládat vše do `CONTEXT.md` | Glossary se nafoukne a přestane šetřit tokeny. | `CONTEXT.md` pro doménový jazyk, ADR pro důvody, tickets pro práci, repo instructions pro pravidla. |
 | Používat `research` místo rozhodnutí | Primární zdroje neznají vaše priority a akceptovatelný trade-off. | Findings vrátit do `grill-with-docs` a rozhodnout HITL. |
 
@@ -678,11 +743,13 @@ Pro prototype odbočku udělejte handoff ven i zpět. Pro čistě sekvenční p�
 
 ### Minimální sada pro běžný repozitář
 
-Nainstalujte všech 22 hlavních skills, ale v každém runu načítejte jen relevantní skill. Jako pracovní menu stačí mít viditelné tyto vstupy:
+Nainstalujte všech 25 hlavních skills, ale v každém runu načítejte jen relevantní skill. Jako pracovní menu stačí mít viditelné tyto vstupy:
 
 ```text
 setup-matt-pocock-skills  jednou
 ask-matt                  jen při nejistotě
+to-questionnaire          když odpověď drží jiný člověk
+wait-what                 když poslední zpráva nedopadla
 grill-with-docs           běžná netriviální změna
 triage                    cizí příchozí práce
 diagnosing-bugs           těžká chyba
@@ -694,9 +761,26 @@ handoff                   hranice kontextu
 
 Ostatní model-invoked disciplíny se mají načíst progresivně až podle potřeby nebo prostřednictvím nadřazené orchestrace.
 
+Pro Claude Code lze použít managed plugin:
+
+```text
+claude plugins install mattpocock-skills
+```
+
+Pro editable a harness-neutral instalaci použijte:
+
+```text
+npx skills@latest add mattpocock/skills
+```
+
+Tyto dvě distribuční plochy nekombinujte v jednom prostředí bez vědomé správy
+verzí. Pro přesnou automatizaci připněte release nebo commit a ověřte také
+`agents/openai.yaml` vedle každé `SKILL.md` a kompatibilní dvojici
+`CLAUDE.md`/`AGENTS.md`.
+
 ### Doporučená pravidla pro vlastní orchestrátor
 
-1. **Katalogová metadata:** evidujte `invocation = user|model`, `mode = HITL|AFK|mixed`, preconditions, expected artifacts a allowed child skills.
+1. **Katalogová metadata:** evidujte `invocation = user|model`, `mode = HITL|AFK|mixed`, preconditions, expected artifacts, allowed child skills a paralelní Claude/Codex metadata.
 2. **Guard proti zakázanému chainu:** user-invoked skill nesmí sama bez kontrolního bodu spustit další user-invoked skill.
 3. **Artifact gates:** `implement` přijme jen konkrétní ticket/spec; `to-tickets` jen dostatečně stabilní spec; `code-review` jen známý fixed point.
 4. **Context packs:** pro implementaci ticketu poskládejte jen ticket, blocker decisions, relevantní glossary/ADR/instructions a dotčené soubory.
@@ -708,15 +792,15 @@ Ostatní model-invoked disciplíny se mají načíst progresivně až podle pot�
 
 ## 12. Vedlejší skills mimo hlavní mapu
 
-Repozitář obsahuje i další adresáře, ale README je neuvádí v hlavním Engineering/Productivity katalogu a Claude plugin je záměrně nepromuje jako běžný operační tok. Zacházejte s nimi jako se standalone nebo special-purpose nástroji:
+Repozitář obsahuje i další adresáře, ale README je neuvádí v hlavním Engineering/Productivity katalogu. Claude plugin naopak hlavní 25-skill katalog promuje jako běžný operační balík; níže uvedené položky zůstávají standalone nebo special-purpose nástroje:
 
 | Skupina | Aktuálně viditelné položky | Doporučení |
 |---|---|---|
 | Misc | `git-guardrails-claude-code`, `migrate-to-shoehorn`, `scaffold-exercises`, `setup-pre-commit` | Používat jen při přesné shodě situace. `setup-pre-commit` je repo bootstrap utility, ne součást idea-to-ship flow. |
-| Personal | `edit-article`, `obsidian-vault` | Osobní content/knowledge workflows; nemíchat do engineering lifecycle mapy. |
-| Deprecated / in-progress | Historické či rozpracované položky v odpovídajících složkách | Neopírat automatizaci o ně bez explicitního připnutí verze a revize obsahu. |
+| Deprecated | Bucket zůstává, ale v1.2 je prázdný | Neobnovovat historické položky bez explicitního upstream rozhodnutí. |
+| In-progress | Rozpracované položky v odpovídající složce | Neopírat automatizaci o ně bez explicitního připnutí verze a revize obsahu. |
 
-Aktuální adresářová struktura je dostupná v [Engineering](https://github.com/mattpocock/skills/tree/main/skills/engineering), [Productivity](https://github.com/mattpocock/skills/tree/main/skills/productivity), [Misc](https://github.com/mattpocock/skills/tree/main/skills/misc) a [Personal](https://github.com/mattpocock/skills/tree/main/skills/personal).
+Aktuální adresářová struktura je dostupná v [Engineering](https://github.com/mattpocock/skills/tree/main/skills/engineering), [Productivity](https://github.com/mattpocock/skills/tree/main/skills/productivity), [Misc](https://github.com/mattpocock/skills/tree/main/skills/misc) a [In-progress](https://github.com/mattpocock/skills/tree/main/skills/in-progress).
 
 ## 13. Jednostránková provozní mapa
 
@@ -729,6 +813,9 @@ flowchart TB
         G[grill-with-docs / grill-me]
         R[research pro externí fakta]
         P[prototype pro runnable otázku]
+        Q[to-questionnaire pro jiného člověka]
+        WW[wait-what pro nedorozumění]
+        WZ[wizard pro lidský setup]
         W[wayfinder pro fog of war]
         T[triage pro příchozí práci]
     end
@@ -778,6 +865,7 @@ Pro dlouhodobý vývoj chápejte Matt Pocock Skills jako **síť malých kontrol
 - nový kontext pro každý implementační ticket omezuje kontaminaci a tokenové náklady;
 - `handoff` zachraňuje důležitý kontext, když je nutné změnit sezení;
 - `research` a `prototype` snižují různé typy nejistoty ještě před drahou produkční implementací;
+- `to-questionnaire`, `wait-what` a `wizard` řeší lidské hranice bez simulování lidských odpovědí;
 - `tdd`, `code-review`, `diagnosing-bugs` a architecture upkeep uzavírají feedback loop po celý život codebase.
 
 Pokud si nejste jistí cestou, použijte `ask-matt`. Pokud cestu znáte, router vynechte a spusťte přímo nejmenší odpovídající skill. Právě toto selektivní použití je podstatou sady.
@@ -785,6 +873,10 @@ Pokud si nejste jistí cestou, použijte `ask-matt`. Pokud cestu znáte, router 
 ## Primární zdroje
 
 - [Matt Pocock Skills — README, instalace, filosofie, invokační model a aktuální katalog](https://github.com/mattpocock/skills)
+- [Matt Pocock Skills — v1.2.0 release](https://github.com/mattpocock/skills/releases/tag/v1.2.0)
+- [Matt Pocock Skills — v1.2.3 release](https://github.com/mattpocock/skills/releases/tag/v1.2.3)
+- [Matt Pocock Skills — v1.2.3 CHANGELOG](https://github.com/mattpocock/skills/blob/v1.2.3/CHANGELOG.md)
+- [Matt Pocock Skills — Claude plugin manifest](https://github.com/mattpocock/skills/blob/v1.2.3/.claude-plugin/plugin.json)
 - [Ask Matt — autoritativní router a hlavní flow](https://github.com/mattpocock/skills/blob/main/skills/engineering/ask-matt/SKILL.md)
 - [AI Hero Skills Catalog — first-party katalog a seskupení](https://www.aihero.dev/skills)
 - [Engineering skills — aktuální zdrojová struktura](https://github.com/mattpocock/skills/tree/main/skills/engineering)
@@ -798,13 +890,18 @@ Pokud si nejste jistí cestou, použijte `ask-matt`. Pokud cestu znáte, router 
 - [Code Review](https://github.com/mattpocock/skills/blob/main/skills/engineering/code-review/SKILL.md)
 - [Diagnosing Bugs](https://github.com/mattpocock/skills/blob/main/skills/engineering/diagnosing-bugs/SKILL.md)
 - [Resolving Merge Conflicts](https://github.com/mattpocock/skills/blob/main/skills/engineering/resolving-merge-conflicts/SKILL.md)
-- [Sandcastle — current README and branch strategies](https://github.com/mattpocock/sandcastle#how-it-works)
-- [Sandcastle — current parallel planner with per-ticket review](https://github.com/mattpocock/sandcastle/blob/main/src/templates/parallel-planner-with-review/main.mts)
-- [Sandcastle — current merge prompt](https://github.com/mattpocock/sandcastle/blob/main/src/templates/parallel-planner-with-review/merge-prompt.md)
+- [Wizard](https://github.com/mattpocock/skills/blob/v1.2.3/skills/engineering/wizard/SKILL.md)
+- [To Questionnaire](https://github.com/mattpocock/skills/blob/v1.2.3/skills/productivity/to-questionnaire/SKILL.md)
+- [Wait What](https://github.com/mattpocock/skills/blob/v1.2.3/skills/productivity/wait-what/SKILL.md)
+- [Writing for Agents](https://github.com/mattpocock/skills/blob/v1.2.3/skills/productivity/writing-for-agents/SKILL.md)
+- [Sandcastle — v0.12.0 README and providers](https://github.com/mattpocock/sandcastle/tree/v0.12.0)
+- [Sandcastle — v0.12.0 initialization and templates](https://github.com/mattpocock/sandcastle/blob/v0.12.0/src/InitService.ts)
+- [Sandcastle — current parallel planner with per-ticket review](https://github.com/mattpocock/sandcastle/blob/v0.12.0/src/templates/parallel-planner-with-review/main.mts)
+- [Sandcastle — current merge prompt](https://github.com/mattpocock/sandcastle/blob/v0.12.0/src/templates/parallel-planner-with-review/merge-prompt.md)
 - [GitHub — creating a Draft pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
 - [GitHub — closing parent issue from a PR to the default branch](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue)
 - [GitHub — protected branches and required status checks](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)
 
 ### Stav a omezení analýzy
 
-Repozitář se aktivně mění. Hlavní katalog má proto přednost před staršími články, cached katalogy a lokálně nainstalovanými kopiemi. AI Hero je first-party vysvětlující vrstva, ale pro přesný aktuální seznam a invokační metadata je kanonický zdroj GitHub `main`/připnutý release. Při automatizaci doporučuji připnout konkrétní release nebo commit a při upgradu znovu vygenerovat tento graf z front matter a explicitních odkazů v `SKILL.md`.
+Repozitář se aktivně mění. Hlavní katalog má proto přednost před staršími články, cached katalogy a lokálně nainstalovanými kopiemi. AI Hero je first-party vysvětlující vrstva, ale pro přesný aktuální seznam a invokační metadata je kanonický zdroj GitHub `v1.2.3`/připnutý commit `84fdeffd`. V1.2 changelog článek na AI Hero nebyl během této aktualizace dostupný na stabilní samostatné URL; GitHub `CHANGELOG.md`, release stránky, manifesty a zdrojové `SKILL.md` jsou proto citovanou autoritou. Při automatizaci doporučuji připnout konkrétní release nebo commit a při upgradu znovu vygenerovat tento graf z front matter, `agents/openai.yaml` a explicitních odkazů v `SKILL.md`.

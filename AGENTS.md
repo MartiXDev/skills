@@ -6,9 +6,9 @@ override repository contracts.
 
 ## Before editing
 
-1. Read [CONTEXT.md](./CONTEXT.md), [the repository overview](./docs/repo-overview.md),
+1. Read [CONTEXT.md](./CONTEXT.md), [the repository knowledge guide](./docs/knowledge/repository/knowledge.md),
    and applicable [.github/instructions](./.github/instructions/).
-2. For custom AI artifacts, read [the artifact rules](./docs/custom-ai-artifact-rules.md).
+2. For custom AI artifacts, read [the artifact rules](./docs/policy/custom-ai-artifact-rules.md).
 3. For `skills/` or `plugins/`, read that package's `SKILL.md`, `AGENTS.md`, and
    `README.md`.
 4. Check the current branch and worktree. Preserve unrelated edits; never revert
@@ -30,7 +30,7 @@ when the task needs them.
   repository schema. Do not add alternate trigger-eval formats or change the
   schema without human approval.
 
-See [custom AI artifact rules](./docs/custom-ai-artifact-rules.md) for the
+See [custom AI artifact rules](./docs/policy/custom-ai-artifact-rules.md) for the
 full inventory and eval requirements.
 
 ## Ownership and documentation
@@ -38,8 +38,8 @@ full inventory and eval requirements.
 - Keep package work inside one package where possible.
 - Coordinator-owned surfaces include `.github/plugin/marketplace.json`, root
   READMEs, shared templates, repository strategy docs, and
-  `scripts/validate-repository.ps1`; see [parallel worktree guidance](./docs/parallel-worktree-guidance.md).
-- Put new research, plans, and comparisons under `docs/research/` or the
+  `scripts/validate-repository.ps1`; see [parallel worktree guidance](./docs/guides/parallel-worktree-guidance.md).
+- Put new research, plans, and comparisons under `docs/knowledge/` or the
   relevant package's `docs/` folder.
 - Issues are tracked in GitHub Issues. Use the [issue tracker guidance](./docs/agents/issue-tracker.md)
   and [triage labels](./docs/agents/triage-labels.md).

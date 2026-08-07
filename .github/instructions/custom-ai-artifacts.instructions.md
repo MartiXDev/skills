@@ -1,13 +1,13 @@
 ---
 name: "Custom AI Artifact Rules"
 description: "Rules for creating and updating custom AI artifacts in this repository"
-applyTo: ".github/copilot-instructions.md,.github/instructions/**,.github/prompts/**,.github/agents/**,.github/hooks/**,.github/lsp.json,.vscode/mcp.json,docs/custom-ai-artifact-rules.md,**/SKILL.md,**/AGENTS.md,skills/**/plugin.json,skills/**/metadata.json,skills/**/assets/*.json,skills/**/evals/evals.json,plugins/**/plugin.json,plugins/**/hooks.json,plugins/**/agents/**,plugins/**/instructions/**,plugins/**/prompts/**,plugins/**/hooks/**,templates/**"
+applyTo: ".github/copilot-instructions.md,.github/instructions/**,.github/prompts/**,.github/agents/**,.github/hooks/**,.github/lsp.json,.vscode/mcp.json,docs/policy/**,**/SKILL.md,**/AGENTS.md,skills/**/plugin.json,skills/**/metadata.json,skills/**/assets/*.json,skills/**/evals/evals.json,plugins/**/plugin.json,plugins/**/hooks.json,plugins/**/agents/**,plugins/**/instructions/**,plugins/**/prompts/**,plugins/**/hooks/**,templates/**"
 ---
 
 # Custom AI artifact rules
 
 Before creating or updating custom AI artifacts, read
-`docs\custom-ai-artifact-rules.md` and follow its decision model.
+`docs\policy\custom-ai-artifact-rules.md` and follow its decision model.
 
 ## Model-tier guidance
 
