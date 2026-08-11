@@ -1,7 +1,28 @@
 {
   "name": "martix-platform",
-  "displayName": "MartiX Platform",
+  "description": "Use for MartiX.Platform library work and for designing, generating, reviewing, or hardening .NET web applications that should follow the MartiX modular-monolith, vertical-slice, SOLID, explicit-DI, TDD, secure, observable, and performance-oriented conventions. Trigger on MartiX.Platform, Generated Solutions, Platform migrations, Result/Error contracts, reliable events, module boundaries, or requests to create a modern MartiX web app.",
   "version": "0.1.0",
+  "author": {
+    "name": "MartiXDev"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "martix",
+    "martix-platform",
+    "dotnet",
+    "csharp",
+    "aspnetcore",
+    "modular-monolith",
+    "vertical-slices",
+    "efcore",
+    "reliable-events",
+    "tdd",
+    "security",
+    "aot"
+  ],
+  "repository": "https://github.com/MartiXDev/skills",
+  "skills": "skills/",
+  "displayName": "MartiX Platform",
   "publisher": {
     "name": "MartiXDev",
     "repository": "MartiXDev/skills",
