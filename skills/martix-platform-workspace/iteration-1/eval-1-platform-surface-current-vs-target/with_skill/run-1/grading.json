@@ -1,0 +1,39 @@
+{
+  "expectations": [
+    {
+      "text": "Identifies MartiX.Platform as a framework-independent Kernel and keeps hosting, DI, logging, JSON, ASP.NET Core, and EF Core in adapters.",
+      "passed": true,
+      "evidence": "Package table identifies MartiX.Platform as a framework-independent Kernel and ASP.NET Core/EF Core as adapters with host concerns excluded."
+    },
+    {
+      "text": "Describes immutable Result/Result<T>/Error/ErrorKind contracts, lower-case owner-prefixed dot-separated error codes, reserved platform. ownership, and MXP001/MXP002 as current analyzer evidence.",
+      "passed": true,
+      "evidence": "Answer describes immutable Result contracts, ErrorKind, lowercase owner-prefixed codes, reserved platform., and MXP001/MXP002 analyzer evidence."
+    },
+    {
+      "text": "Routes Problem Details and exception mapping to the ASP.NET Core adapter and warns not to serialize Kernel Result types directly.",
+      "passed": true,
+      "evidence": "HTTP guidance assigns RFC 9457 Problem Details and exception mapping to the ASP.NET Core adapter and says not to serialize Kernel Results directly."
+    },
+    {
+      "text": "Describes Outbox Messages, Delivery Attempts, and Inbox Receipts as reliable-event primitives with observable at-least-once delivery, not exactly-once transport.",
+      "passed": true,
+      "evidence": "Reliable-event guidance names Outbox Messages, Delivery Attempts, Inbox Receipts, atomic boundaries, and observable at-least-once delivery."
+    },
+    {
+      "text": "Explicitly says the current bootstrap manifest and source/fixture evidence take precedence over unimplemented Wayfinder blueprint APIs.",
+      "passed": true,
+      "evidence": "Authority guidance says current source, manifest, fixtures, and consumer evidence win over the unimplemented Wayfinder target and supportClaims is empty."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No additional eval feedback."
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "expectations": [
+    {
+      "text": "Selects the modular-monolith production-oriented shape with one API, one one-shot Migrator, one project per genuine Business Module, and one consolidated test project unless a real boundary justifies more.",
+      "passed": true,
+      "evidence": "Selected profile explicitly states one API, one one-shot Migrator, one project per genuine Business Module, and one consolidated test project."
+    },
+    {
+      "text": "Keeps module dependencies acyclic and limited to another module's Contracts; module implementation and persistence remain internal.",
+      "passed": true,
+      "evidence": "Dependency rules state an explicit acyclic graph, Contracts-only cross-module references, and internal module persistence/implementation."
+    },
+    {
+      "text": "Organizes CancelOrder as a vertical slice with a thin endpoint and an internal sealed Application Operation registered explicitly without a mandatory mediator or scanning.",
+      "passed": true,
+      "evidence": "CancelOrder is an internal sealed operation in a focused slice; the endpoint is thin, explicitly registered, and scanning/mediator are rejected."
+    },
+    {
+      "text": "States that the API does not migrate or seed on startup and distinguishes the runtime and migration connection strings.",
+      "passed": true,
+      "evidence": "Persistence guidance says the API must not migrate or seed and names ConnectionStrings:Database and ConnectionStrings:MigrationDatabase."
+    },
+    {
+      "text": "Uses TDD plus real-provider evidence where PostgreSQL, transactions, migrations, concurrency, or reliable events are part of the claim.",
+      "passed": true,
+      "evidence": "TDD starts with red tests and provider-specific PostgreSQL evidence is required for transactions, migrations, concurrency, rollback, and reliability."
+    },
+    {
+      "text": "Does not require microservices, Kubernetes, a broker, distributed cache, UI, or cloud services by default.",
+      "passed": true,
+      "evidence": "The non-default list excludes microservices, Kubernetes, message brokers, Redis/distributed cache, UI/full-stack, and cloud services."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No additional eval feedback."
+  }
+}

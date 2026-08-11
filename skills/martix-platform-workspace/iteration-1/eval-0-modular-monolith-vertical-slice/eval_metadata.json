@@ -1,0 +1,13 @@
+{
+  "eval_id": "modular-monolith-vertical-slice",
+  "eval_name": "modular-monolith-vertical-slice",
+  "prompt": "Plan a new MartiX web application for Orders and Catalog. It should be a production-oriented modular monolith using PostgreSQL, Minimal APIs, a CancelOrder use case, and TDD. Show the solution topology, module dependency rules, vertical-slice shape, DI composition, migration boundary, and the first verification steps. Call out what should not be added by default.",
+  "assertions": [
+    "Selects the modular-monolith production-oriented shape with one API, one one-shot Migrator, one project per genuine Business Module, and one consolidated test project unless a real boundary justifies more.",
+    "Keeps module dependencies acyclic and limited to another module's Contracts; module implementation and persistence remain internal.",
+    "Organizes CancelOrder as a vertical slice with a thin endpoint and an internal sealed Application Operation registered explicitly without a mandatory mediator or scanning.",
+    "States that the API does not migrate or seed on startup and distinguishes the runtime and migration connection strings.",
+    "Uses TDD plus real-provider evidence where PostgreSQL, transactions, migrations, concurrency, or reliable events are part of the claim.",
+    "Does not require microservices, Kubernetes, a broker, distributed cache, UI, or cloud services by default."
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "expectations": [
+    {
+      "text": "Keeps Redis optional and requires explicit capability/provider selection with invalid-combination rejection before generation.",
+      "passed": true,
+      "evidence": "Capability matrix keeps cache off by default, requires explicit cache/provider selection, and rejects invalid combinations before emission."
+    },
+    {
+      "text": "Requires absence tests proving no package references, configuration, startup registration, health checks, or secret placeholders remain when the capability is not selected.",
+      "passed": true,
+      "evidence": "Default absence checks scan projects, packages, config, startup, health/readiness, telemetry, tests, and secret placeholders."
+    },
+    {
+      "text": "Defines a small provider-independent seam and explicit adapter registration rather than assembly scanning or a broad AddDefaults helper.",
+      "passed": true,
+      "evidence": "IApplicationCache is provider-neutral and Redis is directly registered; scanning, reflection, service location, and AddDefaults are rejected."
+    },
+    {
+      "text": "Requires fail-fast or explicitly bounded fallback behavior, health/telemetry, secret-safe configuration, and tests for provider unavailability.",
+      "passed": true,
+      "evidence": "Outage guidance separates invalid configuration from bounded fail-open cache behavior and requires health, redacted telemetry, secret injection, and outage/recovery tests."
+    },
+    {
+      "text": "Does not call the capability Supported without a named quality-gate profile and reproducible positive, negative, failure, and recovery evidence.",
+      "passed": true,
+      "evidence": "Named profile modular-monolith-cache-redis-v1 remains Deferred/not Supported until positive, negative, failure, recovery, security, and release evidence pass."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Assertions are not strongly discriminating: the no-skill answer independently covers the expected capability-admission checklist."
+  }
+}

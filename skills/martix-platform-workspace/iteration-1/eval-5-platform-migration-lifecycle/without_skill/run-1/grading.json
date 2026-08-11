@@ -1,0 +1,39 @@
+{
+  "expectations": [
+    {
+      "text": "Distinguishes a compatible package upgrade from a Platform Migration when generated source, schema, configuration, dependencies, or operational contracts change.",
+      "passed": true,
+      "evidence": "Upgrade categories distinguish unchanged package-only compatibility from Platform Migration when generated, dependency, config, schema, or operational surfaces change."
+    },
+    {
+      "text": "Uses the current fixture's validate/script/apply commands without inventing inspect or migrate commands as if they already exist, while describing inspect/plan/apply as target lifecycle concepts only.",
+      "passed": false,
+      "evidence": "Answer invents platform migration inspect/plan/apply/recover CLI stages and never names the current fixture commands validate/script/apply."
+    },
+    {
+      "text": "Requires original manifest, migration playbook, schema backup where applicable, immutable candidate evidence, postcondition verification, and explicit irreversible-operation limits.",
+      "passed": false,
+      "evidence": "Answer requires source fingerprint, plan hash, backup, tests, and post-migration evidence but not a migration playbook or explicit irreversible-operation limits."
+    },
+    {
+      "text": "Explains that application-owned Generated Solutions are not overwritten by rerunning templates and that repeated migration application is a no-op or explicit ambiguity failure.",
+      "passed": false,
+      "evidence": "Answer explains why templates are not reapplied but does not define repeated migration as a no-op or ambiguity/precondition failure."
+    },
+    {
+      "text": "Does not promise universal rollback or assume an optional Quartz capability is supported without its quality-gate evidence.",
+      "passed": true,
+      "evidence": "Recovery is not promised as universal rollback and Quartz is not Supported without named quality-gate evidence."
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 3,
+    "total": 5,
+    "pass_rate": 0.4
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No additional eval feedback."
+  }
+}

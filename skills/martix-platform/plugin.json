@@ -1,0 +1,134 @@
+{
+  "name": "martix-platform",
+  "displayName": "MartiX Platform",
+  "version": "0.1.0",
+  "publisher": {
+    "name": "MartiXDev",
+    "repository": "MartiXDev/skills",
+    "distributionModel": "standalone skill with optional direct Copilot marketplace registration"
+  },
+  "summary": "Use for MartiX.Platform library work and for designing, generating, reviewing, or hardening .NET web applications that should follow the MartiX modular-monolith, vertical-slice, SOLID, explicit-DI, TDD, secure, observable, and performance-oriented conventions. Trigger on MartiX.Platform, Generated Solutions, Platform migrations, Result/Error contracts, reliable events, module boundaries, or requests to create a modern MartiX web app.",
+  "abstract": "This package is the canonical standalone source for MartiX.Platform guidance. It routes current-versus-target Platform decisions, Generated Solution topology, modular-monolith and vertical-slice design, typed contracts, persistence, reliable events, security, quality gates, migrations, and exact AOT/performance claims.",
+  "compatibility": {
+    "primaryTarget": "GitHub Copilot CLI",
+    "secondaryTargets": [
+      "Agent Skills-compatible tools"
+    ],
+    "languageBaselines": [
+      ".NET 10+",
+      "C# 14+",
+      "ASP.NET Core",
+      "EF Core"
+    ],
+    "statusNote": "MartiX.Platform is still in bootstrap/preview implementation; verify package and manifest evidence before using target-only guidance."
+  },
+  "status": {
+    "maturity": "preview",
+    "canonicalSkillRoot": "skills/martix-platform",
+    "marketplaceSourceRoot": "skills/martix-platform"
+  },
+  "layers": {
+    "skillEntry": "SKILL.md",
+    "maintainerGuide": "README.md",
+    "companionGuide": "AGENTS.md",
+    "metadata": "metadata.json",
+    "license": "LICENSE.txt",
+    "rules": "rules/*.md",
+    "references": "references/*.md",
+    "templates": "templates/*.md",
+    "assets": "assets/*.json",
+    "evals": "evals/evals.json"
+  },
+  "taxonomy": {
+    "mode": "standalone-first",
+    "rulePrefixCount": 8,
+    "domainCount": 5,
+    "tags": [
+      "MartiX.Platform",
+      "modular monolith",
+      "vertical slices",
+      "Minimal APIs",
+      "EF Core",
+      "reliable events",
+      "TDD",
+      "security",
+      "Native AOT"
+    ]
+  },
+  "artifacts": {
+    "ruleCount": 14,
+    "referenceCount": 10,
+    "templateCount": 7,
+    "assetCount": 2,
+    "evals": "evals/evals.json"
+  },
+  "distribution": {
+    "primarySurface": {
+      "id": "standalone-skills-cli",
+      "status": "canonical",
+      "officialInstallCommand": "npx skills add <source>",
+      "preferredSources": [
+        "<absolute-path>\\skills\\martix-platform",
+        "https://github.com/MartiXDev/skills/tree/main/skills/martix-platform"
+      ]
+    },
+    "secondarySurface": {
+      "id": "copilot-cli-plugin-marketplace",
+      "status": "optional-direct-registration",
+      "marketplaceRepository": "MartiXDev/skills",
+      "marketplaceName": "martix-skills",
+      "pluginName": "martix-platform"
+    }
+  },
+  "relationships": {
+    "companionSkills": [
+      {
+        "name": "martix-dotnet-csharp",
+        "relationship": "handoff",
+        "handoffWhen": "The task becomes generic C#/.NET, SDK, ASP.NET Core, EF Core, async, diagnostics, or security guidance outside MartiX conventions."
+      },
+      {
+        "name": "martix-fastendpoints",
+        "relationship": "handoff",
+        "handoffWhen": "FastEndpoints endpoint types, processors, transport, or adapter configuration is the primary concern."
+      },
+      {
+        "name": "martix-fluentvalidation",
+        "relationship": "handoff",
+        "handoffWhen": "Reusable validators, RuleSets, localization, async rules, or validator testing is the primary concern."
+      },
+      {
+        "name": "martix-tunit",
+        "relationship": "handoff",
+        "handoffWhen": "TUnit or Microsoft.Testing.Platform mechanics are the primary concern."
+      },
+      {
+        "name": "martix-fluent-ui",
+        "relationship": "handoff",
+        "handoffWhen": "Fluent 2 UI component design is the primary concern."
+      }
+    ],
+    "handoffPolicy": "Stay in martix-platform for Platform boundaries, Generated Solution topology, modular-monolith and vertical-slice architecture, typed Platform contracts, reliable-event semantics, capability/provider admission, migrations, and quality claims. Hand off narrower implementation details to the companion skill that owns them."
+  },
+  "executionProfile": {
+    "modelTier": "mixed",
+    "taskTypes": [
+      "planning",
+      "implementation",
+      "review",
+      "validation",
+      "migration"
+    ],
+    "parallelSafety": "single-package",
+    "fleetReady": true,
+    "worktreeSafe": true,
+    "tokenBudget": "medium",
+    "contextStrategy": [
+      "Start with SKILL.md and authority-map.",
+      "Open the smallest rule or reference map for the request.",
+      "Label current, fixture, target, deferred, and unknown claims.",
+      "Use anti-patterns for first-pass review.",
+      "Finish with generated-solution checklist and exact verification evidence."
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "expectations": [
+    {
+      "text": "Selects the modular-monolith production-oriented shape with one API, one one-shot Migrator, one project per genuine Business Module, and one consolidated test project unless a real boundary justifies more.",
+      "passed": false,
+      "evidence": "Topology has one API and module projects but no one-shot Migrator project and uses multiple test projects rather than one consolidated test project."
+    },
+    {
+      "text": "Keeps module dependencies acyclic and limited to another module's Contracts; module implementation and persistence remain internal.",
+      "passed": false,
+      "evidence": "Answer keeps internals private but does not define Contracts-only cross-module references; it proposes no project references plus a generic facade/event boundary."
+    },
+    {
+      "text": "Organizes CancelOrder as a vertical slice with a thin endpoint and an internal sealed Application Operation registered explicitly without a mandatory mediator or scanning.",
+      "passed": false,
+      "evidence": "Answer has a handler-based slice but does not provide an internal sealed Application Operation as required."
+    },
+    {
+      "text": "States that the API does not migrate or seed on startup and distinguishes the runtime and migration connection strings.",
+      "passed": false,
+      "evidence": "Answer prohibits startup schema changes but does not distinguish or name separate runtime and migration connection strings."
+    },
+    {
+      "text": "Uses TDD plus real-provider evidence where PostgreSQL, transactions, migrations, concurrency, or reliable events are part of the claim.",
+      "passed": true,
+      "evidence": "TDD starts with red tests and provider-specific PostgreSQL evidence is required for transactions, migrations, concurrency, rollback, and reliability."
+    },
+    {
+      "text": "Does not require microservices, Kubernetes, a broker, distributed cache, UI, or cloud services by default.",
+      "passed": false,
+      "evidence": "Non-default list excludes microservices, Kubernetes, brokers, and caching but does not explicitly cover UI or cloud services."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 5,
+    "total": 6,
+    "pass_rate": 0.17
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No additional eval feedback."
+  }
+}

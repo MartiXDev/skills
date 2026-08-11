@@ -1,0 +1,1233 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/MartiXDev/skills/main/docs/architecture/mx-config.schema.json",
+  "title": "MartiX MX repository configuration",
+  "description": "Repository-owned configuration for the native mx-* lifecycle. Cross-field and repository checks are performed by mx-setup in addition to this schema.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "configVersion",
+    "preset",
+    "repository",
+    "stack",
+    "issueTracking",
+    "workflow",
+    "workflows",
+    "naming",
+    "commands",
+    "templates",
+    "documentation",
+    "quality",
+    "orchestration",
+    "hooks",
+    "security"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Relative or absolute schema reference used by the editor."
+    },
+    "schemaVersion": {
+      "const": 1,
+      "description": "Configuration contract version. A breaking change requires a new version."
+    },
+    "configVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+(?:\\.[0-9]+)?$",
+      "description": "Repository configuration version in major.minor[.patch] form."
+    },
+    "preset": {
+      "type": "string",
+      "enum": [
+        "dotnet-react-fluent-ui",
+        "dotnet-vue-fluent-ui",
+        "dotnet-react-platform",
+        "dotnet-vue-platform",
+        "existing-repository",
+        "custom"
+      ],
+      "description": "MX defaults profile selected before repository overrides."
+    },
+    "repository": {
+      "$ref": "#/$defs/repository"
+    },
+    "stack": {
+      "$ref": "#/$defs/stack"
+    },
+    "issueTracking": {
+      "$ref": "#/$defs/issueTracking"
+    },
+    "workflow": {
+      "$ref": "#/$defs/workflow"
+    },
+    "workflows": {
+      "type": "object",
+      "description": "Optional per-workflow overrides. Unknown workflow names are rejected.",
+      "patternProperties": {
+        "^mx-[a-z0-9-]+$": {
+          "$ref": "#/$defs/workflowOverride"
+        }
+      },
+      "additionalProperties": false
+    },
+    "naming": {
+      "$ref": "#/$defs/naming"
+    },
+    "commands": {
+      "type": "object",
+      "description": "Named deterministic commands. Values are executable plus argument arrays, never shell snippets.",
+      "patternProperties": {
+        "^[A-Za-z][A-Za-z0-9_-]*$": {
+          "$ref": "#/$defs/command"
+        }
+      },
+      "additionalProperties": false
+    },
+    "templates": {
+      "$ref": "#/$defs/templates"
+    },
+    "documentation": {
+      "$ref": "#/$defs/documentation"
+    },
+    "quality": {
+      "$ref": "#/$defs/quality"
+    },
+    "orchestration": {
+      "$ref": "#/$defs/orchestration"
+    },
+    "hooks": {
+      "$ref": "#/$defs/hooks"
+    },
+    "security": {
+      "$ref": "#/$defs/security"
+    },
+    "agents": {
+      "$ref": "#/$defs/agents"
+    },
+    "release": {
+      "$ref": "#/$defs/release"
+    }
+  },
+  "$defs": {
+    "relativePath": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Repository-relative path. The deterministic resolver rejects absolute paths and traversal."
+    },
+    "repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner",
+        "name",
+        "defaultBranch",
+        "autonomy"
+      ],
+      "properties": {
+        "owner": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.-]+$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.-]+$"
+        },
+        "defaultBranch": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9._/-]+$"
+        },
+        "autonomy": {
+          "type": "string",
+          "enum": [
+            "human-gated",
+            "bounded-autonomy",
+            "fully-automated"
+          ],
+          "description": "Overall autonomy mode. Security and release policy may still narrow it."
+        }
+      }
+    },
+    "stack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "backend",
+        "frontend",
+        "platform"
+      ],
+      "properties": {
+        "backend": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "language",
+            "runtime",
+            "targetFramework",
+            "architecture",
+            "sliceStyle"
+          ],
+          "properties": {
+            "language": {
+              "type": "string",
+              "enum": [
+                "csharp"
+              ]
+            },
+            "runtime": {
+              "type": "string",
+              "enum": [
+                "dotnet"
+              ]
+            },
+            "targetFramework": {
+              "type": "string",
+              "pattern": "^net[0-9]+\\.[0-9]+$"
+            },
+            "architecture": {
+              "type": "string",
+              "enum": [
+                "modular-monolith",
+                "monolith",
+                "microservices"
+              ]
+            },
+            "sliceStyle": {
+              "type": "string",
+              "enum": [
+                "vertical",
+                "layered",
+                "hybrid"
+              ]
+            }
+          }
+        },
+        "frontend": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "framework",
+            "language",
+            "ui",
+            "buildTool"
+          ],
+          "properties": {
+            "framework": {
+              "type": "string",
+              "enum": [
+                "react",
+                "vue",
+                "none"
+              ]
+            },
+            "language": {
+              "type": "string",
+              "enum": [
+                "typescript",
+                "javascript"
+              ]
+            },
+            "ui": {
+              "type": "string",
+              "enum": [
+                "fluent-ui",
+                "none",
+                "other"
+              ]
+            },
+            "buildTool": {
+              "type": "string",
+              "enum": [
+                "vite",
+                "webpack",
+                "next",
+                "nuxt",
+                "custom"
+              ]
+            }
+          }
+        },
+        "platform": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "enabled",
+            "manifest"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "manifest": {
+              "$ref": "#/$defs/relativePath"
+            }
+          }
+        }
+      }
+    },
+    "issueTracking": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider",
+        "issueTypes",
+        "labels"
+      ],
+      "properties": {
+        "provider": {
+          "const": "github"
+        },
+        "issueTypes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source",
+            "required",
+            "optional"
+          ],
+          "properties": {
+            "source": {
+              "type": "string",
+              "enum": [
+                "github-native",
+                "label-fallback"
+              ]
+            },
+            "required": {
+              "type": "array",
+              "minItems": 3,
+              "uniqueItems": true,
+              "contains": {
+                "const": "Task"
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "const": "Bug"
+                  }
+                },
+                {
+                  "contains": {
+                    "const": "Feature"
+                  }
+                }
+              ],
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Task",
+                  "Bug",
+                  "Feature"
+                ]
+              }
+            },
+            "optional": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Epic",
+                  "Spike",
+                  "Incident",
+                  "Chore"
+                ]
+              }
+            }
+          }
+        },
+        "labels": {
+          "$ref": "#/$defs/labels"
+        }
+      }
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "phasePrefix",
+        "areaPrefix",
+        "layerPrefix",
+        "priorityPrefix",
+        "riskPrefix",
+        "stackPrefix",
+        "defaultPriority",
+        "defaultState",
+        "defaultPhase"
+      ],
+      "properties": {
+        "phasePrefix": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*:$"
+        },
+        "areaPrefix": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*:$"
+        },
+        "layerPrefix": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*:$"
+        },
+        "priorityPrefix": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*:$"
+        },
+        "riskPrefix": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*:$"
+        },
+        "stackPrefix": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*:$"
+        },
+        "defaultPriority": {
+          "type": "string",
+          "enum": [
+            "priority:p0",
+            "priority:p1",
+            "priority:p2",
+            "priority:p3"
+          ]
+        },
+        "defaultState": {
+          "type": "string",
+          "enum": [
+            "needs-triage",
+            "needs-info",
+            "shaping",
+            "ready-for-architecture",
+            "ready-for-spec",
+            "ready-for-decomposition",
+            "ready-for-agent",
+            "in-progress",
+            "in-review",
+            "ready-for-human",
+            "ready-for-release",
+            "deploying",
+            "verifying-release",
+            "monitoring",
+            "released",
+            "resolved",
+            "blocked",
+            "wontfix"
+          ]
+        },
+        "defaultPhase": {
+          "type": "string",
+          "enum": [
+            "phase:setup",
+            "phase:intake",
+            "phase:shaping",
+            "phase:architecture",
+            "phase:specification",
+            "phase:decomposition",
+            "phase:implementation",
+            "phase:review",
+            "phase:release",
+            "phase:operations",
+            "phase:documentation"
+          ]
+        }
+      }
+    },
+    "workflow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "questionLimit",
+        "defaultModelTier",
+        "maxParallelAgents",
+        "invocation",
+        "structuredOutput",
+        "tdd",
+        "domainModeling",
+        "humanGates"
+      ],
+      "properties": {
+        "questionLimit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "defaultModelTier": {
+          "$ref": "#/$defs/modelTier"
+        },
+        "maxParallelAgents": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 32
+        },
+        "invocation": {
+          "type": "object",
+          "patternProperties": {
+            "^mx-[a-z0-9-]+$": {
+              "$ref": "#/$defs/invocationMode"
+            }
+          },
+          "additionalProperties": false
+        },
+        "structuredOutput": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "format",
+            "schemaRoot"
+          ],
+          "properties": {
+            "format": {
+              "const": "json"
+            },
+            "schemaRoot": {
+              "$ref": "#/$defs/relativePath"
+            }
+          }
+        },
+        "tdd": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "required",
+            "testFirst"
+          ],
+          "properties": {
+            "required": {
+              "type": "boolean"
+            },
+            "testFirst": {
+              "type": "string",
+              "enum": [
+                "always",
+                "when-practical",
+                "disabled"
+              ]
+            }
+          }
+        },
+        "domainModeling": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mode",
+            "requiredFor"
+          ],
+          "properties": {
+            "mode": {
+              "type": "string",
+              "enum": [
+                "always",
+                "complexity-gated",
+                "never"
+              ]
+            },
+            "requiredFor": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "multiple-invariants",
+                  "cross-module-boundary",
+                  "external-integration",
+                  "complex-data-model",
+                  "security-critical"
+                ]
+              }
+            }
+          }
+        },
+        "humanGates": {
+          "$ref": "#/$defs/humanGates"
+        }
+      }
+    },
+    "workflowOverride": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "questionLimit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "requireScenarios": {
+          "type": "boolean"
+        },
+        "requireNonGoals": {
+          "type": "boolean"
+        },
+        "childIssueType": {
+          "type": "string",
+          "enum": [
+            "Task",
+            "Bug",
+            "Feature"
+          ]
+        },
+        "sliceStyle": {
+          "type": "string",
+          "enum": [
+            "vertical",
+            "layered",
+            "hybrid"
+          ]
+        },
+        "requireDependencies": {
+          "type": "boolean"
+        },
+        "requireDefinitionOfReady": {
+          "type": "boolean"
+        },
+        "requireFocusedTests": {
+          "type": "boolean"
+        },
+        "requireDocumentationImpact": {
+          "type": "boolean"
+        },
+        "commitAfterChecks": {
+          "type": "boolean"
+        },
+        "requiredProfiles": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "standards",
+              "spec",
+              "security",
+              "accessibility",
+              "contract",
+              "api",
+              "data",
+              "documentation",
+              "performance",
+              "operations"
+            ]
+          }
+        },
+        "environment": {
+          "type": "string",
+          "enum": [
+            "local",
+            "development",
+            "staging",
+            "production"
+          ]
+        },
+        "rollbackEvidence": {
+          "type": "string",
+          "enum": [
+            "required",
+            "recommended",
+            "not-applicable"
+          ]
+        },
+        "humanGate": {
+          "type": "string",
+          "enum": [
+            "none",
+            "product",
+            "architecture",
+            "security",
+            "release"
+          ]
+        },
+        "preflightCommand": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+        },
+        "completionCommand": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+        },
+        "promptTemplate": {
+          "$ref": "#/$defs/relativePath"
+        }
+      }
+    },
+    "naming": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "namespace",
+        "branch",
+        "commit",
+        "symbols"
+      ],
+      "properties": {
+        "namespace": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_.]*$"
+        },
+        "branch": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "feature",
+            "bug",
+            "task"
+          ],
+          "properties": {
+            "feature": {
+              "type": "string",
+              "minLength": 1
+            },
+            "bug": {
+              "type": "string",
+              "minLength": 1
+            },
+            "task": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "commit": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "style",
+            "template",
+            "requireIssueReference"
+          ],
+          "properties": {
+            "style": {
+              "type": "string",
+              "enum": [
+                "conventional",
+                "gitmoji",
+                "plain"
+              ]
+            },
+            "template": {
+              "type": "string",
+              "minLength": 1
+            },
+            "requireIssueReference": {
+              "type": "boolean"
+            }
+          }
+        },
+        "symbols": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "module",
+            "feature",
+            "component",
+            "test"
+          ],
+          "properties": {
+            "module": {
+              "$ref": "#/$defs/caseStyle"
+            },
+            "feature": {
+              "$ref": "#/$defs/caseStyle"
+            },
+            "component": {
+              "$ref": "#/$defs/caseStyle"
+            },
+            "test": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "caseStyle": {
+      "type": "string",
+      "enum": [
+        "PascalCase",
+        "camelCase",
+        "kebab-case",
+        "snake_case",
+        "SCREAMING_SNAKE_CASE",
+        "dot.case"
+      ]
+    },
+    "command": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "program",
+        "args"
+      ],
+      "properties": {
+        "program": {
+          "type": "string",
+          "minLength": 1
+        },
+        "args": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "workingDirectory": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "timeoutSeconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 86400
+        }
+      }
+    },
+    "templates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "root",
+        "promptRoot",
+        "issueRoot",
+        "byWorkflow",
+        "promptArguments",
+        "commit",
+        "pullRequest",
+        "adr"
+      ],
+      "properties": {
+        "root": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "promptRoot": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "issueRoot": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "byWorkflow": {
+          "type": "object",
+          "patternProperties": {
+            "^mx-[a-z0-9-]+$": {
+              "$ref": "#/$defs/relativePath"
+            }
+          },
+          "additionalProperties": false
+        },
+        "promptArguments": {
+          "type": "object",
+          "properties": {
+            "default": {
+              "$ref": "#/$defs/templateVariableList"
+            }
+          },
+          "patternProperties": {
+            "^mx-[a-z0-9-]+$": {
+              "$ref": "#/$defs/templateVariableList"
+            }
+          },
+          "additionalProperties": false
+        },
+        "commit": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "pullRequest": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "adr": {
+          "$ref": "#/$defs/relativePath"
+        }
+      }
+    },
+    "templateVariableList": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "issue",
+          "workflow",
+          "configHash",
+          "ownedPaths",
+          "acceptanceCriteria",
+          "commands",
+          "diff",
+          "fixedPoint",
+          "qualityProfiles",
+          "checkpoint",
+          "owner",
+          "nextStep",
+          "parentSpec",
+          "decisions",
+          "contextPack",
+          "branch",
+          "type",
+          "scope",
+          "summary",
+          "number",
+          "slug"
+        ]
+      }
+    },
+    "documentation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "topicsRoot",
+        "generatedRoot",
+        "requiredCategories",
+        "buildCommand"
+      ],
+      "properties": {
+        "topicsRoot": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "generatedRoot": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "requiredCategories": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "user",
+              "technical",
+              "architecture",
+              "data-model",
+              "api",
+              "operations",
+              "ai"
+            ]
+          }
+        },
+        "buildCommand": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+        }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "backendTestRunner",
+        "frontendTestRunner",
+        "e2eRunner",
+        "accessibility",
+        "securityReview",
+        "apiCompatibility",
+        "docsFreshness"
+      ],
+      "properties": {
+        "backendTestRunner": {
+          "type": "string",
+          "enum": [
+            "tunit",
+            "xunit",
+            "nunit",
+            "custom"
+          ]
+        },
+        "frontendTestRunner": {
+          "type": "string",
+          "enum": [
+            "vitest",
+            "jest",
+            "custom",
+            "none"
+          ]
+        },
+        "e2eRunner": {
+          "type": "string",
+          "enum": [
+            "playwright",
+            "cypress",
+            "custom",
+            "none"
+          ]
+        },
+        "accessibility": {
+          "type": "string",
+          "enum": [
+            "required",
+            "required-for-ui",
+            "optional",
+            "disabled"
+          ]
+        },
+        "securityReview": {
+          "type": "string",
+          "enum": [
+            "required",
+            "human-gated",
+            "optional",
+            "disabled"
+          ]
+        },
+        "apiCompatibility": {
+          "type": "string",
+          "enum": [
+            "required",
+            "optional",
+            "disabled"
+          ]
+        },
+        "docsFreshness": {
+          "type": "string",
+          "enum": [
+            "required",
+            "optional",
+            "disabled"
+          ]
+        }
+      }
+    },
+    "orchestration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "worktreeStrategy",
+        "maxRetries",
+        "contextPack"
+      ],
+      "properties": {
+        "worktreeStrategy": {
+          "type": "string",
+          "enum": [
+            "one-per-task",
+            "shared-branch",
+            "integration-branch-per-feature",
+            "no-worktree"
+          ]
+        },
+        "maxRetries": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "contextPack": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "maxFiles",
+            "maxTokens",
+            "include",
+            "exclude"
+          ],
+          "properties": {
+            "maxFiles": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200
+            },
+            "maxTokens": {
+              "type": "integer",
+              "minimum": 1000,
+              "maximum": 100000
+            },
+            "include": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "issue",
+                  "parent-spec",
+                  "decisions",
+                  "owned-paths",
+                  "checks",
+                  "diff",
+                  "docs-impact",
+                  "test-report",
+                  "config"
+                ]
+              }
+            },
+            "exclude": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "secrets",
+                  "unrelated-history",
+                  "generated-full-doc",
+                  "node_modules",
+                  "bin",
+                  "obj"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "hooks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "preflightCommand",
+        "completionCommand",
+        "timeoutMinutes"
+      ],
+      "properties": {
+        "preflightCommand": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+        },
+        "completionCommand": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+        },
+        "timeoutMinutes": {
+          "type": "object",
+          "required": [
+            "default"
+          ],
+          "properties": {
+            "default": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1440
+            }
+          },
+          "patternProperties": {
+            "^mx-[a-z0-9-]+$": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1440
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "security": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "forbiddenPaths",
+        "allowMerge",
+        "allowProductionDeploy",
+        "redactEvidence"
+      ],
+      "properties": {
+        "forbiddenPaths": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "allowIssueWrites": {
+          "type": "boolean"
+        },
+        "allowBranchCreation": {
+          "type": "boolean"
+        },
+        "allowMerge": {
+          "type": "boolean"
+        },
+        "allowProductionDeploy": {
+          "type": "boolean"
+        },
+        "redactEvidence": {
+          "type": "boolean"
+        }
+      }
+    },
+    "humanGates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "product",
+        "architecture",
+        "security",
+        "release"
+      ],
+      "properties": {
+        "product": {
+          "type": "boolean"
+        },
+        "architecture": {
+          "type": "boolean"
+        },
+        "security": {
+          "type": "boolean"
+        },
+        "release": {
+          "type": "boolean"
+        }
+      }
+    },
+    "modelTier": {
+      "type": "string",
+      "enum": [
+        "cheap",
+        "medium",
+        "premium"
+      ]
+    },
+    "invocationMode": {
+      "type": "string",
+      "enum": [
+        "user",
+        "model",
+        "user-or-model"
+      ]
+    },
+    "agents": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "modelByWorkflow": {
+          "type": "object",
+          "patternProperties": {
+            "^mx-[a-z0-9-]+$": {
+              "$ref": "#/$defs/modelTier"
+            }
+          },
+          "additionalProperties": false
+        },
+        "maxContextTokens": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 100000
+        }
+      }
+    },
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "environment": {
+          "type": "string",
+          "enum": [
+            "local",
+            "development",
+            "staging",
+            "production"
+          ]
+        },
+        "humanGate": {
+          "type": "boolean"
+        },
+        "rollback": {
+          "type": "string",
+          "enum": [
+            "required",
+            "recommended",
+            "not-applicable"
+          ]
+        },
+        "observationMinutes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10080
+        }
+      }
+    }
+  }
+}

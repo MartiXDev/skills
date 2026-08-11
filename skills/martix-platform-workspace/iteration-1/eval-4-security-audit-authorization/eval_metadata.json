@@ -1,0 +1,12 @@
+{
+  "eval_id": "security-audit-authorization",
+  "eval_name": "security-audit-authorization",
+  "prompt": "Design the security contract for CancelOrder: a customer may cancel their own order, an administrator may cancel any order, and an unauthorized caller must fail before the business operation. Include the endpoint policy, Application Operation authorization, immutable audit event fields, durable audit versus logs, atomicity with the order update and Outbox event, and failure handling if audit persistence is unavailable.",
+  "assertions": [
+    "Uses an explicit endpoint authorization policy plus an Application Operation resource/permission check such as owner-or-orders.admin.",
+    "Defines an immutable audit event with actor, action code, outcome, target and target ID, timestamp, and correlation ID while excluding unnecessary PII, credentials, and provider secrets.",
+    "States that unauthorized transport failure creates no successful business audit event and does not execute the operation.",
+    "Requires a documented transaction choice for order update, audit record, and Outbox event and does not silently lose audit data when persistence fails.",
+    "Separates durable audit events from application logs, domain events, and integration events and grounds the decision in a threat model."
+  ]
+}

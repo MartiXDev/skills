@@ -1,0 +1,12 @@
+{
+  "eval_id": "reliable-event-recovery",
+  "eval_name": "reliable-event-recovery",
+  "prompt": "Review an Orders-to-Notifications integration event flow. The producer writes an order update and an Outbox row, the consumer lease expires during a database failure, and the message is delivered again. Design the recovery and test strategy, including Inbox deduplication, idempotent business effect, provider-specific concurrency evidence, and the limits of the delivery guarantee.",
+  "assertions": [
+    "Requires the business update and Outbox Message to commit atomically.",
+    "Explains at-least-once delivery, duplicate delivery after lease expiry or uncertain acknowledgement, durable Inbox Receipt deduplication, and idempotent consumer effect.",
+    "Does not claim exactly-once transport, global ordering, or a generic scanned event bus.",
+    "Requires real-provider tests for lease expiry, rollback, isolation/concurrency, retry, and replay rather than treating InMemory or SQLite as proof.",
+    "Requires attempts, leases, failures, retries, and poison-message recovery to be observable."
+  ]
+}
