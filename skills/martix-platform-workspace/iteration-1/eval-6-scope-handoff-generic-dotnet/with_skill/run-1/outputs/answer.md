@@ -1,6 +1,6 @@
 # Scope decision
 
-`martix-platform` should **not** own this answer. The request is explicitly for a non-Martix application and concerns general C#/.NET, ASP.NET Core, and FluentValidation guidance. The skill directs such work to specialized handoffs.
+`martix-platform` should **not** own this answer. The request is explicitly for a non-MartiX application and concerns general C#/.NET, ASP.NET Core, and FluentValidation guidance. The skill directs such work to specialized handoffs.
 
 ## Smallest handoff
 

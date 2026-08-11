@@ -1,7 +1,7 @@
 {
   "eval_id": "scope-handoff-generic-dotnet",
   "eval_name": "scope-handoff-generic-dotnet",
-  "prompt": "A developer asks only for a general C# refactoring from Task to ValueTask, a generic ASP.NET Core resilience policy, and detailed FluentValidation RuleSets for a non-Martix application. Decide whether martix-platform should own the answer and give the smallest appropriate handoff.",
+  "prompt": "A developer asks only for a general C# refactoring from Task to ValueTask, a generic ASP.NET Core resilience policy, and detailed FluentValidation RuleSets for a non-MartiX application. Decide whether martix-platform should own the answer and give the smallest appropriate handoff.",
   "assertions": [
     "States that martix-platform is not the primary owner because the request has no MartiX.Platform, Generated Solution, module, or Platform-contract concern.",
     "Hands generic C#/.NET, ASP.NET Core, and resilience guidance to martix-dotnet-csharp.",
