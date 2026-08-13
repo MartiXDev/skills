@@ -16,6 +16,12 @@
   "produces": [
     "application/json"
   ],
+  "x-ms-capabilities": {
+    "testConnection": {
+      "operationId": "TestExampleApiConnection",
+      "parameters": {}
+    }
+  },
   "paths": {
     "/health": {
       "get": {

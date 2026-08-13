@@ -15,7 +15,8 @@
     "rules/triggers-runtime.md",
     "rules/policies-custom-code.md",
     "rules/testing-troubleshooting-limits.md",
-    "rules/solutions-alm-versioning.md"
+    "rules/solutions-alm-versioning.md",
+    "rules/sharing-certification.md"
   ],
   "referenceOrder": [
     "references/doc-source-index.md",
