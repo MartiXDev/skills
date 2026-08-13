@@ -164,7 +164,19 @@ See `references/schemas.md` for the full schema (including the `assertions` fiel
 
 This section is one continuous sequence — don't stop partway through. Do NOT use `/skill-test` or any other testing skill.
 
-Put results in `<skill-name>-workspace/` as a sibling to the skill directory. Within the workspace, organize results by iteration (`iteration-1/`, `iteration-2/`, etc.) and within that, each test case gets a directory (`eval-0/`, `eval-1/`, etc.). Don't create all of this upfront — just create directories as you go.
+Keep generated evaluation artifacts outside the repository. Resolve the external
+evaluation root in this order:
+
+1. Use `MARTIX_SKILL_EVAL_ROOT` when it is set.
+2. On Windows, use `%LOCALAPPDATA%\MartiX\skill-evals`.
+3. On macOS or Linux, use `$XDG_STATE_HOME/martix/skill-evals` when set;
+   otherwise use `~/.local/state/martix/skill-evals`.
+
+The workspace path is `<eval-root>/<skill-name>/`. Within it, organize results
+by iteration (`iteration-1/`, `iteration-2/`, etc.) and within that, each test
+case gets a directory (`eval-0/`, `eval-1/`, etc.). Do not create all of this
+upfront — create directories as you go. Never create a
+`<skill-name>-workspace/` directory under the repository or beside the skill.
 
 ### Step 1: Spawn all runs (with-skill AND baseline) in the same turn
 
