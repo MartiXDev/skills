@@ -1,0 +1,259 @@
+{
+  "name": "martix-power-platform",
+  "displayName": "MartiX Power Platform",
+  "version": "0.1.0",
+  "publisher": {
+    "name": "MartiXDev",
+    "repository": "MartiXDev/skills",
+    "distributionModel": "standalone skill with direct Copilot marketplace registration"
+  },
+  "summary": "Standalone-first guidance for Power Platform environments, Power Automate cloud flows, and custom connector engineering.",
+  "abstract": "This package routes Power Platform work to focused guidance for environments and flow types, OpenAPI 2.0 connector definitions, authentication, x-ms extensions, triggers, policies, custom code, testing, ALM, versioning, sharing, and certification.",
+  "compatibility": {
+    "primaryTarget": "GitHub Copilot CLI",
+    "secondaryTargets": [
+      "Agent Skills-compatible tools"
+    ],
+    "languageBaselines": [
+      "Power Platform",
+      "Power Automate",
+      "OpenAPI 2.0",
+      "JSON",
+      "C# custom connector code"
+    ]
+  },
+  "status": {
+    "maturity": "preview",
+    "scaffoldOnly": false,
+    "scaffoldNote": "Initial preview package derived from the 2026-08-13 Microsoft Learn research snapshot; volatile product values require revalidation.",
+    "canonicalSkillRoot": "skills/martix-power-platform",
+    "marketplaceSourceRoot": "skills/martix-power-platform"
+  },
+  "layers": {
+    "skillEntry": "SKILL.md",
+    "maintainerGuide": "README.md",
+    "companionGuide": "AGENTS.md",
+    "metadata": "metadata.json",
+    "license": "LICENSE.txt",
+    "rules": "rules/*.md",
+    "references": "references/*.md",
+    "templates": "templates/*",
+    "assets": "assets/*.json",
+    "evals": "evals/evals.json"
+  },
+  "taxonomy": {
+    "mode": "standalone-first",
+    "prefixCount": 9,
+    "domainCount": 9,
+    "tags": [
+      "Power Platform",
+      "Power Automate",
+      "cloud flows",
+      "environments",
+      "Dataverse",
+      "solutions",
+      "ALM",
+      "custom connectors",
+      "OpenAPI 2.0",
+      "Swagger",
+      "x-ms extensions",
+      "paconn",
+      "OAuth 2.0",
+      "Microsoft Entra ID",
+      "polling triggers",
+      "webhook triggers",
+      "policy templates",
+      "custom C# code",
+      "connection references",
+      "certification"
+    ],
+    "rulePrefixes": {
+      "foundation-flow-environments": "Product surface, cloud-flow type, environment, runtime graph, permissions, licensing, DLP, gateway, and VNet boundaries",
+      "connector-authoring": "REST API wrapper, blank designer, OpenAPI 2.0, Postman format checks, paconn files, operation design, and API prerequisites",
+      "authentication-connections": "Anonymous, Basic, API key, OAuth, Entra ID, managed identity, multi-auth, connection parameters, redirects, and secret boundaries",
+      "openapi-extensions": "Swagger schemas, operation metadata, x-ms visibility, dynamic values/schema, test connection, chunking, and trigger annotations",
+      "triggers-runtime": "Power Automate and Logic Apps polling/webhook triggers, state, registration, callback, batching, and duplicate events",
+      "policies-custom-code": "Policy templates, runtime expressions, request/response shaping, ScriptBase custom code, limits, and network constraints",
+      "testing-troubleshooting-limits": "Designer tests, validation, Solution Checker, run history, retries, pagination, throttling, limits, and failure diagnosis",
+      "solutions-alm-versioning": "Solutions, connection references, environment variables, Dataverse APIs, and operational versioning",
+      "sharing-certification": "Private sharing, certification submission, publisher evidence, public distribution, and product boundaries"
+    }
+  },
+  "artifacts": {
+    "ruleCount": 9,
+    "rules": [
+      "rules/foundation-flow-environments.md",
+      "rules/connector-authoring.md",
+      "rules/authentication-connections.md",
+      "rules/openapi-extensions.md",
+      "rules/triggers-runtime.md",
+      "rules/policies-custom-code.md",
+      "rules/testing-troubleshooting-limits.md",
+      "rules/solutions-alm-versioning.md",
+      "rules/sharing-certification.md"
+    ],
+    "referenceCount": 4,
+    "references": [
+      "references/doc-source-index.md",
+      "references/decision-map.md",
+      "references/volatile-values.md",
+      "references/flow-contract-checklist.md"
+    ],
+    "templateCount": 2,
+    "templates": [
+      "templates/connector-plan.template.md",
+      "templates/api-definition.swagger.template.json"
+    ],
+    "assetCount": 2,
+    "assets": [
+      "assets/taxonomy.json",
+      "assets/section-order.json"
+    ],
+    "evalSuiteCount": 1,
+    "evalPromptCount": 4,
+    "evals": [
+      "evals/evals.json"
+    ]
+  },
+  "ordering": {
+    "ruleSectionOrder": [
+      "Purpose",
+      "Default guidance",
+      "Avoid",
+      "Review checklist",
+      "Related files",
+      "Source anchors"
+    ],
+    "recommendedRuleOrder": [
+      "rules/foundation-flow-environments.md",
+      "rules/connector-authoring.md",
+      "rules/authentication-connections.md",
+      "rules/openapi-extensions.md",
+      "rules/triggers-runtime.md",
+      "rules/policies-custom-code.md",
+      "rules/testing-troubleshooting-limits.md",
+      "rules/solutions-alm-versioning.md",
+      "rules/sharing-certification.md"
+    ],
+    "referenceOrder": [
+      "references/doc-source-index.md",
+      "references/decision-map.md",
+      "references/volatile-values.md",
+      "references/flow-contract-checklist.md"
+    ],
+    "templateOrder": [
+      "templates/connector-plan.template.md",
+      "templates/api-definition.swagger.template.json"
+    ]
+  },
+  "distribution": {
+    "primarySurface": {
+      "id": "standalone-skills-cli",
+      "status": "canonical",
+      "officialInstallCommand": "npx skills add <source>",
+      "preferredSources": [
+        "https://github.com/MartiXDev/skills/tree/main/skills/martix-power-platform"
+      ],
+      "notes": [
+        "Use the standalone package as the source of truth for local installs and direct folder validation."
+      ]
+    },
+    "secondarySurface": {
+      "id": "copilot-cli-plugin-marketplace",
+      "status": "pending-coordinator-registration",
+      "marketplaceRepository": "MartiXDev/skills",
+      "marketplaceName": "martix-skills",
+      "pluginName": "martix-power-platform",
+      "strategy": "Register the canonical standalone package directly from skills after coordinator review."
+    }
+  },
+  "discovery": {
+    "dedupeKey": "martix-power-platform",
+    "precedence": "first-found-wins",
+    "sameNameConflictRisk": "A standalone project or personal install can shadow a later marketplace-delivered copy with the same skill name.",
+    "recommendedValidationApproach": "Use a clean environment or remove any standalone install before marketplace validation."
+  },
+  "references": {
+    "local": [
+      {
+        "path": "references/doc-source-index.md",
+        "role": "Microsoft Learn source families, high-value URLs, and research snapshot provenance"
+      },
+      {
+        "path": "references/decision-map.md",
+        "role": "Product, connector, runtime, ALM, and handoff routing matrix"
+      },
+      {
+        "path": "references/volatile-values.md",
+        "role": "Plan-dependent limits and documented conflicts that require a current-page check"
+      },
+      {
+        "path": "references/flow-contract-checklist.md",
+        "role": "Reusable design, testing, and deployment checklist for connector-backed flows"
+      },
+      {
+        "path": "templates/connector-plan.template.md",
+        "role": "Structured connector discovery and implementation plan scaffold"
+      },
+      {
+        "path": "templates/api-definition.swagger.template.json",
+        "role": "Secret-free OpenAPI 2.0 starter definition"
+      }
+    ],
+    "external": [
+      {
+        "title": "Power Platform documentation hub",
+        "url": "https://learn.microsoft.com/en-us/power-platform/"
+      },
+      {
+        "title": "Power Automate limits",
+        "url": "https://learn.microsoft.com/en-us/power-automate/limits-and-config"
+      },
+      {
+        "title": "Custom connectors overview",
+        "url": "https://learn.microsoft.com/en-us/connectors/custom-connectors/"
+      },
+      {
+        "title": "Custom connector OpenAPI extensions",
+        "url": "https://learn.microsoft.com/en-us/connectors/custom-connectors/openapi-extensions"
+      },
+      {
+        "title": "Custom connector FAQ",
+        "url": "https://learn.microsoft.com/en-us/connectors/custom-connectors/faq"
+      }
+    ]
+  },
+  "relationships": {
+    "companionSkills": [
+      {
+        "name": "martix-dotnet-csharp",
+        "relationship": "handoff",
+        "handoffWhen": "The request is general C# or .NET implementation rather than connector custom code."
+      },
+      {
+        "name": "martix-powershell",
+        "relationship": "handoff",
+        "handoffWhen": "The request is PowerShell cmdlet or advanced-function authoring rather than connector lifecycle work."
+      }
+    ],
+    "handoffPolicy": "Stay here for Power Platform connector, flow, environment, and ALM decisions; hand off general language, Azure infrastructure, desktop automation, analytics, and agent-authoring work."
+  },
+  "executionProfile": {
+    "modelTier": "mixed",
+    "taskTypes": [
+      "planning",
+      "implementation",
+      "review",
+      "validation"
+    ],
+    "parallelSafety": "single-package",
+    "fleetReady": true,
+    "worktreeSafe": true,
+    "tokenBudget": "medium",
+    "contextStrategy": [
+      "Start with SKILL.md and identify the product and environment boundary.",
+      "Open only the routed rule and the smallest supporting reference.",
+      "Use volatile-values.md for quotas, previews, and contradictory documentation."
+    ]
+  }
+}
