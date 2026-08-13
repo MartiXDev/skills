@@ -170,7 +170,7 @@ evaluation root in this order:
 1. Use `MARTIX_SKILL_EVAL_ROOT` when it is set.
 2. On Windows, use `%LOCALAPPDATA%\MartiX\skill-evals`.
 3. On macOS or Linux, use `$XDG_STATE_HOME/martix/skill-evals` when set;
-  otherwise use `~/.local/state/martix/skill-evals`.
+   otherwise use `~/.local/state/martix/skill-evals`.
 
 The workspace path is `<eval-root>/<skill-name>/`. Within it, organize results
 by iteration (`iteration-1/`, `iteration-2/`, etc.) and within that, each test
