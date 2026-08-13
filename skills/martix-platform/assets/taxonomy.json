@@ -1,0 +1,85 @@
+{
+  "package": "martix-platform",
+  "mode": "standalone-first",
+  "root": "skills/martix-platform",
+  "rulePrefixes": {
+    "foundation": "Platform authority, status, presets, capabilities, and providers",
+    "platform": "Kernel boundaries, composition, and ownership",
+    "architecture": "Modular monoliths, modules, vertical slices, and use cases",
+    "contracts": "Results, errors, HTTP, validation, and OpenAPI",
+    "persistence": "EF Core ownership, reliable events, and delivery semantics",
+    "security": "Identity seams, authorization, audit, observability, and operations",
+    "testing": "TDD, real-provider verification, quality gates, and evidence",
+    "delivery": "Generated-solution ownership, migrations, release, AOT, and performance"
+  },
+  "domains": [
+    {
+      "id": "foundation",
+      "displayName": "Authority and generation",
+      "rules": [
+        "rules/foundation-authority-and-status.md",
+        "rules/foundation-preset-capabilities.md"
+      ]
+    },
+    {
+      "id": "architecture",
+      "displayName": "Application shape and composition",
+      "rules": [
+        "rules/platform-composition-ownership.md",
+        "rules/architecture-modular-monolith.md",
+        "rules/architecture-vertical-slices.md"
+      ]
+    },
+    {
+      "id": "contracts-persistence",
+      "displayName": "Contracts and persistence",
+      "rules": [
+        "rules/http-openapi-contract.md",
+        "rules/persistence-efcore-reliable-events.md",
+        "rules/integration-events-outbox.md"
+      ]
+    },
+    {
+      "id": "security-quality",
+      "displayName": "Security, operations, and verification",
+      "rules": [
+        "rules/identity-authorization-seams.md",
+        "rules/security-operations.md",
+        "rules/testing-quality-performance.md",
+        "rules/quality-gates-release-policy.md"
+      ]
+    },
+    {
+      "id": "delivery",
+      "displayName": "Migrations and runtime profiles",
+      "rules": [
+        "rules/delivery-migrations-aot.md",
+        "rules/native-aot-performance-matrix.md"
+      ]
+    }
+  ],
+  "tags": [
+    "MartiX.Platform",
+    "MartiX",
+    ".NET",
+    "C#",
+    "ASP.NET Core",
+    "modular monolith",
+    "vertical slices",
+    "SOLID",
+    "dependency injection",
+    "Minimal APIs",
+    "EF Core",
+    "PostgreSQL",
+    "Problem Details",
+    "reliable events",
+    "Outbox",
+    "Inbox",
+    "TDD",
+    "TUnit",
+    "Microsoft.Testing.Platform",
+    "security",
+    "observability",
+    "Native AOT"
+  ]
+}

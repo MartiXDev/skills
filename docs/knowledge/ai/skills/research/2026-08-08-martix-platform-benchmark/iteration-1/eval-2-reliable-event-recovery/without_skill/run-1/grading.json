@@ -1,0 +1,39 @@
+{
+  "expectations": [
+    {
+      "text": "Requires the business update and Outbox Message to commit atomically.",
+      "passed": true,
+      "evidence": "Producer section requires the business update and Outbox row in one BEGIN/COMMIT transaction."
+    },
+    {
+      "text": "Explains at-least-once delivery, duplicate delivery after lease expiry or uncertain acknowledgement, durable Inbox Receipt deduplication, and idempotent consumer effect.",
+      "passed": true,
+      "evidence": "Recovery section covers at-least-once redelivery, lease/ack uncertainty, durable Inbox uniqueness, and idempotent business effects."
+    },
+    {
+      "text": "Does not claim exactly-once transport, global ordering, or a generic scanned event bus.",
+      "passed": true,
+      "evidence": "Non-guarantees reject exactly-once transport and global ordering; composition is explicit rather than an assembly-scanned bus."
+    },
+    {
+      "text": "Requires real-provider tests for lease expiry, rollback, isolation/concurrency, retry, and replay rather than treating InMemory or SQLite as proof.",
+      "passed": true,
+      "evidence": "Test matrix requires real relational-provider evidence for rollback, leases, concurrency, retries, replay, and provider locking/isolation."
+    },
+    {
+      "text": "Requires attempts, leases, failures, retries, and poison-message recovery to be observable.",
+      "passed": true,
+      "evidence": "Telemetry section requires attempt, retry, lease-expiration, failure, success, quarantine, backlog, and dead-letter observability."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Assertions are not strongly discriminating: the no-skill answer independently covers the same reliable-event safety model."
+  }
+}

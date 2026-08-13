@@ -1,0 +1,47 @@
+{
+  "ruleSectionOrder": [
+    "Purpose",
+    "Default guidance",
+    "Avoid",
+    "Review checklist",
+    "Related files",
+    "Source anchors"
+  ],
+  "recommendedRuleOrder": [
+    "rules/foundation-authority-and-status.md",
+    "rules/foundation-preset-capabilities.md",
+    "rules/platform-composition-ownership.md",
+    "rules/architecture-modular-monolith.md",
+    "rules/architecture-vertical-slices.md",
+    "rules/http-openapi-contract.md",
+    "rules/persistence-efcore-reliable-events.md",
+    "rules/integration-events-outbox.md",
+    "rules/identity-authorization-seams.md",
+    "rules/security-operations.md",
+    "rules/testing-quality-performance.md",
+    "rules/quality-gates-release-policy.md",
+    "rules/delivery-migrations-aot.md",
+    "rules/native-aot-performance-matrix.md"
+  ],
+  "referenceOrder": [
+    "references/authority-map.md",
+    "references/platform-surface-map.md",
+    "references/generated-solution-map.md",
+    "references/capability-provider-matrix.md",
+    "references/generated-solution-checklist.md",
+    "references/migration-and-support-model.md",
+    "references/anti-patterns.md",
+    "references/wayfinder-decision-index.md",
+    "references/handoff-map.md",
+    "references/cookbook-index.md"
+  ],
+  "templateOrder": [
+    "templates/vertical-slice-template.md",
+    "templates/module-slice-checklist.md",
+    "templates/platform-capability-proposal.md",
+    "templates/integration-event-consumer.md",
+    "templates/rule-template.md",
+    "templates/research-pack-template.md",
+    "templates/comparison-matrix-template.md"
+  ]
+}

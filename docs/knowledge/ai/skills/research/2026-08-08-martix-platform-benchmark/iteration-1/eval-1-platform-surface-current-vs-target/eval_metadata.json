@@ -1,0 +1,12 @@
+{
+  "eval_id": "platform-surface-current-vs-target",
+  "eval_name": "platform-surface-current-vs-target",
+  "prompt": "A developer asks which MartiX.Platform APIs are safe to use today. They mention Result<T>, ErrorKind, Problem Details, the MXP001/MXP002 analyzer diagnostics, EF Core Specifications, and reliable events from the Wayfinder blueprint. Explain the current package boundaries, which claims are preview or fixture evidence, and which target-only behavior must be verified before coding.",
+  "assertions": [
+    "Identifies MartiX.Platform as a framework-independent Kernel and keeps hosting, DI, logging, JSON, ASP.NET Core, and EF Core in adapters.",
+    "Describes immutable Result/Result<T>/Error/ErrorKind contracts, lower-case owner-prefixed dot-separated error codes, reserved platform. ownership, and MXP001/MXP002 as current analyzer evidence.",
+    "Routes Problem Details and exception mapping to the ASP.NET Core adapter and warns not to serialize Kernel Result types directly.",
+    "Describes Outbox Messages, Delivery Attempts, and Inbox Receipts as reliable-event primitives with observable at-least-once delivery, not exactly-once transport.",
+    "Explicitly says the current bootstrap manifest and source/fixture evidence take precedence over unimplemented Wayfinder blueprint APIs."
+  ]
+}

@@ -41,6 +41,7 @@ than silently rewriting an older baseline.
 | [Execution and routing](./guides/execution-and-routing.md) | Choosing model tier, routing surface, token budget, task classification, or worktree safety. |
 | [Parallel worktree guidance](./guides/parallel-worktree-guidance.md) | Splitting package work across agents or branches. |
 | [Skills installation](./guides/skills-installation.md) | Importing external skills into a target repository. |
+| [MX configuration](./guides/mx-configuration.md) | Configuring the central `mx.config.json`, schema, presets, templates, and workflow behavior. |
 | [Custom AI artifact rules](./policy/custom-ai-artifact-rules.md) | Creating or updating skills, plugins, agents, prompts, hooks, metadata, templates, or evals. |
 | [Custom AI artifact resources](./policy/custom-ai-artifact-resources.md) | Primary-source links for artifact authoring and host behavior. |
 | [Plugin bundle strategy](./architecture/plugin-bundle-strategy.md) | Deciding standalone skill versus plugin bundle boundaries. |

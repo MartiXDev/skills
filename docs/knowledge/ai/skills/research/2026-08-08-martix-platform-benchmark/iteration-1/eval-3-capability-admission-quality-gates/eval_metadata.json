@@ -1,0 +1,12 @@
+{
+  "eval_id": "capability-admission-quality-gates",
+  "eval_name": "capability-admission-quality-gates",
+  "prompt": "Propose adding an optional Redis cache capability to the MartiX modular-monolith preset. The capability must be absent by default, selected explicitly, rejected for invalid provider combinations, and safe when Redis is unavailable. Define the provider seam, generated-output checks, failure behavior, security and health evidence, and the quality-gate status before calling it Supported.",
+  "assertions": [
+    "Keeps Redis optional and requires explicit capability/provider selection with invalid-combination rejection before generation.",
+    "Requires absence tests proving no package references, configuration, startup registration, health checks, or secret placeholders remain when the capability is not selected.",
+    "Defines a small provider-independent seam and explicit adapter registration rather than assembly scanning or a broad AddDefaults helper.",
+    "Requires fail-fast or explicitly bounded fallback behavior, health/telemetry, secret-safe configuration, and tests for provider unavailability.",
+    "Does not call the capability Supported without a named quality-gate profile and reproducible positive, negative, failure, and recovery evidence."
+  ]
+}

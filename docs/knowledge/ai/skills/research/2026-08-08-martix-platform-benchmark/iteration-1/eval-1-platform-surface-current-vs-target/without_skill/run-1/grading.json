@@ -1,0 +1,39 @@
+{
+  "expectations": [
+    {
+      "text": "Identifies MartiX.Platform as a framework-independent Kernel and keeps hosting, DI, logging, JSON, ASP.NET Core, and EF Core in adapters.",
+      "passed": false,
+      "evidence": "Answer incorrectly treats martix-platform as a guidance skill and does not identify the MartiX.Platform Kernel or adapter boundaries."
+    },
+    {
+      "text": "Describes immutable Result/Result<T>/Error/ErrorKind contracts, lower-case owner-prefixed dot-separated error codes, reserved platform. ownership, and MXP001/MXP002 as current analyzer evidence.",
+      "passed": false,
+      "evidence": "Answer treats the named APIs as unknown/preview and does not describe immutable contracts, code format, reserved ownership, or analyzer evidence."
+    },
+    {
+      "text": "Routes Problem Details and exception mapping to the ASP.NET Core adapter and warns not to serialize Kernel Result types directly.",
+      "passed": false,
+      "evidence": "Answer mentions standard ASP.NET Core Problem Details but does not route mapping to the MartiX adapter or warn against direct Kernel Result serialization."
+    },
+    {
+      "text": "Describes Outbox Messages, Delivery Attempts, and Inbox Receipts as reliable-event primitives with observable at-least-once delivery, not exactly-once transport.",
+      "passed": false,
+      "evidence": "Answer calls reliable events target architecture but does not describe the Outbox/Delivery Attempt/Inbox primitives or the at-least-once contract."
+    },
+    {
+      "text": "Explicitly says the current bootstrap manifest and source/fixture evidence take precedence over unimplemented Wayfinder blueprint APIs.",
+      "passed": false,
+      "evidence": "Answer warns Wayfinder is not shipped but does not state the current bootstrap manifest and source/fixture authority order."
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 5,
+    "total": 5,
+    "pass_rate": 0.0
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No additional eval feedback."
+  }
+}

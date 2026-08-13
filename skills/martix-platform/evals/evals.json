@@ -1,0 +1,210 @@
+{
+  "skill": "martix-platform",
+  "evals": [
+    {
+      "id": "modular-monolith-vertical-slice",
+      "prompt": "Plan a new MartiX web application for Orders and Catalog. It should be a production-oriented modular monolith using PostgreSQL, Minimal APIs, a CancelOrder use case, and TDD. Show the solution topology, module dependency rules, vertical-slice shape, DI composition, migration boundary, and the first verification steps. Call out what should not be added by default.",
+      "expected_sections": [
+        "Authority and assumptions",
+        "Generated solution topology",
+        "Module and vertical-slice design",
+        "Composition and persistence boundary",
+        "Testing and verification",
+        "Guardrails and non-default infrastructure"
+      ],
+      "assertions": [
+        "Selects the modular-monolith production-oriented shape with one API, one one-shot Migrator, one project per genuine Business Module, and one consolidated test project unless a real boundary justifies more.",
+        "Keeps module dependencies acyclic and limited to another module's Contracts; module implementation and persistence remain internal.",
+        "Organizes CancelOrder as a vertical slice with a thin endpoint and an internal sealed Application Operation registered explicitly without a mandatory mediator or scanning.",
+        "States that the API does not migrate or seed on startup and distinguishes the runtime and migration connection strings.",
+        "Uses TDD plus real-provider evidence where PostgreSQL, transactions, migrations, concurrency, or reliable events are part of the claim.",
+        "Does not require microservices, Kubernetes, a broker, distributed cache, UI, or cloud services by default."
+      ],
+      "files": [
+        "SKILL.md",
+        "rules/architecture-modular-monolith.md",
+        "rules/architecture-vertical-slices.md",
+        "rules/platform-composition-ownership.md",
+        "references/generated-solution-map.md",
+        "templates/vertical-slice-template.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "platform-surface-current-vs-target",
+      "prompt": "A developer asks which MartiX.Platform APIs are safe to use today. They mention Result<T>, ErrorKind, Problem Details, the MXP001/MXP002 analyzer diagnostics, EF Core Specifications, and reliable events from the Wayfinder blueprint. Explain the current package boundaries, which claims are preview or fixture evidence, and which target-only behavior must be verified before coding.",
+      "expected_sections": [
+        "Current package surface",
+        "Current versus fixture versus target status",
+        "Error and HTTP contract guidance",
+        "Persistence and reliable-event boundary",
+        "Verification and source anchors"
+      ],
+      "assertions": [
+        "Identifies MartiX.Platform as a framework-independent Kernel and keeps hosting, DI, logging, JSON, ASP.NET Core, and EF Core in adapters.",
+        "Describes immutable Result/Result<T>/Error/ErrorKind contracts, lower-case owner-prefixed dot-separated error codes, reserved platform. ownership, and MXP001/MXP002 as current analyzer evidence.",
+        "Routes Problem Details and exception mapping to the ASP.NET Core adapter and warns not to serialize Kernel Result types directly.",
+        "Describes Outbox Messages, Delivery Attempts, and Inbox Receipts as reliable-event primitives with observable at-least-once delivery, not exactly-once transport.",
+        "Explicitly says the current bootstrap manifest and source/fixture evidence take precedence over unimplemented Wayfinder blueprint APIs."
+      ],
+      "files": [
+        "rules/foundation-authority-and-status.md",
+        "references/platform-surface-map.md",
+        "rules/http-openapi-contract.md",
+        "rules/persistence-efcore-reliable-events.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "reliable-event-recovery",
+      "prompt": "Review an Orders-to-Notifications integration event flow. The producer writes an order update and an Outbox row, the consumer lease expires during a database failure, and the message is delivered again. Design the recovery and test strategy, including Inbox deduplication, idempotent business effect, provider-specific concurrency evidence, and the limits of the delivery guarantee.",
+      "expected_sections": [
+        "Delivery contract",
+        "Producer transaction",
+        "Lease, retry, and Inbox recovery",
+        "Provider-specific TDD evidence",
+        "Operational observability",
+        "Non-guarantees"
+      ],
+      "assertions": [
+        "Requires the business update and Outbox Message to commit atomically.",
+        "Explains at-least-once delivery, duplicate delivery after lease expiry or uncertain acknowledgement, durable Inbox Receipt deduplication, and idempotent consumer effect.",
+        "Does not claim exactly-once transport, global ordering, or a generic scanned event bus.",
+        "Requires real-provider tests for lease expiry, rollback, isolation/concurrency, retry, and replay rather than treating InMemory or SQLite as proof.",
+        "Requires attempts, leases, failures, retries, and poison-message recovery to be observable."
+      ],
+      "files": [
+        "rules/integration-events-outbox.md",
+        "rules/persistence-efcore-reliable-events.md",
+        "rules/testing-quality-performance.md",
+        "templates/integration-event-consumer.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "capability-admission-quality-gates",
+      "prompt": "Propose adding an optional Redis cache capability to the MartiX modular-monolith preset. The capability must be absent by default, selected explicitly, rejected for invalid provider combinations, and safe when Redis is unavailable. Define the provider seam, generated-output checks, failure behavior, security and health evidence, and the quality-gate status before calling it Supported.",
+      "expected_sections": [
+        "Capability and provider decision",
+        "Provider-independent seam",
+        "Generation presence and absence checks",
+        "Failure, security, and operations",
+        "Quality-gate and support status"
+      ],
+      "assertions": [
+        "Keeps Redis optional and requires explicit capability/provider selection with invalid-combination rejection before generation.",
+        "Requires absence tests proving no package references, configuration, startup registration, health checks, or secret placeholders remain when the capability is not selected.",
+        "Defines a small provider-independent seam and explicit adapter registration rather than assembly scanning or a broad AddDefaults helper.",
+        "Requires fail-fast or explicitly bounded fallback behavior, health/telemetry, secret-safe configuration, and tests for provider unavailability.",
+        "Does not call the capability Supported without a named quality-gate profile and reproducible positive, negative, failure, and recovery evidence."
+      ],
+      "files": [
+        "rules/foundation-preset-capabilities.md",
+        "rules/quality-gates-release-policy.md",
+        "references/capability-provider-matrix.md",
+        "templates/platform-capability-proposal.md"
+      ],
+      "model_tier": "premium",
+      "token_budget": "large",
+      "parallel_safe": false,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "security-audit-authorization",
+      "prompt": "Design the security contract for CancelOrder: a customer may cancel their own order, an administrator may cancel any order, and an unauthorized caller must fail before the business operation. Include the endpoint policy, Application Operation authorization, immutable audit event fields, durable audit versus logs, atomicity with the order update and Outbox event, and failure handling if audit persistence is unavailable.",
+      "expected_sections": [
+        "Actor and authorization model",
+        "Endpoint and operation checks",
+        "Immutable audit event contract",
+        "Persistence and failure behavior",
+        "Threat model and observability"
+      ],
+      "assertions": [
+        "Uses an explicit endpoint authorization policy plus an Application Operation resource/permission check such as owner-or-orders.admin.",
+        "Defines an immutable audit event with actor, action code, outcome, target and target ID, timestamp, and correlation ID while excluding unnecessary PII, credentials, and provider secrets.",
+        "States that unauthorized transport failure creates no successful business audit event and does not execute the operation.",
+        "Requires a documented transaction choice for order update, audit record, and Outbox event and does not silently lose audit data when persistence fails.",
+        "Separates durable audit events from application logs, domain events, and integration events and grounds the decision in a threat model."
+      ],
+      "files": [
+        "rules/identity-authorization-seams.md",
+        "rules/security-operations.md",
+        "rules/integration-events-outbox.md",
+        "references/capability-provider-matrix.md"
+      ],
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "platform-migration-lifecycle",
+      "prompt": "A Generated Solution currently uses Platform 0.1.0-preview.1, the modular-monolith preset, PostgreSQL, Minimal APIs, no UI, and no auth. The team wants to adopt a later Platform release that adds an optional Quartz durable-jobs capability. Explain how to classify the upgrade, how to inspect and plan it, what evidence is needed for apply and recovery, why templates are never reapplied, and how this differs from a NuGet package version bump. Keep current fixture commands distinct from target migration workflow names.",
+      "expected_sections": [
+        "Upgrade classification",
+        "Current fixture versus target workflow",
+        "Plan, apply, and verification evidence",
+        "Ownership and never-reapply rule",
+        "NuGet versus Platform Migration distinction"
+      ],
+      "assertions": [
+        "Distinguishes a compatible package upgrade from a Platform Migration when generated source, schema, configuration, dependencies, or operational contracts change.",
+        "Uses the current fixture's validate/script/apply commands without inventing inspect or migrate commands as if they already exist, while describing inspect/plan/apply as target lifecycle concepts only.",
+        "Requires original manifest, migration playbook, schema backup where applicable, immutable candidate evidence, postcondition verification, and explicit irreversible-operation limits.",
+        "Explains that application-owned Generated Solutions are not overwritten by rerunning templates and that repeated migration application is a no-op or explicit ambiguity failure.",
+        "Does not promise universal rollback or assume an optional Quartz capability is supported without its quality-gate evidence."
+      ],
+      "files": [
+        "rules/delivery-migrations-aot.md",
+        "rules/quality-gates-release-policy.md",
+        "rules/foundation-authority-and-status.md",
+        "references/migration-and-support-model.md",
+        "references/generated-solution-checklist.md"
+      ],
+      "model_tier": "premium",
+      "token_budget": "large",
+      "parallel_safe": false,
+      "negative_activation": false,
+      "escalation": null
+    },
+    {
+      "id": "scope-handoff-generic-dotnet",
+      "prompt": "A developer asks only for a general C# refactoring from Task to ValueTask, a generic ASP.NET Core resilience policy, and detailed FluentValidation RuleSets for a non-Martix application. Decide whether martix-platform should own the answer and give the smallest appropriate handoff.",
+      "negative_activation": true,
+      "expected_sections": [
+        "Scope assessment",
+        "Out-of-scope concerns",
+        "Smallest companion-skill handoff"
+      ],
+      "assertions": [
+        "States that martix-platform is not the primary owner because the request has no MartiX.Platform, Generated Solution, module, or Platform-contract concern.",
+        "Hands generic C#/.NET, ASP.NET Core, and resilience guidance to martix-dotnet-csharp.",
+        "Hands FluentValidation RuleSets to martix-fluentvalidation.",
+        "Does not impose MartiX modular-monolith or Platform migration guardrails on an unrelated application."
+      ],
+      "files": [
+        "SKILL.md",
+        "AGENTS.md",
+        "references/handoff-map.md"
+      ],
+      "model_tier": "cheap",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "escalation": null
+    }
+  ]
+}

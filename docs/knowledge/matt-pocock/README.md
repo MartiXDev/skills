@@ -9,6 +9,8 @@ documents explain the current interpretation.
 | Resources | [matt-pocock-resources.md](./matt-pocock-resources.md) |
 | Current map | [Matt Pocock Skills complete map](./matt-pocock-skills-kompletni-mapa.md) |
 | Research | [Matt Pocock Skills refresh research](./matt-pococks-skills-research.md) |
+| GitHub labels | [Matt Pocock Skills GitHub label inventory](./matt-pocock-skills-github-labels.md) |
+| Configuration research | [Configurable lifecycle artifacts](./2026-08-09-configurable-lifecycle-artifacts.md) |
 | Comparison | [GitHub Spec Kit versus Matt Pocock Skills](./srovnani-github-spec-kit-vs-matt-pocock-skills.md) |
 
 When refreshing this topic, update the resource registry, add a dated research

@@ -1,0 +1,677 @@
+{
+  "metadata": {
+    "skill_name": "martix-platform",
+    "skill_path": ".\\skills\\martix-platform",
+    "executor_model": "task-agent default (unspecified)",
+    "analyzer_model": "manual grading",
+    "timestamp": "2026-08-08T22:08:55Z",
+    "evals_run": [
+      "capability-admission-quality-gates",
+      "modular-monolith-vertical-slice",
+      "platform-migration-lifecycle",
+      "platform-surface-current-vs-target",
+      "reliable-event-recovery",
+      "scope-handoff-generic-dotnet",
+      "security-audit-authorization"
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": "modular-monolith-vertical-slice",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Selects the modular-monolith production-oriented shape with one API, one one-shot Migrator, one project per genuine Business Module, and one consolidated test project unless a real boundary justifies more.",
+          "passed": true,
+          "evidence": "Selected profile explicitly states one API, one one-shot Migrator, one project per genuine Business Module, and one consolidated test project."
+        },
+        {
+          "text": "Keeps module dependencies acyclic and limited to another module's Contracts; module implementation and persistence remain internal.",
+          "passed": true,
+          "evidence": "Dependency rules state an explicit acyclic graph, Contracts-only cross-module references, and internal module persistence/implementation."
+        },
+        {
+          "text": "Organizes CancelOrder as a vertical slice with a thin endpoint and an internal sealed Application Operation registered explicitly without a mandatory mediator or scanning.",
+          "passed": true,
+          "evidence": "CancelOrder is an internal sealed operation in a focused slice; the endpoint is thin, explicitly registered, and scanning/mediator are rejected."
+        },
+        {
+          "text": "States that the API does not migrate or seed on startup and distinguishes the runtime and migration connection strings.",
+          "passed": true,
+          "evidence": "Persistence guidance says the API must not migrate or seed and names ConnectionStrings:Database and ConnectionStrings:MigrationDatabase."
+        },
+        {
+          "text": "Uses TDD plus real-provider evidence where PostgreSQL, transactions, migrations, concurrency, or reliable events are part of the claim.",
+          "passed": true,
+          "evidence": "TDD starts with red tests and provider-specific PostgreSQL evidence is required for transactions, migrations, concurrency, rollback, and reliability."
+        },
+        {
+          "text": "Does not require microservices, Kubernetes, a broker, distributed cache, UI, or cloud services by default.",
+          "passed": true,
+          "evidence": "The non-default list excludes microservices, Kubernetes, message brokers, Redis/distributed cache, UI/full-stack, and cloud services."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "platform-surface-current-vs-target",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Identifies MartiX.Platform as a framework-independent Kernel and keeps hosting, DI, logging, JSON, ASP.NET Core, and EF Core in adapters.",
+          "passed": true,
+          "evidence": "Package table identifies MartiX.Platform as a framework-independent Kernel and ASP.NET Core/EF Core as adapters with host concerns excluded."
+        },
+        {
+          "text": "Describes immutable Result/Result<T>/Error/ErrorKind contracts, lower-case owner-prefixed dot-separated error codes, reserved platform. ownership, and MXP001/MXP002 as current analyzer evidence.",
+          "passed": true,
+          "evidence": "Answer describes immutable Result contracts, ErrorKind, lowercase owner-prefixed codes, reserved platform., and MXP001/MXP002 analyzer evidence."
+        },
+        {
+          "text": "Routes Problem Details and exception mapping to the ASP.NET Core adapter and warns not to serialize Kernel Result types directly.",
+          "passed": true,
+          "evidence": "HTTP guidance assigns RFC 9457 Problem Details and exception mapping to the ASP.NET Core adapter and says not to serialize Kernel Results directly."
+        },
+        {
+          "text": "Describes Outbox Messages, Delivery Attempts, and Inbox Receipts as reliable-event primitives with observable at-least-once delivery, not exactly-once transport.",
+          "passed": true,
+          "evidence": "Reliable-event guidance names Outbox Messages, Delivery Attempts, Inbox Receipts, atomic boundaries, and observable at-least-once delivery."
+        },
+        {
+          "text": "Explicitly says the current bootstrap manifest and source/fixture evidence take precedence over unimplemented Wayfinder blueprint APIs.",
+          "passed": true,
+          "evidence": "Authority guidance says current source, manifest, fixtures, and consumer evidence win over the unimplemented Wayfinder target and supportClaims is empty."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "reliable-event-recovery",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Requires the business update and Outbox Message to commit atomically.",
+          "passed": true,
+          "evidence": "Producer section requires the business update and Outbox row in one BEGIN/COMMIT transaction."
+        },
+        {
+          "text": "Explains at-least-once delivery, duplicate delivery after lease expiry or uncertain acknowledgement, durable Inbox Receipt deduplication, and idempotent consumer effect.",
+          "passed": true,
+          "evidence": "Recovery section covers at-least-once redelivery, lease/ack uncertainty, durable Inbox uniqueness, and idempotent business effects."
+        },
+        {
+          "text": "Does not claim exactly-once transport, global ordering, or a generic scanned event bus.",
+          "passed": true,
+          "evidence": "Non-guarantees reject exactly-once transport and global ordering; composition is explicit rather than an assembly-scanned bus."
+        },
+        {
+          "text": "Requires real-provider tests for lease expiry, rollback, isolation/concurrency, retry, and replay rather than treating InMemory or SQLite as proof.",
+          "passed": true,
+          "evidence": "Test matrix requires real relational-provider evidence for rollback, leases, concurrency, retries, replay, and provider locking/isolation."
+        },
+        {
+          "text": "Requires attempts, leases, failures, retries, and poison-message recovery to be observable.",
+          "passed": true,
+          "evidence": "Telemetry section requires attempt, retry, lease-expiration, failure, success, quarantine, backlog, and dead-letter observability."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "capability-admission-quality-gates",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Keeps Redis optional and requires explicit capability/provider selection with invalid-combination rejection before generation.",
+          "passed": true,
+          "evidence": "Capability matrix keeps cache off by default, requires explicit cache/provider selection, and rejects invalid combinations before emission."
+        },
+        {
+          "text": "Requires absence tests proving no package references, configuration, startup registration, health checks, or secret placeholders remain when the capability is not selected.",
+          "passed": true,
+          "evidence": "Default absence checks scan projects, packages, config, startup, health/readiness, telemetry, tests, and secret placeholders."
+        },
+        {
+          "text": "Defines a small provider-independent seam and explicit adapter registration rather than assembly scanning or a broad AddDefaults helper.",
+          "passed": true,
+          "evidence": "IApplicationCache is provider-neutral and Redis is directly registered; scanning, reflection, service location, and AddDefaults are rejected."
+        },
+        {
+          "text": "Requires fail-fast or explicitly bounded fallback behavior, health/telemetry, secret-safe configuration, and tests for provider unavailability.",
+          "passed": true,
+          "evidence": "Outage guidance separates invalid configuration from bounded fail-open cache behavior and requires health, redacted telemetry, secret injection, and outage/recovery tests."
+        },
+        {
+          "text": "Does not call the capability Supported without a named quality-gate profile and reproducible positive, negative, failure, and recovery evidence.",
+          "passed": true,
+          "evidence": "Named profile modular-monolith-cache-redis-v1 remains Deferred/not Supported until positive, negative, failure, recovery, security, and release evidence pass."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "security-audit-authorization",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses an explicit endpoint authorization policy plus an Application Operation resource/permission check such as owner-or-orders.admin.",
+          "passed": true,
+          "evidence": "Named endpoint policy is paired with repeated owner/scope/orders.cancel.self or orders.admin authorization in CancelOrderOperation before mutation."
+        },
+        {
+          "text": "Defines an immutable audit event with actor, action code, outcome, target and target ID, timestamp, and correlation ID while excluding unnecessary PII, credentials, and provider secrets.",
+          "passed": true,
+          "evidence": "Audit contract includes eventId, actorId, actionCode, outcome, target type/id, UTC timestamp, correlationId, and excludes secrets, credentials, raw errors, and unnecessary PII."
+        },
+        {
+          "text": "States that unauthorized transport failure creates no successful business audit event and does not execute the operation.",
+          "passed": true,
+          "evidence": "401/403 callers do not invoke the operation or create a successful audit event; denied attempts are separate denied decisions."
+        },
+        {
+          "text": "Requires a documented transaction choice for order update, audit record, and Outbox event and does not silently lose audit data when persistence fails.",
+          "passed": true,
+          "evidence": "Order update, audit row, and Outbox row are placed in one transaction; audit failure rolls back and fails closed rather than becoming a log."
+        },
+        {
+          "text": "Separates durable audit events from application logs, domain events, and integration events and grounds the decision in a threat model.",
+          "passed": true,
+          "evidence": "Output separates durable audit from operational logs, Outbox/integration events, and domain events and lists IDOR, privilege, replay, tampering, and leakage threats."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "platform-migration-lifecycle",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Distinguishes a compatible package upgrade from a Platform Migration when generated source, schema, configuration, dependencies, or operational contracts change.",
+          "passed": true,
+          "evidence": "Upgrade categories distinguish unchanged package-only compatibility from Platform Migration when generated, dependency, config, schema, or operational surfaces change."
+        },
+        {
+          "text": "Uses the current fixture's validate/script/apply commands without inventing inspect or migrate commands as if they already exist, while describing inspect/plan/apply as target lifecycle concepts only.",
+          "passed": true,
+          "evidence": "Current fixture commands are exactly validate, script, apply; inspect/plan are explicitly target workflow concepts and no fixture migrate command is invented."
+        },
+        {
+          "text": "Requires original manifest, migration playbook, schema backup where applicable, immutable candidate evidence, postcondition verification, and explicit irreversible-operation limits.",
+          "passed": true,
+          "evidence": "Plan requires original manifest, migration playbook, schema backup, immutable candidate record, postconditions, and irreversible-operation limits."
+        },
+        {
+          "text": "Explains that application-owned Generated Solutions are not overwritten by rerunning templates and that repeated migration application is a no-op or explicit ambiguity failure.",
+          "passed": true,
+          "evidence": "Generated Solutions become application-owned; templates are not reapplied; repeated migrations are idempotent no-ops or explicit ambiguity/precondition failures."
+        },
+        {
+          "text": "Does not promise universal rollback or assume an optional Quartz capability is supported without its quality-gate evidence.",
+          "passed": true,
+          "evidence": "Recovery is not promised as universal rollback and Quartz is not Supported without named quality-gate evidence."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "scope-handoff-generic-dotnet",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "States that martix-platform is not the primary owner because the request has no MartiX.Platform, Generated Solution, module, or Platform-contract concern.",
+          "passed": true,
+          "evidence": "Output rejects martix-platform ownership for a non-MartiX request with no Platform, Generated Solution, module, or contract concern."
+        },
+        {
+          "text": "Hands generic C#/.NET, ASP.NET Core, and resilience guidance to martix-dotnet-csharp.",
+          "passed": true,
+          "evidence": "Task/ValueTask and generic ASP.NET Core resilience are handed to martix-dotnet-csharp."
+        },
+        {
+          "text": "Hands FluentValidation RuleSets to martix-fluentvalidation.",
+          "passed": true,
+          "evidence": "FluentValidation RuleSets are handed to martix-fluentvalidation."
+        },
+        {
+          "text": "Does not impose MartiX modular-monolith or Platform migration guardrails on an unrelated application.",
+          "passed": true,
+          "evidence": "Output gives no MartiX modular-monolith or migration guardrails to the unrelated application."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "modular-monolith-vertical-slice",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.17,
+        "passed": 1,
+        "failed": 5,
+        "total": 6,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Selects the modular-monolith production-oriented shape with one API, one one-shot Migrator, one project per genuine Business Module, and one consolidated test project unless a real boundary justifies more.",
+          "passed": false,
+          "evidence": "Topology has one API and module projects but no one-shot Migrator project and uses multiple test projects rather than one consolidated test project."
+        },
+        {
+          "text": "Keeps module dependencies acyclic and limited to another module's Contracts; module implementation and persistence remain internal.",
+          "passed": false,
+          "evidence": "Answer keeps internals private but does not define Contracts-only cross-module references; it proposes no project references plus a generic facade/event boundary."
+        },
+        {
+          "text": "Organizes CancelOrder as a vertical slice with a thin endpoint and an internal sealed Application Operation registered explicitly without a mandatory mediator or scanning.",
+          "passed": false,
+          "evidence": "Answer has a handler-based slice but does not provide an internal sealed Application Operation as required."
+        },
+        {
+          "text": "States that the API does not migrate or seed on startup and distinguishes the runtime and migration connection strings.",
+          "passed": false,
+          "evidence": "Answer prohibits startup schema changes but does not distinguish or name separate runtime and migration connection strings."
+        },
+        {
+          "text": "Uses TDD plus real-provider evidence where PostgreSQL, transactions, migrations, concurrency, or reliable events are part of the claim.",
+          "passed": true,
+          "evidence": "TDD starts with red tests and provider-specific PostgreSQL evidence is required for transactions, migrations, concurrency, rollback, and reliability."
+        },
+        {
+          "text": "Does not require microservices, Kubernetes, a broker, distributed cache, UI, or cloud services by default.",
+          "passed": false,
+          "evidence": "Non-default list excludes microservices, Kubernetes, brokers, and caching but does not explicitly cover UI or cloud services."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "platform-surface-current-vs-target",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.0,
+        "passed": 0,
+        "failed": 5,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Identifies MartiX.Platform as a framework-independent Kernel and keeps hosting, DI, logging, JSON, ASP.NET Core, and EF Core in adapters.",
+          "passed": false,
+          "evidence": "Answer incorrectly treats martix-platform as a guidance skill and does not identify the MartiX.Platform Kernel or adapter boundaries."
+        },
+        {
+          "text": "Describes immutable Result/Result<T>/Error/ErrorKind contracts, lower-case owner-prefixed dot-separated error codes, reserved platform. ownership, and MXP001/MXP002 as current analyzer evidence.",
+          "passed": false,
+          "evidence": "Answer treats the named APIs as unknown/preview and does not describe immutable contracts, code format, reserved ownership, or analyzer evidence."
+        },
+        {
+          "text": "Routes Problem Details and exception mapping to the ASP.NET Core adapter and warns not to serialize Kernel Result types directly.",
+          "passed": false,
+          "evidence": "Answer mentions standard ASP.NET Core Problem Details but does not route mapping to the MartiX adapter or warn against direct Kernel Result serialization."
+        },
+        {
+          "text": "Describes Outbox Messages, Delivery Attempts, and Inbox Receipts as reliable-event primitives with observable at-least-once delivery, not exactly-once transport.",
+          "passed": false,
+          "evidence": "Answer calls reliable events target architecture but does not describe the Outbox/Delivery Attempt/Inbox primitives or the at-least-once contract."
+        },
+        {
+          "text": "Explicitly says the current bootstrap manifest and source/fixture evidence take precedence over unimplemented Wayfinder blueprint APIs.",
+          "passed": false,
+          "evidence": "Answer warns Wayfinder is not shipped but does not state the current bootstrap manifest and source/fixture authority order."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "reliable-event-recovery",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Requires the business update and Outbox Message to commit atomically.",
+          "passed": true,
+          "evidence": "Producer section requires the business update and Outbox row in one BEGIN/COMMIT transaction."
+        },
+        {
+          "text": "Explains at-least-once delivery, duplicate delivery after lease expiry or uncertain acknowledgement, durable Inbox Receipt deduplication, and idempotent consumer effect.",
+          "passed": true,
+          "evidence": "Recovery section covers at-least-once redelivery, lease/ack uncertainty, durable Inbox uniqueness, and idempotent business effects."
+        },
+        {
+          "text": "Does not claim exactly-once transport, global ordering, or a generic scanned event bus.",
+          "passed": true,
+          "evidence": "Non-guarantees reject exactly-once transport and global ordering; composition is explicit rather than an assembly-scanned bus."
+        },
+        {
+          "text": "Requires real-provider tests for lease expiry, rollback, isolation/concurrency, retry, and replay rather than treating InMemory or SQLite as proof.",
+          "passed": true,
+          "evidence": "Test matrix requires real relational-provider evidence for rollback, leases, concurrency, retries, replay, and provider locking/isolation."
+        },
+        {
+          "text": "Requires attempts, leases, failures, retries, and poison-message recovery to be observable.",
+          "passed": true,
+          "evidence": "Telemetry section requires attempt, retry, lease-expiration, failure, success, quarantine, backlog, and dead-letter observability."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "capability-admission-quality-gates",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Keeps Redis optional and requires explicit capability/provider selection with invalid-combination rejection before generation.",
+          "passed": true,
+          "evidence": "Capability matrix keeps cache off by default, requires explicit cache/provider selection, and rejects invalid combinations before emission."
+        },
+        {
+          "text": "Requires absence tests proving no package references, configuration, startup registration, health checks, or secret placeholders remain when the capability is not selected.",
+          "passed": true,
+          "evidence": "Default absence checks scan projects, packages, config, startup, health/readiness, telemetry, tests, and secret placeholders."
+        },
+        {
+          "text": "Defines a small provider-independent seam and explicit adapter registration rather than assembly scanning or a broad AddDefaults helper.",
+          "passed": true,
+          "evidence": "IApplicationCache is provider-neutral and Redis is directly registered; scanning, reflection, service location, and AddDefaults are rejected."
+        },
+        {
+          "text": "Requires fail-fast or explicitly bounded fallback behavior, health/telemetry, secret-safe configuration, and tests for provider unavailability.",
+          "passed": true,
+          "evidence": "Outage guidance separates invalid configuration from bounded fail-open cache behavior and requires health, redacted telemetry, secret injection, and outage/recovery tests."
+        },
+        {
+          "text": "Does not call the capability Supported without a named quality-gate profile and reproducible positive, negative, failure, and recovery evidence.",
+          "passed": true,
+          "evidence": "Named profile modular-monolith-cache-redis-v1 remains Deferred/not Supported until positive, negative, failure, recovery, security, and release evidence pass."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "security-audit-authorization",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses an explicit endpoint authorization policy plus an Application Operation resource/permission check such as owner-or-orders.admin.",
+          "passed": true,
+          "evidence": "Named endpoint policy is paired with repeated owner/scope/orders.cancel.self or orders.admin authorization in CancelOrderOperation before mutation."
+        },
+        {
+          "text": "Defines an immutable audit event with actor, action code, outcome, target and target ID, timestamp, and correlation ID while excluding unnecessary PII, credentials, and provider secrets.",
+          "passed": true,
+          "evidence": "Audit contract includes eventId, actorId, actionCode, outcome, target type/id, UTC timestamp, correlationId, and excludes secrets, credentials, raw errors, and unnecessary PII."
+        },
+        {
+          "text": "States that unauthorized transport failure creates no successful business audit event and does not execute the operation.",
+          "passed": true,
+          "evidence": "401/403 callers do not invoke the operation or create a successful audit event; denied attempts are separate denied decisions."
+        },
+        {
+          "text": "Requires a documented transaction choice for order update, audit record, and Outbox event and does not silently lose audit data when persistence fails.",
+          "passed": true,
+          "evidence": "Order update, audit row, and Outbox row are placed in one transaction; audit failure rolls back and fails closed rather than becoming a log."
+        },
+        {
+          "text": "Separates durable audit events from application logs, domain events, and integration events and grounds the decision in a threat model.",
+          "passed": true,
+          "evidence": "Output separates durable audit from operational logs, Outbox/integration events, and domain events and lists IDOR, privilege, replay, tampering, and leakage threats."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "platform-migration-lifecycle",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.4,
+        "passed": 2,
+        "failed": 3,
+        "total": 5,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Distinguishes a compatible package upgrade from a Platform Migration when generated source, schema, configuration, dependencies, or operational contracts change.",
+          "passed": true,
+          "evidence": "Upgrade categories distinguish unchanged package-only compatibility from Platform Migration when generated, dependency, config, schema, or operational surfaces change."
+        },
+        {
+          "text": "Uses the current fixture's validate/script/apply commands without inventing inspect or migrate commands as if they already exist, while describing inspect/plan/apply as target lifecycle concepts only.",
+          "passed": false,
+          "evidence": "Answer invents platform migration inspect/plan/apply/recover CLI stages and never names the current fixture commands validate/script/apply."
+        },
+        {
+          "text": "Requires original manifest, migration playbook, schema backup where applicable, immutable candidate evidence, postcondition verification, and explicit irreversible-operation limits.",
+          "passed": false,
+          "evidence": "Answer requires source fingerprint, plan hash, backup, tests, and post-migration evidence but not a migration playbook or explicit irreversible-operation limits."
+        },
+        {
+          "text": "Explains that application-owned Generated Solutions are not overwritten by rerunning templates and that repeated migration application is a no-op or explicit ambiguity failure.",
+          "passed": false,
+          "evidence": "Answer explains why templates are not reapplied but does not define repeated migration as a no-op or ambiguity/precondition failure."
+        },
+        {
+          "text": "Does not promise universal rollback or assume an optional Quartz capability is supported without its quality-gate evidence.",
+          "passed": true,
+          "evidence": "Recovery is not promised as universal rollback and Quartz is not Supported without named quality-gate evidence."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "scope-handoff-generic-dotnet",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "States that martix-platform is not the primary owner because the request has no MartiX.Platform, Generated Solution, module, or Platform-contract concern.",
+          "passed": true,
+          "evidence": "Output rejects martix-platform ownership for a non-Martix request with no Platform, Generated Solution, module, or contract concern."
+        },
+        {
+          "text": "Hands generic C#/.NET, ASP.NET Core, and resilience guidance to martix-dotnet-csharp.",
+          "passed": false,
+          "evidence": "Answer recommends a general .NET/C# implementation agent but does not identify martix-dotnet-csharp."
+        },
+        {
+          "text": "Hands FluentValidation RuleSets to martix-fluentvalidation.",
+          "passed": false,
+          "evidence": "Answer does not name or route to martix-fluentvalidation."
+        },
+        {
+          "text": "Does not impose MartiX modular-monolith or Platform migration guardrails on an unrelated application.",
+          "passed": true,
+          "evidence": "Output gives no MartiX modular-monolith or migration guardrails to the unrelated application."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.5814,
+        "stddev": 0.4228,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.42",
+      "time_seconds": "+0.0",
+      "tokens": "+0"
+    }
+  },
+  "notes": [
+    "With-skill runs passed all 35 assertions; without-skill runs passed 20 of 35 (58.1%).",
+    "Reliable-event, capability-admission, and security evals passed identically in both configurations, so those assertion sets are not strongly discriminating.",
+    "Timing and token telemetry was unavailable for these task-agent runs; benchmark values are 0 and should not be used for resource comparisons.",
+    "Each configuration has one run per eval, so there is no variance estimate; treat this as a directional first iteration.",
+    "The clearest skill gains are in Platform-specific authority, generated topology, migration-command, current-versus-target, and companion-handoff details."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "expectations": [
+    {
+      "text": "States that martix-platform is not the primary owner because the request has no MartiX.Platform, Generated Solution, module, or Platform-contract concern.",
+      "passed": true,
+      "evidence": "Output rejects martix-platform ownership for a non-MartiX request with no Platform, Generated Solution, module, or contract concern."
+    },
+    {
+      "text": "Hands generic C#/.NET, ASP.NET Core, and resilience guidance to martix-dotnet-csharp.",
+      "passed": true,
+      "evidence": "Task/ValueTask and generic ASP.NET Core resilience are handed to martix-dotnet-csharp."
+    },
+    {
+      "text": "Hands FluentValidation RuleSets to martix-fluentvalidation.",
+      "passed": true,
+      "evidence": "FluentValidation RuleSets are handed to martix-fluentvalidation."
+    },
+    {
+      "text": "Does not impose MartiX modular-monolith or Platform migration guardrails on an unrelated application.",
+      "passed": true,
+      "evidence": "Output gives no MartiX modular-monolith or migration guardrails to the unrelated application."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No additional eval feedback."
+  }
+}

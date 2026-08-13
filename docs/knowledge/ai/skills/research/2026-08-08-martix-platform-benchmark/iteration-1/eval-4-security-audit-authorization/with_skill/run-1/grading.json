@@ -1,0 +1,39 @@
+{
+  "expectations": [
+    {
+      "text": "Uses an explicit endpoint authorization policy plus an Application Operation resource/permission check such as owner-or-orders.admin.",
+      "passed": true,
+      "evidence": "Named endpoint policy is paired with repeated owner/scope/orders.cancel.self or orders.admin authorization in CancelOrderOperation before mutation."
+    },
+    {
+      "text": "Defines an immutable audit event with actor, action code, outcome, target and target ID, timestamp, and correlation ID while excluding unnecessary PII, credentials, and provider secrets.",
+      "passed": true,
+      "evidence": "Audit contract includes eventId, actorId, actionCode, outcome, target type/id, UTC timestamp, correlationId, and excludes secrets, credentials, raw errors, and unnecessary PII."
+    },
+    {
+      "text": "States that unauthorized transport failure creates no successful business audit event and does not execute the operation.",
+      "passed": true,
+      "evidence": "401/403 callers do not invoke the operation or create a successful audit event; denied attempts are separate denied decisions."
+    },
+    {
+      "text": "Requires a documented transaction choice for order update, audit record, and Outbox event and does not silently lose audit data when persistence fails.",
+      "passed": true,
+      "evidence": "Order update, audit row, and Outbox row are placed in one transaction; audit failure rolls back and fails closed rather than becoming a log."
+    },
+    {
+      "text": "Separates durable audit events from application logs, domain events, and integration events and grounds the decision in a threat model.",
+      "passed": true,
+      "evidence": "Output separates durable audit from operational logs, Outbox/integration events, and domain events and lists IDOR, privilege, replay, tampering, and leakage threats."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Assertions are not strongly discriminating: the prompt itself specifies most of the required security decisions."
+  }
+}
