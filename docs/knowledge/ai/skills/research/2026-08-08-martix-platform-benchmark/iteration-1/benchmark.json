@@ -299,7 +299,7 @@
           "text": "States that martix-platform is not the primary owner because the request has no MartiX.Platform, Generated Solution, module, or Platform-contract concern.",
           "passed": true,
           "evidence": "Output rejects martix-platform ownership for a non-MartiX request with no Platform, Generated Solution, module, or contract concern."
-        }
+        },
         {
           "text": "Hands generic C#/.NET, ASP.NET Core, and resilience guidance to martix-dotnet-csharp.",
           "passed": true,
