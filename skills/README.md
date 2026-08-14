@@ -15,6 +15,11 @@ manifest, root-level `SKILL.md`, `AGENTS.md`, and supporting package assets.
 | [martix-fluentvalidation](./martix-fluentvalidation/) | FluentValidation authoring, RuleSets, and testing | Available |
 | [martix-tunit](./martix-tunit/) | TUnit test authoring, parameterized tests, and parallel execution | Available |
 | [martix-powershell](./martix-powershell/) | PowerShell cmdlet development and advanced functions | Available |
+| [martix-typescript](./martix-typescript/) | TypeScript 7 authoring, migration, and type-system engineering | Available |
+| [martix-fluent-ui](./martix-fluent-ui/) | React-first Fluent UI v9 engineering and accessibility | Available |
+| [martix-essl](./martix-essl/) | Czech eSSL compliance and implementation | Available |
+| [martix-platform](./martix-platform/) | MartiX.Platform architecture and .NET web application design | Available |
+| [martix-power-platform](./martix-power-platform/) | Power Platform flows, environments, ALM, and custom connectors | Available |
 | [martix-sharepoint-server](./martix-sharepoint-server/) | SharePoint Server on-prem farm solutions and WSP packaging | Available |
 | [martix-sharepoint-spfx](./martix-sharepoint-spfx/) | SharePoint Framework (SPFx) development with React and TypeScript | Available |
 | [martix-sharepoint-pnp](./martix-sharepoint-pnp/) | SharePoint PnP PowerShell, CLI for M365, and PnPjs | Available |
@@ -32,6 +37,8 @@ For standalone skill installs, use repo-root skill selection:
 
 ```sh
 npx skills add https://github.com/MartiXDev/skills --skill martix-markdown
+npx skills add https://github.com/MartiXDev/skills --skill martix-platform
+npx skills add https://github.com/MartiXDev/skills --skill martix-power-platform
 ```
 
 ## Structure
@@ -50,4 +57,3 @@ skills/
     templates/         # Authoring scaffolds
     assets/            # Machine-readable taxonomy and ordering data
 ```
-

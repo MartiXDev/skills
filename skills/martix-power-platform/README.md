@@ -66,5 +66,6 @@ powershell -ExecutionPolicy Bypass `
 powershell -ExecutionPolicy Bypass -File .\scripts\validate-repository.ps1
 ```
 
-Marketplace registration is a coordinator-owned shared surface. Add this
-package to `.github/plugin/marketplace.json` in a separate coordinated change.
+Marketplace metadata is maintained in
+[marketplace.json](../../.github/plugin/marketplace.json) and stays aligned with
+[plugin.json](./plugin.json) and [metadata.json](./metadata.json).

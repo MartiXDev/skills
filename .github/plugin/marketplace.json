@@ -4,7 +4,7 @@
     "name": "MartiXDev"
   },
   "metadata": {
-    "description": "MartiX AI Skills and Plugins for GitHub Copilot CLI — standalone-first skill packages and plugin bundles for .NET, SharePoint, Markdown, and more.",
+    "description": "MartiX AI Skills and Plugins for GitHub Copilot CLI — standalone-first skill packages and plugin bundles for .NET, Power Platform, SharePoint, Markdown, and more.",
     "version": "1.0.0",
     "homepage": "https://github.com/MartiXDev/skills"
   },
@@ -38,6 +38,52 @@
         "automation",
         "hooks",
         "plugin-bundle"
+      ]
+    },
+    {
+      "name": "martix-platform",
+      "description": "Use for MartiX.Platform library work and for designing, generating, reviewing, or hardening .NET web applications that should follow the MartiX modular-monolith, vertical-slice, SOLID, explicit-DI, TDD, secure, observable, and performance-oriented conventions. Trigger on MartiX.Platform, Generated Solutions, Platform migrations, Result/Error contracts, reliable events, module boundaries, or requests to create a modern MartiX web app.",
+      "version": "0.1.0",
+      "source": "skills/martix-platform",
+      "category": "development",
+      "tags": [
+        "martix",
+        "martix-platform",
+        "dotnet",
+        "csharp",
+        "aspnetcore",
+        "modular-monolith",
+        "vertical-slices",
+        "efcore",
+        "reliable-events",
+        "tdd",
+        "security",
+        "aot",
+        "standalone-skill"
+      ]
+    },
+    {
+      "name": "martix-power-platform",
+      "description": "Definition-first Power Platform guidance for Power Automate cloud flows, environments, solutions, Dataverse ALM, and custom connector authoring, authentication, OpenAPI, triggers, policies, testing, versioning, and certification.",
+      "version": "0.1.0",
+      "source": "skills/martix-power-platform",
+      "category": "development",
+      "tags": [
+        "martix",
+        "power-platform",
+        "power-automate",
+        "custom-connectors",
+        "openapi",
+        "swagger",
+        "paconn",
+        "dataverse",
+        "solutions",
+        "alm",
+        "oauth",
+        "entra-id",
+        "webhooks",
+        "polling",
+        "standalone-skill"
       ]
     },
     {

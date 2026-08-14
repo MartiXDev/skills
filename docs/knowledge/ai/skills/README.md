@@ -6,6 +6,7 @@ and optimization research.
 | Role | Document |
 | --- | --- |
 | Resources | [resources.md](./resources.md) |
+| Additional resources | [ai-skills-resources.md](./ai-skills-resources.md) |
 | Research | [2026-07-25 optimization](./research/2026-07-25-ai-skills-optimization.md), [2026-07-20 eval quality](./research/2026-07-20-skill-evals-quality.md) |
 
 Add new source links to `resources.md` and preserve new evidence as dated

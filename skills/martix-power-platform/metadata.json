@@ -160,11 +160,11 @@
     },
     "secondarySurface": {
       "id": "copilot-cli-plugin-marketplace",
-      "status": "pending-coordinator-registration",
+      "status": "direct-registration",
       "marketplaceRepository": "MartiXDev/skills",
       "marketplaceName": "martix-skills",
       "pluginName": "martix-power-platform",
-      "strategy": "Register the canonical standalone package directly from skills after coordinator review."
+      "strategy": "Register the canonical standalone package directly from skills."
     }
   },
   "discovery": {

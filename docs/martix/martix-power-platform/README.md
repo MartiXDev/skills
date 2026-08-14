@@ -2,8 +2,8 @@
 
 # MartiX Power Platform research
 
-> Role: dated, source-backed research snapshot for a future `martix-power-platform`
-> skill. It is not yet the skill implementation or normative product policy.
+> Role: dated, source-backed research snapshot for the `martix-power-platform`
+> skill. It is not the skill implementation or normative product policy.
 
 Checked on **2026-08-13** against Microsoft Learn pages and their current
 navigation data.
@@ -26,7 +26,7 @@ directly useful for connector design, security, runtime, and selection.
 
 ## Refresh guidance
 
-Recheck volatile claims before implementing the skill, especially licensing,
+Recheck volatile claims before relying on the skill, especially licensing,
 request limits, preview features, OAuth redirect behavior, custom-code
 timeouts, certification timelines, and environment-variable support. Add a new
 dated snapshot instead of silently rewriting this one when the evidence changes.

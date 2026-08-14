@@ -26,7 +26,7 @@
   "publisher": {
     "name": "MartiXDev",
     "repository": "MartiXDev/skills",
-    "distributionModel": "standalone skill with optional direct Copilot marketplace registration"
+    "distributionModel": "standalone skill with direct Copilot marketplace registration"
   },
   "summary": "Use for MartiX.Platform library work and for designing, generating, reviewing, or hardening .NET web applications that should follow the MartiX modular-monolith, vertical-slice, SOLID, explicit-DI, TDD, secure, observable, and performance-oriented conventions. Trigger on MartiX.Platform, Generated Solutions, Platform migrations, Result/Error contracts, reliable events, module boundaries, or requests to create a modern MartiX web app.",
   "abstract": "This package is the canonical standalone source for MartiX.Platform guidance. It routes current-versus-target Platform decisions, Generated Solution topology, modular-monolith and vertical-slice design, typed contracts, persistence, reliable events, security, quality gates, migrations, and exact AOT/performance claims.",
@@ -95,7 +95,7 @@
     },
     "secondarySurface": {
       "id": "copilot-cli-plugin-marketplace",
-      "status": "optional-direct-registration",
+      "status": "direct-registration",
       "marketplaceRepository": "MartiXDev/skills",
       "marketplaceName": "martix-skills",
       "pluginName": "martix-platform"
