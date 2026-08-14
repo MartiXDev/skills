@@ -39,6 +39,13 @@ consumer's actual package and manifest before editing code.
 
 ## Installation
 
+For the Copilot CLI marketplace:
+
+```powershell
+copilot plugin marketplace add MartiXDev/skills
+copilot plugin install martix-platform@martix-skills
+```
+
 For local validation on Windows:
 
 ```powershell
@@ -53,10 +60,9 @@ npx skills add https://github.com/MartiXDev/skills `
   --skill martix-platform
 ```
 
-If this package is later registered in the marketplace, keep its marketplace
-entry synchronized with [plugin.json](./plugin.json) and `metadata.json`.
-Marketplace registration is intentionally coordinator-owned and is not part of
-this package change.
+Marketplace metadata is maintained in
+[marketplace.json](../../.github/plugin/marketplace.json) and stays aligned with
+[plugin.json](./plugin.json) and [metadata.json](./metadata.json).
 
 ## Maintainer workflow
 

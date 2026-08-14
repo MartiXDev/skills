@@ -69,6 +69,7 @@ history. Package behavior remains canonical in the package itself.
 | [martix-essl](./martix/martix-essl/) | Czech eSSL source research and compliance maps. |
 | [martix-markdown](./martix/martix-markdown/) | Markdown automation and package split notes. |
 | [martix-csharp](./martix/martix-csharp/) | Earlier standalone C# skill planning artifacts. |
+| [martix-power-platform](./martix/martix-power-platform/) | Power Platform and custom connector source research. |
 | [martix-typescript](./martix/martix-typescript/) | TypeScript skill planning and source research. |
 
 ## Read-on-demand package docs

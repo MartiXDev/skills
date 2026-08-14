@@ -27,6 +27,8 @@ After adding the marketplace, install packages by marketplace name:
 ```sh
 copilot plugin install martix-markdown@martix-skills
 copilot plugin install martix-dotnet-csharp@martix-skills
+copilot plugin install martix-platform@martix-skills
+copilot plugin install martix-power-platform@martix-skills
 copilot plugin install martix-dotnet-library@martix-skills
 ```
 
@@ -37,6 +39,8 @@ Use repo-root skill selection as the preferred standalone install pattern:
 ```sh
 npx skills add https://github.com/MartiXDev/skills --skill martix-markdown
 npx skills add https://github.com/MartiXDev/skills --skill martix-dotnet-csharp
+npx skills add https://github.com/MartiXDev/skills --skill martix-platform
+npx skills add https://github.com/MartiXDev/skills --skill martix-power-platform
 ```
 
 For local validation or development, point directly at a skill folder:
@@ -81,6 +85,8 @@ skills/
   martix-sharepoint-server/
   martix-sharepoint-spfx/
   martix-sharepoint-pnp/
+  martix-platform/
+  martix-power-platform/
 plugins/
   martix-markdown-automation/
   martix-dotnet-library/
@@ -186,6 +192,8 @@ Standalone skills can be listed directly in the marketplace. Plugin bundles shou
 | `martix-sharepoint-server` | SharePoint Server farm solutions, WSP packaging, feature framework, event receivers, branding, and site artifacts. |
 | `martix-sharepoint-spfx` | SharePoint Framework development with React, TypeScript, web parts, extensions, Teams, Viva, deployment, theming, and modernization. |
 | `martix-sharepoint-pnp` | PnP PowerShell, CLI for Microsoft 365, PnPjs, provisioning, automation, authentication, and cross-tool delivery. |
+| `martix-platform` | MartiX.Platform authority, modular-monolith architecture, vertical slices, contracts, reliable events, operations, migrations, and AOT guidance. |
+| `martix-power-platform` | Power Platform environments, Power Automate cloud flows, custom connectors, OpenAPI, authentication, testing, ALM, and certification. |
 
 ### Plugin bundles
 

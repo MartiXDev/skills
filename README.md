@@ -3,7 +3,8 @@
 <!-- markdownlint-configure-file { "MD013": { "tables": false } } -->
 
 MartiX AI Skills and Plugins for GitHub Copilot CLI — marketplace-ready skill
-packages and plugin bundles for .NET, SharePoint, Markdown, and more.
+packages and plugin bundles for .NET, Power Platform, SharePoint, Markdown, and
+more.
 
 ## Marketplace
 
@@ -34,6 +35,8 @@ copilot plugin install martix-fastendpoints@martix-skills
 copilot plugin install martix-fluent-ui@martix-skills
 copilot plugin install martix-fluentvalidation@martix-skills
 copilot plugin install martix-markdown@martix-skills
+copilot plugin install martix-platform@martix-skills
+copilot plugin install martix-power-platform@martix-skills
 copilot plugin install martix-powershell@martix-skills
 copilot plugin install martix-sharepoint-pnp@martix-skills
 copilot plugin install martix-sharepoint-server@martix-skills
@@ -56,6 +59,8 @@ npx skills add https://github.com/MartiXDev/skills --skill martix-fastendpoints
 npx skills add https://github.com/MartiXDev/skills --skill martix-fluent-ui
 npx skills add https://github.com/MartiXDev/skills --skill martix-fluentvalidation
 npx skills add https://github.com/MartiXDev/skills --skill martix-markdown
+npx skills add https://github.com/MartiXDev/skills --skill martix-platform
+npx skills add https://github.com/MartiXDev/skills --skill martix-power-platform
 npx skills add https://github.com/MartiXDev/skills --skill martix-powershell
 npx skills add https://github.com/MartiXDev/skills --skill martix-sharepoint-pnp
 npx skills add https://github.com/MartiXDev/skills --skill martix-sharepoint-server
@@ -76,6 +81,8 @@ copilot plugin install MartiXDev/skills:skills/martix-fastendpoints
 copilot plugin install MartiXDev/skills:skills/martix-fluent-ui
 copilot plugin install MartiXDev/skills:skills/martix-fluentvalidation
 copilot plugin install MartiXDev/skills:skills/martix-markdown
+copilot plugin install MartiXDev/skills:skills/martix-platform
+copilot plugin install MartiXDev/skills:skills/martix-power-platform
 copilot plugin install MartiXDev/skills:skills/martix-powershell
 copilot plugin install MartiXDev/skills:skills/martix-sharepoint-pnp
 copilot plugin install MartiXDev/skills:skills/martix-sharepoint-server
@@ -96,6 +103,8 @@ Legend: 🟢 bundled in the plugin, 🔴 not bundled in that plugin.
 | `martix-fluent-ui` | 🔴 | 🔴 | 🔴 |
 | `martix-fluentvalidation` | 🔴 | 🟢 | 🟢 |
 | `martix-markdown` | 🟢 | 🟢 | 🟢 |
+| `martix-platform` | 🔴 | 🔴 | 🔴 |
+| `martix-power-platform` | 🔴 | 🔴 | 🔴 |
 | `martix-powershell` | 🔴 | 🟢 | 🔴 |
 | `martix-sharepoint-pnp` | 🔴 | 🔴 | 🔴 |
 | `martix-sharepoint-server` | 🔴 | 🔴 | 🔴 |
@@ -127,7 +136,8 @@ npx skills remove martix-dotnet-csharp
 npx skills remove martix-dotnet-csharp martix-markdown
 npx skills remove --global martix-dotnet-csharp martix-essl \
   martix-fastendpoints martix-fluent-ui martix-fluentvalidation \
-  martix-markdown martix-powershell martix-sharepoint-pnp \
+  martix-markdown martix-platform martix-power-platform martix-powershell \
+  martix-sharepoint-pnp \
   martix-sharepoint-server martix-sharepoint-spfx martix-tunit martix-typescript
 npx skills remove --all
 ```
@@ -154,6 +164,8 @@ skills/
   martix-typescript/        # TypeScript 7 engineering and migration
   martix-fluent-ui/         # React-first Fluent UI v9 engineering
   martix-essl/              # Czech eSSL compliance and implementation
+  martix-platform/          # MartiX.Platform architecture and .NET web apps
+  martix-power-platform/    # Power Platform flows and custom connectors
   martix-sharepoint-server/ # SharePoint Server on-prem farm solutions
   martix-sharepoint-spfx/   # SharePoint Framework (SPFx) development
   martix-sharepoint-pnp/    # SharePoint PnP PowerShell, CLI for M365, PnPjs
@@ -209,6 +221,7 @@ implementation plans remain under [`docs/martix/`](./docs/martix/):
 | [`docs/martix/martix-essl/`](./docs/martix/martix-essl/) | Czech eSSL source research and compliance maps. |
 | [`docs/martix/martix-markdown/`](./docs/martix/martix-markdown/) | Markdown automation and package split rationale. |
 | [`docs/martix/martix-csharp/`](./docs/martix/martix-csharp/) | Planning artifacts for the standalone C# skill. |
+| [`docs/martix/martix-power-platform/`](./docs/martix/martix-power-platform/) | Power Platform and custom connector source research. |
 | [`docs/martix/martix-typescript/`](./docs/martix/martix-typescript/) | TypeScript skill planning and source research. |
 
 Canonical package behavior lives in each `skills/martix-*` package, especially
