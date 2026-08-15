@@ -150,6 +150,10 @@ try {
     Branch = $headBranch
     Draft = -not $Ready
     DuplicateOpenPullRequest = $false
+    PullRequest = $null
+    Reconciled = $null
+    Url = $null
+    Output = $null
   }
 
   if ($Apply) {
