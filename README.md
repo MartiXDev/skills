@@ -34,6 +34,7 @@ copilot plugin install martix-essl@martix-skills
 copilot plugin install martix-fastendpoints@martix-skills
 copilot plugin install martix-fluent-ui@martix-skills
 copilot plugin install martix-fluentvalidation@martix-skills
+copilot plugin install martix-git@martix-skills
 copilot plugin install martix-markdown@martix-skills
 copilot plugin install martix-platform@martix-skills
 copilot plugin install martix-power-platform@martix-skills
@@ -46,6 +47,7 @@ copilot plugin install martix-typescript@martix-skills
 
 # Plugins (full bundles)
 copilot plugin install martix-dotnet-library@martix-skills
+copilot plugin install martix-git-automation@martix-skills
 copilot plugin install martix-markdown-automation@martix-skills
 copilot plugin install martix-webapi@martix-skills
 ```
@@ -58,6 +60,7 @@ npx skills add https://github.com/MartiXDev/skills --skill martix-essl
 npx skills add https://github.com/MartiXDev/skills --skill martix-fastendpoints
 npx skills add https://github.com/MartiXDev/skills --skill martix-fluent-ui
 npx skills add https://github.com/MartiXDev/skills --skill martix-fluentvalidation
+npx skills add https://github.com/MartiXDev/skills --skill martix-git
 npx skills add https://github.com/MartiXDev/skills --skill martix-markdown
 npx skills add https://github.com/MartiXDev/skills --skill martix-platform
 npx skills add https://github.com/MartiXDev/skills --skill martix-power-platform
@@ -73,6 +76,7 @@ For local validation or development, install directly from a repository path:
 
 ```sh
 copilot plugin install MartiXDev/skills:plugins/martix-dotnet-library
+copilot plugin install MartiXDev/skills:plugins/martix-git-automation
 copilot plugin install MartiXDev/skills:plugins/martix-markdown-automation
 copilot plugin install MartiXDev/skills:plugins/martix-webapi
 copilot plugin install MartiXDev/skills:skills/martix-dotnet-csharp
@@ -80,6 +84,7 @@ copilot plugin install MartiXDev/skills:skills/martix-essl
 copilot plugin install MartiXDev/skills:skills/martix-fastendpoints
 copilot plugin install MartiXDev/skills:skills/martix-fluent-ui
 copilot plugin install MartiXDev/skills:skills/martix-fluentvalidation
+copilot plugin install MartiXDev/skills:skills/martix-git
 copilot plugin install MartiXDev/skills:skills/martix-markdown
 copilot plugin install MartiXDev/skills:skills/martix-platform
 copilot plugin install MartiXDev/skills:skills/martix-power-platform
@@ -95,22 +100,23 @@ copilot plugin install MartiXDev/skills:skills/martix-typescript
 
 Legend: 🟢 bundled in the plugin, 🔴 not bundled in that plugin.
 
-| Skill \ Plugin | `martix-markdown-automation` | `martix-dotnet-library` | `martix-webapi` |
-| --- | --- | --- | --- |
-| `martix-dotnet-csharp` | 🔴 | 🟢 | 🟢 |
-| `martix-essl` | 🔴 | 🔴 | 🔴 |
-| `martix-fastendpoints` | 🔴 | 🔴 | 🟢 |
-| `martix-fluent-ui` | 🔴 | 🔴 | 🔴 |
-| `martix-fluentvalidation` | 🔴 | 🟢 | 🟢 |
-| `martix-markdown` | 🟢 | 🟢 | 🟢 |
-| `martix-platform` | 🔴 | 🔴 | 🔴 |
-| `martix-power-platform` | 🔴 | 🔴 | 🔴 |
-| `martix-powershell` | 🔴 | 🟢 | 🔴 |
-| `martix-sharepoint-pnp` | 🔴 | 🔴 | 🔴 |
-| `martix-sharepoint-server` | 🔴 | 🔴 | 🔴 |
-| `martix-sharepoint-spfx` | 🔴 | 🔴 | 🔴 |
-| `martix-tunit` | 🔴 | 🟢 | 🟢 |
-| `martix-typescript` | 🔴 | 🔴 | 🔴 |
+| Skill \ Plugin | `martix-markdown-automation` | `martix-dotnet-library` | `martix-webapi` | `martix-git-automation` |
+| --- | --- | --- | --- | --- |
+| `martix-dotnet-csharp` | 🔴 | 🟢 | 🟢 | 🔴 |
+| `martix-essl` | 🔴 | 🔴 | 🔴 | 🔴 |
+| `martix-fastendpoints` | 🔴 | 🔴 | 🟢 | 🔴 |
+| `martix-fluent-ui` | 🔴 | 🔴 | 🔴 | 🔴 |
+| `martix-fluentvalidation` | 🔴 | 🟢 | 🟢 | 🔴 |
+| `martix-git` | 🔴 | 🔴 | 🔴 | 🔴 |
+| `martix-markdown` | 🟢 | 🟢 | 🟢 | 🔴 |
+| `martix-platform` | 🔴 | 🔴 | 🔴 | 🔴 |
+| `martix-power-platform` | 🔴 | 🔴 | 🔴 | 🔴 |
+| `martix-powershell` | 🔴 | 🟢 | 🔴 | 🔴 |
+| `martix-sharepoint-pnp` | 🔴 | 🔴 | 🔴 | 🔴 |
+| `martix-sharepoint-server` | 🔴 | 🔴 | 🔴 | 🔴 |
+| `martix-sharepoint-spfx` | 🔴 | 🔴 | 🔴 | 🔴 |
+| `martix-tunit` | 🔴 | 🟢 | 🟢 | 🔴 |
+| `martix-typescript` | 🔴 | 🔴 | 🔴 | 🔴 |
 
 ## Uninstall or Remove
 
@@ -124,6 +130,7 @@ For the standalone skills workflow, see
 
 ```sh
 copilot plugin uninstall martix-dotnet-library
+copilot plugin uninstall martix-git-automation
 copilot plugin uninstall martix-markdown-automation
 copilot plugin uninstall martix-webapi
 ```
@@ -159,6 +166,7 @@ skills/
   martix-dotnet-csharp/     # .NET 10+ and C# 14+ modernization and review
   martix-fastendpoints/     # FastEndpoints startup, contracts, and AOT
   martix-fluentvalidation/  # FluentValidation authoring and testing
+  martix-git/               # Safe Git and GitHub workflow guidance
   martix-tunit/             # TUnit test authoring and parallel execution
   martix-powershell/        # PowerShell cmdlet development
   martix-typescript/        # TypeScript 7 engineering and migration
@@ -172,6 +180,7 @@ skills/
 plugins/
   martix-markdown-automation/ # Automatic Markdown check and fix workflow
   martix-dotnet-library/    # .NET library create, update, and review
+  martix-git-automation/   # Report-first Git and GitHub workflow automation
   martix-webapi/            # .NET 10 web app planning and implementation
 ```
 

@@ -1,0 +1,23 @@
+{
+  "name": "martix-git-automation",
+  "description": "User-invoked, report-first Git and GitHub workflow automation for safe branch, commit, pull-request, release, hook, and worktree decisions.",
+  "version": "0.1.0",
+  "author": {
+    "name": "MartiXDev"
+  },
+  "license": "MIT",
+  "keywords": [
+    "martix",
+    "git",
+    "github",
+    "conventional-commits",
+    "conventional-branch",
+    "pull-requests",
+    "hooks",
+    "worktrees",
+    "safe-cleanup"
+  ],
+  "repository": "https://github.com/MartiXDev/skills",
+  "agents": "agents/",
+  "skills": "skills/"
+}

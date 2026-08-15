@@ -1,0 +1,23 @@
+{
+  "name": "martix-git",
+  "description": "Safe Git and GitHub workflow guidance for Conventional Commits, Conventional Branch naming, staged commits, pull requests, releases, hooks, and worktree lifecycle decisions.",
+  "version": "0.1.0",
+  "author": {
+    "name": "MartiXDev"
+  },
+  "license": "MIT",
+  "keywords": [
+    "martix",
+    "git",
+    "github",
+    "conventional-commits",
+    "conventional-branch",
+    "semantic-versioning",
+    "semantic-release",
+    "pull-requests",
+    "worktrees",
+    "hooks"
+  ],
+  "repository": "https://github.com/MartiXDev/skills",
+  "skills": "skills/"
+}

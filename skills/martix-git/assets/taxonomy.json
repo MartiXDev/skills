@@ -1,0 +1,94 @@
+{
+  "package": "martix-git",
+  "mode": "standalone-first",
+  "root": "skills/martix-git",
+  "sourceIndex": "references/source-map.md",
+  "domains": [
+    {
+      "id": "conventional-commits",
+      "displayName": "Conventional Commits",
+      "order": 1,
+      "ruleFile": "rules/conventional-commits.md",
+      "tags": [
+        "commit messages",
+        "breaking changes",
+        "footers",
+        "trailers"
+      ]
+    },
+    {
+      "id": "conventional-branches",
+      "displayName": "Conventional Branch and ref safety",
+      "order": 2,
+      "ruleFile": "rules/conventional-branches.md",
+      "tags": [
+        "branch names",
+        "git refs",
+        "trunk",
+        "topic branches"
+      ]
+    },
+    {
+      "id": "git-workflows-and-hooks",
+      "displayName": "Git workflows and quality gates",
+      "order": 3,
+      "ruleFile": "rules/git-workflows-and-hooks.md",
+      "tags": [
+        "staging",
+        "commits",
+        "hooks",
+        "CI",
+        "branch protection"
+      ]
+    },
+    {
+      "id": "pull-requests-and-issues",
+      "displayName": "Pull requests and issues",
+      "order": 4,
+      "ruleFile": "rules/pull-requests-and-issues.md",
+      "tags": [
+        "PR",
+        "GitHub",
+        "issue references",
+        "merge policy"
+      ]
+    },
+    {
+      "id": "semver-and-semantic-release",
+      "displayName": "SemVer and semantic-release",
+      "order": 5,
+      "ruleFile": "rules/semver-and-semantic-release.md",
+      "tags": [
+        "SemVer",
+        "tags",
+        "release impact",
+        "semantic-release"
+      ]
+    },
+    {
+      "id": "worktree-lifecycle",
+      "displayName": "Worktree lifecycle and cleanup",
+      "order": 6,
+      "ruleFile": "rules/worktree-lifecycle.md",
+      "tags": [
+        "worktrees",
+        "cleanup",
+        "ownership",
+        "revalidation"
+      ]
+    }
+  ],
+  "tags": [
+    "git",
+    "github",
+    "conventional commits",
+    "conventional branch",
+    "semver",
+    "semantic-release",
+    "pull requests",
+    "issue linking",
+    "hooks",
+    "worktrees",
+    "safe cleanup"
+  ]
+}

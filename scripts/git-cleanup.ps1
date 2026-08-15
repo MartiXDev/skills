@@ -34,6 +34,11 @@ Local branch, remote-tracking branch, or fully qualified branch ref used as the
 merge base. When omitted, origin/HEAD, origin/main, local main, origin/master,
 and local master are tried in that order.
 
+.PARAMETER CandidateBranch
+When supplied, limits cleanup evaluation and application to the selected local
+branch names or refs. An empty value preserves the original all-candidates
+behavior. Protected and unverifiable states remain retained.
+
 .PARAMETER GitHubMerged
 Also recognizes squash or rebase merges by querying merged GitHub pull requests.
 The pull request head object ID must exactly match the local branch tip. Requires
@@ -92,6 +97,10 @@ param(
   [Parameter()]
   [ValidateNotNullOrEmpty()]
   [string] $Base,
+
+  [Parameter()]
+  [AllowEmptyCollection()]
+  [string[]] $CandidateBranch = @(),
 
   [Parameter()]
   [switch] $GitHubMerged,
@@ -660,6 +669,23 @@ function Test-ProtectedBranch {
   )
 }
 
+function Test-SelectedBranch {
+  [CmdletBinding()]
+  [OutputType([bool])]
+  param(
+    [Parameter(Mandatory)]
+    [ValidateNotNullOrEmpty()]
+    [string] $BranchRef
+  )
+
+  if ($CandidateBranch.Count -eq 0) {
+    return $true
+  }
+
+  $branchName = $BranchRef.Substring('refs/heads/'.Length)
+  return ($CandidateBranch -contains $branchName -or $CandidateBranch -contains $BranchRef)
+}
+
 $fetchPerformed = $false
 if ($Fetch) {
   if ($scriptCmdlet.ShouldProcess($repositoryRoot, 'Fetch all remotes without pruning')) {
@@ -1162,6 +1188,9 @@ foreach ($branchRef in (ConvertTo-NativeLineArray -Text $mergedResult.StandardOu
   if (Test-ProtectedBranch -BranchRef $branchRef) {
     continue
   }
+  if (-not (Test-SelectedBranch -BranchRef $branchRef)) {
+    continue
+  }
   Invoke-BranchCleanup -BranchRef $branchRef -Evidence Ancestry
 }
 
@@ -1170,6 +1199,9 @@ if ($GitHubMerged) {
     -ArgumentList @('for-each-ref', "--no-merged=$baseObjectId", '--format=%(refname)', 'refs/heads/')
   foreach ($branchRef in (ConvertTo-NativeLineArray -Text $nonAncestorResult.StandardOutput)) {
     if ((Test-ProtectedBranch -BranchRef $branchRef) -or $branchRef -ceq $currentBranchRef) {
+      continue
+    }
+    if (-not (Test-SelectedBranch -BranchRef $branchRef)) {
       continue
     }
 
@@ -1231,6 +1263,7 @@ $result = [pscustomobject]@{
   BaseBranch                     = $baseInfo.BranchName
   BaseRef                        = $baseInfo.Ref
   BaseObjectId                   = $baseObjectId
+  CandidateBranchesRequested     = @($CandidateBranch)
   ApplyRequested                 = [bool] $Apply
   FetchRequested                 = [bool] $Fetch
   FetchPerformed                 = $fetchPerformed
