@@ -56,7 +56,7 @@ try {
     throw "PR body file does not exist: $BodyFile"
   }
   $git = Get-Command -Name git -CommandType Application -ErrorAction Stop |
-    Select-Object -First 1
+  Select-Object -First 1
   $config = Read-MartixGitConfig -RepositoryRoot $root
   $branchResult = Invoke-MartixNative -FilePath $git.Source `
     -Arguments @('symbolic-ref', '--quiet', '--short', 'HEAD') -WorkingDirectory $root
@@ -78,7 +78,7 @@ try {
   }
 
   $ghCommand = Get-Command -Name gh -CommandType Application -ErrorAction SilentlyContinue |
-    Select-Object -First 1
+  Select-Object -First 1
   if ($null -eq $ghCommand) {
     throw 'GitHub CLI (gh) is required for PR creation but is not installed.'
   }
@@ -104,10 +104,10 @@ try {
 
   $openResult = Invoke-MartixGh -GhPath $ghCommand.Source -RepositoryRoot $root `
     -Arguments @(
-      'pr', 'list', '--repo', $repository, '--state', 'open',
-      '--head', $headBranch, '--base', $base,
-      '--json', 'number,url,title,isDraft,headRefOid,headRefName,baseRefName'
-    )
+    'pr', 'list', '--repo', $repository, '--state', 'open',
+    '--head', $headBranch, '--base', $base,
+    '--json', 'number,url,title,isDraft,headRefOid,headRefName,baseRefName'
+  )
   $openPullRequests = if ([string]::IsNullOrWhiteSpace($openResult.StandardOutput)) {
     @()
   }
@@ -116,16 +116,16 @@ try {
   }
   if (@($openPullRequests).Count -gt 0) {
     $result = [pscustomobject]@{
-      Valid = $true
-      Repository = $root
+      Valid            = $true
+      Repository       = $root
       GitHubRepository = $repository
-      Decision = 'skip'
-      Result = 'skipped'
-      Reason = 'An open pull request already exists for the confirmed head and base.'
-      PullRequest = $openPullRequests[0]
-      Head = $head
-      Base = $base
-      Draft = -not $Ready
+      Decision         = 'skip'
+      Result           = 'skipped'
+      Reason           = 'An open pull request already exists for the confirmed head and base.'
+      PullRequest      = $openPullRequests[0]
+      Head             = $head
+      Base             = $base
+      Draft            = -not $Ready
     }
     Write-MartixResult -Result $result -Json:$Json
     exit 0
@@ -138,22 +138,22 @@ try {
   )
   if (-not $Ready) { $createArguments += '--draft' }
   $result = [pscustomobject]@{
-    Valid = $true
-    Repository = $root
-    GitHubRepository = $repository
-    Decision = if ($Apply) { 'perform' } else { 'ask' }
-    Result = if ($Apply) { 'pending' } else { 'unresolved' }
-    Action = 'gh pr create with explicit title, body file, head, base, and draft state'
-    Confirmation = if ($Apply) { 'requested by -Apply; ShouldProcess still applies' } else { 'required' }
-    Head = $head
-    Base = $base
-    Branch = $headBranch
-    Draft = -not $Ready
+    Valid                    = $true
+    Repository               = $root
+    GitHubRepository         = $repository
+    Decision                 = if ($Apply) { 'perform' } else { 'ask' }
+    Result                   = if ($Apply) { 'pending' } else { 'unresolved' }
+    Action                   = 'gh pr create with explicit title, body file, head, base, and draft state'
+    Confirmation             = if ($Apply) { 'requested by -Apply; ShouldProcess still applies' } else { 'required' }
+    Head                     = $head
+    Base                     = $base
+    Branch                   = $headBranch
+    Draft                    = -not $Ready
     DuplicateOpenPullRequest = $false
-    PullRequest = $null
-    Reconciled = $null
-    Url = $null
-    Output = $null
+    PullRequest              = $null
+    Reconciled               = $null
+    Url                      = $null
+    Output                   = $null
   }
 
   if ($Apply) {
@@ -169,10 +169,10 @@ try {
       }
       $freshOpen = Invoke-MartixGh -GhPath $ghCommand.Source -RepositoryRoot $root `
         -Arguments @(
-          'pr', 'list', '--repo', $repository, '--state', 'open',
-          '--head', $headBranch, '--base', $base,
-          '--json', 'number,url,title,isDraft,headRefOid,headRefName,baseRefName'
-        )
+        'pr', 'list', '--repo', $repository, '--state', 'open',
+        '--head', $headBranch, '--base', $base,
+        '--json', 'number,url,title,isDraft,headRefOid,headRefName,baseRefName'
+      )
       $freshPullRequests = if ([string]::IsNullOrWhiteSpace($freshOpen.StandardOutput)) {
         @()
       }
@@ -189,8 +189,8 @@ try {
         $created = Invoke-MartixGh -GhPath $ghCommand.Source -RepositoryRoot $root `
           -Arguments $createArguments
         $url = $created.StandardOutput.Trim().Split([char]10) |
-          Where-Object { $_ -match '^https?://' } |
-          Select-Object -Last 1
+        Where-Object { $_ -match '^https?://' } |
+        Select-Object -Last 1
         $result.Confirmation = 'received'
         $result.Result = 'completed'
         $result.Url = $url
@@ -204,10 +204,10 @@ try {
 }
 catch {
   $result = [pscustomobject]@{
-    Valid = $false
+    Valid      = $false
     Repository = $RepositoryPath
-    Result = 'blocked'
-    Errors = @($_.Exception.Message)
+    Result     = 'blocked'
+    Errors     = @($_.Exception.Message)
   }
   Write-MartixResult -Result $result -Json:$Json
   exit 2
