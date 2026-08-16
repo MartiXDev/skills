@@ -1,0 +1,40 @@
+{
+  "$schema": "https://raw.githubusercontent.com/MartiXDev/skills/main/plugins/martix-git-automation/schema.json",
+  "schemaVersion": 1,
+  "conventionalCommit": {
+    "types": [],
+    "scopes": [],
+    "requireScope": false,
+    "maxHeaderLength": null
+  },
+  "branch": {
+    "specVersion": "1.1.0",
+    "prefixes": [],
+    "maxLength": null,
+    "trunkBranches": []
+  },
+  "pullRequest": {
+    "defaultDraft": true,
+    "titlePolicy": "repository",
+    "baseBranch": null
+  },
+  "release": {
+    "enabled": false,
+    "analyzerPreset": null,
+    "tagFormat": "v${version}",
+    "releaseBranches": []
+  },
+  "hooks": {
+    "enabled": false,
+    "preCommitChecks": [],
+    "prePushCommand": null
+  },
+  "worktree": {
+    "enableRemoteEvidence": false,
+    "reportOnSessionStop": false,
+    "protectedBranches": [
+      "@default"
+    ],
+    "scanRoots": []
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "skill": "martix-git",
+  "evals": [
+    {
+      "id": "smart-entrypoint-read-only-routing",
+      "prompt": "Run `/martix-git` for a dirty repository where I have not said whether I want a branch, commit, PR, or cleanup. What should the command do first and what must it refuse to infer?",
+      "expected_sections": [
+        "Scope and route",
+        "Read-only inspection",
+        "Confirmation boundary",
+        "Near-miss behavior"
+      ],
+      "assertions": [
+        "Treats the bare command as intent and state inspection.",
+        "Does not infer staging, committing, branching, pushing, PR creation, release, or cleanup from a dirty worktree.",
+        "Builds a plan with perform, skip, ask, or block classifications and asks one focused question when intent is absent."
+      ],
+      "model_tier": "cheap",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": false
+    },
+    {
+      "id": "conventional-commit-breaking-change",
+      "prompt": "Review this staged commit proposal: `feat(api)!: replace the response envelope`. The body says clients must migrate from `data` to `result`, and the footer is `BREAKING CHANGE: response consumers must update`. Explain what is valid, what is repository policy rather than the specification, and how the commit prompt should present it before `git commit --file`.",
+      "expected_output": "Separates Conventional Commits structure and breaking-change semantics from repository-specific type, scope, style, or length policy; preserves the body and footer; requires review and confirmation before using a temporary message file.",
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false
+    },
+    {
+      "id": "branch-candidate-ref-validation",
+      "prompt": "I want a feature branch for issue 42 called `Add OAuth callback support` from the repository trunk. Propose a Conventional Branch candidate, validate it against the pinned v1.1.0 policy and `git check-ref-format --branch`, and list the checks before creating it.",
+      "expected_sections": [
+        "Intent and base evidence",
+        "Candidate",
+        "Independent ref validation",
+        "Confirmation and mutation"
+      ],
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false
+    },
+    {
+      "id": "staged-commit-no-implicit-staging",
+      "prompt": "The worktree contains modified source files and an unrelated untracked notes file, but nothing is staged. I asked `/martix-git commit`. What should it inspect, what should it propose, and what should happen if I decline selecting paths?",
+      "expected_sections": [
+        "State inspection",
+        "Explicit path selection",
+        "Declined phase",
+        "No empty commit"
+      ],
+      "assertions": [
+        "Inspects status and cached diff before drafting.",
+        "Does not stage the whole worktree implicitly.",
+        "Stops or reports dependent phases when the user declines path selection.",
+        "Does not invent an empty commit."
+      ],
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false
+    },
+    {
+      "id": "pr-conditional-phase-planner",
+      "prompt": "I asked to open a draft PR. I am already on a valid topic branch with two commits ahead of `main`, the worktree is clean, the remote already contains HEAD, and no open PR exists. Return the `/martix-git pr` phase table and identify which phases are skipped, which phase is performed, and which confirmation is still required.",
+      "expected_sections": [
+        "Preflight evidence",
+        "Phase decisions",
+        "Draft title and body",
+        "Confirmation",
+        "Final result"
+      ],
+      "assertions": [
+        "Skips branch, stage, commit, and push with evidence.",
+        "Plans PR creation only after confirming no duplicate open PR.",
+        "Defaults to a draft PR unless repository policy or explicit user choice says otherwise.",
+        "Keeps title, body, head, and base as separate fields."
+      ],
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false
+    },
+    {
+      "id": "pr-duplicate-and-missing-gh",
+      "prompt": "The branch is pushed and already has an open PR for the same head and base, but `gh` is not installed in this environment. What should `/martix-git pr` report and which mutation must it avoid?",
+      "expected_output": "Reports the existing PR when evidence is available, otherwise marks remote evidence unknown; never creates a duplicate PR and clearly degrades when gh is unavailable.",
+      "model_tier": "cheap",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": false
+    },
+    {
+      "id": "issue-reference-versus-closing-keyword",
+      "prompt": "Draft a PR body for issue 123 where the change is still under review and should not close the issue automatically. Explain the difference between `Refs #123` and `Fixes #123`, and show where the reference belongs.",
+      "expected_output": "Uses a navigation reference such as `Refs #123`, keeps it separate from the PR title and commit message, and asks before using a closing keyword.",
+      "model_tier": "cheap",
+      "token_budget": "small",
+      "parallel_safe": true,
+      "negative_activation": false
+    },
+    {
+      "id": "worktree-audit-retain-protected-states",
+      "prompt": "Audit registered worktrees and configured orphan scan roots. One worktree is dirty and locked, one is current, one is detached, one has an open PR, one is clean and merged with matching object-id evidence, and one directory is non-empty. Which candidates can be reported for apply and which must remain untouched?",
+      "expected_sections": [
+        "Inventory and evidence",
+        "Retained states",
+        "Eligible candidate",
+        "Revalidation and confirmation"
+      ],
+      "assertions": [
+        "Uses NUL-safe worktree inventory and report-first behavior.",
+        "Retains dirty, locked, current, detached, open-PR, and non-empty orphan states.",
+        "Requires fresh revalidation and explicit confirmation before cleanup.",
+        "Does not treat a missing worktree registration as permission to delete its branch."
+      ],
+      "model_tier": "premium",
+      "token_budget": "medium",
+      "parallel_safe": false,
+      "negative_activation": false
+    },
+    {
+      "id": "release-dry-run-and-protected-context",
+      "prompt": "Can I run semantic-release from a pull-request validation job on an unprotected feature branch? Explain the required analyzer configuration, dry-run boundary, branch protection, history, credentials, and publish refusal.",
+      "expected_output": "Refuses publishing from PR validation or an unprotected branch, requires an explicit analyzer preset and release rules, recommends dry-run verification and least-privilege credentials, and treats semantic-release as optional.",
+      "model_tier": "medium",
+      "token_budget": "medium",
+      "parallel_safe": true,
+      "negative_activation": false
+    },
+    {
+      "id": "generic-versioning-near-miss",
+      "prompt": "Parse the application setting `version=1.2.3-alpha+build.7` and tell me whether the string is valid. This is not about Git tags, commits, releases, branches, hooks, or GitHub.",
+      "negative_activation": true,
+      "expected_sections": [
+        "Scope assessment",
+        "Out-of-scope identification",
+        "Fallback"
+      ],
+      "assertions": [
+        "Does not activate the Git lifecycle skill solely for generic application version parsing.",
+        "Does not introduce branch, commit, PR, release, hook, or cleanup workflow steps.",
+        "Suggests ordinary versioning guidance or the owning application skill."
+      ],
+      "model_tier": "cheap",
+      "token_budget": "small",
+      "parallel_safe": true
+    },
+    {
+      "id": "unrelated-file-deletion-near-miss",
+      "prompt": "Delete the obsolete `tmp/report.txt` file from the application and update its unit test. There is no Git cleanup, branch, worktree, PR, hook, or release concern.",
+      "negative_activation": true,
+      "expected_sections": [
+        "Scope assessment",
+        "Out-of-scope identification",
+        "Recommended workflow"
+      ],
+      "model_tier": "cheap",
+      "token_budget": "small",
+      "parallel_safe": true
+    }
+  ]
+}

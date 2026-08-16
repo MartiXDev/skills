@@ -11,6 +11,7 @@ may include agents, skills, hooks, and MCP server configurations.
 | --- | --- | --- |
 | [martix-markdown-automation](./martix-markdown-automation/) | Automatic Markdown check and fix workflow using martix-markdown guidance | Available |
 | [martix-dotnet-library](./martix-dotnet-library/) | Unified plugin for .NET library create, update, and review workflows | Available |
+| [martix-git-automation](./martix-git-automation/) | Report-first Git and GitHub workflow automation with deterministic adapters | Available |
 | [martix-webapi](./martix-webapi/) | Unified plugin for planning and implementing .NET 10 web apps | Available |
 
 ## Installation
@@ -21,6 +22,7 @@ For normal Copilot CLI installs, add the marketplace and install a plugin:
 copilot plugin marketplace add MartiXDev/skills
 copilot plugin install martix-markdown-automation@martix-skills
 copilot plugin install martix-dotnet-library@martix-skills
+copilot plugin install martix-git-automation@martix-skills
 copilot plugin install martix-webapi@martix-skills
 ```
 
@@ -28,6 +30,7 @@ For local validation or development, install directly from the repository path:
 
 ```sh
 copilot plugin install MartiXDev/skills:plugins/martix-dotnet-library
+copilot plugin install MartiXDev/skills:plugins/martix-git-automation
 copilot plugin install MartiXDev/skills:plugins/martix-webapi
 copilot plugin install MartiXDev/skills:plugins/martix-markdown-automation
 ```

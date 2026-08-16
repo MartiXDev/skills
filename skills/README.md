@@ -13,6 +13,7 @@ manifest, root-level `SKILL.md`, `AGENTS.md`, and supporting package assets.
 | [martix-dotnet-csharp](./martix-dotnet-csharp/) | .NET 10+ and C# 14+ modernization and review | Available |
 | [martix-fastendpoints](./martix-fastendpoints/) | FastEndpoints startup, contracts, and AOT workflows | Available |
 | [martix-fluentvalidation](./martix-fluentvalidation/) | FluentValidation authoring, RuleSets, and testing | Available |
+| [martix-git](./martix-git/) | Safe Git and GitHub workflow guidance for commits, branches, PRs, releases, hooks, and worktrees | Available |
 | [martix-tunit](./martix-tunit/) | TUnit test authoring, parameterized tests, and parallel execution | Available |
 | [martix-powershell](./martix-powershell/) | PowerShell cmdlet development and advanced functions | Available |
 | [martix-typescript](./martix-typescript/) | TypeScript 7 authoring, migration, and type-system engineering | Available |
@@ -31,12 +32,14 @@ For normal Copilot CLI installs, add the marketplace and install by package name
 ```sh
 copilot plugin marketplace add MartiXDev/skills
 copilot plugin install martix-markdown@martix-skills
+copilot plugin install martix-git@martix-skills
 ```
 
 For standalone skill installs, use repo-root skill selection:
 
 ```sh
 npx skills add https://github.com/MartiXDev/skills --skill martix-markdown
+npx skills add https://github.com/MartiXDev/skills --skill martix-git
 npx skills add https://github.com/MartiXDev/skills --skill martix-platform
 npx skills add https://github.com/MartiXDev/skills --skill martix-power-platform
 ```

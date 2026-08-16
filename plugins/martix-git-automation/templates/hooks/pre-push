@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+hook_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+repo_root=$(git -C "$hook_dir" rev-parse --show-toplevel)
+exec pwsh -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$repo_root/.martix-git/hooks/pre-push.ps1"

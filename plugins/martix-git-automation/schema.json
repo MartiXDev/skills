@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/MartiXDev/skills/main/plugins/martix-git-automation/schema.json",
+  "title": "MartiX Git repository configuration",
+  "description": "Optional repository policy and safety settings for MartiX Git automation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri-reference"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "conventionalCommit": {
+      "$ref": "#/$defs/conventionalCommit"
+    },
+    "branch": {
+      "$ref": "#/$defs/branch"
+    },
+    "pullRequest": {
+      "$ref": "#/$defs/pullRequest"
+    },
+    "release": {
+      "$ref": "#/$defs/release"
+    },
+    "hooks": {
+      "$ref": "#/$defs/hooks"
+    },
+    "worktree": {
+      "$ref": "#/$defs/worktree"
+    }
+  },
+  "$defs": {
+    "nullablePositiveInteger": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "stringArray": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "conventionalCommit": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "types": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "scopes": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "requireScope": {
+          "type": "boolean"
+        },
+        "maxHeaderLength": {
+          "$ref": "#/$defs/nullablePositiveInteger"
+        }
+      }
+    },
+    "branch": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "specVersion": {
+          "const": "1.1.0"
+        },
+        "prefixes": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "maxLength": {
+          "$ref": "#/$defs/nullablePositiveInteger"
+        },
+        "trunkBranches": {
+          "$ref": "#/$defs/stringArray"
+        }
+      }
+    },
+    "pullRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "defaultDraft": {
+          "type": "boolean"
+        },
+        "titlePolicy": {
+          "enum": [
+            "repository",
+            "conventional-commit",
+            "free"
+          ]
+        },
+        "baseBranch": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "analyzerPreset": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tagFormat": {
+          "type": "string",
+          "minLength": 1
+        },
+        "releaseBranches": {
+          "$ref": "#/$defs/stringArray"
+        }
+      }
+    },
+    "hooks": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "preCommitChecks": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "prePushCommand": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "worktree": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enableRemoteEvidence": {
+          "type": "boolean"
+        },
+        "reportOnSessionStop": {
+          "type": "boolean"
+        },
+        "protectedBranches": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "scanRoots": {
+          "$ref": "#/$defs/stringArray"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "name": "martix-git",
+  "displayName": "MartiX Git",
+  "version": "0.1.0",
+  "publisher": {
+    "name": "MartiXDev",
+    "repository": "MartiXDev/skills",
+    "distributionModel": "standalone skill with direct Copilot marketplace registration"
+  },
+  "summary": "Standalone-first Git lifecycle guidance for safe branch, commit, pull-request, release, hook, and worktree decisions.",
+  "abstract": "This package separates Git, GitHub, repository policy, runtime capability, and model suggestions. It routes Conventional Commits, Conventional Branch, SemVer, semantic-release, hooks, pull requests, issue links, and report-first worktree cleanup through explicit evidence and confirmation boundaries.",
+  "compatibility": {
+    "primaryTarget": "GitHub Copilot CLI",
+    "secondaryTargets": [
+      "Agent Skills-compatible tools",
+      "VS Code Copilot clients with user-invoked prompts"
+    ],
+    "languageBaselines": [
+      "Git",
+      "GitHub CLI",
+      "Conventional Commits 1.0.0",
+      "Conventional Branch v1.1.0",
+      "SemVer 2.0.0"
+    ]
+  },
+  "status": {
+    "maturity": "preview",
+    "canonicalSkillRoot": "skills/martix-git",
+    "marketplaceSourceRoot": "skills/martix-git"
+  },
+  "layers": {
+    "skillEntry": "SKILL.md",
+    "maintainerGuide": "README.md",
+    "companionGuide": "AGENTS.md",
+    "metadata": "metadata.json",
+    "license": "LICENSE.txt",
+    "rules": "rules/*.md",
+    "references": "references/*.md",
+    "templates": "templates/*",
+    "assets": "assets/*.json",
+    "evals": "evals/evals.json"
+  },
+  "executionProfile": {
+    "modelTier": "mixed",
+    "taskTypes": [
+      "routing",
+      "planning",
+      "implementation",
+      "review",
+      "validation"
+    ],
+    "parallelSafety": "single-package",
+    "fleetReady": true,
+    "worktreeSafe": true,
+    "tokenBudget": "medium",
+    "contextStrategy": [
+      "Start with SKILL.md and identify one primary workflow.",
+      "Open only the routed rule or reference file needed for the current branch.",
+      "Use deterministic adapters and current GitHub evidence for state claims.",
+      "Require confirmation before each mutation and re-read state afterward."
+    ]
+  },
+  "taxonomy": {
+    "mode": "standalone-first",
+    "domainCount": 6,
+    "tags": [
+      "git",
+      "github",
+      "conventional commits",
+      "conventional branch",
+      "semver",
+      "semantic-release",
+      "pull requests",
+      "issue linking",
+      "git hooks",
+      "worktrees",
+      "safe cleanup",
+      "human confirmation"
+    ]
+  },
+  "artifacts": {
+    "ruleCount": 6,
+    "referenceCount": 4,
+    "templateCount": 4,
+    "assetCount": 2,
+    "evals": "evals/evals.json"
+  },
+  "distribution": {
+    "primarySurface": {
+      "id": "standalone-skills-cli",
+      "status": "canonical",
+      "officialInstallCommand": "npx skills add <source>"
+    },
+    "secondarySurface": {
+      "id": "copilot-cli-plugin-marketplace",
+      "status": "direct-registration",
+      "marketplaceRepository": "MartiXDev/skills",
+      "marketplaceName": "martix-skills",
+      "pluginName": "martix-git"
+    }
+  }
+}

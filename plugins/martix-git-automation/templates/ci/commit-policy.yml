@@ -1,0 +1,21 @@
+name: MartiX Git policy
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  commit-policy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Validate commit messages
+        shell: pwsh
+        run: ./plugins/martix-git-automation/templates/ci/commit-policy.ps1 -BaseRef "${{ github.event.pull_request.base.sha || 'HEAD~1' }}"

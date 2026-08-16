@@ -1,0 +1,32 @@
+{
+  "ruleSectionOrder": [
+    "Purpose",
+    "Specification or default guidance",
+    "Repository policy boundary",
+    "Workflow",
+    "Avoid",
+    "Review checklist",
+    "Related files",
+    "Source anchors"
+  ],
+  "referenceOrder": [
+    "references/source-map.md",
+    "references/smart-command-map.md",
+    "references/configuration-boundary.md",
+    "references/output-contract.md"
+  ],
+  "templateOrder": [
+    "templates/commit-message.md",
+    "templates/pr-body.md",
+    "templates/branch-policy.md",
+    "templates/martix-git.json"
+  ],
+  "recommendedRuleOrder": [
+    "rules/conventional-commits.md",
+    "rules/conventional-branches.md",
+    "rules/git-workflows-and-hooks.md",
+    "rules/pull-requests-and-issues.md",
+    "rules/semver-and-semantic-release.md",
+    "rules/worktree-lifecycle.md"
+  ]
+}

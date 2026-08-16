@@ -26,6 +26,26 @@
       ]
     },
     {
+      "name": "martix-git",
+      "description": "Safe Git and GitHub workflow guidance for Conventional Commits, Conventional Branch naming, staged commits, pull requests, releases, hooks, and worktree lifecycle decisions.",
+      "version": "0.1.0",
+      "source": "skills/martix-git",
+      "category": "development",
+      "tags": [
+        "martix",
+        "git",
+        "github",
+        "conventional-commits",
+        "conventional-branch",
+        "semantic-versioning",
+        "semantic-release",
+        "pull-requests",
+        "worktrees",
+        "hooks",
+        "standalone-skill"
+      ]
+    },
+    {
       "name": "martix-markdown-automation",
       "description": "Plugin bundle for automatic Markdown check and fix workflows using the martix-markdown skill guidance.",
       "version": "0.1.0",
@@ -37,6 +57,25 @@
         "markdownlint",
         "automation",
         "hooks",
+        "plugin-bundle"
+      ]
+    },
+    {
+      "name": "martix-git-automation",
+      "description": "User-invoked, report-first Git and GitHub workflow automation for safe branch, commit, pull-request, release, hook, and worktree decisions.",
+      "version": "0.1.0",
+      "source": "plugins/martix-git-automation",
+      "category": "development",
+      "tags": [
+        "martix",
+        "git",
+        "github",
+        "conventional-commits",
+        "conventional-branch",
+        "pull-requests",
+        "hooks",
+        "worktrees",
+        "safe-cleanup",
         "plugin-bundle"
       ]
     },

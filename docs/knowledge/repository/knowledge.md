@@ -29,7 +29,9 @@ copilot plugin install martix-markdown@martix-skills
 copilot plugin install martix-dotnet-csharp@martix-skills
 copilot plugin install martix-platform@martix-skills
 copilot plugin install martix-power-platform@martix-skills
+copilot plugin install martix-git@martix-skills
 copilot plugin install martix-dotnet-library@martix-skills
+copilot plugin install martix-git-automation@martix-skills
 ```
 
 ### Install standalone skills
@@ -41,6 +43,7 @@ npx skills add https://github.com/MartiXDev/skills --skill martix-markdown
 npx skills add https://github.com/MartiXDev/skills --skill martix-dotnet-csharp
 npx skills add https://github.com/MartiXDev/skills --skill martix-platform
 npx skills add https://github.com/MartiXDev/skills --skill martix-power-platform
+npx skills add https://github.com/MartiXDev/skills --skill martix-git
 ```
 
 For local validation or development, point directly at a skill folder:
@@ -56,7 +59,9 @@ Direct repository-path installs are for local validation or development:
 
 ```sh
 copilot plugin install MartiXDev/skills:skills/martix-markdown
+copilot plugin install MartiXDev/skills:skills/martix-git
 copilot plugin install MartiXDev/skills:plugins/martix-dotnet-library
+copilot plugin install MartiXDev/skills:plugins/martix-git-automation
 ```
 
 ## Repository layout
@@ -87,10 +92,12 @@ skills/
   martix-sharepoint-pnp/
   martix-platform/
   martix-power-platform/
+  martix-git/
 plugins/
   martix-markdown-automation/
   martix-dotnet-library/
   martix-webapi/
+  martix-git-automation/
 ```
 
 The machine-readable layout policy is `docs\plugin-layout.yaml`. It defines:
@@ -194,6 +201,7 @@ Standalone skills can be listed directly in the marketplace. Plugin bundles shou
 | `martix-sharepoint-pnp` | PnP PowerShell, CLI for Microsoft 365, PnPjs, provisioning, automation, authentication, and cross-tool delivery. |
 | `martix-platform` | MartiX.Platform authority, modular-monolith architecture, vertical slices, contracts, reliable events, operations, migrations, and AOT guidance. |
 | `martix-power-platform` | Power Platform environments, Power Automate cloud flows, custom connectors, OpenAPI, authentication, testing, ALM, and certification. |
+| `martix-git` | Safe Git and GitHub workflow guidance for commits, branches, pull requests, releases, hooks, and worktrees. |
 
 ### Plugin bundles
 
@@ -202,6 +210,7 @@ Standalone skills can be listed directly in the marketplace. Plugin bundles shou
 | `martix-markdown-automation` | Workspace-level Markdown check and fix workflows. |
 | `martix-dotnet-library` | Unified .NET library create, update, and review workflows. |
 | `martix-webapi` | Planning and implementation workflows for new .NET 10 web apps. |
+| `martix-git-automation` | Report-first Git and GitHub workflow automation with deterministic adapters, hooks, prompts, and worktree orchestration. |
 
 ## Maintenance rules
 
