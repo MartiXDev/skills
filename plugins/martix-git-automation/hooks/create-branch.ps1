@@ -293,7 +293,17 @@ try {
   if ($verifyHead -cne $baseHead) {
     throw "Post-mutation HEAD verification failed: expected '$baseHead', found '$verifyHead'."
   }
-  if ($verifyStatus -cne $statusBefore) {
+
+  if ($resolvedWorktreePath) {
+    $statusAfter = Get-MartixStatusText -GitPath $gitCommand.Source -RepositoryRoot $root
+    if ($statusAfter -cne $statusBefore) {
+      throw 'Post-mutation worktree status changed unexpectedly; the created branch is retained for review.'
+    }
+    if (-not [string]::IsNullOrEmpty($verifyStatus)) {
+      throw 'Post-mutation worktree is not clean; the created branch is retained for review.'
+    }
+  }
+  elseif ($verifyStatus -cne $statusBefore) {
     throw 'Post-mutation worktree status changed unexpectedly; the created branch is retained for review.'
   }
 

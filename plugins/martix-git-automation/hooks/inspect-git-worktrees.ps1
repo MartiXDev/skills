@@ -125,12 +125,7 @@ function Get-MartixOrphanReport {
 }
 
 try {
-  $root = Get-MartixRepositoryRoot -RepositoryPath $RepositoryPath
-  $config = Read-MartixGitConfig -RepositoryRoot $root
-  $cleanupScript = Join-Path $root 'scripts\git-cleanup.ps1'
-  if (-not (Test-Path -LiteralPath $cleanupScript -PathType Leaf)) {
-    throw "The authoritative cleanup engine was not found: $cleanupScript"
-  }
+  $cleanupScript = Join-Path (Join-Path $root 'scripts') 'git-cleanup.ps1'
   if ($Apply -and @($SelectedBranch).Count -eq 0) {
     throw 'Apply requires one or more explicitly selected branch names or refs.'
   }
