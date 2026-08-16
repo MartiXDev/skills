@@ -135,7 +135,7 @@ try {
   $cleanupArguments = @{
     RepositoryPath = $root
     ErrorAction = 'Continue'
-    Confirm = $false
+    Confirm = if ($Apply) { $true } else { $false }
   }
   if (-not [string]::IsNullOrWhiteSpace($BaseBranch)) { $cleanupArguments.Base = $BaseBranch }
   if (@($SelectedBranch).Count -gt 0) { $cleanupArguments.CandidateBranch = @($SelectedBranch) }
